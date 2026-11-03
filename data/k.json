@@ -2,27 +2,118 @@
  "_memo": "K（月木）の教材と記録。sets の最後に足し、前の cur を消して新しいほうに \"cur\": true。items は library.json の file 名（copies・note は上書きできる）。log は新しいものを上に。",
  "name": "K",
  "longName": "K（月・木）",
- "days": ["thu", "mon"],
+ "days": [
+  "thu",
+  "mon"
+ ],
  "about": [
   "月曜・木曜の40分。木曜は授業、月曜は自習（木曜の復習）。",
   "正負の計算がまだ定着していない。かけ算の混ざった計算では、何から計算するか（×が先）もまだ分かっていない。",
   "3つ以上の数は「同じ符号を集めて計算する」方法（並べかえ → 同じ符号どうしをまとめる → 答え）で教えている。"
  ],
- "now": {"step": "seifu-shisoku", "text": "かけ算の混ざった計算（四則混合）を練習中"},
- "checks": [["print", "印刷した"], ["thu", "木曜済"], ["mon", "月曜済"]],
+ "now": {
+  "step": "seifu-junjo",
+  "text": "符号と切りはなして、正の数だけで計算の順序（×÷が先）を練習"
+ },
+ "checks": [
+  [
+   "print",
+   "印刷した"
+  ],
+  [
+   "thu",
+   "木曜済"
+  ],
+  [
+   "mon",
+   "月曜済"
+  ]
+ ],
  "log": [],
  "sets": [
   {
    "id": "k01",
    "label": "①",
-   "steps": ["seifu-shisoku"],
+   "steps": [
+    "seifu-shisoku"
+   ],
    "title": "四則の混じった計算（かけ算＋たし算・ひき算）",
-   "cur": true,
    "note": "A・B は同じ形の別問題。どちらを木曜・月曜に使うかは入れかえてよい。",
    "groups": [
-    {"kind": "thu", "label": "木曜（授業）", "items": [{"file": "seifu_shisoku_A.pdf"}]},
-    {"kind": "mon", "label": "月曜（自習）", "items": [{"file": "seifu_shisoku_B.pdf"}]},
-    {"kind": "teacher", "label": "こたえ", "items": [{"file": "seifu_shisoku_A_ans.pdf"}, {"file": "seifu_shisoku_B_ans.pdf"}]}
+    {
+     "kind": "thu",
+     "label": "木曜（授業）",
+     "items": [
+      {
+       "file": "seifu_shisoku_A.pdf"
+      }
+     ]
+    },
+    {
+     "kind": "mon",
+     "label": "月曜（自習）",
+     "items": [
+      {
+       "file": "seifu_shisoku_B.pdf"
+      },
+      {
+       "file": "seifu_shisoku_B_ans.pdf",
+       "note": "自習のあと自分で丸つけ"
+      }
+     ]
+    },
+    {
+     "kind": "teacher",
+     "label": "こたえ（先生用）",
+     "items": [
+      {
+       "file": "seifu_shisoku_A_ans.pdf"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "k02",
+   "label": "②",
+   "steps": [
+    "seifu-junjo"
+   ],
+   "title": "計算の順序（正の数だけで ×÷ が先）",
+   "cur": true,
+   "note": "符号と切りはなして「何から計算するか」だけを練習する回。その1 は×のところに下線を引いてから計算。できるようになったら①（四則混合）にもどる。",
+   "groups": [
+    {
+     "kind": "thu",
+     "label": "木曜（授業）",
+     "items": [
+      {
+       "file": "seifu_junjo_A.pdf"
+      }
+     ]
+    },
+    {
+     "kind": "mon",
+     "label": "月曜（自習）",
+     "items": [
+      {
+       "file": "seifu_junjo_B.pdf"
+      },
+      {
+       "file": "seifu_junjo_B_ans.pdf",
+       "note": "自習のあと自分で丸つけ"
+      }
+     ]
+    },
+    {
+     "kind": "teacher",
+     "label": "こたえ（先生用）",
+     "items": [
+      {
+       "file": "seifu_junjo_A_ans.pdf"
+      }
+     ]
+    }
    ]
   }
  ]

@@ -7,7 +7,7 @@
 pdfjsLib.GlobalWorkerOptions.workerSrc = "lib/pdfjs/pdf.worker.min.js";
 
 const PRINT_DPI = 200;
-const DAYS = {thu: {label: "木曜", kinds: ["thu", "hw", "teacher"]}, mon: {label: "月曜", kinds: ["mon", "teacher"]}};
+const DAYS = {thu: {label: "木曜", kinds: ["thu", "hw", "teacher"]}, mon: {label: "月曜", kinds: ["mon"]}};
 const $ = (s, el = document) => el.querySelector(s);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const P = f => "pdf/" + f;
@@ -324,8 +324,12 @@ function openSetPrint(track, id) {
 }
 function openDayPrint(day) {
   const secs = [];
-  for (const r of prepRows(day)) if (r.groups) for (const g of r.groups)
-    if (g.items.length) secs.push({label: `${D.s[r.t].name}　${g.label}`, kind: g.kind, items: g.items.map(item)});
+  const seen = new Set();                 // 先生用（こたえ）は2人で同じものなら1部だけ
+  for (const r of prepRows(day)) if (r.groups) for (const g of r.groups) {
+    const items = g.items.filter(x => g.kind !== "teacher" || !seen.has(x.file));
+    if (g.kind === "teacher") items.forEach(x => seen.add(x.file));
+    if (items.length) secs.push({label: `${D.s[r.t].name}　${g.label}`, kind: g.kind, items: items.map(item)});
+  }
   if (secs.length) openPrintList(`${DAYS[day].label}の分を全員まとめて印刷`, secs);
 }
 function spTotal() {

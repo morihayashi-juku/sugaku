@@ -2,13 +2,84 @@
  "_memo": "N（木曜のみ＋宿題）の教材と記録。sets の最後に足し、前の cur を消して新しいほうに \"cur\": true。items は library.json の file 名（copies・note は上書きできる）。log は新しいものを上に。",
  "name": "N",
  "longName": "N（木・宿題）",
- "days": ["thu"],
+ "days": [
+  "thu"
+ ],
  "about": [
   "木曜の40分・週1回。週1なので宿題を出す（毎日少しずつ・自分で丸つけ）。",
   "複雑な方程式がまだ。U より進みが早そうなので、U とは別の進度で進める。"
  ],
- "now": {"step": "houtei-bunsu", "text": "分数などが入った複雑な方程式に取り組む"},
- "checks": [["print", "印刷した"], ["thu", "授業済"], ["hw", "宿題チェック済"]],
+ "now": {
+  "step": "houtei-bunsu",
+  "text": "分数などが入った複雑な方程式に取り組む"
+ },
+ "checks": [
+  [
+   "print",
+   "印刷した"
+  ],
+  [
+   "thu",
+   "授業済"
+  ],
+  [
+   "hw",
+   "宿題チェック済"
+  ]
+ ],
  "log": [],
- "sets": []
+ "sets": [
+  {
+   "id": "n01",
+   "label": "①",
+   "steps": [
+    "houtei-bunsu"
+   ],
+   "title": "分数のある方程式",
+   "cur": true,
+   "note": "木曜の A は U と同じプリント。宿題は金〜水の6日分（1日4問・自学ノートに途中式も）。こたえを渡して毎日自分で丸つけ。B は予備（理解が早ければ授業の後半に）。",
+   "groups": [
+    {
+     "kind": "thu",
+     "label": "木曜（授業）",
+     "items": [
+      {
+       "file": "houtei_bunsu_A.pdf"
+      },
+      {
+       "file": "houtei_bunsu_B.pdf",
+       "copies": 0,
+       "note": "予備・早く終わったら"
+      }
+     ]
+    },
+    {
+     "kind": "hw",
+     "label": "宿題（金〜水）",
+     "items": [
+      {
+       "file": "houtei_bunsu_hw1.pdf"
+      },
+      {
+       "file": "houtei_bunsu_hw1_ans.pdf",
+       "note": "本人に渡して毎日丸つけ"
+      }
+     ]
+    },
+    {
+     "kind": "teacher",
+     "label": "こたえ（先生用）",
+     "items": [
+      {
+       "file": "houtei_bunsu_A_ans.pdf"
+      },
+      {
+       "file": "houtei_bunsu_B_ans.pdf",
+       "copies": 0
+      }
+     ]
+    }
+   ]
+  }
+ ]
 }

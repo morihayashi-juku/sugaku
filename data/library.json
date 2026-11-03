@@ -1,9 +1,110 @@
 {
  "_memo": "教材ライブラリ：作ったプリントはすべてここに1回だけ書く。step は data/common.json のステップ id。こたえは ans: true。生徒の JSON からは file 名で呼ぶ。",
  "items": [
-  {"file": "seifu_shisoku_A.pdf", "step": "seifu-shisoku", "title": "四則の混じった計算 A", "pages": 2, "note": "その1 かけ算1つ／その2 かけ算2つ以上・各8問"},
-  {"file": "seifu_shisoku_A_ans.pdf", "step": "seifu-shisoku", "title": "四則の混じった計算 A こたえ", "pages": 1, "note": "途中式つき", "ans": true},
-  {"file": "seifu_shisoku_B.pdf", "step": "seifu-shisoku", "title": "四則の混じった計算 B", "pages": 2, "note": "Aと同じ形・別の問題"},
-  {"file": "seifu_shisoku_B_ans.pdf", "step": "seifu-shisoku", "title": "四則の混じった計算 B こたえ", "pages": 1, "note": "途中式つき", "ans": true}
+  {
+   "file": "seifu_shisoku_A.pdf",
+   "step": "seifu-shisoku",
+   "title": "四則の混じった計算 A",
+   "pages": 2,
+   "note": "その1 かけ算1つ／その2 かけ算2つ以上・各8問"
+  },
+  {
+   "file": "seifu_shisoku_A_ans.pdf",
+   "step": "seifu-shisoku",
+   "title": "四則の混じった計算 A こたえ",
+   "pages": 1,
+   "note": "途中式つき",
+   "ans": true
+  },
+  {
+   "file": "seifu_shisoku_B.pdf",
+   "step": "seifu-shisoku",
+   "title": "四則の混じった計算 B",
+   "pages": 2,
+   "note": "Aと同じ形・別の問題"
+  },
+  {
+   "file": "seifu_shisoku_B_ans.pdf",
+   "step": "seifu-shisoku",
+   "title": "四則の混じった計算 B こたえ",
+   "pages": 1,
+   "note": "途中式つき",
+   "ans": true
+  },
+  {
+   "file": "seifu_junjo_A.pdf",
+   "step": "seifu-junjo",
+   "title": "計算の順序 A",
+   "pages": 2,
+   "note": "正の数だけ。その1 ×が1つ（下線を引く）／その2 ÷・×2つ・かっこ"
+  },
+  {
+   "file": "seifu_junjo_A_ans.pdf",
+   "step": "seifu-junjo",
+   "title": "計算の順序 A こたえ",
+   "pages": 1,
+   "note": "途中式つき",
+   "ans": true
+  },
+  {
+   "file": "seifu_junjo_B.pdf",
+   "step": "seifu-junjo",
+   "title": "計算の順序 B",
+   "pages": 2,
+   "note": "Aと同じ形・別の問題"
+  },
+  {
+   "file": "seifu_junjo_B_ans.pdf",
+   "step": "seifu-junjo",
+   "title": "計算の順序 B こたえ",
+   "pages": 1,
+   "note": "途中式つき",
+   "ans": true
+  },
+  {
+   "file": "houtei_bunsu_A.pdf",
+   "step": "houtei-bunsu",
+   "title": "分数のある方程式 A",
+   "pages": 2,
+   "note": "その1 分母1つ／その2 分母2つ以上。「両辺に□をかける」を書く"
+  },
+  {
+   "file": "houtei_bunsu_A_ans.pdf",
+   "step": "houtei-bunsu",
+   "title": "分数のある方程式 A こたえ",
+   "pages": 1,
+   "note": "途中式つき",
+   "ans": true
+  },
+  {
+   "file": "houtei_bunsu_B.pdf",
+   "step": "houtei-bunsu",
+   "title": "分数のある方程式 B",
+   "pages": 2,
+   "note": "Aと同じ形・別の問題"
+  },
+  {
+   "file": "houtei_bunsu_B_ans.pdf",
+   "step": "houtei-bunsu",
+   "title": "分数のある方程式 B こたえ",
+   "pages": 1,
+   "note": "途中式つき",
+   "ans": true
+  },
+  {
+   "file": "houtei_bunsu_hw1.pdf",
+   "step": "houtei-bunsu",
+   "title": "分数のある方程式 宿題（6日分）",
+   "pages": 3,
+   "note": "金〜水・1日4問。A4 1枚に2日分。答えは自学ノートに"
+  },
+  {
+   "file": "houtei_bunsu_hw1_ans.pdf",
+   "step": "houtei-bunsu",
+   "title": "分数のある方程式 宿題のこたえ",
+   "pages": 2,
+   "note": "本人に渡して毎日丸つけ",
+   "ans": true
+  }
  ]
 }

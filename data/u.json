@@ -2,13 +2,76 @@
  "_memo": "U（月木）の教材と記録。sets の最後に足し、前の cur を消して新しいほうに \"cur\": true。items は library.json の file 名（copies・note は上書きできる）。log は新しいものを上に。",
  "name": "U",
  "longName": "U（月・木）",
- "days": ["thu", "mon"],
+ "days": [
+  "thu",
+  "mon"
+ ],
  "about": [
   "月曜・木曜の40分。木曜は授業、月曜は自習（木曜の復習）。",
   "正負の数と基本の方程式はできる。分数などが入った複雑な方程式がまだ。"
  ],
- "now": {"step": "houtei-bunsu", "text": "分数などが入った複雑な方程式に取り組む"},
- "checks": [["print", "印刷した"], ["thu", "木曜済"], ["mon", "月曜済"]],
+ "now": {
+  "step": "houtei-bunsu",
+  "text": "分数などが入った複雑な方程式に取り組む"
+ },
+ "checks": [
+  [
+   "print",
+   "印刷した"
+  ],
+  [
+   "thu",
+   "木曜済"
+  ],
+  [
+   "mon",
+   "月曜済"
+  ]
+ ],
  "log": [],
- "sets": []
+ "sets": [
+  {
+   "id": "u01",
+   "label": "①",
+   "steps": [
+    "houtei-bunsu"
+   ],
+   "title": "分数のある方程式",
+   "cur": true,
+   "note": "木曜の A は N と同じプリント。月曜は B（同じ形の別問題）で自習。",
+   "groups": [
+    {
+     "kind": "thu",
+     "label": "木曜（授業）",
+     "items": [
+      {
+       "file": "houtei_bunsu_A.pdf"
+      }
+     ]
+    },
+    {
+     "kind": "mon",
+     "label": "月曜（自習）",
+     "items": [
+      {
+       "file": "houtei_bunsu_B.pdf"
+      },
+      {
+       "file": "houtei_bunsu_B_ans.pdf",
+       "note": "自習のあと自分で丸つけ"
+      }
+     ]
+    },
+    {
+     "kind": "teacher",
+     "label": "こたえ（先生用）",
+     "items": [
+      {
+       "file": "houtei_bunsu_A_ans.pdf"
+      }
+     ]
+    }
+   ]
+  }
+ ]
 }
