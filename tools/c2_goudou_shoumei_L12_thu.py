@@ -184,7 +184,8 @@ def stmt(items):
 def cell(no, svg, given, concl):
     """問題文は文章（例：下の図で、AB＝DE、BC＝EF、CA＝FD です。このとき、△ABC≡△DEF であることを証明しなさい。）"""
     return (f"<div class=q><div class=txt><span class=nobox>問{no}</span>下の図で、{stmt(given)} です。"
-            f"このとき、<span class=nb>{concl}</span> であることを証明しなさい。</div>{svg}</div>")
+            f"このとき、<span class=nb>{concl}</span> であることを証明しなさい。</div>{svg}"
+            f"<div class=frm>（証明）</div></div>")
 
 
 def proof_rows(sp, lead_of, no):
@@ -245,6 +246,8 @@ EXTRA2 = EXTRA + """
          padding: 0 1.8mm; margin-right: 1.6mm; line-height: 1.45; }
 .nb { font-family: 'Noto Serif CJK JP', serif; }
 .fig { margin-top: 0 !important; }
+.q { display: flex; flex-direction: column; }
+.frm { flex: 1; margin: 1.5mm 0 2.5mm; border: .9pt solid #444; border-radius: 2.5mm; padding: 1.8mm 3mm; font-size: 9.5pt; color: #444; }
 .l2 .lead { width: 37mm; }
 """
 
