@@ -1,5 +1,36 @@
 {
  "_memo": "教材ライブラリ（中2）：中2のプリントはすべてここに1回だけ書く。step は data/common.json のステップ id。こたえは ans: true。組の JSON からは file 名で呼ぶ。ファイル名は c2_ から始める。このファイルは中2の作成チャットだけが書く。",
  "updated": "2026-11-03",
- "items": []
+ "items": [
+  {
+   "file": "c2_goudou_shoumei_L1_A.pdf",
+   "step": "c2-heikou-shoumei",
+   "title": "合同の証明 レベル1 A（月曜）",
+   "pages": 4,
+   "note": "その1 穴うめ／その2 ワク（型だけ）／その3・その4 自分で書く・各4問（計16問）。仮定がそのまま合同条件のレベル1"
+  },
+  {
+   "file": "c2_goudou_shoumei_L1_A_ans.pdf",
+   "step": "c2-heikou-shoumei",
+   "title": "合同の証明 レベル1 A こたえ",
+   "pages": 2,
+   "note": "証明の全文つき",
+   "ans": true
+  },
+  {
+   "file": "c2_goudou_shoumei_L1_B.pdf",
+   "step": "c2-heikou-shoumei",
+   "title": "合同の証明 レベル1 B（木曜）",
+   "pages": 4,
+   "note": "Aと同じ形・別の図（16問）"
+  },
+  {
+   "file": "c2_goudou_shoumei_L1_B_ans.pdf",
+   "step": "c2-heikou-shoumei",
+   "title": "合同の証明 レベル1 B こたえ",
+   "pages": 2,
+   "note": "証明の全文つき",
+   "ans": true
+  }
+ ]
 }
