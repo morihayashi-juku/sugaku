@@ -31,6 +31,21 @@
    "pages": 2,
    "note": "証明の全文つき",
    "ans": true
+  },
+  {
+   "file": "c2_goudou_shoumei_L12_thu.pdf",
+   "step": "c2-heikou-shoumei",
+   "title": "合同の証明 レベル1・2（木曜用）",
+   "pages": 6,
+   "note": "その1〜3 レベル1（仮定3つ）／その4〜6 レベル2（仮定2つ・1つは図から見つける）・各4問（計24問）。図に印なし・罫線なし"
+  },
+  {
+   "file": "c2_goudou_shoumei_L12_thu_ans.pdf",
+   "step": "c2-heikou-shoumei",
+   "title": "合同の証明 レベル1・2（木曜用）こたえ",
+   "pages": 3,
+   "note": "証明の全文つき",
+   "ans": true
   }
  ]
 }

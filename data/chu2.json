@@ -35,7 +35,6 @@
     "c2-heikou-shoumei"
    ],
    "title": "合同の証明 レベル1",
-   "cur": true,
    "note": "月曜はA、木曜はB（同じ形の別の図）。どちらも授業。その1＝穴うめ→その2＝ワク→その3・その4＝自分で書く。",
    "groups": [
     {
@@ -79,10 +78,42 @@
      ]
     }
    ]
+  },
+  {
+   "id": "c202",
+   "label": "②",
+   "steps": [
+    "c2-heikou-shoumei"
+   ],
+   "title": "合同の証明 レベル1・2（木曜用）",
+   "cur": true,
+   "note": "木曜用。前半3ページ＝仮定3つ、後半3ページ＝仮定2つ＋1つは自分で見つける。月曜用は別に作る。",
+   "groups": [
+    {
+     "kind": "lesson",
+     "label": "木曜（授業）",
+     "day": "thu",
+     "items": [
+      {
+       "file": "c2_goudou_shoumei_L12_thu.pdf"
+      }
+     ]
+    },
+    {
+     "kind": "teacher",
+     "label": "木曜 こたえ（先生用）",
+     "day": "thu",
+     "items": [
+      {
+       "file": "c2_goudou_shoumei_L12_thu_ans.pdf"
+      }
+     ]
+    }
+   ]
   }
  ],
  "now": {
   "step": "c2-heikou-shoumei",
-  "text": "合同の証明 レベル1（仮定がそのまま合同条件の問題で、証明の型を身につける）"
+  "text": "合同の証明 レベル1・2（仮定3つ → 仮定2つ＋1つは自分で見つける）"
  }
 }

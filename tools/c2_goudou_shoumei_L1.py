@@ -147,7 +147,7 @@ def verify(sp, P1, P2):
 
 
 # ---------- 図（SVG） ----------
-def figure(sp):
+def figure(sp, marks=True):
     P1, P2 = build(sp)
     verify(sp, P1, P2)
 
@@ -167,7 +167,7 @@ def figure(sp):
         Q1 = [((p[0] - x0) * s + W / 2, H / 2 - (p[1] - y0) * s) for p in P1]
         Q2 = [((p[0] - x0) * s + W / 2, H / 2 - (p[1] - y0) * s) for p in P2]
 
-    items, _ = conds(sp)
+    items = conds(sp)[0] if marks else []     # marks=False：等しい印（ー・弧）を書かない
     out = []
 
     def line(a, b, w=.4):
