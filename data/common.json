@@ -1,0 +1,50 @@
+{
+ "_memo": "生徒の順番（タブの順）と、単元・ステップの一覧（教材ライブラリの順番）。新しい単元・ステップはここに足す。updated は最終更新日。",
+ "updated": "2026-11-03",
+ "students": ["u", "k", "n"],
+ "units": [
+  {"id": "seifu", "name": "正負の数", "steps": [
+   {"id": "seifu-imi", "name": "正負の数の意味・数直線・大小"},
+   {"id": "seifu-kagen", "name": "たし算・ひき算"},
+   {"id": "seifu-3kou", "name": "3つ以上の数のたし算・ひき算"},
+   {"id": "seifu-jouzyo", "name": "かけ算・わり算（符号のきまり）"},
+   {"id": "seifu-junjo", "name": "計算の順序（×÷が先）"},
+   {"id": "seifu-shisoku", "name": "四則の混じった計算"},
+   {"id": "seifu-ruijou", "name": "累乗・素因数分解"}
+  ]},
+  {"id": "moji", "name": "文字式", "steps": [
+   {"id": "moji-arawasu", "name": "文字式の表し方"},
+   {"id": "moji-dainyu", "name": "式の値（代入）"},
+   {"id": "moji-douruikou", "name": "同類項をまとめる（1次式のたし算・ひき算）"},
+   {"id": "moji-jouzyo", "name": "1次式と数のかけ算・わり算"},
+   {"id": "moji-kankei", "name": "関係を式に表す"}
+  ]},
+  {"id": "houtei", "name": "方程式", "steps": [
+   {"id": "houtei-kihon", "name": "基本の方程式（移項）"},
+   {"id": "houtei-kakko", "name": "かっこのある方程式"},
+   {"id": "houtei-shousu", "name": "小数のある方程式"},
+   {"id": "houtei-bunsu", "name": "分数のある方程式"},
+   {"id": "houtei-hireishiki", "name": "比例式"},
+   {"id": "houtei-bunshou", "name": "方程式の文章題"}
+  ]},
+  {"id": "hirei", "name": "比例と反比例", "steps": [
+   {"id": "hirei-hirei", "name": "比例の式"},
+   {"id": "hirei-zahyou", "name": "座標とグラフ"},
+   {"id": "hirei-hanpirei", "name": "反比例"},
+   {"id": "hirei-riyou", "name": "比例・反比例の利用"}
+  ]},
+  {"id": "heimen", "name": "平面図形", "steps": [
+   {"id": "heimen-idou", "name": "図形の移動"},
+   {"id": "heimen-sakuzu", "name": "作図"},
+   {"id": "heimen-ougi", "name": "円とおうぎ形"}
+  ]},
+  {"id": "kuukan", "name": "空間図形", "steps": [
+   {"id": "kuukan-rittai", "name": "いろいろな立体・展開図"},
+   {"id": "kuukan-keiryou", "name": "表面積と体積"}
+  ]},
+  {"id": "data", "name": "データの活用", "steps": [
+   {"id": "data-bunpu", "name": "度数分布・ヒストグラム"},
+   {"id": "data-kakuritsu", "name": "相対度数・ことがらの起こりやすさ"}
+  ]}
+ ]
+}

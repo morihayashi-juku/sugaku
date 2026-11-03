@@ -1,0 +1,9 @@
+{
+ "_memo": "教材ライブラリ：作ったプリントはすべてここに1回だけ書く。step は data/common.json のステップ id。こたえは ans: true。生徒の JSON からは file 名で呼ぶ。",
+ "items": [
+  {"file": "seifu_shisoku_A.pdf", "step": "seifu-shisoku", "title": "四則の混じった計算 A", "pages": 2, "note": "その1 かけ算1つ／その2 かけ算2つ以上・各8問"},
+  {"file": "seifu_shisoku_A_ans.pdf", "step": "seifu-shisoku", "title": "四則の混じった計算 A こたえ", "pages": 1, "note": "途中式つき", "ans": true},
+  {"file": "seifu_shisoku_B.pdf", "step": "seifu-shisoku", "title": "四則の混じった計算 B", "pages": 2, "note": "Aと同じ形・別の問題"},
+  {"file": "seifu_shisoku_B_ans.pdf", "step": "seifu-shisoku", "title": "四則の混じった計算 B こたえ", "pages": 1, "note": "途中式つき", "ans": true}
+ ]
+}

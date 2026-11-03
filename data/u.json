@@ -1,0 +1,14 @@
+{
+ "_memo": "U（月木）の教材と記録。sets の最後に足し、前の cur を消して新しいほうに \"cur\": true。items は library.json の file 名（copies・note は上書きできる）。log は新しいものを上に。",
+ "name": "U",
+ "longName": "U（月・木）",
+ "days": ["thu", "mon"],
+ "about": [
+  "月曜・木曜の40分。木曜は授業、月曜は自習（木曜の復習）。",
+  "正負の数と基本の方程式はできる。分数などが入った複雑な方程式がまだ。"
+ ],
+ "now": {"step": "houtei-bunsu", "text": "分数などが入った複雑な方程式に取り組む"},
+ "checks": [["print", "印刷した"], ["thu", "木曜済"], ["mon", "月曜済"]],
+ "log": [],
+ "sets": []
+}
