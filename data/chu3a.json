@@ -36,7 +36,7 @@
    ],
    "title": "定期テスト対策 二次方程式・y＝ax²",
    "cur": true,
-   "note": "木曜用。定期テストと同じ形で数字を変えた類題（2ページ）。月曜の分はこのあと足す。",
+   "note": "木曜用。A3で印刷。定期テストと同じ形の類題を2パターン（①②・1ページに1パターン）。",
    "groups": [
     {
      "kind": "lesson",
@@ -44,7 +44,7 @@
      "day": "thu",
      "items": [
       {
-       "file": "c3_teiki_niji_ax2_A.pdf"
+       "file": "c3_teiki_niji_ax2.pdf"
       }
      ]
     },
@@ -54,7 +54,7 @@
      "day": "thu",
      "items": [
       {
-       "file": "c3_teiki_niji_ax2_A_ans.pdf"
+       "file": "c3_teiki_niji_ax2_ans.pdf"
       }
      ]
     }

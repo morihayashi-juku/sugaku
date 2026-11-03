@@ -3,16 +3,16 @@
  "updated": "2026-11-03",
  "items": [
   {
-   "file": "c3_teiki_niji_ax2_A.pdf",
+   "file": "c3_teiki_niji_ax2.pdf",
    "step": "c3-teiki-niji-ax2",
-   "title": "定期テスト対策 二次方程式・y＝ax² A",
+   "title": "定期テスト対策 二次方程式・y＝ax²（①②）",
    "pages": 2,
-   "note": "定期テストの類題。［1］二次方程式7問／［2］文章題など3問／［3］式を求める・グラフ・放物線・変域"
+   "note": "A3で印刷。1ページ＝1パターン（①②）。左＝［1］二次方程式7問・［2］文章題など3問／右＝［3］式・グラフ・穴うめ・変域"
   },
   {
-   "file": "c3_teiki_niji_ax2_A_ans.pdf",
+   "file": "c3_teiki_niji_ax2_ans.pdf",
    "step": "c3-teiki-niji-ax2",
-   "title": "定期テスト対策 二次方程式・y＝ax² A こたえ",
+   "title": "定期テスト対策 二次方程式・y＝ax²（①②）こたえ",
    "pages": 2,
    "note": "途中の式とグラフつき",
    "ans": true
