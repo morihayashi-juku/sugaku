@@ -5,14 +5,14 @@
    "file": "seifu_shisoku_A.pdf",
    "step": "seifu-shisoku",
    "title": "四則の混じった計算 A",
-   "pages": 2,
-   "note": "その1 かけ算1つ／その2 かけ算2つ以上・各8問"
+   "pages": 4,
+   "note": "その1 かけ算1つ／その2 符号に注意／その3 かけ算2つ以上／その4 わり算も・各8問"
   },
   {
    "file": "seifu_shisoku_A_ans.pdf",
    "step": "seifu-shisoku",
    "title": "四則の混じった計算 A こたえ",
-   "pages": 1,
+   "pages": 2,
    "note": "途中式つき",
    "ans": true
   },
@@ -20,14 +20,14 @@
    "file": "seifu_shisoku_B.pdf",
    "step": "seifu-shisoku",
    "title": "四則の混じった計算 B",
-   "pages": 2,
-   "note": "Aと同じ形・別の問題"
+   "pages": 4,
+   "note": "Aと同じ形・別の問題（32問）"
   },
   {
    "file": "seifu_shisoku_B_ans.pdf",
    "step": "seifu-shisoku",
    "title": "四則の混じった計算 B こたえ",
-   "pages": 1,
+   "pages": 2,
    "note": "途中式つき",
    "ans": true
   },
@@ -35,14 +35,14 @@
    "file": "seifu_junjo_A.pdf",
    "step": "seifu-junjo",
    "title": "計算の順序 A",
-   "pages": 2,
-   "note": "正の数だけ。その1 ×が1つ（下線を引く）／その2 ÷・×2つ・かっこ"
+   "pages": 4,
+   "note": "正の数だけ。その1・2 ×が1つ（下線を引く）／その3 ÷が1つ／その4 ×÷2つ・かっこ"
   },
   {
    "file": "seifu_junjo_A_ans.pdf",
    "step": "seifu-junjo",
    "title": "計算の順序 A こたえ",
-   "pages": 1,
+   "pages": 2,
    "note": "途中式つき",
    "ans": true
   },
@@ -50,14 +50,14 @@
    "file": "seifu_junjo_B.pdf",
    "step": "seifu-junjo",
    "title": "計算の順序 B",
-   "pages": 2,
-   "note": "Aと同じ形・別の問題"
+   "pages": 4,
+   "note": "Aと同じ形・別の問題（32問）"
   },
   {
    "file": "seifu_junjo_B_ans.pdf",
    "step": "seifu-junjo",
    "title": "計算の順序 B こたえ",
-   "pages": 1,
+   "pages": 2,
    "note": "途中式つき",
    "ans": true
   },
@@ -65,14 +65,14 @@
    "file": "houtei_bunsu_A.pdf",
    "step": "houtei-bunsu",
    "title": "分数のある方程式 A",
-   "pages": 2,
-   "note": "その1 分母1つ／その2 分母2つ以上。「両辺に□をかける」を書く"
+   "pages": 4,
+   "note": "その1 分母1つ／その2 右辺にも x／その3 分母2つ以上／その4 分子が式・ひく分数"
   },
   {
    "file": "houtei_bunsu_A_ans.pdf",
    "step": "houtei-bunsu",
    "title": "分数のある方程式 A こたえ",
-   "pages": 1,
+   "pages": 2,
    "note": "途中式つき",
    "ans": true
   },
@@ -80,14 +80,14 @@
    "file": "houtei_bunsu_B.pdf",
    "step": "houtei-bunsu",
    "title": "分数のある方程式 B",
-   "pages": 2,
-   "note": "Aと同じ形・別の問題"
+   "pages": 4,
+   "note": "Aと同じ形・別の問題（32問）"
   },
   {
    "file": "houtei_bunsu_B_ans.pdf",
    "step": "houtei-bunsu",
    "title": "分数のある方程式 B こたえ",
-   "pages": 1,
+   "pages": 2,
    "note": "途中式つき",
    "ans": true
   },

@@ -1,4 +1,5 @@
 """数学プリントの共通部品（A4・1ページ左右2列×4問＝8問の形と、こたえページ）
+授業・自習のプリントは4ページ（その1〜その4・32問）、こたえは2ページが基本。
 
   from mathlib import fm, problem_doc, answer_doc, write_pdfs
 
@@ -11,7 +12,7 @@ from pathlib import Path
 from playwright.sync_api import sync_playwright
 
 OUT = Path(__file__).resolve().parent.parent / "pdf"
-CIRC = "①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳"
+CIRC = "①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳㉑㉒㉓㉔㉕㉖㉗㉘㉙㉚㉛㉜㉝㉞㉟"
 
 
 def fm(e):
@@ -191,3 +192,35 @@ def write_pdfs(docs, extra_css=""):
             pg.pdf(path=str(OUT / name), format="A4", print_background=True)
             print("書き出し:", name)
         b.close()
+
+
+def calc_docs(title, secs, probs, fname, scaffold="", nonneg=False):
+    """計算プリント（四則混合・計算の順序など）の問題とこたえを作る。
+    secs：[(その1, 小見出し, ポイント), …]（1つ＝1ページ・8問）
+    probs：secs と同じ数のリスト。中身は (式, [途中式…])。式は Python で計算できる書き方（* と /）。
+    答えが整数か、途中式も同じ値か（nonneg=True なら途中も0以上か）を確かめる。"""
+    flat, ans = [], []
+    for sec in probs:
+        assert len(sec) == 8, f"{title}: 1ページ8問（{len(sec)}問）"
+        for q, steps in sec:
+            v = eval(q)
+            assert v == int(v), (title, q, v)
+            for s in steps:
+                assert eval(s) == v, (title, q, s, eval(s), v)
+            if nonneg:
+                assert v >= 0 and all(eval(s) >= 0 for s in steps), (title, q)
+            flat.append((q, steps))
+            ans.append(int(v))
+    prob = problem_doc(title, [{"label": l, "sub": sub, "tip": tip, "scaffold": scaffold, "probs": [q for q, _ in sec]}
+                               for (l, sub, tip), sec in zip(secs, probs)])
+    rows = []
+    for i, (q, steps) in enumerate(flat):
+        mid = "".join(f"<span class=st>＝ {fm(s)}</span>　" for s in steps)
+        rows.append(f"<div class=a>{CIRC[i]}　{fm(q)}<br>{mid}<span class=res>＝ {num(ans[i])}</span></div>")
+    asecs = [{"label": f"{l}　{sub}", "rows": rows[k * 8:(k + 1) * 8]} for k, (l, sub, _) in enumerate(secs)]
+    ansh = answer_doc(title, asecs, pages=[len(secs) // 2] if len(secs) > 2 else None)
+    return [(prob, f"{fname}.pdf"), (ansh, f"{fname}_ans.pdf")], ans
+
+
+def num(v):
+    return str(v).replace("-", "−")
