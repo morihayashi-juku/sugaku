@@ -3,67 +3,53 @@
 
   from mathlib import fm, problem_doc, answer_doc, write_pdfs
 
-式の書き方（fm）：
-  *  → ×　　/ → ÷　　- → −（先頭・「(」「=」「{」「|」の直後は符号）　= → ＝
-  {a|b} → 分数 a/b（中も同じ書き方）　　x → 斜体の x
+式の書き方（fm）：KaTeX で組む（11/3〜 文字式の文字は KaTeX の数式用イタリック＝先生の希望の書体）
+  *  → ×　　/ → ÷　　{a|b} → 分数 a/b（中も同じ書き方）　　ほかは TeX のまま（x、(、= など）
+  ポイント欄など、ふつうの文の中の式も tex("2x+3") や fm(...) で書く（Noto の斜体にしない）
 """
 from pathlib import Path
 
 from playwright.sync_api import sync_playwright
 
+from texlib import KATEX_CSS, _KATEX_JS, _RENDER, tex
+
 OUT = Path(__file__).resolve().parent.parent / "pdf"
 CIRC = "①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳㉑㉒㉓㉔㉕㉖㉗㉘㉙㉚㉛㉜㉝㉞㉟"
 
 
+def to_tex(e):
+    """式の文字列を TeX にする（* → \\times、/ → \\div、{上|下} → \\dfrac）"""
+    out, j = [], 0
+    while j < len(e):
+        ch = e[j]
+        if ch == "{":
+            depth, k = 1, j + 1
+            while depth:
+                depth += {"{": 1, "}": -1}.get(e[k], 0)
+                k += 1
+            inner = e[j + 1:k - 1]
+            d, bar = 0, None
+            for n, c in enumerate(inner):
+                d += {"{": 1, "}": -1}.get(c, 0)
+                if c == "|" and d == 0:
+                    bar = n
+                    break
+            out.append(r"\dfrac{" + to_tex(inner[:bar]) + "}{" + to_tex(inner[bar + 1:]) + "}")
+            j = k
+            continue
+        out.append({"*": r"\times ", "/": r"\div ", " ": ""}.get(ch, ch))
+        j += 1
+    return "".join(out)
+
+
 def fm(e):
-    """式の文字列を HTML にする"""
-    out, i = [], 0
+    """式を KaTeX で組む（文字式の文字は先生の希望の書体＝KaTeX の数式用イタリック）"""
+    return tex(to_tex(e))
 
-    def sign_ok(prev):
-        return prev in ("", "(", "=", "{", "|")
 
-    def walk(s):
-        res, j, prev = [], 0, ""
-        while j < len(s):
-            ch = s[j]
-            if ch == "{":                       # 分数 {上|下}
-                depth, k = 1, j + 1
-                while depth:
-                    depth += {"{": 1, "}": -1}.get(s[k], 0)
-                    k += 1
-                inner = s[j + 1:k - 1]
-                d, bar = 0, None
-                for n, c in enumerate(inner):
-                    d += {"{": 1, "}": -1}.get(c, 0)
-                    if c == "|" and d == 0:
-                        bar = n
-                        break
-                res.append(f"<span class=fr><span class=nu>{walk(inner[:bar])}</span>"
-                           f"<span class=de>{walk(inner[bar + 1:])}</span></span>")
-                j, prev = k, "}"
-                continue
-            if ch == "*":
-                res.append("<span class=op>×</span>")
-            elif ch == "/":
-                res.append("<span class=op>÷</span>")
-            elif ch == "+":
-                res.append("<span class=op>+</span>")
-            elif ch == "=":
-                res.append("<span class=eq>＝</span>")
-            elif ch == "-":
-                res.append("−" if sign_ok(prev) else "<span class=op>−</span>")
-            elif ch == "x":
-                res.append("<i>x</i>")
-            elif ch == " ":
-                j += 1
-                continue
-            else:
-                res.append(ch)
-            prev = ch
-            j += 1
-        return "".join(res)
-
-    return walk(e)
+def fmb(e):
+    """太字の式（こたえの答えの部分）"""
+    return tex(r"\boldsymbol{" + to_tex(e) + "}")
 
 
 CSS = """
@@ -92,6 +78,9 @@ body { font-family: 'Noto Sans CJK JP', sans-serif; color: #111; }
 .no { font-family: 'Noto Sans CJK JP'; font-size: 14pt; margin-right: 2.5mm; }
 .op { margin: 0 .9mm; } .eq { margin: 0 1.6mm; }
 i { font-style: italic; font-family: 'Noto Serif CJK JP', serif; padding: 0 .3mm; }
+.katex { font-size: 1.08em; }
+.tip .katex, .scaf .katex { font-size: 1.02em; }
+.a .katex { font-size: 1em; }
 .fr { display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle;
       margin: 0 .6mm; line-height: 1.05; font-size: .9em; }
 .fr .nu { padding: 0 1mm .5mm; border-bottom: .8pt solid #111; }
@@ -102,7 +91,7 @@ i { font-style: italic; font-family: 'Noto Serif CJK JP', serif; padding: 0 .3mm
 .scaf .ln { display: block; font-family: 'Noto Serif CJK JP', serif; font-size: 13pt; }
 .scaf .ln::after { content: ""; display: inline-block; width: 52mm; border-bottom: .6pt solid #999; margin-left: 1mm; }
 .ansbox { position: absolute; right: 0; bottom: 3mm; font-size: 10.5pt; background: #fff; padding-left: 2mm; }
-.ansbox span { display: inline-block; width: 26mm; border-bottom: .8pt solid #111; }
+.ansbox .blank { display: inline-block; width: 26mm; border-bottom: .8pt solid #111; }
 .ansbox i { font-size: 12pt; }
 /* こたえ */
 .agrid { margin-top: 5mm; display: grid; grid-template-columns: 1fr 1fr; column-gap: 8mm; }
@@ -136,7 +125,7 @@ def problem_doc(title, sections, ans_label="答え"):
         for p in sec["probs"]:
             cells.append(f"<div class=q><div class=expr><span class=no>{CIRC[n]}</span>{fm(p)}</div>"
                          f"{sec.get('scaffold') or ''}"
-                         f"<div class=ansbox>{ans_label} <span></span></div></div>")
+                         f"<div class=ansbox>{ans_label} <span class=blank></span></div></div>")
             n += 1
         assert len(cells) == 8, f"{sec['label']}: 問題は8個（{len(cells)}個）"
         pages.append(f"""<div class=page>{head(title + ' ' + sec['label'], sec.get('sub', ''), score=8)}
@@ -177,8 +166,13 @@ def write_pdfs(docs, extra_css=""):
         for html, name in docs:
             if extra_css:
                 html = html.replace("</style>", extra_css + "</style>", 1)
+            html = html.replace("<head>", f"<head><style>{KATEX_CSS}</style><script>{_KATEX_JS}</script>", 1)
+            html = html.replace("</body>", _RENDER + "</body>", 1)
+            if not html.lstrip().lower().startswith("<!doctype"):
+                html = "<!doctype html>" + html          # KaTeX は標準モードでないと動かない
             pg.set_content(html)
-            pg.wait_for_timeout(200)
+            pg.evaluate("document.fonts.ready")
+            pg.wait_for_timeout(300)
             bad = pg.evaluate("""() => {
               const r = [];
               document.querySelectorAll('.page').forEach((p, i) => {
@@ -215,8 +209,8 @@ def calc_docs(title, secs, probs, fname, scaffold="", nonneg=False):
                                for (l, sub, tip), sec in zip(secs, probs)])
     rows = []
     for i, (q, steps) in enumerate(flat):
-        mid = "".join(f"<span class=st>＝ {fm(s)}</span>　" for s in steps)
-        rows.append(f"<div class=a>{CIRC[i]}　{fm(q)}<br>{mid}<span class=res>＝ {num(ans[i])}</span></div>")
+        mid = "".join(f"<span class=st>{fm('=' + s)}</span>　" for s in steps)
+        rows.append(f"<div class=a>{CIRC[i]}　{fm(q)}<br>{mid}<span class=res>{fmb("=" + str(ans[i]))}</span></div>")
     asecs = [{"label": f"{l}　{sub}", "rows": rows[k * 8:(k + 1) * 8]} for k, (l, sub, _) in enumerate(secs)]
     ansh = answer_doc(title, asecs, pages=[len(secs) // 2] if len(secs) > 2 else None)
     return [(prob, f"{fname}.pdf"), (ansh, f"{fname}_ans.pdf")], ans

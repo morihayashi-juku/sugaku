@@ -12,7 +12,7 @@
 """
 import sys
 
-from mathlib import calc_docs, write_pdfs
+from mathlib import calc_docs, tex, write_pdfs
 
 PATTERNS = {
     "A": [
@@ -36,15 +36,15 @@ PATTERNS = {
          ("(4+6)*3", ["10*3"]), ("5*(11-7)", ["5*4"]), ("3*(8-5)", ["3*3"]), ("45/5+2*7", ["9+14"])],
     ],
 }
-EX = {"A": "3＋<u>2×4</u> ＝ 3＋8 ＝ 11", "B": "4＋<u>3×5</u> ＝ 4＋15 ＝ 19"}
-SCAF = "<div class=scaf><span class=ln>＝</span><span class=ln>＝</span></div>"
+EX = {"A": tex(r"3+\underline{2\times 4}=3+8=11"), "B": tex(r"4+\underline{3\times 5}=4+15=19")}
+SCAF = f"<div class=scaf><span class=ln>{tex('=')}</span><span class=ln>{tex('=')}</span></div>"
 
 
 def secs(key):
     return [
         ("その1", "×が1つ（正の数だけ）", f"ポイント：<b>×のところに下線を引いて、そこを先に</b>計算しよう。たし算・ひき算はそのあと。　例）<span class=ex>{EX[key]}</span>"),
         ("その2", "×が1つ（もう少し）", "ポイント：×が前にあっても後ろにあっても、<b>×のところが先</b>。下線を引いてから計算しよう。"),
-        ("その3", "÷が1つ", "ポイント：<b>÷も×と同じで先に</b>計算しよう。　例）<span class=ex>10＋<u>8÷2</u> ＝ 10＋4 ＝ 14</span>"),
+        ("その3", "÷が1つ", f"ポイント：<b>÷も×と同じで先に</b>計算しよう。　例）<span class=ex>{tex(r'10+\underline{8\div 2}=10+4=14')}</span>"),
         ("その4", "×・÷が2つ・かっこ", "ポイント：×・÷が2つあったら、<b>両方とも先に</b>。<b>( ) があれば、そこがいちばん先。</b>"),
     ]
 

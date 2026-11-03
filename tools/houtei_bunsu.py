@@ -18,7 +18,7 @@ import sympy as sp
 from sympy.parsing.sympy_parser import (implicit_multiplication_application, parse_expr,
                                         standard_transformations)
 
-from mathlib import CIRC, CSS, answer_doc, fm, head, problem_doc, write_pdfs
+from mathlib import CIRC, CSS, answer_doc, fm, fmb, head, problem_doc, write_pdfs
 
 X = sp.Symbol("x")
 TR = standard_transformations + (implicit_multiplication_application,)
@@ -67,16 +67,16 @@ HW = [
     ("金", "分母が1つ。<b>すべての項に</b>分母の数をかける。", [
         ("{x|2}+1=4", 2, ["x+2=8"], 6), ("{x|3}-1=2", 3, ["x-3=6"], 9),
         ("{3x|2}=9", 2, ["3x=18"], 6), ("{x+1|4}=2", 4, ["x+1=8"], 7)]),
-    ("土", "分母が1つ。右辺に x があったら、移項して左辺に集める。", [
+    ("土", f"分母が1つ。右辺に {fm('x')} があったら、移項して左辺に集める。", [
         ("{x|4}-2=1", 4, ["x-8=4"], 12), ("{x-3|2}=4", 2, ["x-3=8"], 11),
         ("{x|2}=x-3", 2, ["x=2x-6", "-x=-6"], 6), ("{2x|3}+1=5", 3, ["2x+3=15", "2x=12"], 6)]),
     ("日", "分母が2つ。<b>両方の分母でわれる数（最小公倍数）</b>をかける。", [
         ("{x|2}+{x|4}=3", 4, ["2x+x=12", "3x=12"], 4), ("{x|3}+{x|2}=10", 6, ["2x+3x=60", "5x=60"], 12),
         ("{x|2}-{x|3}=2", 6, ["3x-2x=12"], 12), ("{x|3}+2={x|2}", 6, ["2x+12=3x", "-x=-12"], 12)]),
-    ("月", "分子が x＋1 のような式のときは、<b>かっこをつけて</b>かける。", [
+    ("月", f"分子が {fm('x+1')} のような式のときは、<b>かっこをつけて</b>かける。", [
         ("{x+1|2}={x+4|3}", 6, ["3(x+1)=2(x+4)", "3x+3=2x+8"], 5), ("{x-1|3}={x|4}", 12, ["4(x-1)=3x", "4x-4=3x"], 4),
         ("{x|6}+{1|2}=2", 6, ["x+3=12"], 9), ("{x+2|3}={x+6|5}", 15, ["5(x+2)=3(x+6)", "5x+10=3x+18", "2x=8"], 4)]),
-    ("火", "<b>ひく分数</b>に注意。−2(x−1) は −2x<b>＋</b>2 になる。", [
+    ("火", f"<b>ひく分数</b>に注意。{fm('-2(x-1)')} は {fm('-2x+2')} になる。", [
         ("{x|2}-{x-1|3}=1", 6, ["3x-2(x-1)=6", "3x-2x+2=6"], 4), ("{2x+1|3}={x+5|2}", 6, ["2(2x+1)=3(x+5)", "4x+2=3x+15"], 13),
         ("{x|3}-{x-2|4}=1", 12, ["4x-3(x-2)=12", "4x-3x+6=12"], 6), ("{x-3|2}-{x-5|4}=2", 4, ["2(x-3)-(x-5)=8", "2x-6-x+5=8"], 9)]),
     ("水", "まとめ。かける数を決めてから解こう。", [
@@ -111,7 +111,7 @@ def ans_row(i, eq, m, steps, a, label=None):
     mid = "".join(f"<span class=st>→ {fm(s)}</span>　" for s in steps)
     no = label if label is not None else CIRC[i]
     return (f"<div class=a><div class=row>{no}　{fm(eq)}</div>"
-            f"<div class=row><span class=hint>両辺に×{m}</span>{mid}<span class=res>→ {fm('x=' + str(a))}</span></div></div>")
+            f"<div class=row><span class=hint>両辺に×{m}</span>{mid}<span class=res>→ {fmb('x=' + str(a))}</span></div></div>")
 
 
 SCAF = "<div class=scaf>両辺に<span class=box></span>をかけると</div>"
@@ -122,12 +122,12 @@ SECS = [
     ("その1", "分母が1つ",
      "ポイント：両辺に<b>分母の数</b>をかけて分数をなくそう。<b>分数でない項にもかける</b>のを忘れずに。　例）"
      "<span class=ex>{x|3}+2=5 → ×3 → x+6=15 → x=9</span>"),
-    ("その2", "分母が1つ（右辺にも x）",
-     "ポイント：<b>右辺の項にもぜんぶかける</b>。分数がなくなったら、x を左辺に・数を右辺に移項しよう。"),
+    ("その2", f"分母が1つ（右辺にも {fm('x')}）",
+     f"ポイント：<b>右辺の項にもぜんぶかける</b>。分数がなくなったら、{fm('x')} を左辺に・数を右辺に移項しよう。"),
     ("その3", "分母が2つ以上",
      "ポイント：<b>どの分母でもわれる数（最小公倍数）</b>をかけよう。　例）<span class=ex>{x|2}+{x|3}=5 → ×6 → 3x+2x=30</span>"),
     ("その4", "分子が式・ひく分数",
-     "ポイント：分子が式のときは<b>かっこ</b>をつけてかける。<b>ひく分数</b>は −2(x−1)＝−2x<b>＋</b>2 のように符号に注意。"),
+     f"ポイント：分子が式のときは<b>かっこ</b>をつけてかける。<b>ひく分数</b>は {fm('-2(x-1)=-2x+2')} のように符号に注意。"),
 ]
 
 
@@ -145,7 +145,7 @@ def build(key):
         check(f"{key} {SECS[k][0]}", sec)
     title = f"分数のある方程式 {key}"
     prob = problem_doc(title, [{"label": l, "sub": sub, "scaffold": SCAF, "probs": [p[0] for p in sec], "tip": ex_fm(tip)}
-                               for (l, sub, tip), sec in zip(SECS, pat)], ans_label="<i>x</i> ＝")
+                               for (l, sub, tip), sec in zip(SECS, pat)], ans_label=fm("x="))
     flat = [p for sec in pat for p in sec]
     rows = [ans_row(i, *p) for i, p in enumerate(flat)]
     ansh = answer_doc(title, [{"label": f"{l}　{sub}", "rows": rows[k * 8:(k + 1) * 8]} for k, (l, sub, _) in enumerate(SECS)], pages=[2])
@@ -158,7 +158,7 @@ HW_CSS = """
 .band { display: flex; align-items: center; gap: 4mm; background: #fbefdc; color: #7a4508; border-radius: 2mm;
         padding: 2mm 4mm; font-weight: 700; font-size: 12.5pt; }
 .band .sp { margin-left: auto; white-space: nowrap; font-weight: 400; font-size: 10.5pt; color: #111; display: flex; gap: 5mm; }
-.band .sp span { display: inline-block; border-bottom: .8pt solid #111; width: 14mm; }
+.band .sp .ck { display: inline-block; }
 .band .ck::before { content: ""; display: inline-block; width: 4.5mm; height: 4.5mm; border: .8pt solid #111; margin-right: 1.5mm; vertical-align: -1mm; }
 .point { font-size: 10.5pt; margin: 2.5mm 1mm 0; }
 .hq { flex: 1; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 0 8mm; margin-top: 2mm; }
