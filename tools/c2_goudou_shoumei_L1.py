@@ -257,12 +257,12 @@ def proof_frame(sp, lv):
 
 
 def cell(sp, no, lv):
+    """問題文は文章（下の図で、AB＝DE、BC＝EF、CA＝FD です。このとき、△ABC≡△DEF であることを証明しなさい。）"""
     _, text = conds(sp)
     a, b = tris(sp)
     ka = "".join(f"<span class=nb>{l}＝{r}{'、' if k < 2 else ''}</span>" for k, (l, r) in enumerate(text))
-    return (f"<div class=q><div class=qno>問{no}</div>{figure(sp)}"
-            f"<div class=stmt><div class=sr><span class=lb>仮定</span><span class=sx>{ka}</span></div>"
-            f"<div class=sr><span class=lb>結論</span><span class=sx>{a}≡{b}</span></div></div>"
+    return (f"<div class=q><div class=txt><span class=nobox>問{no}</span>下の図で、{ka} です。"
+            f"このとき、<span class=nb>{a}≡{b}</span> であることを証明しなさい。</div>{figure(sp)}"
             f"{proof_frame(sp, lv)}</div>")
 
 
@@ -373,7 +373,11 @@ EXTRA = """
 .q { padding-top: 1.5mm; }
 .tip { font-size: 9.6pt; line-height: 1.55; padding: 1.6mm 3.6mm; }
 .qno { font-weight: 700; font-size: 12pt; line-height: 1; }
-.fig { display: block; width: 100%; height: auto; margin-top: -1.2mm; overflow: visible; }
+.fig { display: block; width: 100%; height: auto; margin-top: 0; overflow: visible; }
+.txt { font-size: 10.4pt; line-height: 1.7; min-height: 18mm; }
+.nobox { display: inline-block; background: #222; color: #fff; font-weight: 700; font-size: 10pt; border-radius: 1mm;
+         padding: 0 1.8mm; margin-right: 1.6mm; line-height: 1.45; }
+.nb { display: inline-block; white-space: nowrap; margin-right: 1.2mm; font-family: 'Noto Serif CJK JP', serif; }
 .stmt { font-family: 'Noto Serif CJK JP', serif; font-size: 11pt; line-height: 1.7; margin-top: .5mm; }
 .sr { display: flex; align-items: flex-start; } .sx { flex: 1; } .nb { display: inline-block; white-space: nowrap; margin-right: 1.2mm; }
 .lb { display: inline-block; font-family: 'Noto Sans CJK JP', sans-serif; font-size: 8.6pt; font-weight: 700;
