@@ -1,5 +1,5 @@
 {
- "_memo": "高1の教材と記録。sets の最後に足し、前の cur を消して新しいほうに \"cur\": true。groups の kind は lesson（授業の日：金曜）／study（自習の日：火曜）／hw（宿題）／teacher（こたえ・先生用）。items は library-k1.json の file 名（copies・note は上書きできる）。log は新しいものを上に。now（今どこのステップか）は最初の教材を足すときに {step, text} で書く。",
+ "_memo": "高1の教材と記録。sets の最後に足し、前の cur を消して新しいほうに \"cur\": true。kind は lesson（授業）／study（自習）／hw（宿題）／teacher（こたえ・先生用）。火曜と金曜のどちらに出すかは、グループの \"day\": \"tue\" または \"day\": \"fri\" で指定する（書かないと、lesson・hw・teacher は金曜に、study は火曜に出る）。items は library-k1.json の file 名（copies・note は上書きできる）。log は新しいものを上に。now（今どこのステップか）は最初の教材を足すときに {step, text} で書く。",
  "updated": "2026-11-03",
  "name": "高1",
  "badge": "高1",

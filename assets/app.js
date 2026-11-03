@@ -16,7 +16,10 @@ const DAYS = {
   fri: {label: "金曜", kinds: ["thu", "hw", "teacher"]},
 };
 const PAIR = {mon: "thu", thu: "mon", tue: "fri", fri: "tue"};   // 同じ週の組み（月↔木、火↔金）
-const KIND_ALIAS = {lesson: "thu", study: "mon"};                  // kind の別名（lesson＝授業の日、study＝自習の日。金・火の組にはこちらを使う）
+const KIND_ALIAS = {lesson: "thu", study: "mon"};                  // kind の別名（lesson＝授業、study＝自習。色は lesson＝緑、study＝青）
+// グループをどの曜日に出すか：グループに day があればそれを優先（月・木とも授業の組は、グループごとに day を書く）。
+// day がなければ kind で決まる（授業・宿題・先生用のこたえ＝木・金、自習＝月・火）。
+const groupOn = (g, day) => g.day ? g.day.includes(day) : DAYS[day].kinds.includes(g.kind);
 const $ = (s, el = document) => el.querySelector(s);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const P = f => "pdf/" + f;
@@ -51,7 +54,10 @@ async function loadData() {
   const [libs, studs] = await Promise.all([Promise.all(libNames.map(get)), Promise.all(TRACKS.map(get))]);
   const library = {items: libs.flatMap(l => l.items || [])};
   D = {common, library, s: Object.fromEntries(TRACKS.map((t, i) => [t, studs[i]]))};
-  for (const t of TRACKS) for (const s of D.s[t].sets) for (const g of s.groups) g.kind = KIND_ALIAS[g.kind] || g.kind;
+  for (const t of TRACKS) for (const s of D.s[t].sets) for (const g of s.groups) {
+    g.kind = KIND_ALIAS[g.kind] || g.kind;
+    if (g.day) g.day = [].concat(g.day);                    // day は "mon" でも ["mon","thu"] でもよい
+  }
   for (const u of common.units) for (const st of u.steps) STEPS.set(st.id, {step: st, unit: u});
   for (const it of library.items) ITEMS.set(it.file, it);
   for (const t of TRACKS) for (const s of D.s[t].sets) for (const g of s.groups) for (const r of g.items) {
@@ -72,7 +78,7 @@ const stepName = id => (STEPS.get(id) || {step: {name: id}}).step.name;
 const stepFull = id => { const x = STEPS.get(id); return x ? `${x.unit.name}　${x.step.name}` : id; };
 const curSet = t => D.s[t].sets.find(s => s.cur) || null;
 const dayList = t => D.s[t].days || ["thu", "mon"];
-const setAnswers = s => s.groups.flatMap(g => g.items.map(item).filter(it => it.ans).map(it => ({...it, kind: g.kind, glabel: g.label})));
+const setAnswers = s => s.groups.flatMap(g => g.items.map(item).filter(it => it.ans).map(it => ({...it, kind: g.kind, day: g.day, glabel: g.label})));
 // その曜日の画面に出す組：その日に来る組と、同じ週の組の日（月↔木、火↔金）に来る組。
 // （N のように週1の組は、来ない日に「来ない日」と出る。まったく別の曜日の組は出さない）
 const visibleOn = (t, day) => dayList(t).includes(day) || dayList(t).includes(PAIR[day]);
@@ -86,7 +92,7 @@ function dayAnswers(day) {
   for (const t of TRACKS) {
     const s = curSet(t);
     if (!s || !dayList(t).includes(day)) continue;
-    for (const a of setAnswers(s)) if (DAYS[day].kinds.includes(a.kind) && a.copies !== 0 && !out.includes(a.file)) out.push(a.file);
+    for (const a of setAnswers(s)) if (groupOn(a, day) && a.copies !== 0 && !out.includes(a.file)) out.push(a.file);
   }
   return out;
 }
@@ -142,7 +148,7 @@ function prepRows(day) {
     const T = D.s[t], s = curSet(t);
     if (!dayList(t).includes(day)) return {t, off: true};
     if (!s) return {t, none: true};
-    const groups = s.groups.filter(g => DAYS[day].kinds.includes(g.kind));
+    const groups = s.groups.filter(g => groupOn(g, day));
     return {t, s, groups};
   });
 }

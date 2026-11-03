@@ -7,7 +7,8 @@
 - プリントの step が common.json にあるか、file が（ファイルをまたいでも）かぶっていないか
 - 単元・ステップの id がかぶっていないか、単元に grade があるか
 - 組（tracks）の JSON の items がプリント一覧にあるか、sets の id がかぶっていないか、cur（今ここ）が1つ以下か
-- now.step・sets の steps が common.json にあるか、days が mon / tue / thu / fri か、kind が正しいか
+- now.step・sets の steps が common.json にあるか、days が mon / tue / thu / fri か、kind と day が正しいか
+- 今ここの回に、その組が来る曜日に出るグループがあるか（なければ警告だけ）
 - pdf/ にあるのにどのプリント一覧にも書かれていない PDF（警告だけ）
 """
 import json
@@ -21,6 +22,10 @@ err, warn = [], []
 
 DAYS_OK = ("mon", "tue", "thu", "fri")
 KINDS_OK = ("thu", "mon", "lesson", "study", "hw", "teacher")   # lesson＝授業の日、study＝自習の日（thu / mon と同じ）
+DAY_LABEL = {"mon": "月曜", "tue": "火曜", "thu": "木曜", "fri": "金曜"}
+# day を書かないグループが出る曜日（授業・宿題・先生用＝木・金、自習＝月・火）。画面の DAYS と同じ
+DAY_BY_KIND = {"thu": ("thu", "fri"), "lesson": ("thu", "fri"), "hw": ("thu", "fri"), "teacher": ("thu", "fri"),
+               "mon": ("mon", "tue"), "study": ("mon", "tue")}
 
 
 def load(name):
@@ -104,12 +109,23 @@ for t in tracks:
         for st in s.get("steps", []):
             if st not in steps:
                 err.append(f"{t}.json {s['label']}: step {st!r} が common.json にありません")
+        shown = set()
         for g in s["groups"]:
             if g["kind"] not in KINDS_OK:
                 err.append(f"{t}.json {s['label']}: kind {g['kind']!r} は {' / '.join(KINDS_OK)} のどれか")
+            gd = g.get("day")
+            for day in ([gd] if isinstance(gd, str) else (gd or [])):
+                if day not in DAYS_OK:
+                    err.append(f"{t}.json {s['label']} {g['label']}: day {day!r} は使えません（{' / '.join(DAYS_OK)}）")
+                elif day not in d.get("days", []):
+                    err.append(f"{t}.json {s['label']} {g['label']}: day {day!r} はこの組の days（{d.get('days')}）にありません")
+            shown |= set([gd] if isinstance(gd, str) else gd) if gd else set(DAY_BY_KIND.get(g["kind"], ()))
             for r in g["items"]:
                 if r["file"] not in files:
                     err.append(f"{t}.json {s['label']} {g['label']}: {r['file']} がプリント一覧（{', '.join(libnames)}）にありません")
+        miss = [x for x in d.get("days", []) if x not in shown]
+        if s.get("cur") and miss:
+            warn.append(f"{t}.json {s['label']}（今ここ）: {'・'.join(DAY_LABEL[x] for x in miss)}に出るグループがありません（月・木とも授業の組は group に day を書く）")
 
 for p in sorted((ROOT / "pdf").glob("*.pdf")):
     if p.name not in files:
