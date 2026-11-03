@@ -17,6 +17,7 @@
     <a class="brand" href="#junbi">中1数学 教材棚</a>
     <nav class="tabs" id="tabs" aria-label="画面の切りかえ">
       <a href="#junbi" data-tab="junbi">今日の準備</a>
+      <a href="#maru" data-tab="maru">丸つけ</a>
       <a href="#lib" data-tab="lib">教材ライブラリ</a>
     </nav>
   </div>
@@ -31,11 +32,13 @@
   <div class="v-bar">
     <div class="v-name"><b id="v-title"></b><span id="v-pages" class="muted"></span></div>
     <div class="v-btns">
-      <button type="button" class="btn primary" id="v-print">印刷</button>
+      <span class="zoom" role="group" aria-label="大きさ"><button type="button" id="v-zout" aria-label="小さく">−</button><span id="v-zl">100%</span><button type="button" id="v-zin" aria-label="大きく">＋</button></span>
+      <button type="button" class="btn" id="v-print">印刷</button>
       <a class="btn" id="v-open" target="_blank" rel="noopener">別のタブで開く</a>
       <button type="button" class="btn icon" id="v-close" aria-label="閉じる">✕</button>
     </div>
   </div>
+  <div class="v-jump" id="v-jump" hidden></div>
   <div class="v-body" id="v-body"></div>
 </dialog>
 

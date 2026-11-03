@@ -12,6 +12,7 @@ const $ = (s, el = document) => el.querySelector(s);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const P = f => "pdf/" + f;
 const ICON_PRINT = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9V3h12v6M6 18H4a1 1 0 0 1-1-1v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6a1 1 0 0 1-1 1h-2"/><rect x="6" y="14" width="12" height="7"/></svg>';
+const ICON_EYE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>';
 const ICON_CHEV = '<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>';
 
 let D = null;                         // {common, library, s: {u: …, k: …}}
@@ -56,6 +57,18 @@ const stepName = id => (STEPS.get(id) || {step: {name: id}}).step.name;
 const stepFull = id => { const x = STEPS.get(id); return x ? `${x.unit.name}　${x.step.name}` : id; };
 const curSet = t => D.s[t].sets.find(s => s.cur) || null;
 const dayList = t => D.s[t].days || ["thu", "mon"];
+const setAnswers = s => s.groups.flatMap(g => g.items.map(item).filter(it => it.ans).map(it => ({...it, kind: g.kind, glabel: g.label})));
+// 丸つけで最初にえらぶこたえ：木曜＝木曜・宿題・先生用のこたえ、月曜＝月曜（自習）のこたえ
+const MARU_KINDS = {thu: ["thu", "hw", "teacher"], mon: ["mon"]};
+function dayAnswers(day) {
+  const out = [];
+  for (const t of TRACKS) {
+    const s = curSet(t);
+    if (!s || !dayList(t).includes(day)) continue;
+    for (const a of setAnswers(s)) if (MARU_KINDS[day].includes(a.kind) && a.copies !== 0 && !out.includes(a.file)) out.push(a.file);
+  }
+  return out;
+}
 
 /* ------------------------------------------------------------ 部品 */
 function tile(it, {used = false} = {}) {
@@ -87,6 +100,7 @@ function setCard(track, s, {open = false} = {}) {
     <div class="groups">${s.groups.map(g => `<section class="group ${esc(g.kind)}"><h3>${esc(g.label)}</h3><div class="tiles">${g.items.map(r => tile(item(r))).join("")}</div></section>`).join("")}</div>
     <div class="sfoot">
       <div class="chk">${T.checks.map(([k, l]) => `<label><input type="checkbox" data-act="check" data-key="${track}/${esc(s.id)}-${k}"${ck(track, s, k) ? " checked" : ""}>${esc(l)}</label>`).join("")}</div>
+      ${setAnswers(s).length ? `<button type="button" class="btn" data-act="maruset" data-track="${track}" data-set="${esc(s.id)}">${ICON_EYE}こたえを画面で見る</button>` : ""}
       <button type="button" class="btn primary" data-act="printset" data-track="${track}" data-set="${esc(s.id)}">${ICON_PRINT}${esc(s.label)}をまとめて印刷</button>
     </div>
   </div>
@@ -120,6 +134,7 @@ function renderPrep() {
       ${Object.entries(DAYS).map(([k, d]) => `<button type="button" data-act="day" data-day="${k}" aria-pressed="${k === day}">${d.label}</button>`).join("")}
     </div>
     <h1>${DAYS[day].label}の準備</h1>
+    <a class="btn" href="#maru">${ICON_EYE}こたえを画面で見る（丸つけ）</a>
     <button type="button" class="btn key" data-act="printday" data-day="${day}"${any ? "" : " disabled"}>${ICON_PRINT}${DAYS[day].label}の分を全員まとめて印刷</button>
   </section>
   <div class="prep">
@@ -135,6 +150,54 @@ function renderPrep() {
       </article>`;
     }).join("")}
   </div>`;
+}
+
+/* ------------------------------------------------------------ 画面：丸つけ（こたえを画面で見る） */
+let maruSel = null, maruFor = null;         // えらんだこたえ（file の Set）と、その曜日
+function maruRow(a, sub) {
+  const on = maruSel.has(a.file);
+  return `<li><label><input type="checkbox" data-act="msel" data-file="${esc(a.file)}"${on ? " checked" : ""}>
+    <span><b>${esc(a.title)}</b><small>${a.pages}ページ${sub ? "　" + esc(sub) : ""}</small></span></label>
+    <button type="button" class="btn icon" data-act="view" data-file="${esc(a.file)}" aria-label="${esc(a.title)}だけを見る">${ICON_EYE}</button></li>`;
+}
+function renderMaru() {
+  const day = prepDay || autoDay();
+  if (!maruSel || maruFor !== day) { maruSel = new Set(dayAnswers(day)); maruFor = day; }
+  const listed = new Set();
+  const cards = TRACKS.map(t => {
+    const T = D.s[t], s = curSet(t);
+    const older = T.sets.filter(x => x !== s).reverse();
+    const cur = s ? setAnswers(s) : [];
+    cur.forEach(a => listed.add(a.file));
+    const old = older.flatMap(x => setAnswers(x).map(a => ({...a, from: x.label})));
+    return `<article class="stu maru">
+      <header><a class="who" href="#${t}">${esc(T.name)}</a><div><b>${s ? esc(s.label + "　" + s.title) : "まだ教材がありません"}</b>
+        ${dayList(t).includes(day) ? "" : `<small>${DAYS[day].label}は来ない日</small>`}</div></header>
+      ${cur.length ? `<ul class="mlist">${cur.map(a => maruRow(a, a.glabel)).join("")}</ul>` : ""}
+      ${old.length ? `<details class="mold"><summary>前の回のこたえ（${old.length}）</summary><ul class="mlist">${old.map(a => maruRow(a, a.from + "　" + a.glabel)).join("")}</ul></details>` : ""}
+    </article>`;
+  }).join("");
+  const rest = D.library.items.filter(x => x.ans && !listed.has(x.file));
+  return `
+  <section class="prep-head">
+    <div class="daysw" role="group" aria-label="曜日">
+      ${Object.entries(DAYS).map(([k, d]) => `<button type="button" data-act="day" data-day="${k}" aria-pressed="${k === day}">${d.label}</button>`).join("")}
+    </div>
+    <h1>丸つけ（こたえを画面で見る）</h1>
+    <button type="button" class="btn key" data-act="maruopen" id="maru-open"${maruSel.size ? "" : " disabled"}>${ICON_EYE}<span>えらんだこたえを表示（${maruSel.size}）</span></button>
+  </section>
+  <p class="lead">こたえを印刷しなくても、iPad で見ながら丸つけできます。見たいこたえにチェックを入れて「表示」を押すと、えらんだものが続けて出ます（上のボタンで切りかえ・＋−で拡大）。</p>
+  <div class="prep">${cards}</div>
+  ${rest.length ? `<details class="panel mold lib"><summary>ほかのこたえ（教材ライブラリ・${rest.length}）</summary><ul class="mlist">${rest.map(a => maruRow(a, stepFull(a.step))).join("")}</ul></details>` : ""}`;
+}
+function maruCount() {
+  const b = $("#maru-open"); if (!b) return;
+  b.disabled = !maruSel.size; b.querySelector("span").textContent = `えらんだこたえを表示（${maruSel.size}）`;
+}
+function maruOrder() {                       // 画面に出ている順にならべる
+  const seen = [];
+  document.querySelectorAll('input[data-act="msel"]').forEach(i => { if (maruSel.has(i.dataset.file) && !seen.includes(i.dataset.file)) seen.push(i.dataset.file); });
+  return seen;
 }
 
 /* ------------------------------------------------------------ 画面：生徒 */
@@ -195,12 +258,12 @@ function renderLib() {
 /* ------------------------------------------------------------ 画面の切りかえ */
 function route() {
   const [tab, sub] = (location.hash.replace(/^#/, "") || "junbi").split("/");
-  const t = ["junbi", "lib", ...TRACKS].includes(tab) ? tab : "junbi";
+  const t = ["junbi", "maru", "lib", ...TRACKS].includes(tab) ? tab : "junbi";
   document.querySelectorAll(".tabs a").forEach(a => {
     if (a.dataset.tab === t) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
   });
-  $("#app").innerHTML = t === "junbi" ? renderPrep() : t === "lib" ? renderLib() : renderTrack(t);
-  document.title = (t === "junbi" ? "今日の準備" : t === "lib" ? "教材ライブラリ" : D.s[t].name) + " | 中1数学 教材棚";
+  $("#app").innerHTML = t === "junbi" ? renderPrep() : t === "maru" ? renderMaru() : t === "lib" ? renderLib() : renderTrack(t);
+  document.title = ({junbi: "今日の準備", maru: "丸つけ", lib: "教材ライブラリ"}[t] || D.s[t].name) + " | 中1数学 教材棚";
   if (sub) {
     const el = t === "lib" ? $("#lib-" + CSS.escape(sub)) : $(`#${t}-${CSS.escape(sub)}`);
     if (el) {
@@ -256,43 +319,103 @@ function pumpThumbs() {
 }
 document.addEventListener("toggle", e => { if (e.target.matches && e.target.matches("details[open]")) observeThumbs(); }, true);
 
-/* ------------------------------------------------------------ ビューア */
+/* ------------------------------------------------------------ ビューア（1つ／いくつかのPDFを続けて見る）
+   iPad で丸つけするときに使う。＋−で拡大、上のボタンでPDFを切りかえ。
+   メモリを使いすぎないように、画面から遠いページの絵は消して、近づいたら描きなおす。 */
 const viewer = $("#viewer");
+const ZOOMS = [0.6, 0.8, 1, 1.25, 1.5, 1.75, 2];
+let zoom = store.get("sugaku-zoom", 1);
+if (!ZOOMS.includes(zoom)) zoom = 1;
 let viewing = null, viewIO = null;
-async function openViewer(file) {
-  const it = ITEMS.get(file) || {file, title: file, pages: "?"};
-  viewing = it;
-  $("#v-title").textContent = it.title;
+const vBody = $("#v-body");
+const pageW = () => Math.floor(Math.min(820, Math.max(240, vBody.clientWidth - 32)) * zoom);
+function drawInto(el) {
+  if (el.dataset.done) return;
+  el.dataset.done = "1";
+  const w = el.clientWidth, me = viewing;
+  const ratio = Math.min(Math.min(window.devicePixelRatio || 1, 2) * 1.25, 2400 / w);
+  drawPage(el.dataset.file, +el.dataset.n, w, ratio).then(c => {
+    if (viewing !== me || !el.dataset.done) { c.width = c.height = 0; return; }
+    el.querySelectorAll("canvas").forEach(x => { x.width = x.height = 0; x.remove(); });
+    el.prepend(c);
+  }).catch(() => {});
+}
+function dropFrom(el) {
+  delete el.dataset.done;
+  el.querySelectorAll("canvas").forEach(x => { x.width = x.height = 0; x.remove(); });
+}
+function setZoom(z) {
+  const ratio = vBody.scrollHeight ? vBody.scrollTop / vBody.scrollHeight : 0;
+  zoom = z; store.set("sugaku-zoom", z);
+  $("#v-zl").textContent = Math.round(z * 100) + "%";
+  $("#v-zout").disabled = z === ZOOMS[0]; $("#v-zin").disabled = z === ZOOMS[ZOOMS.length - 1];
+  const w = pageW();
+  vBody.classList.toggle("wide", w > vBody.clientWidth - 32);
+  vBody.querySelectorAll(".v-page").forEach(p => { p.style.width = w + "px"; dropFrom(p); });
+  vBody.scrollTop = ratio * vBody.scrollHeight;
+  if (viewIO) { viewIO.disconnect(); vBody.querySelectorAll(".v-page").forEach(p => viewIO.observe(p)); }
+}
+async function openViewer(files, title) {
+  if (typeof files === "string") files = [files];
+  const list = files.map(f => ITEMS.get(f) || {file: f, title: f, pages: "?"});
+  const me = viewing = {title: title || list[0].title, files: list};
+  $("#v-title").textContent = me.title;
   $("#v-pages").textContent = "";
-  $("#v-open").href = P(file);
-  const body = $("#v-body");
-  body.innerHTML = "";
+  $("#v-open").hidden = list.length > 1;
+  $("#v-open").href = P(list[0].file);
+  const jump = $("#v-jump");
+  jump.hidden = list.length < 2;
+  jump.innerHTML = list.length < 2 ? "" : list.map((it, i) => `<button type="button" data-jump="${i}">${esc(it.title.replace(/\s*(の)?こたえ$/, ""))}</button>`).join("");
+  vBody.innerHTML = "";
   if (!viewer.open) viewer.showModal();
-  body.scrollTop = 0;
-  try {
-    const doc = await getDoc(file);
-    if (viewing !== it) return;
-    $("#v-pages").textContent = `${doc.numPages}ページ`;
-    if (viewIO) viewIO.disconnect();
-    viewIO = new IntersectionObserver(es => {
-      for (const e of es) if (e.isIntersecting && !e.target.dataset.done) {
-        e.target.dataset.done = "1";
-        drawPage(file, +e.target.dataset.n, e.target.clientWidth, Math.min(window.devicePixelRatio || 1, 2) * 1.25)
-          .then(c => e.target.prepend(c)).catch(() => {});
+  vBody.scrollTop = vBody.scrollLeft = 0;
+  if (viewIO) viewIO.disconnect();
+  viewIO = new IntersectionObserver(es => {
+    for (const e of es) { if (e.isIntersecting) drawInto(e.target); else dropFrom(e.target); }
+  }, {root: vBody, rootMargin: "900px 0px"});
+  setZoom(zoom);
+  let total = 0;
+  for (let i = 0; i < list.length; i++) {
+    const it = list[i];
+    try {
+      const doc = await getDoc(it.file);
+      if (viewing !== me) return;
+      if (list.length > 1) {
+        const h = document.createElement("h2");
+        h.className = "v-doc"; h.id = "v-doc-" + i;
+        h.textContent = `${i + 1}. ${it.title}`;
+        vBody.append(h);
       }
-    }, {root: body, rootMargin: "400px"});
-    for (let i = 1; i <= doc.numPages; i++) {
-      const d = document.createElement("div");
-      d.className = "v-page"; d.dataset.n = i; d.setAttribute("aria-label", `${i}ページ目`);
-      body.append(d); viewIO.observe(d);
+      for (let n = 1; n <= doc.numPages; n++) {
+        const d = document.createElement("div");
+        d.className = "v-page"; d.dataset.file = it.file; d.dataset.n = n; d.style.width = pageW() + "px";
+        d.setAttribute("aria-label", `${it.title} ${n}ページ目`);
+        vBody.append(d); viewIO.observe(d);
+      }
+      total += doc.numPages;
+      $("#v-pages").textContent = `${list.length > 1 ? list.length + "つ・" : ""}${total}ページ`;
+    } catch (e) {
+      vBody.insertAdjacentHTML("beforeend", `<p class="v-err">${esc(it.title)} を開けませんでした（pdf/${esc(it.file)}）。</p>`);
     }
-  } catch (e) {
-    body.innerHTML = `<p class="v-err">このPDFを開けませんでした（pdf/${esc(file)}）。ファイル名がまちがっていないか確認してください。</p>`;
   }
 }
 $("#v-close").addEventListener("click", () => viewer.close());
-$("#v-print").addEventListener("click", () => viewing && printJob(viewing.title, [{file: viewing.file, copies: 1}]));
-viewer.addEventListener("close", () => { if (viewIO) viewIO.disconnect(); $("#v-body").innerHTML = ""; viewing = null; });
+$("#v-zin").addEventListener("click", () => { const i = ZOOMS.indexOf(zoom); if (i < ZOOMS.length - 1) setZoom(ZOOMS[i + 1]); });
+$("#v-zout").addEventListener("click", () => { const i = ZOOMS.indexOf(zoom); if (i > 0) setZoom(ZOOMS[i - 1]); });
+$("#v-jump").addEventListener("click", e => {
+  const b = e.target.closest("[data-jump]"); if (!b) return;
+  const h = $("#v-doc-" + b.dataset.jump); if (h) vBody.scrollTop = h.offsetTop - vBody.offsetTop - 8;
+});
+vBody.addEventListener("scroll", () => {          // いま見ているPDFのボタンを強調
+  if ($("#v-jump").hidden) return;
+  let cur = 0;
+  vBody.querySelectorAll(".v-doc").forEach((h, i) => { if (h.offsetTop - vBody.offsetTop <= vBody.scrollTop + 40) cur = i; });
+  $("#v-jump").querySelectorAll("button").forEach((b, i) => b.setAttribute("aria-current", i === cur ? "true" : "false"));
+}, {passive: true});
+let rsz = null;
+window.addEventListener("resize", () => { if (!viewer.open) return; clearTimeout(rsz); rsz = setTimeout(() => setZoom(zoom), 250); });
+$("#v-print").addEventListener("click", () => viewing && printJob(viewing.title, viewing.files.map(it => ({file: it.file, copies: 1}))));
+viewer.addEventListener("close", () => { if (viewIO) viewIO.disconnect(); vBody.innerHTML = ""; viewing = null; });
 
 /* ------------------------------------------------------------ まとめて印刷（1つの回／その曜日の全員分） */
 const sp = $("#setprint");
@@ -305,13 +428,17 @@ function openPrintList(title, sections) {
   for (const sec of sections) {
     html += `<li class="g ${esc(sec.kind || "")}">${esc(sec.label)}</li>`;
     for (const it of sec.items) {
-      const i = spRows.push({it, on: (it.copies ?? 1) > 0, copies: Math.max(it.copies ?? 1, 1)}) - 1;
+      const on = (it.copies ?? 1) > 0 && !(it.ans && sec.kind !== "hw");   // こたえは画面で見られるので最初はチェックなし（宿題のこたえは家で使うのでチェック）
+      const i = spRows.push({it, on, copies: Math.max(it.copies ?? 1, 1)}) - 1;
       html += `<li><input type="checkbox" id="sp${i}" data-i="${i}"${spRows[i].on ? " checked" : ""}>
         <label class="nm" for="sp${i}">${esc(it.title)}<small>${it.pages}ページ${it.note ? "　" + esc(it.note) : ""}</small></label>
         <span class="step"><button type="button" data-i="${i}" data-d="-1" aria-label="${esc(it.title)}の部数をへらす">−</button><span id="spc${i}">${spRows[i].copies}部</span><button type="button" data-i="${i}" data-d="1" aria-label="${esc(it.title)}の部数をふやす">＋</button></span></li>`;
     }
   }
   $("#sp-list").innerHTML = html;
+  $("#sp-sub").textContent = sections.some(x => x.items.some(it => it.ans && x.kind !== "hw"))
+    ? "印刷するものと部数をえらんでください。こたえは「丸つけ」で画面に出せるので、最初はチェックを外しています。"
+    : "印刷するものと部数をえらんでください。";
   spTotal();
   sp.dataset.title = title.replace(/をまとめて印刷$|を全員まとめて印刷$/, "");
   sp.showModal();
@@ -428,13 +555,25 @@ document.addEventListener("click", e => {
   else if (act === "print") { const it = ITEMS.get(b.dataset.file); printJob(it ? it.title : b.dataset.file, [{file: b.dataset.file, copies: 1}]); }
   else if (act === "printset") { e.preventDefault(); openSetPrint(b.dataset.track, b.dataset.set); }
   else if (act === "printday") openDayPrint(b.dataset.day);
-  else if (act === "day") { prepDay = b.dataset.day; $("#app").innerHTML = renderPrep(); observeThumbs(); }
+  else if (act === "day") { prepDay = b.dataset.day; route(); }
+  else if (act === "maruopen") { const f = maruOrder(); if (f.length) openViewer(f, "こたえ（丸つけ用）"); }
+  else if (act === "maruset") {
+    const T = D.s[b.dataset.track], s = T.sets.find(x => x.id === b.dataset.set);
+    if (s) openViewer(setAnswers(s).map(a => a.file), `${T.name} ${s.label} のこたえ`);
+  }
   else if (act === "filter") {
     filter[b.dataset.track] = b.dataset.f; store.set("sugaku-filter", filter);
     $("#app").innerHTML = renderTrack(b.dataset.track); observeThumbs();
   }
 });
 document.addEventListener("change", e => {
+  if (e.target.dataset && e.target.dataset.act === "msel") {
+    const f = e.target.dataset.file;
+    if (e.target.checked) maruSel.add(f); else maruSel.delete(f);
+    document.querySelectorAll('input[data-act="msel"]').forEach(i => { if (i.dataset.file === f) i.checked = e.target.checked; });
+    maruCount();
+    return;
+  }
   const k = e.target.dataset && e.target.dataset.key;
   if (!k) return;
   checks[k] = e.target.checked; store.set("sugaku-shelf", checks);
