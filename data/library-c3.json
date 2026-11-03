@@ -1,5 +1,21 @@
 {
  "_memo": "教材ライブラリ（中3）：中3のプリントはすべてここに1回だけ書く。step は data/common.json のステップ id。こたえは ans: true。組の JSON からは file 名で呼ぶ。ファイル名は c3_ から始める。このファイルは中3の作成チャットだけが書く。",
  "updated": "2026-11-03",
- "items": []
+ "items": [
+  {
+   "file": "c3_teiki_niji_ax2_A.pdf",
+   "step": "c3-teiki-niji-ax2",
+   "title": "定期テスト対策 二次方程式・y＝ax² A",
+   "pages": 2,
+   "note": "定期テストの類題。［1］二次方程式7問／［2］文章題など3問／［3］式を求める・グラフ・放物線・変域"
+  },
+  {
+   "file": "c3_teiki_niji_ax2_A_ans.pdf",
+   "step": "c3-teiki-niji-ax2",
+   "title": "定期テスト対策 二次方程式・y＝ax² A こたえ",
+   "pages": 2,
+   "note": "途中の式とグラフつき",
+   "ans": true
+  }
+ ]
 }

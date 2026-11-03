@@ -127,6 +127,9 @@
   {"id": "c3-hyouhon", "name": "標本調査", "grade": "中3", "steps": [
    {"id": "c3-hyouhon-hyouhon", "name": "標本調査"}
   ]},
+  {"id": "c3-teiki", "name": "定期テスト対策", "grade": "中3", "steps": [
+   {"id": "c3-teiki-niji-ax2", "name": "二次方程式・関数 y＝ax²"}
+  ]},
   {"id": "c3-nyushi", "name": "総復習・入試対策", "grade": "中3", "steps": [
    {"id": "c3-nyushi-keisan", "name": "計算の総復習"},
    {"id": "c3-nyushi-kansu", "name": "関数（入試型）"},
