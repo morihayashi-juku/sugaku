@@ -2,12 +2,13 @@
 
   python3 tools/check_site.py
 
-- JSON が読めるか
-- library.json の PDF が pdf/ にあるか、ファイル名が英数字だけか、ページ数が本当のページ数と同じか（pdfinfo）
-- library.json の step が common.json にあるか、file がかぶっていないか
-- 生徒の JSON の items が library.json にあるか、sets の id がかぶっていないか、cur（今ここ）が1つ以下か
-- now.step・sets の steps が common.json にあるか、days が thu / mon か
-- pdf/ にあるのに library.json に書かれていない PDF（警告だけ）
+- JSON が読めるか、updated が YYYY-MM-DD の形か
+- common.json の libraries（プリント一覧）の PDF が pdf/ にあるか、ファイル名が英数字だけか、ページ数が本当のページ数と同じか（pdfinfo）
+- プリントの step が common.json にあるか、file が（ファイルをまたいでも）かぶっていないか
+- 単元・ステップの id がかぶっていないか、単元に grade があるか
+- 組（tracks）の JSON の items がプリント一覧にあるか、sets の id がかぶっていないか、cur（今ここ）が1つ以下か
+- now.step・sets の steps が common.json にあるか、days が mon / tue / thu / fri か、kind が正しいか
+- pdf/ にあるのにどのプリント一覧にも書かれていない PDF（警告だけ）
 """
 import json
 import re
@@ -17,6 +18,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 err, warn = [], []
+
+DAYS_OK = ("mon", "tue", "thu", "fri")
+KINDS_OK = ("thu", "mon", "lesson", "study", "hw", "teacher")   # lesson＝授業の日、study＝自習の日（thu / mon と同じ）
 
 
 def load(name):
@@ -36,42 +40,63 @@ def pages(f):
         return None
 
 
+def check_updated(name, d):
+    u = d.get("updated")
+    if u is not None and not re.fullmatch(r"\d{4}-\d{2}-\d{2}", str(u)):
+        err.append(f"data/{name}.json: updated は 2026-11-03 の形で書く（いま {u!r}）")
+
+
 common = load("common") or {}
-lib = load("library") or {"items": []}
-steps = {st["id"] for u in common.get("units", []) for st in u["steps"]}
-allstep = [st["id"] for u in common.get("units", []) for st in u["steps"]]
-if len(allstep) != len(set(allstep)):
-    err.append("common.json: ステップの id がかぶっています")
+check_updated("common", common)
+tracks = common.get("tracks") or common.get("students") or []
+libnames = common.get("libraries") or ["library"]
 
+# 単元とステップ
+units = common.get("units", [])
+steps = {st["id"] for u in units for st in u["steps"]}
+ids = [u["id"] for u in units] + [st["id"] for u in units for st in u["steps"]]
+dup = sorted({i for i in ids if ids.count(i) > 1})
+if dup:
+    err.append(f"common.json: 単元・ステップの id がかぶっています {dup}")
+for u in units:
+    if not u.get("grade"):
+        err.append(f"common.json: 単元 {u['id']} に grade（学年）がありません")
+
+# プリント一覧（学年ごとに複数ファイル）
 files = {}
-for it in lib["items"]:
-    f = it.get("file", "")
-    if f in files:
-        err.append(f"library.json: {f} が2回書かれています")
-    files[f] = it
-    if it.get("step") not in steps:
-        err.append(f"library.json {f}: step {it.get('step')!r} が common.json にありません")
-    if not re.fullmatch(r"[A-Za-z0-9_.\-]+\.pdf", f):
-        err.append(f"library.json: ファイル名は英数字だけにする: {f}")
-    if not (ROOT / "pdf" / f).exists():
-        err.append(f"library.json: pdf/{f} がありません")
-        continue
-    n = pages(f)
-    if n is not None and n != it.get("pages"):
-        err.append(f"library.json: {f} のページ数は {n} です（JSON は {it.get('pages')}）")
+for ln in libnames:
+    lib = load(ln) or {"items": []}
+    check_updated(ln, lib)
+    for it in lib["items"]:
+        f = it.get("file", "")
+        if f in files:
+            err.append(f"{ln}.json: {f} が2回書かれています（{files[f]['_lib']} にもあります）")
+        files[f] = {**it, "_lib": ln}
+        if it.get("step") not in steps:
+            err.append(f"{ln}.json {f}: step {it.get('step')!r} が common.json にありません")
+        if not re.fullmatch(r"[A-Za-z0-9_.\-]+\.pdf", f):
+            err.append(f"{ln}.json: ファイル名は英数字だけにする: {f}")
+        if not (ROOT / "pdf" / f).exists():
+            err.append(f"{ln}.json: pdf/{f} がありません")
+            continue
+        n = pages(f)
+        if n is not None and n != it.get("pages"):
+            err.append(f"{ln}.json: {f} のページ数は {n} です（JSON は {it.get('pages')}）")
 
-for t in common.get("students", []):
+# 組（生徒）
+for t in tracks:
     d = load(t)
     if not d:
         continue
+    check_updated(t, d)
     for day in d.get("days", []):
-        if day not in ("thu", "mon"):
-            err.append(f"{t}.json: days に {day!r} は使えません（thu / mon）")
+        if day not in DAYS_OK:
+            err.append(f"{t}.json: days に {day!r} は使えません（{' / '.join(DAYS_OK)}）")
     if d.get("now") and d["now"].get("step") not in steps:
         err.append(f"{t}.json: now.step {d['now'].get('step')!r} が common.json にありません")
-    ids = [s["id"] for s in d["sets"]]
-    if len(ids) != len(set(ids)):
-        err.append(f"{t}.json: sets の id がかぶっています {ids}")
+    sids = [s["id"] for s in d["sets"]]
+    if len(sids) != len(set(sids)):
+        err.append(f"{t}.json: sets の id がかぶっています {sids}")
     curs = [s["id"] for s in d["sets"] if s.get("cur")]
     if len(curs) > 1:
         err.append(f"{t}.json: cur（今ここ）が2つ以上あります {curs}")
@@ -80,15 +105,15 @@ for t in common.get("students", []):
             if st not in steps:
                 err.append(f"{t}.json {s['label']}: step {st!r} が common.json にありません")
         for g in s["groups"]:
-            if g["kind"] not in ("thu", "mon", "hw", "teacher"):
-                err.append(f"{t}.json {s['label']}: kind {g['kind']!r} は thu / mon / hw / teacher のどれか")
+            if g["kind"] not in KINDS_OK:
+                err.append(f"{t}.json {s['label']}: kind {g['kind']!r} は {' / '.join(KINDS_OK)} のどれか")
             for r in g["items"]:
                 if r["file"] not in files:
-                    err.append(f"{t}.json {s['label']} {g['label']}: {r['file']} が library.json にありません")
+                    err.append(f"{t}.json {s['label']} {g['label']}: {r['file']} がプリント一覧（{', '.join(libnames)}）にありません")
 
 for p in sorted((ROOT / "pdf").glob("*.pdf")):
     if p.name not in files:
-        warn.append(f"pdf/{p.name} は library.json に書かれていません")
+        warn.append(f"pdf/{p.name} はどのプリント一覧にも書かれていません")
 
 for w in warn:
     print("注意:", w)

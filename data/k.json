@@ -1,5 +1,6 @@
 {
  "_memo": "K（月木）の教材と記録。sets の最後に足し、前の cur を消して新しいほうに \"cur\": true。items は library.json の file 名（copies・note は上書きできる）。log は新しいものを上に。",
+ "updated": "2026-11-03",
  "name": "K",
  "longName": "K（月・木）",
  "days": [

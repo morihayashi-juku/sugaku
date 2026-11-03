@@ -1,13 +1,22 @@
-/* 中1数学 教材棚 — 画面と印刷
+/* 数学 教材棚 — 画面と印刷
    教材の中身は data/*.json に書く（このファイルは画面の仕組みだけ）。
-   - data/common.json  … 生徒の順番・単元とステップ
-   - data/library.json … プリントの一覧（1回だけ書く）
-   - data/{生徒}.json  … その生徒の回（sets）・今の位置（now）・記録（log） */
+   - data/common.json   … 組（生徒）の順番 tracks・プリント一覧のファイル名 libraries・単元とステップ（学年ごと）
+   - data/library*.json … プリントの一覧（1回だけ書く。学年ごとにファイルを分ける）
+   - data/{組}.json     … その組の回（sets）・今の位置（now）・記録（log） */
 "use strict";
 pdfjsLib.GlobalWorkerOptions.workerSrc = "lib/pdfjs/pdf.worker.min.js";
 
 const PRINT_DPI = 200;
-const DAYS = {thu: {label: "木曜", kinds: ["thu", "hw", "teacher"]}, mon: {label: "月曜", kinds: ["mon"]}};
+// 曜日ごとに出すグループ。中学は月・木、高校は火・金。
+// 週の後ろの日（木・金）＝授業の日（授業・宿題・先生用のこたえ）、前の日（月・火）＝自習の日。
+const DAYS = {
+  mon: {label: "月曜", kinds: ["mon"]},
+  tue: {label: "火曜", kinds: ["mon"]},
+  thu: {label: "木曜", kinds: ["thu", "hw", "teacher"]},
+  fri: {label: "金曜", kinds: ["thu", "hw", "teacher"]},
+};
+const PAIR = {mon: "thu", thu: "mon", tue: "fri", fri: "tue"};   // 同じ週の組み（月↔木、火↔金）
+const KIND_ALIAS = {lesson: "thu", study: "mon"};                  // kind の別名（lesson＝授業の日、study＝自習の日。金・火の組にはこちらを使う）
 const $ = (s, el = document) => el.querySelector(s);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const P = f => "pdf/" + f;
@@ -36,10 +45,13 @@ async function loadData() {
     if (!r.ok) throw new Error(`data/${n}.json が読めません（${r.status}）`);
     return r.json();
   });
-  const [common, library] = await Promise.all([get("common"), get("library")]);
-  TRACKS = common.students;
-  const studs = await Promise.all(TRACKS.map(get));
+  const common = await get("common");
+  TRACKS = common.tracks || common.students || [];          // 組（生徒）の順番。students は古い書き方
+  const libNames = common.libraries || ["library"];
+  const [libs, studs] = await Promise.all([Promise.all(libNames.map(get)), Promise.all(TRACKS.map(get))]);
+  const library = {items: libs.flatMap(l => l.items || [])};
   D = {common, library, s: Object.fromEntries(TRACKS.map((t, i) => [t, studs[i]]))};
+  for (const t of TRACKS) for (const s of D.s[t].sets) for (const g of s.groups) g.kind = KIND_ALIAS[g.kind] || g.kind;
   for (const u of common.units) for (const st of u.steps) STEPS.set(st.id, {step: st, unit: u});
   for (const it of library.items) ITEMS.set(it.file, it);
   for (const t of TRACKS) for (const s of D.s[t].sets) for (const g of s.groups) for (const r of g.items) {
@@ -47,8 +59,11 @@ async function loadData() {
     const tag = D.s[t].name + s.label;
     if (!USED.get(r.file).includes(tag)) USED.get(r.file).push(tag);
   }
-  $("#updated").textContent = common.updated ? `最終更新 ${common.updated.replace(/^(\d+)-0?(\d+)-0?(\d+)$/, "$1年$2月$3日")}` : "";
-  // 生徒のタブを「今日の準備」と「教材ライブラリ」のあいだに入れる
+  // 最終更新日は、いちばん新しい各ファイルの updated（チャットごとに別のファイルを書くので、日付で衝突しない）
+  const dates = [common.updated, ...libs.map(l => l.updated), ...studs.map(s => s.updated)].filter(Boolean).sort();
+  const upd = dates[dates.length - 1];
+  $("#updated").textContent = upd ? `最終更新 ${upd.replace(/^(\d+)-0?(\d+)-0?(\d+)$/, "$1年$2月$3日")}` : "";
+  // 組のタブを「丸つけ」と「教材ライブラリ」のあいだに入れる
   const lib = $('#tabs a[data-tab="lib"]');
   for (const t of TRACKS) lib.insertAdjacentHTML("beforebegin", `<a href="#${t}" data-tab="${t}">${esc(D.s[t].name)}</a>`);
 }
@@ -58,14 +73,20 @@ const stepFull = id => { const x = STEPS.get(id); return x ? `${x.unit.name}　$
 const curSet = t => D.s[t].sets.find(s => s.cur) || null;
 const dayList = t => D.s[t].days || ["thu", "mon"];
 const setAnswers = s => s.groups.flatMap(g => g.items.map(item).filter(it => it.ans).map(it => ({...it, kind: g.kind, glabel: g.label})));
-// 丸つけで最初にえらぶこたえ：木曜＝木曜・宿題・先生用のこたえ、月曜＝月曜（自習）のこたえ
-const MARU_KINDS = {thu: ["thu", "hw", "teacher"], mon: ["mon"]};
+// その曜日の画面に出す組：その日に来る組と、同じ週の組の日（月↔木、火↔金）に来る組。
+// （N のように週1の組は、来ない日に「来ない日」と出る。まったく別の曜日の組は出さない）
+const visibleOn = (t, day) => dayList(t).includes(day) || dayList(t).includes(PAIR[day]);
+const nowName = T => T.now && T.now.step ? stepFull(T.now.step) : T.longName;   // 教材がまだない組は、組の名前を出す
+const hasHw = T => T.sets.some(s => s.groups.some(g => g.kind === "hw"));
+// 組のバッジ（丸い名札）。名前が長いときは badge に短い名前を書く
+const who = t => { const b = D.s[t].badge || D.s[t].name; return `<a class="who" data-len="${[...b].length}" href="#${t}">${esc(b)}</a>`; };
+// 丸つけで最初にえらぶこたえ：授業の日＝授業・宿題・先生用のこたえ、自習の日＝自習のこたえ
 function dayAnswers(day) {
   const out = [];
   for (const t of TRACKS) {
     const s = curSet(t);
     if (!s || !dayList(t).includes(day)) continue;
-    for (const a of setAnswers(s)) if (MARU_KINDS[day].includes(a.kind) && a.copies !== 0 && !out.includes(a.file)) out.push(a.file);
+    for (const a of setAnswers(s)) if (DAYS[day].kinds.includes(a.kind) && a.copies !== 0 && !out.includes(a.file)) out.push(a.file);
   }
   return out;
 }
@@ -109,14 +130,15 @@ function setCard(track, s, {open = false} = {}) {
 
 const logList = T => T.log && T.log.length
   ? `<ul class="log">${T.log.map(l => `<li><time>${esc(String(l.date).replace(/^\d+-0?(\d+)-0?(\d+)$/, "$1/$2"))}</time><span>${esc(l.text)}</span></li>`).join("")}</ul>`
-  : `<p class="muted">まだ記録はありません。チャットで「${esc(T.name)}が四則混合Bを終えた・16問中12問」のように伝えると、ここに書きこみます。</p>`;
+  : `<p class="muted">まだ記録はありません。チャットで「${esc(T.name)}が◯◯を終えた・16問中12問」のように伝えると、ここに書きこみます。</p>`;
 
 /* ------------------------------------------------------------ 画面：今日の準備 */
-function autoDay() { const w = new Date().getDay(); return (w >= 2 && w <= 4) ? "thu" : "mon"; }  // 火〜木は木曜、金〜月は月曜
+// 今日か、次に来る授業の日：日・月・土→月曜、火→火曜、水・木→木曜、金→金曜
+function autoDay() { return ["mon", "mon", "tue", "thu", "thu", "fri", "mon"][new Date().getDay()]; }
 let prepDay = null;
 function prepRows(day) {
-  // 生徒ごとに、今ここの回から、その曜日に使うものを集める
-  return TRACKS.map(t => {
+  // 組ごとに、今ここの回から、その曜日に使うものを集める
+  return TRACKS.filter(t => visibleOn(t, day)).map(t => {
     const T = D.s[t], s = curSet(t);
     if (!dayList(t).includes(day)) return {t, off: true};
     if (!s) return {t, none: true};
@@ -140,8 +162,8 @@ function renderPrep() {
   <div class="prep">
     ${rows.map(r => {
       const T = D.s[r.t];
-      const head = `<header><a class="who" href="#${r.t}">${esc(T.name)}</a><div><b>${esc(stepFull(T.now && T.now.step))}</b>${T.now && T.now.text ? `<small>${esc(T.now.text)}</small>` : ""}</div></header>`;
-      if (r.off) return `<article class="stu off">${head}<p class="muted">${DAYS[day].label}は来ない日です（宿題の日）。</p></article>`;
+      const head = `<header>${who(r.t)}<div><b>${esc(nowName(T))}</b>${T.now && T.now.text ? `<small>${esc(T.now.text)}</small>` : ""}</div></header>`;
+      if (r.off) return `<article class="stu off">${head}<p class="muted">${DAYS[day].label}は来ない日です${hasHw(T) ? "（宿題の日）" : ""}。</p></article>`;
       if (r.none) return `<article class="stu">${head}<p class="empty">まだ教材がありません。作ったらここに出ます。</p></article>`;
       return `<article class="stu">${head}
         <p class="cur"><span class="tag">今ここ</span> <a href="#${r.t}/${esc(r.s.id)}">${esc(r.s.label)}　${esc(r.s.title)}</a></p>
@@ -164,14 +186,14 @@ function renderMaru() {
   const day = prepDay || autoDay();
   if (!maruSel || maruFor !== day) { maruSel = new Set(dayAnswers(day)); maruFor = day; }
   const listed = new Set();
-  const cards = TRACKS.map(t => {
+  const cards = TRACKS.filter(t => visibleOn(t, day)).map(t => {
     const T = D.s[t], s = curSet(t);
     const older = T.sets.filter(x => x !== s).reverse();
     const cur = s ? setAnswers(s) : [];
     cur.forEach(a => listed.add(a.file));
     const old = older.flatMap(x => setAnswers(x).map(a => ({...a, from: x.label})));
     return `<article class="stu maru">
-      <header><a class="who" href="#${t}">${esc(T.name)}</a><div><b>${s ? esc(s.label + "　" + s.title) : "まだ教材がありません"}</b>
+      <header>${who(t)}<div><b>${s ? esc(s.label + "　" + s.title) : "まだ教材がありません"}</b>
         ${dayList(t).includes(day) ? "" : `<small>${DAYS[day].label}は来ない日</small>`}</div></header>
       ${cur.length ? `<ul class="mlist">${cur.map(a => maruRow(a, a.glabel)).join("")}</ul>` : ""}
       ${old.length ? `<details class="mold"><summary>前の回のこたえ（${old.length}）</summary><ul class="mlist">${old.map(a => maruRow(a, a.from + "　" + a.glabel)).join("")}</ul></details>` : ""}
@@ -212,7 +234,7 @@ function renderTrack(track) {
   <section class="now" aria-label="今の位置">
     <span class="lab">今ここ　${esc(T.longName)}</span>
     <span class="no">${cur ? esc(cur.label) : "—"}</span>
-    <div><h1>${cur ? esc(cur.title) : esc(stepFull(T.now && T.now.step))}</h1>
+    <div><h1>${cur ? esc(cur.title) : T.now && T.now.step ? esc(stepFull(T.now.step)) : "まだ教材がありません"}</h1>
       <div class="nu">${T.now ? `<a href="#lib/${esc(T.now.step)}">${esc(stepFull(T.now.step))}</a>${T.now.text ? "　" + esc(T.now.text) : ""}` : ""}</div></div>
     ${cur ? `<div class="acts">
       <button type="button" class="btn key" data-act="printset" data-track="${track}" data-set="${esc(cur.id)}">${ICON_PRINT}${esc(cur.label)}をまとめて印刷</button>
@@ -234,13 +256,24 @@ function renderTrack(track) {
 }
 
 /* ------------------------------------------------------------ 画面：教材ライブラリ */
+// 教材ライブラリは学年ごとに切りかえて見る（units の grade）。えらんだ学年はこの端末に残る
+const gradeOf = u => u.grade || "中1";
+let libGrade = store.get("sugaku-libgrade", null);
+function setLibGrade(g) { libGrade = g; store.set("sugaku-libgrade", g); }
+const unitCount = u => u.steps.reduce((a, st) => a + D.library.items.filter(i => i.step === st.id && !i.ans).length, 0);
 function renderLib() {
-  const units = D.common.units;
+  const grades = [...new Set(D.common.units.map(gradeOf))];
+  if (!grades.includes(libGrade)) libGrade = grades[0];
+  const units = D.common.units.filter(u => gradeOf(u) === libGrade);
   const here = id => TRACKS.filter(t => D.s[t].now && D.s[t].now.step === id).map(t => `<a class="here" href="#${t}">${esc(D.s[t].name)} 今ここ</a>`).join("");
   return `
-  <p class="lead">プリントは単元・ステップごとに1回だけ置いてあります。どの生徒のどの回で使ったかはタイルの下に出ます。</p>
+  <div class="filters grades" role="group" aria-label="学年">${grades.map(g => {
+    const n = D.common.units.filter(u => gradeOf(u) === g).reduce((a, u) => a + unitCount(u), 0);
+    return `<button type="button" data-act="grade" data-grade="${esc(g)}" aria-pressed="${g === libGrade}">${esc(g)}${n ? `<small>${n}</small>` : ""}</button>`;
+  }).join("")}</div>
+  <p class="lead">プリントは単元・ステップごとに1回だけ置いてあります。どの組のどの回で使ったかはタイルの下に出ます。</p>
   <nav class="unav" aria-label="単元">${units.map(u => {
-    const n = u.steps.reduce((a, st) => a + D.library.items.filter(i => i.step === st.id && !i.ans).length, 0);
+    const n = unitCount(u);
     return `<a href="#lib/${esc(u.id)}">${esc(u.name)}${n ? `<small>${n}</small>` : ""}</a>`;
   }).join("")}</nav>
   ${units.map(u => `<section class="unit" id="lib-${esc(u.id)}">
@@ -262,8 +295,12 @@ function route() {
   document.querySelectorAll(".tabs a").forEach(a => {
     if (a.dataset.tab === t) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
   });
+  if (t === "lib" && sub) {                       // 別の学年の単元・ステップへのリンクなら、その学年に切りかえる
+    const u = D.common.units.find(x => x.id === sub || x.steps.some(st => st.id === sub));
+    if (u) setLibGrade(gradeOf(u));
+  }
   $("#app").innerHTML = t === "junbi" ? renderPrep() : t === "maru" ? renderMaru() : t === "lib" ? renderLib() : renderTrack(t);
-  document.title = ({junbi: "今日の準備", maru: "丸つけ", lib: "教材ライブラリ"}[t] || D.s[t].name) + " | 中1数学 教材棚";
+  document.title = ({junbi: "今日の準備", maru: "丸つけ", lib: "教材ライブラリ"}[t] || D.s[t].name) + " | 数学 教材棚";
   if (sub) {
     const el = t === "lib" ? $("#lib-" + CSS.escape(sub)) : $(`#${t}-${CSS.escape(sub)}`);
     if (el) {
@@ -560,6 +597,10 @@ document.addEventListener("click", e => {
   else if (act === "maruset") {
     const T = D.s[b.dataset.track], s = T.sets.find(x => x.id === b.dataset.set);
     if (s) openViewer(setAnswers(s).map(a => a.file), `${T.name} ${s.label} のこたえ`);
+  }
+  else if (act === "grade") {
+    setLibGrade(b.dataset.grade);
+    $("#app").innerHTML = renderLib(); observeThumbs(); window.scrollTo(0, 0);
   }
   else if (act === "filter") {
     filter[b.dataset.track] = b.dataset.f; store.set("sugaku-filter", filter);

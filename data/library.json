@@ -1,5 +1,6 @@
 {
  "_memo": "教材ライブラリ：作ったプリントはすべてここに1回だけ書く。step は data/common.json のステップ id。こたえは ans: true。生徒の JSON からは file 名で呼ぶ。",
+ "updated": "2026-11-03",
  "items": [
   {
    "file": "seifu_shisoku_A.pdf",
