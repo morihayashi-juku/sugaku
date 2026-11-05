@@ -1,6 +1,6 @@
 {
  "_memo": "中3前半組の教材と記録。sets の最後に足し、前の cur を消して新しいほうに \"cur\": true。月曜も木曜も授業（自習はない）なので、groups は曜日ごとに作り、グループに \"day\": \"mon\" または \"day\": \"thu\" を書く（書かないと、lesson・hw・teacher は木曜に出て、月曜には出ない）。kind は lesson（授業）／hw（宿題）／teacher（こたえ・先生用）。items は library-c3.json の file 名（copies・note は上書きできる）。log は新しいものを上に。now（今どこのステップか）は最初の教材を足すときに {step, text} で書く。",
- "updated": "2026-11-03",
+ "updated": "2026-11-05",
  "name": "中3前半",
  "badge": "中3前",
  "longName": "中3 前半組（月・木）",
@@ -35,7 +35,6 @@
     "c3-teiki-niji-ax2"
    ],
    "title": "定期テスト対策 二次方程式・y＝ax²",
-   "cur": true,
    "note": "木曜用。A3で印刷。定期テストと同じ形の類題を2パターン（①②・1ページに1パターン）。",
    "groups": [
     {
@@ -59,10 +58,42 @@
      ]
     }
    ]
+  },
+  {
+   "id": "c3a02",
+   "label": "②",
+   "steps": [
+    "c3-souji-nagasa"
+   ],
+   "title": "相似比と長さ",
+   "cur": true,
+   "note": "11/5（木）の授業用。定期テストの範囲。",
+   "groups": [
+    {
+     "kind": "lesson",
+     "label": "木曜（授業）",
+     "day": "thu",
+     "items": [
+      {
+       "file": "c3_souji_nagasa_A.pdf"
+      }
+     ]
+    },
+    {
+     "kind": "teacher",
+     "label": "木曜 こたえ（先生用）",
+     "day": "thu",
+     "items": [
+      {
+       "file": "c3_souji_nagasa_A_ans.pdf"
+      }
+     ]
+    }
+   ]
   }
  ],
  "now": {
-  "step": "c3-teiki-niji-ax2",
-  "text": "定期テスト対策（二次方程式・関数 y＝ax²）"
+  "step": "c3-souji-nagasa",
+  "text": "相似比と長さ（定期テスト範囲）"
  }
 }

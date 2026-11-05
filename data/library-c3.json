@@ -1,6 +1,6 @@
 {
  "_memo": "教材ライブラリ（中3）：中3のプリントはすべてここに1回だけ書く。step は data/common.json のステップ id。こたえは ans: true。組の JSON からは file 名で呼ぶ。ファイル名は c3_ から始める。このファイルは中3の作成チャットだけが書く。",
- "updated": "2026-11-03",
+ "updated": "2026-11-05",
  "items": [
   {
    "file": "c3_teiki_niji_ax2.pdf",
@@ -15,6 +15,21 @@
    "title": "定期テスト対策 二次方程式・y＝ax²（①②）こたえ",
    "pages": 2,
    "note": "途中の式とグラフつき",
+   "ans": true
+  },
+  {
+   "file": "c3_souji_nagasa_A.pdf",
+   "step": "c3-souji-nagasa",
+   "title": "相似比と長さ A",
+   "pages": 4,
+   "note": "その1＝相似比・比例式／その2＝向きが違う・図なし・四角形／その3＝重なった図形／その4＝利用"
+  },
+  {
+   "file": "c3_souji_nagasa_A_ans.pdf",
+   "step": "c3-souji-nagasa",
+   "title": "相似比と長さ A こたえ",
+   "pages": 2,
+   "note": "途中の式つき",
    "ans": true
   }
  ]

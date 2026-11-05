@@ -111,6 +111,7 @@
   ]},
   {"id": "c3-souji", "name": "相似な図形", "grade": "中3", "steps": [
    {"id": "c3-souji-joken", "name": "相似・相似条件・証明"},
+   {"id": "c3-souji-nagasa", "name": "相似比と長さ"},
    {"id": "c3-souji-hiritsu", "name": "平行線と線分の比・中点連結定理"},
    {"id": "c3-souji-menseki", "name": "相似比と面積比・体積比"},
    {"id": "c3-souji-riyou", "name": "相似の利用"}
