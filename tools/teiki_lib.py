@@ -216,3 +216,55 @@ def hw_writein(title, days, rule):
 <div class=point>ポイント：{point}</div>
 <div class=wg style="grid-template-rows: repeat({rows}, 1fr)">{cells}</div></div>""")
     return f"<html><head><meta charset=utf-8><style>{CSS}{HWW_CSS}</style></head><body>{''.join(pages)}</body></html>"
+
+
+# ------------------------------------------------------------ 授業・自習プリント（4ページ・1ページ左右2列×4問）
+WS_CSS = """
+.wg { flex: 1; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(4, 1fr); grid-auto-flow: column;
+      gap: 0 6mm; margin-top: 3mm; min-height: 0; }
+.wg .w { border-bottom: .6pt solid #ccc; padding: 2.5mm 0 2mm; position: relative; font-size: 11pt; line-height: 1.7; overflow: hidden; }
+.wg .w:nth-child(4n) { border-bottom: none; }
+.wg .w .no { font-size: 13pt; margin-right: 1.5mm; }
+.wg .w .ab { position: absolute; right: 0; bottom: 2.5mm; font-size: 10.5pt; background: #fff; padding-left: 2mm; }
+.wg .w .ab .blank { display: inline-block; width: 30mm; border-bottom: .8pt solid #111; }
+.wg .w .sc { font-size: 10pt; color: #333; margin-top: 1mm; }
+.wg .w .sc .bl { display: inline-block; width: 40mm; border-bottom: .6pt solid #999; }
+.gr { display: block; margin-top: 1mm; }
+"""
+
+
+def worksheet(title, secs, ans_title=None):
+    """secs：[(その1, 小見出し, ポイント, [問題×8])]。問題 dict は q・a・eq・albl・sc（足場の HTML）・fig"""
+    pages = []
+    n = 0
+    for label, sub, tip, probs in secs:
+        assert len(probs) == 8, (label, len(probs))
+        check_all(probs, label)
+        cells = ""
+        for p in probs:
+            albl = p.get("albl", "答え")
+            ab = f"<div class=ab>{albl} <span class=blank></span></div>" if albl else ""
+            cells += (f"<div class=w><span class=no>{CIRC[n]}</span>{p['q']}"
+                      f"{('<div>' + p['fig'] + '</div>') if p.get('fig') else ''}"
+                      f"{('<div class=sc>' + p['sc'] + '</div>') if p.get('sc') else ''}{ab}</div>")
+            n += 1
+        pages.append(f"<div class=page>{head(title + ' ' + label, sub, score=8)}<div class=tip>{tip}</div><div class=wg>{cells}</div></div>")
+    prob = f"<html><head><meta charset=utf-8><style>{CSS}{WS_CSS}</style></head><body>{''.join(pages)}</body></html>"
+    # こたえ：番号は通し
+    asecs, n = [], 0
+    for label, sub, _, probs in secs:
+        asecs.append((f"{label}　{sub}", probs, n))
+        n += len(probs)
+    return prob, answers_numbered(ans_title or title, asecs, per_page=2)
+
+
+def answers_numbered(title, secs, per_page):
+    pages = []
+    for i in range(0, len(secs), per_page):
+        body = ""
+        for label, probs, start in secs[i:i + per_page]:
+            rows = "".join(f"<div class=r><span>{CIRC[start + j]}</span><span>{p['a']}</span></div>" for j, p in enumerate(probs))
+            body += f"<div class=sec>{label}</div><div class=two style='grid-auto-flow:column;grid-template-rows:repeat({(len(probs) + 1) // 2},auto)'>{rows}</div>"
+        m = (len(secs) + per_page - 1) // per_page
+        pages.append(f"<div class=page>{head(title, 'こたえ' + (f'（{i // per_page + 1}/{m}）' if m > 1 else ''), name=False)}<div class=al>{body}</div></div>")
+    return f"<html><head><meta charset=utf-8><style>{CSS}{ANS_CSS}</style></head><body>{''.join(pages)}</body></html>"
