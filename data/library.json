@@ -151,6 +151,126 @@
    "pages": 1,
    "note": "本人に渡して毎日丸つけ",
    "ans": true
+  },
+  {
+   "file": "teiki_1_un.pdf",
+   "step": "c1teiki-houtei-hirei",
+   "title": "対策① 方程式の利用（U・N）",
+   "pages": 4,
+   "note": "その1 数・代金／その2 過不足・年齢／その3 速さ／その4 比例式"
+  },
+  {
+   "file": "teiki_1_un_ans.pdf",
+   "step": "c1teiki-houtei-hirei",
+   "title": "対策① 方程式の利用（U・N） こたえ",
+   "pages": 2,
+   "note": "式と答え",
+   "ans": true
+  },
+  {
+   "file": "teiki_1_k.pdf",
+   "step": "c1teiki-houtei-hirei",
+   "title": "対策① 方程式（K）",
+   "pages": 4,
+   "note": "その1 方程式を解く／その2 ことばの式から方程式／その3 代金・個数（式の形つき）／その4 比例式"
+  },
+  {
+   "file": "teiki_1_k_ans.pdf",
+   "step": "c1teiki-houtei-hirei",
+   "title": "対策① 方程式（K） こたえ",
+   "pages": 2,
+   "note": "式と答え",
+   "ans": true
+  },
+  {
+   "file": "teiki_2_un.pdf",
+   "step": "c1teiki-houtei-hirei",
+   "title": "対策② 比例と反比例（U・N）",
+   "pages": 4,
+   "note": "その1 比例の式・表／その2 反比例の式・表／その3 座標・比例のグラフ／その4 反比例のグラフ"
+  },
+  {
+   "file": "teiki_2_un_ans.pdf",
+   "step": "c1teiki-houtei-hirei",
+   "title": "対策② 比例と反比例（U・N） こたえ",
+   "pages": 2,
+   "note": "式と答え",
+   "ans": true
+  },
+  {
+   "file": "teiki_2_k.pdf",
+   "step": "c1teiki-houtei-hirei",
+   "title": "対策② 比例と反比例（K）",
+   "pages": 4,
+   "note": "その1 比例の表／その2 比例の式／その3 反比例の表と式／その4 座標・見分け"
+  },
+  {
+   "file": "teiki_2_k_ans.pdf",
+   "step": "c1teiki-houtei-hirei",
+   "title": "対策② 比例と反比例（K） こたえ",
+   "pages": 2,
+   "note": "式と答え",
+   "ans": true
+  },
+  {
+   "file": "teiki_3_un.pdf",
+   "step": "c1teiki-houtei-hirei",
+   "title": "対策③ 比例・反比例の利用とまとめ（U・N）",
+   "pages": 4,
+   "note": "その1 比例の利用／その2 反比例の利用／その3 まとめ（式と値）／その4 方程式の利用・比例式"
+  },
+  {
+   "file": "teiki_3_un_ans.pdf",
+   "step": "c1teiki-houtei-hirei",
+   "title": "対策③ 比例・反比例の利用とまとめ（U・N） こたえ",
+   "pages": 2,
+   "note": "式と答え",
+   "ans": true
+  },
+  {
+   "file": "teiki_3_k.pdf",
+   "step": "c1teiki-houtei-hirei",
+   "title": "対策③ まとめ（K）",
+   "pages": 4,
+   "note": "その1 方程式／その2 ことばの式・代金／その3 比例・反比例の式と値／その4 座標・表・見分け"
+  },
+  {
+   "file": "teiki_3_k_ans.pdf",
+   "step": "c1teiki-houtei-hirei",
+   "title": "対策③ まとめ（K） こたえ",
+   "pages": 2,
+   "note": "式と答え",
+   "ans": true
+  },
+  {
+   "file": "teiki_hw2_un.pdf",
+   "step": "c1teiki-houtei-hirei",
+   "title": "テスト対策 宿題2（U・N）",
+   "pages": 3,
+   "note": "金〜火・1日4問（比例の利用→反比例の利用→グラフ→方程式の利用→総まとめ）。答えは自学ノート"
+  },
+  {
+   "file": "teiki_hw2_un_ans.pdf",
+   "step": "c1teiki-houtei-hirei",
+   "title": "テスト対策 宿題2（U・N） こたえ",
+   "pages": 1,
+   "note": "本人に渡して毎日丸つけ",
+   "ans": true
+  },
+  {
+   "file": "teiki_hw2_k.pdf",
+   "step": "c1teiki-houtei-hirei",
+   "title": "テスト対策 宿題2（K）",
+   "pages": 5,
+   "note": "金〜火・1日1ページ（方程式→比例→反比例→座標→まとめ）。直接書く"
+  },
+  {
+   "file": "teiki_hw2_k_ans.pdf",
+   "step": "c1teiki-houtei-hirei",
+   "title": "テスト対策 宿題2（K） こたえ",
+   "pages": 1,
+   "note": "本人に渡して毎日丸つけ",
+   "ans": true
   }
  ]
 }

@@ -123,7 +123,7 @@
    "steps": [
     "c1teiki-houtei-hirei"
    ],
-   "title": "定期テスト対策（11/18・19）方程式の利用〜比例・反比例の利用",
+   "title": "定期テスト対策1（11/5〜11/11）方程式の利用〜比例・反比例",
    "cur": true,
    "note": "11/5 から対策に切りかえ（計算の順序の宿題 seifu_hw1 は使わない）。K 用は正の数中心・取れる問題にしぼる。宿題1（金〜水）→ 月11/9 対策① → 木11/12 対策② → 月11/16 対策③。",
    "groups": [
@@ -137,6 +137,74 @@
       {
        "file": "teiki_hw1_k_ans.pdf",
        "note": "本人に渡して毎日丸つけ"
+      }
+     ]
+    },
+    {
+     "kind": "mon",
+     "label": "月曜 11/9（対策①）",
+     "items": [
+      {
+       "file": "teiki_1_k.pdf"
+      },
+      {
+       "file": "teiki_1_k_ans.pdf",
+       "note": "自習のあと自分で丸つけ"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "k04",
+   "label": "④",
+   "steps": [
+    "c1teiki-houtei-hirei"
+   ],
+   "title": "定期テスト対策2（11/12〜11/17）比例と反比例・まとめ（テスト 11/18・19）",
+   "note": "11/12 の木曜から「今ここ」にする（11/10 にチャットで切りかえる予定）。",
+   "groups": [
+    {
+     "kind": "thu",
+     "label": "木曜 11/12（対策②）",
+     "items": [
+      {
+       "file": "teiki_2_k.pdf"
+      }
+     ]
+    },
+    {
+     "kind": "hw",
+     "label": "宿題2（11/13 金〜11/17 火）",
+     "items": [
+      {
+       "file": "teiki_hw2_k.pdf"
+      },
+      {
+       "file": "teiki_hw2_k_ans.pdf",
+       "note": "本人に渡して毎日丸つけ"
+      }
+     ]
+    },
+    {
+     "kind": "teacher",
+     "label": "こたえ（先生用）",
+     "items": [
+      {
+       "file": "teiki_2_k_ans.pdf"
+      }
+     ]
+    },
+    {
+     "kind": "mon",
+     "label": "月曜 11/16（対策③）",
+     "items": [
+      {
+       "file": "teiki_3_k.pdf"
+      },
+      {
+       "file": "teiki_3_k_ans.pdf",
+       "note": "自習のあと自分で丸つけ"
       }
      ]
     }
