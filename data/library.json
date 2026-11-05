@@ -153,6 +153,36 @@
    "ans": true
   },
   {
+   "file": "teiki_j1_un.pdf",
+   "step": "c1teiki-houtei-hirei",
+   "title": "授業 方程式の利用（U・N）",
+   "pages": 4,
+   "note": "木11/5の授業用。各ページに例題と解き方。数・代金／過不足・年齢／速さ／比例式"
+  },
+  {
+   "file": "teiki_j1_un_ans.pdf",
+   "step": "c1teiki-houtei-hirei",
+   "title": "授業 方程式の利用（U・N） こたえ",
+   "pages": 2,
+   "note": "式と答え",
+   "ans": true
+  },
+  {
+   "file": "teiki_j1_k.pdf",
+   "step": "c1teiki-houtei-hirei",
+   "title": "授業 方程式（K）",
+   "pages": 4,
+   "note": "木11/5の授業用。各ページに例題と解き方。方程式／ことばの式／代金・個数／比例式"
+  },
+  {
+   "file": "teiki_j1_k_ans.pdf",
+   "step": "c1teiki-houtei-hirei",
+   "title": "授業 方程式（K） こたえ",
+   "pages": 2,
+   "note": "式と答え",
+   "ans": true
+  },
+  {
    "file": "teiki_1_un.pdf",
    "step": "c1teiki-houtei-hirei",
    "title": "対策① 方程式の利用（U・N）",
