@@ -121,6 +121,36 @@
    "pages": 2,
    "note": "本人に渡して毎日丸つけ",
    "ans": true
+  },
+  {
+   "file": "teiki_hw1_un.pdf",
+   "step": "c1teiki-houtei-hirei",
+   "title": "テスト対策 宿題1（U・N）",
+   "pages": 3,
+   "note": "金〜水・1日4問（方程式の利用→比例式→比例→反比例→座標・グラフ）。答えは自学ノート"
+  },
+  {
+   "file": "teiki_hw1_un_ans.pdf",
+   "step": "c1teiki-houtei-hirei",
+   "title": "テスト対策 宿題1（U・N）こたえ",
+   "pages": 1,
+   "note": "本人に渡して毎日丸つけ",
+   "ans": true
+  },
+  {
+   "file": "teiki_hw1_k.pdf",
+   "step": "c1teiki-houtei-hirei",
+   "title": "テスト対策 宿題1（K）",
+   "pages": 6,
+   "note": "金〜水・1日1ページ（方程式→ことばの式→比例の表→反比例の表→座標→見分け）。直接書く"
+  },
+  {
+   "file": "teiki_hw1_k_ans.pdf",
+   "step": "c1teiki-houtei-hirei",
+   "title": "テスト対策 宿題1（K）こたえ",
+   "pages": 1,
+   "note": "本人に渡して毎日丸つけ",
+   "ans": true
   }
  ]
 }
