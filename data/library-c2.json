@@ -1,6 +1,6 @@
 {
  "_memo": "教材ライブラリ（中2）：中2のプリントはすべてここに1回だけ書く。step は data/common.json のステップ id。こたえは ans: true。組の JSON からは file 名で呼ぶ。ファイル名は c2_ から始める。このファイルは中2の作成チャットだけが書く。",
- "updated": "2026-11-03",
+ "updated": "2026-11-05",
  "items": [
   {
    "file": "c2_goudou_shoumei_L1_A.pdf",
@@ -45,6 +45,21 @@
    "title": "合同の証明 レベル1・2（木曜用）こたえ",
    "pages": 3,
    "note": "証明の全文つき",
+   "ans": true
+  },
+  {
+   "file": "c2_teiki_ichiji_riyou_thu.pdf",
+   "step": "c2-ichiji-riyou",
+   "title": "定期テスト対策 一次関数の利用（木曜用）",
+   "pages": 4,
+   "note": "A3で印刷する想定。1ページ＝1パターン（計4パターン）。左＝［1］速さ（ダイヤグラム）・［2］動点（長方形の辺上を動く点P・グラフをかく）／右＝［3］グラフと面積（2直線と三角形）"
+  },
+  {
+   "file": "c2_teiki_ichiji_riyou_thu_ans.pdf",
+   "step": "c2-ichiji-riyou",
+   "title": "定期テスト対策 一次関数の利用（木曜用）こたえ",
+   "pages": 4,
+   "note": "途中の式つき・動点のグラフ入り",
    "ans": true
   }
  ]
