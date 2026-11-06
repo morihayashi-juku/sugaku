@@ -1,5 +1,219 @@
 {
  "_memo": "教材ライブラリ（高2）：高2のプリントはすべてここに1回だけ書く。step は data/common.json のステップ id。こたえは ans: true。組の JSON からは file 名で呼ぶ。ファイル名は k2_ から始める。このファイルは高2の作成チャットだけが書く。",
- "updated": "2026-11-03",
- "items": []
+ "updated": "2026-11-06",
+ "items": [
+  {
+   "file": "k2_heimen_ten.pdf",
+   "step": "k2-zukei-ten",
+   "title": "平面上の点 練習問題",
+   "pages": 4,
+   "note": "1 象限／2 対称な点／3 2点間の距離／4 内分点・外分点（4ページ）"
+  },
+  {
+   "file": "k2_chokusen_ten.pdf",
+   "step": "k2-zukei-ten",
+   "title": "直線上の点 練習問題",
+   "pages": 4,
+   "note": "1 2点間の距離／2 内分・外分の比／3 図示／4 座標（4ページ）"
+  },
+  {
+   "file": "k2_chokusen_ten_ans.pdf",
+   "step": "k2-zukei-ten",
+   "title": "直線上の点 練習問題 こたえ",
+   "pages": 2,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "k2_naibun_suuchokusen_A.pdf",
+   "step": "k2-zukei-ten",
+   "title": "数直線の内分点・外分点 A",
+   "pages": 4,
+   "note": "1 内分点・中点／2 外分点／3・4 練習（4ページ）"
+  },
+  {
+   "file": "k2_naibun_suuchokusen_B.pdf",
+   "step": "k2-zukei-ten",
+   "title": "数直線の内分点・外分点 B",
+   "pages": 4,
+   "note": "Aと同じ形・別の問題"
+  },
+  {
+   "file": "k2_naibun_gaibun.pdf",
+   "step": "k2-zukei-ten",
+   "title": "内分点・外分点の座標（数直線→平面）",
+   "pages": 4,
+   "note": "1 数直線上／2 平面上の内分点・中点／3 平面上の外分点／4 まとめ"
+  },
+  {
+   "file": "k2_ruijoukon_drill.pdf",
+   "step": "k2-shisuu-shisuu",
+   "title": "累乗根 基本ドリル（2回分）",
+   "pages": 2,
+   "note": "第1回 平方根・3乗根／第2回 4乗根など"
+  },
+  {
+   "file": "k2_ruijoukon_drill_ans.pdf",
+   "step": "k2-shisuu-shisuu",
+   "title": "累乗根 基本ドリル こたえ",
+   "pages": 2,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "k2_shisuu_drill_A.pdf",
+   "step": "k2-shisuu-shisuu",
+   "title": "指数の計算 反復ドリル（4回分）",
+   "pages": 4,
+   "note": "1ページ＝1回。0乗・負の指数／累乗根／有理数の指数で表す／有理数の指数の値"
+  },
+  {
+   "file": "k2_shisuu_drill_A_ans.pdf",
+   "step": "k2-shisuu-shisuu",
+   "title": "指数の計算 反復ドリル こたえ",
+   "pages": 3,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "k2_shisuu_drill_B.pdf",
+   "step": "k2-shisuu-shisuu",
+   "title": "指数の計算 反復ドリル B（4回分）",
+   "pages": 4,
+   "note": "上と同じ形・別の問題"
+  },
+  {
+   "file": "k2_shisuu_drill_B_ans.pdf",
+   "step": "k2-shisuu-shisuu",
+   "title": "指数の計算 反復ドリル B こたえ",
+   "pages": 3,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "k2_shisuu_drill_B_123.pdf",
+   "step": "k2-shisuu-shisuu",
+   "title": "指数の計算 反復ドリル B【1】【2】【3】",
+   "pages": 2,
+   "note": "A面・B面（各32問×3）"
+  },
+  {
+   "file": "k2_shisuu_drill_B_123_ans.pdf",
+   "step": "k2-shisuu-shisuu",
+   "title": "指数の計算 反復ドリル B【1】【2】【3】こたえ",
+   "pages": 2,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "k2_shisuu_drill_B_13.pdf",
+   "step": "k2-shisuu-shisuu",
+   "title": "指数の計算 反復ドリル B【1】【3】",
+   "pages": 2,
+   "note": "A面・B面（各32問×2）。0乗・負の指数と有理数の指数"
+  },
+  {
+   "file": "k2_shisuu_drill_B_13_ans.pdf",
+   "step": "k2-shisuu-shisuu",
+   "title": "指数の計算 反復ドリル B【1】【3】こたえ",
+   "pages": 1,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "k2_shisuu_drill_E_13.pdf",
+   "step": "k2-shisuu-shisuu",
+   "title": "指数の計算 反復ドリル E【1】【3】",
+   "pages": 2,
+   "note": "B【1】【3】と同じ形・別の問題"
+  },
+  {
+   "file": "k2_shisuu_drill_E_13_ans.pdf",
+   "step": "k2-shisuu-shisuu",
+   "title": "指数の計算 反復ドリル E【1】【3】こたえ",
+   "pages": 1,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "k2_seki_shou_yuuri_shisuu.pdf",
+   "step": "k2-shisuu-shisuu",
+   "title": "積・商を有理数の指数で表す",
+   "pages": 2,
+   "note": "2ページ。こたえなし"
+  },
+  {
+   "file": "k2_shisuu_keisan_A.pdf",
+   "step": "k2-shisuu-shisuu",
+   "title": "指数の計算（指数法則〜指数方程式）",
+   "pages": 2,
+   "note": "指数法則・有理数の指数・大小比較・指数方程式（2ページ）"
+  },
+  {
+   "file": "k2_shisuu_keisan_A_ans.pdf",
+   "step": "k2-shisuu-shisuu",
+   "title": "指数の計算 こたえ",
+   "pages": 1,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "k2_shisuu_keisan_C.pdf",
+   "step": "k2-shisuu-shisuu",
+   "title": "指数の計算［C］",
+   "pages": 2,
+   "note": "上と同じ形・別の問題。こたえなし"
+  },
+  {
+   "file": "k2_taisuu_kakikae.pdf",
+   "step": "k2-shisuu-taisuu",
+   "title": "対数 書きかえ（指数⇄対数）",
+   "pages": 2,
+   "note": "① 指数→対数／② 対数→指数。こたえなし"
+  },
+  {
+   "file": "k2_taisuu_teigi.pdf",
+   "step": "k2-shisuu-taisuu",
+   "title": "対数の定義・対数の値",
+   "pages": 2,
+   "note": "① 指数⇄対数／② 対数の値を求める"
+  },
+  {
+   "file": "k2_taisuu_teigi_ans.pdf",
+   "step": "k2-shisuu-taisuu",
+   "title": "対数の定義・対数の値 こたえ",
+   "pages": 2,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "k2_shisuu_taisuu_kiso.pdf",
+   "step": "k2-shisuu-matome",
+   "title": "指数関数・対数関数 基礎ワーク",
+   "pages": 4,
+   "note": "1 指数の計算／2 指数関数（グラフ・方程式・不等式）／3 対数の計算／4 対数関数（4ページ）"
+  },
+  {
+   "file": "k2_shisuu_taisuu_kiso_ans.pdf",
+   "step": "k2-shisuu-matome",
+   "title": "指数関数・対数関数 基礎ワーク こたえ",
+   "pages": 3,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "k2_kouji_shisuu_taisuu.pdf",
+   "step": "k2-shisuu-matome",
+   "title": "高次方程式・指数関数・対数関数（12ページ）",
+   "pages": 12,
+   "note": "高次方程式①〜④／指数関数①〜④（有理数の指数・累乗根・方程式・不等式）／対数関数①〜④。こたえなし"
+  },
+  {
+   "file": "k2_kouji_shoutest2.pdf",
+   "step": "k2-fukuso-kouji",
+   "title": "小テスト② 高次方程式",
+   "pages": 1,
+   "note": "9点満点・7点以上合格（1ページ）。こたえなし"
+  }
+ ]
 }

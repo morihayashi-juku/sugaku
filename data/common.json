@@ -649,6 +649,10 @@
    "grade": "高1",
    "steps": [
     {
+     "id": "k1-niji-matome",
+     "name": "二次関数のまとめ"
+    },
+    {
      "id": "k1-niji-graph",
      "name": "グラフ・平行移動"
     },
@@ -770,6 +774,21 @@
    ]
   },
   {
+   "id": "k1-fukushuu",
+   "grade": "高1",
+   "name": "復習・テスト対策（数学Ⅰ）",
+   "steps": [
+    {
+     "id": "k1-fukushuu-review",
+     "name": "数学Ⅰの復習プリント"
+    },
+    {
+     "id": "k1-fukushuu-exam",
+     "name": "定期テスト型（中間考査）"
+    }
+   ]
+  },
+  {
    "id": "k2-shiki",
    "name": "式と証明（数学Ⅱ）",
    "grade": "高2",
@@ -881,6 +900,10 @@
     {
      "id": "k2-shisuu-jouyou",
      "name": "常用対数"
+    },
+    {
+     "id": "k2-shisuu-matome",
+     "name": "指数・対数のまとめ"
     }
    ]
   },

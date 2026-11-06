@@ -98,6 +98,7 @@
 - 先生の Mac の Downloads/中学数学 にあった中1〜中3のプリント（147ファイル）を、教材ライブラリの単元・ステップに振り分けて入れた。組の回（sets）にはまだ入れていない（使うときに回から file 名で呼ぶ）。
 - 名前は学年の接頭辞つきの英数字に直した（中1も別のチャットとかぶらないよう `c1_` を付けた）。
 - このとき足したステップ：中1「計算のまとめ」`c1mix-keisan`・「学力・習熟度チェック」`c1check-check`、中2 `c2-ichiji-dainyu`（代入マスター）・`c2check-check`、中3 `c3-niji-miwake`・`c3-teiki-tenkai-heihou`・`c3-nyushi-sou`（総復習プリント）・`c3-nyushi-sakusen`（作戦プリント）・`c3check-check`。
+- 同じ日に Downloads の「高校数学」（57ファイル）も入れた：数学Ⅰ→`library-k1.json`（`k1_`）、数学Ⅱ→`library-k2.json`（`k2_`）。足したステップ：`k1-niji-matome`、高1の単元「復習・テスト対策」`k1-fukushuu-review`・`k1-fukushuu-exam`、`k2-shisuu-matome`。三角比の説明カンペ（先生用）は `k1-keiryou-teigi` に置いた。
 
 ## 公開
 - GitHub Pages：main ブランチの / (root)。URL は https://morihayashi-juku.github.io/sugaku/

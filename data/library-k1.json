@@ -1,5 +1,210 @@
 {
  "_memo": "教材ライブラリ（高1）：高1のプリントはすべてここに1回だけ書く。step は data/common.json のステップ id。こたえは ans: true。組の JSON からは file 名で呼ぶ。ファイル名は k1_ から始める。このファイルは高1の作成チャットだけが書く。",
- "updated": "2026-11-03",
- "items": []
+ "updated": "2026-11-06",
+ "items": [
+  {
+   "file": "k1_niji_matome_kiso.pdf",
+   "step": "k1-niji-matome",
+   "title": "二次関数 まとめプリント（基礎）",
+   "pages": 7,
+   "note": "① 頂点・軸／② 平行移動／③ 平方完成／④ 最大・最小／⑤ 定義域つき・応用／⑥ x軸との共有点／⑦ 二次不等式（7ページ）"
+  },
+  {
+   "file": "k1_niji_matome_kiso_ans.pdf",
+   "step": "k1-niji-matome",
+   "title": "二次関数 まとめプリント（基礎）こたえ",
+   "pages": 1,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "k1_niji_kettei.pdf",
+   "step": "k1-niji-kettei",
+   "title": "二次関数の決定",
+   "pages": 2,
+   "note": "1 頂点・軸から／2 3点から など／3 x軸との交点から（2ページ）"
+  },
+  {
+   "file": "k1_niji_kettei_ans.pdf",
+   "step": "k1-niji-kettei",
+   "title": "二次関数の決定 こたえ",
+   "pages": 1,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "k1_sankakuhi_kanpe_teigi.pdf",
+   "step": "k1-keiryou-teigi",
+   "title": "【先生用カンペ】三角比 定義と有名角",
+   "pages": 5,
+   "note": "① なぜ比で表すか／② 覚え方／③ 有名角を作る／④ 使い方の型／⑤ つまずき・FAQ"
+  },
+  {
+   "file": "k1_sankakuhi_kanpe_zentai.pdf",
+   "step": "k1-keiryou-teigi",
+   "title": "【先生用カンペ】三角比 説明（単元全体）",
+   "pages": 4,
+   "note": "① 鋭角の定義と有名角／② 鈍角への拡張・相互関係／③ 正弦定理・余弦定理・面積／④ 40分の流れ・板書・FAQ"
+  },
+  {
+   "file": "k1_sankakuhi_yuumeikaku_1.pdf",
+   "step": "k1-keiryou-teigi",
+   "title": "三角比の値と有名角 ①",
+   "pages": 6,
+   "note": "1ページ目＝まとめ。問題4ページ＋5・6ページ目がこたえ（同じファイル）"
+  },
+  {
+   "file": "k1_sankakuhi_yuumeikaku_1B.pdf",
+   "step": "k1-keiryou-teigi",
+   "title": "三角比の値と有名角 ①-B（1ページ目だけ）",
+   "pages": 1,
+   "note": "まとめ＋問題の1ページ目の別版"
+  },
+  {
+   "file": "k1_sankakuhi_yuumeikaku_1BC.pdf",
+   "step": "k1-keiryou-teigi",
+   "title": "三角比の値と有名角 ①-B・①-C（1ページ目だけ）",
+   "pages": 2,
+   "note": "1ページ目の別版2つ"
+  },
+  {
+   "file": "k1_sankakuhi_to_yuumeikaku.pdf",
+   "step": "k1-keiryou-teigi",
+   "title": "三角比と有名角（復習）",
+   "pages": 4,
+   "note": "定義のまとめ／三平方で辺を出して三角比／θ を求める／4ページ目＝三角比の表"
+  },
+  {
+   "file": "k1_yuumeikaku.pdf",
+   "step": "k1-keiryou-teigi",
+   "title": "有名角の三角比（30°・45°・60°）",
+   "pages": 2,
+   "note": "2ページ。辺の長さ x を求める問題まで"
+  },
+  {
+   "file": "k1_sougo_kankei.pdf",
+   "step": "k1-keiryou-teigi",
+   "title": "三角比の相互関係",
+   "pages": 2,
+   "note": "sin・cos・tan の1つから残りを求める（2ページ）"
+  },
+  {
+   "file": "k1_sankakuhi_hyou_sokuryou_2.pdf",
+   "step": "k1-keiryou-hyou",
+   "title": "三角比の表と測量 ②",
+   "pages": 7,
+   "note": "1ページ目＝まとめ（2ページ目は白紙）。問題4ページ＋7ページ目がこたえ（同じファイル）"
+  },
+  {
+   "file": "k1_donkaku_0_180.pdf",
+   "step": "k1-keiryou-donkaku",
+   "title": "0°〜180°の三角比",
+   "pages": 4,
+   "note": "半円と動径／180°−θ／cos・tan を求める／残り2つを求める（4ページ）"
+  },
+  {
+   "file": "k1_seigen_yogen.pdf",
+   "step": "k1-keiryou-teiri",
+   "title": "正弦定理・余弦定理",
+   "pages": 4,
+   "note": "1 正弦定理で x／2 外接円の半径／4 余弦定理で x／5 角を求める（4ページ）"
+  },
+  {
+   "file": "k1_seigen_yogen_ans.pdf",
+   "step": "k1-keiryou-teiri",
+   "title": "正弦定理・余弦定理 こたえ",
+   "pages": 1,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "k1_review_1gakki_A.pdf",
+   "step": "k1-fukushuu-review",
+   "title": "数学Ⅰ 1学期 復習プリント",
+   "pages": 4,
+   "note": "① 展開・因数分解／② 実数と根号／③ 1次不等式・平方完成／④ 2次関数（グラフ・最大最小）。こたえなし"
+  },
+  {
+   "file": "k1_review_1gakki_C.pdf",
+   "step": "k1-fukushuu-review",
+   "title": "数学Ⅰ 1学期 復習プリント C",
+   "pages": 4,
+   "note": "上と同じ形・別の問題"
+  },
+  {
+   "file": "k1_review_1gakki_C_ans.pdf",
+   "step": "k1-fukushuu-review",
+   "title": "数学Ⅰ 1学期 復習プリント C こたえ",
+   "pages": 2,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "k1_review_1gakki_sankakuhi.pdf",
+   "step": "k1-fukushuu-review",
+   "title": "数学Ⅰ 1学期 復習プリント（三角比入り）",
+   "pages": 4,
+   "note": "① 展開・因数分解／② 実数と根号／③ 1次不等式／④ 平方完成・三角比"
+  },
+  {
+   "file": "k1_review_1gakki_sankakuhi_ans.pdf",
+   "step": "k1-fukushuu-review",
+   "title": "数学Ⅰ 1学期 復習プリント（三角比入り）こたえ",
+   "pages": 2,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "k1_review_heihoukansei_sankakuhi.pdf",
+   "step": "k1-fukushuu-review",
+   "title": "数学Ⅰ 平方完成・三角比",
+   "pages": 2,
+   "note": "① 平方完成／② 三角比（鋭角）（2ページ）"
+  },
+  {
+   "file": "k1_review_heihoukansei_sankakuhi_ans.pdf",
+   "step": "k1-fukushuu-review",
+   "title": "数学Ⅰ 平方完成・三角比 こたえ",
+   "pages": 1,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "k1_review_suutoshiki_sougo.pdf",
+   "step": "k1-fukushuu-review",
+   "title": "数学Ⅰ 復習プリント（数と式〜三角比の相互関係）",
+   "pages": 4,
+   "note": "1 展開・因数分解・不等式／2 二次関数／3 三角比／4 相互関係（4ページ）。こたえなし"
+  },
+  {
+   "file": "k1_chuukan_exam_F.pdf",
+   "step": "k1-fukushuu-exam",
+   "title": "2学期中間考査型テスト〔F〕（2次関数）",
+   "pages": 2,
+   "note": "A3サイズ・2ページ。関数の式・平方完成・グラフ・最大最小など"
+  },
+  {
+   "file": "k1_chuukan_exam_F_ans.pdf",
+   "step": "k1-fukushuu-exam",
+   "title": "2学期中間考査型テスト〔F〕こたえ（略解）",
+   "pages": 1,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "k1_chuukan_exam_G.pdf",
+   "step": "k1-fukushuu-exam",
+   "title": "2学期中間考査型テスト〔G〕（2次関数）",
+   "pages": 2,
+   "note": "A3サイズ・2ページ。関数の式・平方完成・グラフ・最大最小など"
+  },
+  {
+   "file": "k1_chuukan_exam_G_ans.pdf",
+   "step": "k1-fukushuu-exam",
+   "title": "2学期中間考査型テスト〔G〕こたえ（略解）",
+   "pages": 1,
+   "note": "",
+   "ans": true
+  }
+ ]
 }
