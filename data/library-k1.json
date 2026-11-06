@@ -205,6 +205,21 @@
    "pages": 1,
    "note": "",
    "ans": true
+  },
+  {
+   "file": "k1_keiryou_teiki_1_2.pdf",
+   "step": "k1-fukushuu-exam",
+   "title": "図形と計量 定期考査対策 第1回・第2回",
+   "pages": 4,
+   "note": "第1回・第2回（各2ページ）。答えは解答欄に書きこむ形"
+  },
+  {
+   "file": "k1_keiryou_teiki_1_2_ans.pdf",
+   "step": "k1-fukushuu-exam",
+   "title": "図形と計量 定期考査対策 第1回・第2回 こたえ",
+   "pages": 4,
+   "note": "元のプリントに赤字で答えと途中式を書きこんだもの",
+   "ans": true
   }
  ]
 }
