@@ -1,5 +1,5 @@
 """数学プリントの共通部品（A4・1ページ左右2列×4問＝8問の形と、こたえページ）
-授業・自習のプリントは4ページ（その1〜その4・32問）、こたえは2ページが基本。
+授業・自習のプリントは4ページ（その1〜その4・32問）。こたえは問題と同じ形に赤で書きこむ（4ページ・11/6〜）。
 
   from mathlib import fm, problem_doc, answer_doc, write_pdfs
 
@@ -117,21 +117,39 @@ def head(title, sub="", score=None, date=False, name=True):
             f"<div class=name>{nm}</div></div>")
 
 
-def problem_doc(title, sections, ans_label="答え"):
-    """sections: [{label, sub, tip, probs:[式], scaffold: html か None}]（1つ＝1ページ・8問）"""
+ANS_RED = """
+.ans-tag { color: #d0021b; font-weight: 700; margin-left: 2mm; }
+.ra { color: #d0021b; font-size: 12.5pt; line-height: 1.8; margin-top: 2mm; }
+.ra .katex { font-size: 1.05em; }
+.ansbox .fill { display: inline-block; min-width: 26mm; border-bottom: .8pt solid #111; color: #d0021b; font-weight: 700; text-align: center; }
+"""
+
+
+def problem_doc(title, sections, ans_label="答え", fills=None):
+    """sections: [{label, sub, tip, probs:[式], scaffold: html か None}]（1つ＝1ページ・8問）
+    fills を渡すと「こたえ」：問題と同じ形に、赤で途中式（足場のところ）と答え（答えのらん）を書きこむ（11/6〜 先生の希望）。
+    fills：問題と同じ順の [(途中式の HTML, 答えの HTML)]"""
     pages, n = [], 0
     for sec in sections:
         cells = []
         for p in sec["probs"]:
-            cells.append(f"<div class=q><div class=expr><span class=no>{CIRC[n]}</span>{fm(p)}</div>"
-                         f"{sec.get('scaffold') or ''}"
-                         f"<div class=ansbox>{ans_label} <span class=blank></span></div></div>")
+            if fills:
+                work, final = fills[n]
+                mid = f"<div class=ra>{work}</div>" if work else ""
+                box = f"<div class=ansbox>{ans_label} <span class=fill>{final}</span></div>"
+            else:
+                mid = sec.get('scaffold') or ''
+                box = f"<div class=ansbox>{ans_label} <span class=blank></span></div>"
+            cells.append(f"<div class=q><div class=expr><span class=no>{CIRC[n]}</span>{fm(p)}</div>{mid}{box}</div>")
             n += 1
         assert len(cells) == 8, f"{sec['label']}: 問題は8個（{len(cells)}個）"
-        pages.append(f"""<div class=page>{head(title + ' ' + sec['label'], sec.get('sub', ''), score=8)}
+        hd = (head(title + ' ' + sec['label'] + "<span class=ans-tag>こたえ</span>", sec.get('sub', ''), name=False) if fills
+              else head(title + ' ' + sec['label'], sec.get('sub', ''), score=8))
+        pages.append(f"""<div class=page>{hd}
 <div class=tip>{sec['tip']}</div>
 <div class=grid><div class=col>{''.join(cells[:4])}</div><div class=col>{''.join(cells[4:])}</div></div></div>""")
-    return f"<html><head><meta charset=utf-8><style>{CSS}</style></head><body>{''.join(pages)}</body></html>"
+    css = CSS + (ANS_RED if fills else "")
+    return f"<html><head><meta charset=utf-8><style>{css}</style></head><body>{''.join(pages)}</body></html>"
 
 
 def answer_doc(title, sections, order="col", pages=None):
@@ -207,12 +225,10 @@ def calc_docs(title, secs, probs, fname, scaffold="", nonneg=False):
             ans.append(int(v))
     prob = problem_doc(title, [{"label": l, "sub": sub, "tip": tip, "scaffold": scaffold, "probs": [q for q, _ in sec]}
                                for (l, sub, tip), sec in zip(secs, probs)])
-    rows = []
-    for i, (q, steps) in enumerate(flat):
-        mid = "".join(f"<span class=st>{fm('=' + s)}</span>　" for s in steps)
-        rows.append(f"<div class=a>{CIRC[i]}　{fm(q)}<br>{mid}<span class=res>{fmb("=" + str(ans[i]))}</span></div>")
-    asecs = [{"label": f"{l}　{sub}", "rows": rows[k * 8:(k + 1) * 8]} for k, (l, sub, _) in enumerate(secs)]
-    ansh = answer_doc(title, asecs, pages=[len(secs) // 2] if len(secs) > 2 else None)
+    # こたえ：問題と同じ形に赤で書きこむ（途中式の欄に途中式、答えのらんに答え）
+    fills = [("<br>".join(fm("=" + s_) for s_ in steps), fm(str(a))) for (q, steps), a in zip(flat, ans)]
+    ansh = problem_doc(title, [{"label": l, "sub": sub, "tip": tip, "scaffold": scaffold, "probs": [q for q, _ in sec]}
+                               for (l, sub, tip), sec in zip(secs, probs)], fills=fills)
     return [(prob, f"{fname}.pdf"), (ansh, f"{fname}_ans.pdf")], ans
 
 

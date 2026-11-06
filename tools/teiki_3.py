@@ -9,7 +9,7 @@
 from fractions import Fraction as Fr
 
 from teiki_2 import EXTRA, fs, hanpi_shiki, hirei_shiki, table, tvals
-from teiki_lib import graph, t, worksheet
+from teiki_lib import coords, graph, t, worksheet
 from mathlib import write_pdfs
 
 
@@ -19,7 +19,7 @@ def use(q, shiki, val_q, val_a, checks=()):
 
 
 def wp(q, eq, ans, what, ans_text):
-    return {"q": q, "eq": (eq, ans), "a": f"{what}を {t('x')} とすると {t(eq)}　答え <b>{ans_text}</b>",
+    return {"q": q, "eq": (eq, ans), "fa": ans_text, "a": f"{what}を {t('x')} とすると {t(eq)}",
             "sc": f"{t('x')} を何にする？<span class=bl></span>"}
 
 
@@ -76,14 +76,15 @@ UN = [
 
 
 def ek(eq, ans):
-    return {"q": t(eq), "eq": (eq, ans), "albl": t("x="), "a": f"<b>{t('x=' + str(ans))}</b>",
+    return {"q": t(eq), "eq": (eq, ans), "albl": t("x="), "fa": t(str(ans)), "noa": True, "a": f"<b>{t('x=' + str(ans))}</b>",
             "sc": f"{t('=')}<span class=bl></span><br>{t('=')}<span class=bl></span>"}
 
 
 def wk(q, eq, ans):
-    return {"q": q, "eq": (eq, ans), "albl": t("x="), "sc": "方程式：<span class=bl></span>", "a": f"{t(eq)}　→　<b>{t('x=' + str(ans))}</b>"}
+    return {"q": q, "eq": (eq, ans), "albl": t("x="), "sc": "方程式：<span class=bl></span>", "fa": t(str(ans)), "a": f"方程式：{t(eq)}"}
 
 
+PK3 = [(1, 4, "A"), (-3, 3, "B"), (-2, -4, "C"), (4, -2, "D")]
 K = [
     ("その1", "方程式", f"ポイント：数を反対側に移すと<b>符号が変わる</b>。最後に {t('x')} の前の数で<b>わる</b>。{t('x')} が両側にあるときは、{t('x')} を左に集める。", [
         ek("x+8=15", 7), ek("x-6=4", 10), ek("5x=35", 7), ek("3x+2=17", 5),
@@ -108,10 +109,10 @@ K = [
         {"q": f"{t('y={12|x}')} で、{t('x=3')} のときの {t('y')} の値を求めなさい。", "albl": t("y="), "a": f"<b>{t('4')}</b>", "checks": [12 // 3 == 4]},
     ]),
     ("その4", "座標・表・見分け", f"ポイント：座標は ({t('x')}, {t('y')}) の順。{t('y=ax')} なら比例、{t('y={a|x}')} なら反比例。", [
-        {"q": "図の点 A〜D の座標を書きなさい。<br>A（　,　）B（　,　）<br>C（　,　）D（　,　）", "fig": graph(pts=[(1, 4, "A"), (-3, 3, "B"), (-2, -4, "C"), (4, -2, "D")], size=40), "albl": "",
+        {"q": "図の点 A〜D の座標を書きなさい。<br>" + coords(PK3), "fig": graph(pts=PK3, size=40), "albl": "", "noa": True,
          "a": "<b>A(1, 4)、B(−3, 3)、C(−2, −4)、D(4, −2)</b>"},
-        {"q": f"{t('y=4x')} で、表をうめなさい。" + table([1, 2, 3, 4, 5]), "albl": "", "a": "<b>" + tvals(lambda x: 4 * x, [1, 2, 3, 4, 5]) + "</b>"},
-        {"q": f"{t('y={12|x}')} で、表をうめなさい。" + table([1, 2, 3, 4, 6]), "albl": "", "a": "<b>" + tvals(lambda x: Fr(12, x), [1, 2, 3, 4, 6]) + "</b>"},
+        {"q": f"{t('y=4x')} で、表をうめなさい。" + table([1, 2, 3, 4, 5], lambda x: 4 * x), "noa": True, "albl": "", "a": "<b>" + tvals(lambda x: 4 * x, [1, 2, 3, 4, 5]) + "</b>"},
+        {"q": f"{t('y={12|x}')} で、表をうめなさい。" + table([1, 2, 3, 4, 6], lambda x: Fr(12, x)), "noa": True, "albl": "", "a": "<b>" + tvals(lambda x: Fr(12, x), [1, 2, 3, 4, 6]) + "</b>"},
         *[{"q": f"{t(f)} は、比例・反比例のどちらですか。○でかこみなさい。<br>（比例・反比例）", "albl": "", "a": f"<b>{k}</b>"}
           for f, k in [("y=7x", "比例"), ("y={10|x}", "反比例")]],
         {"q": f"1本50円のペンを {t('x')} 本買ったときの代金を {t('y')} 円とします。式を書いて、比例・反比例のどちらか○でかこみなさい。（比例・反比例）",

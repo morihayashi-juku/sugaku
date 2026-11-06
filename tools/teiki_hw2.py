@@ -10,9 +10,9 @@
 """
 from fractions import Fraction as Fr
 
-from teiki_2 import hanpi_shiki, hirei_shiki, tvals
-from teiki_hw1 import K_RULE, UN_RULE, table
-from teiki_lib import answers, graph, hw_notebook, hw_writein, t
+from teiki_2 import hanpi_shiki, hirei_shiki
+from teiki_hw1 import K_RULE, UN_RULE
+from teiki_lib import coords, graph, hw_notebook, hw_writein, t, table, tvals
 from mathlib import write_pdfs
 
 
@@ -38,10 +38,10 @@ UN = [
         use(f"36kmの道のりを時速 {t('x')} kmで進むと {t('y')} 時間かかります。{t('y')} を {t('x')} の式で表しなさい。また、4時間で着くには時速何kmで進めばよいですか。", "y={36|x}", "時速9km", [Fr(36, 4) == 9]),
     ]),
     ("日", f"比例は <b>原点を通る直線</b>（{t('a')}＝{t('y')}÷{t('x')}）、反比例は <b>双曲線</b>（{t('a')}＝{t('x')}×{t('y')}）。通る点を読む。", [
-        {"q": f"図のグラフの式を求めなさい。", "fig": graph(line=-2, pts=[(2, -4, "")], size=34), "a": f"(2, −4) を通る比例　<b>{t('y=-2x')}</b>"},
-        {"q": f"図のグラフの式を求めなさい。", "fig": graph(hyper=-8, pts=[(2, -4, "")], size=34), "a": f"(2, −4) を通る反比例　<b>{t('y=-{8|x}')}</b>"},
-        {"q": f"図のグラフの式を求めなさい。", "fig": graph(line=Fr(1, 3), pts=[(3, 1, "")], size=34), "a": f"(3, 1) を通る比例　<b>{t('y={1|3}x')}</b>"},
-        {"q": f"図のグラフの式を求めなさい。", "fig": graph(hyper=10, pts=[(2, 5, "")], size=34), "a": f"(2, 5) を通る反比例　<b>{t('y={10|x}')}</b>"},
+        {"q": f"図のグラフの式を求めなさい。", "fig": graph(line=-2, pts=[(2, -4, "")], size=34), "fa": t('y=-2x'), "noa": True, "a": f"(2, −4) を通る比例　<b>{t('y=-2x')}</b>"},
+        {"q": f"図のグラフの式を求めなさい。", "fig": graph(hyper=-8, pts=[(2, -4, "")], size=34), "fa": t('y=-{8|x}'), "noa": True, "a": f"(2, −4) を通る反比例　<b>{t('y=-{8|x}')}</b>"},
+        {"q": f"図のグラフの式を求めなさい。", "fig": graph(line=Fr(1, 3), pts=[(3, 1, "")], size=34), "fa": t('y={1|3}x'), "noa": True, "a": f"(3, 1) を通る比例　<b>{t('y={1|3}x')}</b>"},
+        {"q": f"図のグラフの式を求めなさい。", "fig": graph(hyper=10, pts=[(2, 5, "")], size=34), "fa": t('y={10|x}'), "noa": True, "a": f"(2, 5) を通る反比例　<b>{t('y={10|x}')}</b>"},
     ]),
     ("月", f"何を {t('x')} にするかを決めて、等しい関係を方程式に。比例式は 外側の積＝内側の積。", [
         eqp("ある数の3倍から4をひいた数は、ある数に10をたした数と等しくなります。ある数を求めなさい。", "3x-4=x+10", 7,
@@ -66,9 +66,10 @@ UN = [
 
 
 def eqk(q, eq, ans, albl=None):
-    return {"q": q, "eq": (eq, ans), "a": f"{t(eq)}　→　<b>{t('x=' + str(ans))}</b>", "albl": albl or t("x=")}
+    return {"q": q, "eq": (eq, ans), "a": f"{t(eq)}", "fa": t(str(ans)), "albl": albl or t("x="), "noa": q == t(eq)}
 
 
+PH2 = [(4, 2, "A"), (-1, 4, "B"), (-3, -3, "C"), (2, -5, "D")]
 K = [
     ("金", f"数を反対側に移すと<b>符号が変わる</b>。最後に {t('x')} の前の数で<b>わる</b>。　例）{t('2x+3=13')} → {t('2x=10')} → {t('x=5')}", [
         eqk(t("x+4=13"), "x+4=13", 9), eqk(t("x-7=5"), "x-7=5", 12),
@@ -76,9 +77,9 @@ K = [
         eqk(t("4x-2=14"), "4x-2=14", 4), eqk(t("5x+1=21"), "5x+1=21", 4),
     ]),
     ("土", f"比例 {t('y=ax')}：{t('x')} に {t('a')} を<b>かける</b>と {t('y')}。式の {t('a')} は {t('y')}÷{t('x')}。", [
-        {"q": f"{t('y=5x')} で、表のあいているところをうめなさい。" + table([1, 2, 3, 4, 5]), "full": True, "albl": "",
+        {"q": f"{t('y=5x')} で、表のあいているところをうめなさい。" + table([1, 2, 3, 4, 5], lambda x: 5 * x), "full": True, "noa": True, "albl": "",
          "a": "表：" + tvals(lambda x: 5 * x, [1, 2, 3, 4, 5])},
-        {"q": f"{t('y=-4x')} で、表のあいているところをうめなさい。" + table([-2, -1, 0, 1, 2]), "full": True, "albl": "",
+        {"q": f"{t('y=-4x')} で、表のあいているところをうめなさい。" + table([-2, -1, 0, 1, 2], lambda x: -4 * x), "full": True, "noa": True, "albl": "",
          "a": "表：" + tvals(lambda x: -4 * x, [-2, -1, 0, 1, 2])},
         {"q": f"{t('y')} は {t('x')} に比例し、{t('x=3')} のとき {t('y=18')} です。式を書きなさい。", "albl": t("y="),
          "a": f"{t('18')}÷{t('3=6')}　→　<b>{t(hirei_shiki(6))}</b>", "checks": [Fr(18, 3) == 6]},
@@ -86,9 +87,9 @@ K = [
          "a": f"{t('-12')}÷{t('4=-3')}　→　<b>{t(hirei_shiki(-3))}</b>", "checks": [Fr(-12, 4) == -3]},
     ]),
     ("日", f"反比例 {t('y={a|x}')}：{t('a')} を {t('x')} で<b>わる</b>と {t('y')}。式の {t('a')} は {t('x')}×{t('y')}。", [
-        {"q": f"{t('y={24|x}')} で、表のあいているところをうめなさい。" + table([1, 2, 3, 4, 6, 8]), "full": True, "albl": "",
+        {"q": f"{t('y={24|x}')} で、表のあいているところをうめなさい。" + table([1, 2, 3, 4, 6, 8], lambda x: Fr(24, x)), "full": True, "noa": True, "albl": "",
          "a": "表：" + tvals(lambda x: Fr(24, x), [1, 2, 3, 4, 6, 8])},
-        {"q": f"{t('y={30|x}')} で、表のあいているところをうめなさい。" + table([1, 2, 3, 5, 6]), "full": True, "albl": "",
+        {"q": f"{t('y={30|x}')} で、表のあいているところをうめなさい。" + table([1, 2, 3, 5, 6], lambda x: Fr(30, x)), "full": True, "noa": True, "albl": "",
          "a": "表：" + tvals(lambda x: Fr(30, x), [1, 2, 3, 5, 6])},
         {"q": f"{t('y')} は {t('x')} に反比例し、{t('x=2')} のとき {t('y=7')} です。式を書きなさい。", "albl": t("y="),
          "a": f"{t('2*7=14')}　→　<b>{t(hanpi_shiki(14))}</b>"},
@@ -96,10 +97,10 @@ K = [
          "a": f"{t('5*4=20')}　→　<b>{t(hanpi_shiki(20))}</b>"},
     ]),
     ("月", f"座標は ({t('x')}, {t('y')}) の順。{t('x')} は右が＋・左が−、{t('y')} は上が＋・下が−。", [
-        {"q": "図の点 A〜D の座標を書きなさい。<br>A（　　,　　）　B（　　,　　）<br>C（　　,　　）　D（　　,　　）", "albl": "",
-         "fig": graph(pts=[(4, 2, "A"), (-1, 4, "B"), (-3, -3, "C"), (2, -5, "D")], size=62),
+        {"q": "図の点 A〜D の座標を書きなさい。<br>" + coords(PH2), "albl": "", "noa": True,
+         "fig": graph(pts=PH2, size=62),
          "a": "<b>A(4, 2)、B(−1, 4)、C(−3, −3)、D(2, −5)</b>"},
-        {"q": "次の点を、図にかき入れなさい。<br>E(−4, 3)　F(3, −2)　G(−5, 0)", "albl": "", "fig": graph(size=62),
+        {"q": "次の点を、図にかき入れなさい。<br>E(−4, 3)　F(3, −2)　G(−5, 0)", "albl": "", "noa": True, "fig": graph(size=62, ans_pts=[(-4, 3, "E"), (3, -2, "F"), (-5, 0, "G")]),
          "a": "E は左へ4・上へ3、F は右へ3・下へ2、G は左へ5（" + t("x") + " 軸の上）"},
         {"q": f"点 (4, −2) の {t('y')} 座標を書きなさい。", "albl": "答え", "a": "<b>−2</b>"},
         {"q": f"{t('x')} 軸の上にある点を選びなさい。<br>ア (0, 3)　イ (5, 0)　ウ (2, 2)", "albl": "答え", "a": f"<b>イ</b>（{t('y')} 座標が0）"},
@@ -121,7 +122,7 @@ TITLE_K = "テスト対策　宿題2"
 
 if __name__ == "__main__":
     un = hw_notebook(TITLE_UN, UN, UN_RULE)
-    un_a = answers(TITLE_UN, [(f"{k + 1}日目（{d[0]}）", d[2]) for k, d in enumerate(UN)], per_page=6)
+    un_a = hw_notebook(TITLE_UN, UN, UN_RULE, answer=True)
     k = hw_writein(TITLE_K, K, K_RULE)
-    k_a = answers(TITLE_K, [(f"{i + 1}日目（{d[0]}）", d[2]) for i, d in enumerate(K)], per_page=6)
+    k_a = hw_writein(TITLE_K, K, K_RULE, answer=True)
     write_pdfs([(un, "teiki_hw2_un.pdf"), (un_a, "teiki_hw2_un_ans.pdf"), (k, "teiki_hw2_k.pdf"), (k_a, "teiki_hw2_k_ans.pdf")])

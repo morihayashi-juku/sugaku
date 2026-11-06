@@ -9,7 +9,7 @@
 - (式, [途中式]) は Python で計算できる書き方（* と /）。答え・途中式を確かめる。左の列は途中もマイナスにならないか確かめる。
 - 出力：pdf/seifu_hw1.pdf・pdf/seifu_hw1_ans.pdf（次の週は HW_NO と DAYS を書きかえて seifu_hw2）
 """
-from mathlib import CIRC, CSS, answer_doc, fm, fmb, head, tex, write_pdfs
+from mathlib import ANS_RED, CIRC, CSS, fm, head, tex, write_pdfs
 
 HW_NO = 1
 # (曜日, 左のポイント, 左4問, 右の見出し, 右のポイント, 右4問)
@@ -69,35 +69,40 @@ def check():
             assert eval(q) >= 0 and all(eval(s) >= 0 for s in steps), (youbi, "左の列は正の数だけ", q)
 
 
-def cell(no, q):
-    return (f"<div class=q><div class=expr><span class=no>{CIRC[no]}</span>{fm(q)}</div>{SCAF}"
-            f"<div class=ansbox>答え <span class=blank></span></div></div>")
+def cell(no, q, steps=None):
+    """steps を渡すと「こたえ」：途中式と答えを赤で書きこむ"""
+    if steps is None:
+        return (f"<div class=q><div class=expr><span class=no>{CIRC[no]}</span>{fm(q)}</div>{SCAF}"
+                f"<div class=ansbox>答え <span class=blank></span></div></div>")
+    work = "<br>".join(fm("=" + s_) for s_ in steps)
+    return (f"<div class=q><div class=expr><span class=no>{CIRC[no]}</span>{fm(q)}</div>"
+            f"{('<div class=ra>' + work + '</div>') if work else ''}"
+            f"<div class=ansbox>答え <span class=fill>{fm(str(int(eval(q))))}</span></div></div>")
 
 
-def build():
-    check()
+def pages_html(answer):
     pages = []
     for d, (youbi, lp, left, rt, rp, right) in enumerate(DAYS):
-        L = "".join(cell(j, q) for j, (q, _) in enumerate(left))
-        R = "".join(cell(4 + j, q) for j, (q, _) in enumerate(right))
-        pages.append(f"""<div class=page>{head(f'正負の数　宿題 {HW_NO}', f'{d + 1}日目（{youbi}）・1日8問', score=8, date=True)}
+        L = "".join(cell(j, q, steps if answer else None) for j, (q, steps) in enumerate(left))
+        R = "".join(cell(4 + j, q, steps if answer else None) for j, (q, steps) in enumerate(right))
+        title = f'正負の数　宿題 {HW_NO}'
+        hd = (head(title + "<span class=ans-tag>こたえ</span>", f'{d + 1}日目（{youbi}）', name=False) if answer
+              else head(title, f'{d + 1}日目（{youbi}）・1日8問', score=8, date=True))
+        pages.append(f"""<div class=page>{hd}
 {RULE if d == 0 else ''}
 <div class=band>{d + 1}日目（{youbi}）<span class=sp><span class=ck>丸つけした</span></span></div>
 <div class=grid>
  <div class=col><div class=ch><span class=t>計算の順序（×÷が先）</span>ポイント：{lp}</div>{L}</div>
  <div class=col><div class=ch><span class=t>正負の数　{rt}</span>ポイント：{rp}</div>{R}</div>
 </div></div>""")
-    prob = f"<html><head><meta charset=utf-8><style>{CSS}{EXTRA}</style></head><body>{''.join(pages)}</body></html>"
-    secs = []
-    for d, (youbi, _, left, rt, _, right) in enumerate(DAYS):
-        rows = []
-        for j, (q, steps) in enumerate(left + right):
-            mid = "".join(f"<span class=st>{fm('=' + s)}</span>　" for s in steps)
-            rows.append(f"<div class=a>{CIRC[j]}　{fm(q)}<br>{mid}<span class=res>{fmb('=' + str(int(eval(q))))}</span></div>")
-        secs.append({"label": f"{d + 1}日目（{youbi}）　左：計算の順序／右：{rt}", "rows": rows})
-    ansh = answer_doc(f"正負の数　宿題 {HW_NO}", secs, pages=[3])
-    ansh = ansh.replace("</style>", ".agrid{margin-top:2mm}.sec{margin:2.5mm 0 .5mm}.a{padding:1.2mm 0;font-size:11pt}</style>", 1)
-    return [(prob, f"seifu_hw{HW_NO}.pdf"), (ansh, f"seifu_hw{HW_NO}_ans.pdf")]
+    css = CSS + EXTRA + (ANS_RED if answer else "")
+    return f"<html><head><meta charset=utf-8><style>{css}</style></head><body>{''.join(pages)}</body></html>"
+
+
+def build():
+    """問題と、こたえ（問題と同じ形に赤で書きこむ・11/6〜）"""
+    check()
+    return [(pages_html(False), f"seifu_hw{HW_NO}.pdf"), (pages_html(True), f"seifu_hw{HW_NO}_ans.pdf")]
 
 
 if __name__ == "__main__":

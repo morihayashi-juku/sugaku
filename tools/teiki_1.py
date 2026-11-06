@@ -15,13 +15,13 @@ X_IS = lambda what: f"{what}を {t('x')} とすると"  # noqa: E731
 
 def wp(q, eq, ans, what, ans_text, albl="答え"):
     """文章題：q 問題文、eq 方程式、ans x の値、what 何を x にしたか、ans_text 答え（単位つき）"""
-    return {"q": q, "eq": (eq, ans), "albl": albl, "a": f"{X_IS(what)} {t(eq)}　答え <b>{ans_text}</b>",
+    return {"q": q, "eq": (eq, ans), "albl": albl, "fa": ans_text, "a": f"{X_IS(what)} {t(eq)}",
             "sc": f"{t('x')} を何にする？<span class=bl></span>"}
 
 
 def hp(eq, ans):
     """比例式の計算"""
-    return {"q": f"{t(eq)}", "eq": (eq, ans), "albl": t("x="), "a": f"<b>{t('x=' + str(ans))}</b>"}
+    return {"q": f"{t(eq)}", "eq": (eq, ans), "albl": t("x="), "fa": t(str(ans)), "noa": True, "a": f"<b>{t('x=' + str(ans))}</b>"}
 
 
 UN = [
@@ -66,13 +66,13 @@ UN = [
 
 
 def ek(eq, ans):
-    return {"q": t(eq), "eq": (eq, ans), "albl": t("x="), "a": f"<b>{t('x=' + str(ans))}</b>",
+    return {"q": t(eq), "eq": (eq, ans), "albl": t("x="), "fa": t(str(ans)), "noa": True, "a": f"<b>{t('x=' + str(ans))}</b>",
             "sc": f"{t('=')}<span class=bl></span><br>{t('=')}<span class=bl></span>"}
 
 
 def wk(q, eq, ans, form=None):
     sc = (f"式の形：{form}<br>" if form else "") + f"方程式：<span class=bl></span>"
-    return {"q": q, "eq": (eq, ans), "albl": t("x="), "sc": sc, "a": f"{t(eq)}　→　<b>{t('x=' + str(ans))}</b>"}
+    return {"q": q, "eq": (eq, ans), "albl": t("x="), "sc": sc, "fa": t(str(ans)), "a": f"方程式：{t(eq)}"}
 
 
 K = [

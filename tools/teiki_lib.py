@@ -58,8 +58,9 @@ def check_all(probs, tag=""):
 
 
 # ------------------------------------------------------------ グラフ
-def graph(R=5, line=None, hyper=None, pts=(), size=46, labels=True, grid=True):
-    """line=Fraction（比例 y=ax の a）、hyper=a（反比例 y=a/x）、pts=[(x, y, 名前)]"""
+def graph(R=5, line=None, hyper=None, pts=(), size=46, labels=True, grid=True, ans_line=None, ans_hyper=None, ans_pts=()):
+    """line=Fraction（比例 y=ax の a）、hyper=a（反比例 y=a/x）、pts=[(x, y, 名前)]
+    ans_line・ans_hyper・ans_pts は「こたえ」にだけ赤で出る（問題では見えない：class hv）"""
     u = 10                                     # 1マス=10（viewBox）
     W = (2 * R + 2) * u
     o = W / 2
@@ -95,27 +96,84 @@ def graph(R=5, line=None, hyper=None, pts=(), size=46, labels=True, grid=True):
             lab = str(k).replace("-", "−")
             s.append(f'<text x="{x0}" y="{o + 7.5}" text-anchor="middle" {nt}>{lab}</text>')
             s.append(f'<text x="{o - 2.5}" y="{y0 + 2.3}" text-anchor="end" {nt}>{lab}</text>')
-    if line is not None:
-        a = Fr(line)
-        xs = R + .4 if abs(a) <= 1 else (R + .4) / abs(a)
-        (x1, y1), (x2, y2) = P(-xs, -a * xs), P(xs, a * xs)
-        s.append(f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="#111" stroke-width="1.4"/>')
-    if hyper is not None:
-        for sgn in (1, -1):
-            pts_ = []
-            n = 160
-            xmin = abs(hyper) / (R + .4)
-            for i in range(n + 1):
-                x = sgn * (xmin + (R + .4 - xmin) * i / n)
-                pts_.append(P(x, hyper / x))
-            s.append('<polyline fill="none" stroke="#111" stroke-width="1.4" points="' + " ".join(f"{a:.2f},{b:.2f}" for a, b in pts_) + '"/>')
-    for (x, y, name) in pts:
-        cx, cy = P(x, y)
-        s.append(f'<circle cx="{cx}" cy="{cy}" r="2" fill="#111"/>')
-        if name:
-            s.append(f'<text x="{cx + 3}" y="{cy - 3}" font-family="Noto Sans CJK JP" font-weight="700" font-size="8">{name}</text>')
+    def curves(line, hyper, pts, col):
+        out = []
+        if line is not None:
+            a = Fr(line)
+            xs = R + .4 if abs(a) <= 1 else (R + .4) / abs(a)
+            (x1, y1), (x2, y2) = P(-xs, -a * xs), P(xs, a * xs)
+            out.append(f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="{col}" stroke-width="1.4"/>')
+        if hyper is not None:
+            for sgn in (1, -1):
+                pts_ = []
+                n = 160
+                xmin = abs(hyper) / (R + .4)
+                for i in range(n + 1):
+                    x = sgn * (xmin + (R + .4 - xmin) * i / n)
+                    pts_.append(P(x, hyper / x))
+                out.append(f'<polyline fill="none" stroke="{col}" stroke-width="1.4" points="' + " ".join(f"{a:.2f},{b:.2f}" for a, b in pts_) + '"/>')
+        for (x, y, name) in pts:
+            cx, cy = P(x, y)
+            out.append(f'<circle cx="{cx}" cy="{cy}" r="2" fill="{col}"/>')
+            if name:
+                out.append(f'<text x="{cx + 3}" y="{cy - 3}" font-family="Noto Sans CJK JP" font-weight="700" font-size="8" fill="{col}">{name}</text>')
+        return out
+
+    s += curves(line, hyper, pts, "#111")
+    if ans_line is not None or ans_hyper is not None or ans_pts:
+        s.append('<g class=hv>' + "".join(curves(ans_line, ans_hyper, ans_pts, "currentColor")) + '</g>')
     s.append("</svg>")
     return "".join(s)
+
+
+# ------------------------------------------------------------ 表・座標（こたえを中に持つ）
+def fs(v):
+    """Fraction → 式の文字列（mathlib の書き方）"""
+    v = Fr(v)
+    if v.denominator == 1:
+        return str(v.numerator)
+    return ("-" if v < 0 else "") + "{" + str(abs(v.numerator)) + "|" + str(v.denominator) + "}"
+
+
+def table(xs, fn=None):
+    """x の表。fn を渡すと y のらんに答えが入る（こたえのときだけ赤で見える）"""
+    h = "".join(f"<td>{t(str(v))}</td>" for v in xs)
+    b = "".join(f"<td>{('<span class=hv>' + t(fs(fn(x))) + '</span>') if fn else ''}</td>" for x in xs)
+    return f"<table class=tb><tr><th>{t('x')}</th>{h}</tr><tr><th>{t('y')}</th>{b}</tr></table>"
+
+
+def tvals(fn, xs):
+    return ", ".join(t(fs(fn(x))) for x in xs)
+
+
+def coords(pts, per_line=2):
+    """「A（　,　）B（　,　）」の書きこみ欄。こたえでは赤で座標が入る"""
+    out = []
+    for i, (x, y, name) in enumerate(pts):
+        v = f"{x}, {y}".replace("-", "−")
+        out.append(f"{name}（<span class=hv>{v}</span>）")
+        if (i + 1) % per_line == 0 and i + 1 < len(pts):
+            out.append("<br>")
+        else:
+            out.append("　")
+    return "".join(out)
+
+
+# ------------------------------------------------------------ こたえ（問題のプリントに赤で書きこんだ形・11/6 先生の希望）
+FILL_CSS = """
+.hv { visibility: hidden; }
+"""
+ANS_FILL_CSS = """
+.hv { visibility: visible !important; color: #d0021b; }
+.ra { color: #d0021b; font-size: 10.5pt; line-height: 1.6; margin-top: 1.2mm; }
+.ra b { font-weight: 700; }
+.fill { display: inline-block; min-width: 30mm; border-bottom: .8pt solid #111; color: #d0021b; font-weight: 700; text-align: center; }
+.ans-tag { color: #d0021b; font-weight: 700; margin-left: 2mm; }
+"""
+
+
+def ans_head(title, sub):
+    return head(f"{title}<span class=ans-tag>こたえ</span>", sub, name=False)
 
 
 # ------------------------------------------------------------ 宿題（ノートに書く・A4 1枚に2日分）
@@ -136,22 +194,31 @@ HWN_CSS = """
 """
 
 
-def hw_notebook(title, days, rule):
-    """days：[(曜日, ポイント, [問題×4])]。A4 1枚に2日分"""
+def hw_notebook(title, days, rule, answer=False):
+    """days：[(曜日, ポイント, [問題×4])]。A4 1枚に2日分。answer=True でこたえ（同じ形に赤で書きこむ）"""
     pages = []
     for d in range(0, len(days), 2):
         body = ""
         for k in range(d, min(d + 2, len(days))):
             youbi, point, probs = days[k]
             check_all(probs, f"{k + 1}日目")
-            cells = "".join(f"<div class=p><span class=no>{CIRC[j]}</span><div>{p['q']}{('<div class=fig>' + p['fig'] + '</div>') if p.get('fig') else ''}</div></div>"
-                            for j, p in enumerate(probs))
+            cells = ""
+            for j, p in enumerate(probs):
+                ra = ""
+                if answer:
+                    if not p.get("noa"):
+                        ra = f"<div class=ra>{p['a']}</div>"
+                    elif p.get("fa"):
+                        ra = f"<div class=ra>答え <b>{p['fa']}</b></div>"
+                fig = ("<div class=fig>" + p["fig"] + "</div>") if p.get("fig") else ""
+                cells += f"<div class=p><span class=no>{CIRC[j]}</span><div>{p['q']}{ra}{fig}</div></div>"
             body += (f"<div class=day><div class=band>{k + 1}日目（{youbi}）<span class=sp><span class=ck>丸つけした</span></span></div>"
                      f"<p class=point>ポイント：{point}</p><div class=hq>{cells}</div></div>")
         sub = f"{d + 1}日目・{d + 2}日目（1日4問）" if d + 1 < len(days) else f"{d + 1}日目（1日4問）"
-        pages.append(f"<div class=page>{head(title, sub)}{rule if d == 0 else ''}{body}</div>")
-    prob = f"<html><head><meta charset=utf-8><style>{CSS}{HWN_CSS}</style></head><body>{''.join(pages)}</body></html>"
-    return prob
+        hd = ans_head(title, sub) if answer else head(title, sub)
+        pages.append(f"<div class=page>{hd}{rule if d == 0 else ''}{body}</div>")
+    css = CSS + HWN_CSS + FILL_CSS + (ANS_FILL_CSS + ".hq .fig .gr{width:28mm;height:28mm}.hq .p{font-size:10pt;line-height:1.5}.hq{gap:1mm 6mm}" if answer else "")
+    return f"<html><head><meta charset=utf-8><style>{css}</style></head><body>{''.join(pages)}</body></html>"
 
 
 # ------------------------------------------------------------ こたえ（どの形にも使う）
@@ -199,23 +266,41 @@ table.tb th { background: #f1f1f1; font-weight: 400; }
 """
 
 
-def hw_writein(title, days, rule):
-    """days：[(曜日, ポイント, [問題])]。1日1ページ。問題は2列（"full": True なら横いっぱい）。行の数は問題から決まる"""
+def _ab(p, answer):
+    """答えの欄。answer=True なら fa（短い答え）を赤で書きこむ"""
+    albl = p.get("albl", "答え")
+    if not albl:
+        return ""
+    if answer and p.get("fa"):
+        return f"<div class=ab>{albl} <span class=fill>{p['fa']}</span></div>"
+    return f"<div class=ab>{albl} <span class=blank></span></div>"
+
+
+def _ra(p, answer):
+    """こたえの書きこみ（式・解き方）。fa だけで足りるときや、表・図に答えが入るときは noa"""
+    if not answer or p.get("noa"):
+        return ""
+    return f"<div class=ra>{p['a']}</div>"
+
+
+def hw_writein(title, days, rule, answer=False):
+    """days：[(曜日, ポイント, [問題])]。1日1ページ。問題は2列（"full": True なら横いっぱい）。answer=True でこたえ"""
     pages = []
     for k, (youbi, point, probs) in enumerate(days):
         check_all(probs, f"{k + 1}日目")
         rows = sum(1 for p in probs if p.get("full")) + (sum(1 for p in probs if not p.get("full")) + 1) // 2
         cells = ""
         for j, p in enumerate(probs):
-            ab = f"<div class=ab>{p.get('albl', '答え')} <span class=blank></span></div>" if p.get("albl", "答え") else ""
             cells += (f"<div class='w{' full' if p.get('full') else ''}'><span class=no>{CIRC[j]}</span>{p['q']}"
-                      f"{('<div>' + p['fig'] + '</div>') if p.get('fig') else ''}{ab}</div>")
-        pages.append(f"""<div class=page>{head(title, f'{k + 1}日目（{youbi}）', date=True)}
+                      f"{('<div>' + p['fig'] + '</div>') if p.get('fig') else ''}{_ra(p, answer)}{_ab(p, answer)}</div>")
+        hd = ans_head(title, f"{k + 1}日目（{youbi}）") if answer else head(title, f"{k + 1}日目（{youbi}）", date=True)
+        pages.append(f"""<div class=page>{hd}
 {rule if k == 0 else ''}
 <div class=band>{k + 1}日目（{youbi}）<span class=sp><span class=ck>丸つけした</span></span></div>
 <div class=point>ポイント：{point}</div>
 <div class=wg style="grid-template-rows: repeat({rows}, 1fr)">{cells}</div></div>""")
-    return f"<html><head><meta charset=utf-8><style>{CSS}{HWW_CSS}</style></head><body>{''.join(pages)}</body></html>"
+    css = CSS + HWW_CSS + FILL_CSS + (ANS_FILL_CSS if answer else "")
+    return f"<html><head><meta charset=utf-8><style>{css}</style></head><body>{''.join(pages)}</body></html>"
 
 
 # ------------------------------------------------------------ 授業・自習プリント（4ページ・1ページ左右2列×4問）
@@ -234,28 +319,26 @@ WS_CSS = """
 
 
 def worksheet(title, secs, ans_title=None):
-    """secs：[(その1, 小見出し, ポイント, [問題×8])]。問題 dict は q・a・eq・albl・sc（足場の HTML）・fig"""
-    pages = []
-    n = 0
-    for label, sub, tip, probs in secs:
-        assert len(probs) == 8, (label, len(probs))
-        check_all(probs, label)
-        cells = ""
-        for p in probs:
-            albl = p.get("albl", "答え")
-            ab = f"<div class=ab>{albl} <span class=blank></span></div>" if albl else ""
-            cells += (f"<div class=w><span class=no>{CIRC[n]}</span>{p['q']}"
-                      f"{('<div>' + p['fig'] + '</div>') if p.get('fig') else ''}"
-                      f"{('<div class=sc>' + p['sc'] + '</div>') if p.get('sc') else ''}{ab}</div>")
-            n += 1
-        pages.append(f"<div class=page>{head(title + ' ' + label, sub, score=8)}<div class=tip>{tip}</div><div class=wg>{cells}</div></div>")
-    prob = f"<html><head><meta charset=utf-8><style>{CSS}{WS_CSS}</style></head><body>{''.join(pages)}</body></html>"
-    # こたえ：番号は通し
-    asecs, n = [], 0
-    for label, sub, _, probs in secs:
-        asecs.append((f"{label}　{sub}", probs, n))
-        n += len(probs)
-    return prob, answers_numbered(ans_title or title, asecs, per_page=2)
+    """secs：[(その1, 小見出し, ポイント, [問題×8])]。問題 dict は q・a・fa・eq・albl・sc（足場の HTML）・fig・noa。
+    もどり値は (問題の HTML, こたえの HTML)。こたえは問題と同じ形に赤で書きこむ（11/6〜）"""
+    def build(answer):
+        pages = []
+        n = 0
+        for label, sub, tip, probs in secs:
+            assert len(probs) == 8, (label, len(probs))
+            check_all(probs, label)
+            cells = ""
+            for p in probs:
+                sc = "" if answer else (('<div class=sc>' + p['sc'] + '</div>') if p.get('sc') else '')
+                cells += (f"<div class=w><span class=no>{CIRC[n]}</span>{p['q']}"
+                          f"{('<div>' + p['fig'] + '</div>') if p.get('fig') else ''}"
+                          f"{sc}{_ra(p, answer)}{_ab(p, answer)}</div>")
+                n += 1
+            hd = ans_head((ans_title or title) + " " + label, sub) if answer else head(title + " " + label, sub, score=8)
+            pages.append(f"<div class=page>{hd}<div class=tip>{tip}</div><div class=wg>{cells}</div></div>")
+        css = CSS + WS_CSS + FILL_CSS + (ANS_FILL_CSS if answer else "")
+        return f"<html><head><meta charset=utf-8><style>{css}</style></head><body>{''.join(pages)}</body></html>"
+    return build(False), build(True)
 
 
 def answers_numbered(title, secs, per_page):

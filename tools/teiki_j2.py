@@ -10,9 +10,10 @@
 """
 from fractions import Fraction as Fr
 
-from teiki_2 import EXTRA, hanpi_shiki, hirei_shiki, table, tvals
+from teiki_2 import EXTRA, hanpi_shiki, hirei_shiki
+from teiki_lib import table, tvals
 from teiki_j1 import ex
-from teiki_lib import graph, t, worksheet
+from teiki_lib import coords, graph, t, worksheet
 from mathlib import write_pdfs
 
 STAR = "<b>☆</b>"
@@ -21,18 +22,18 @@ STAR = "<b>☆</b>"
 def hr(x, y, star=False):
     a = Fr(y, x)
     return {"q": f"{STAR if star else ''}{t('y')} は {t('x')} に比例し、{t(f'x={x}')} のとき {t(f'y={y}')} です。{t('y')} を {t('x')} の式で表しなさい。",
-            "albl": t("y="), "a": f"{t('a')}＝{t(str(y))}÷{t('(' + str(x) + ')' if x < 0 else str(x))}＝{t(str(a))}　→　<b>{t(hirei_shiki(a))}</b>",
+            "albl": t("y="), "fa": t(hirei_shiki(a)[2:]), "a": f"{t('a')}＝{t(str(y))}÷{t('(' + str(x) + ')' if x < 0 else str(x))}＝{t(str(a))}　→　<b>{t(hirei_shiki(a))}</b>",
             "checks": [a.denominator == 1]}
 
 
 def hn(x, y, star=False):
     a = x * y
     return {"q": f"{STAR if star else ''}{t('y')} は {t('x')} に反比例し、{t(f'x={x}')} のとき {t(f'y={y}')} です。{t('y')} を {t('x')} の式で表しなさい。",
-            "albl": t("y="), "a": f"{t('a')}＝{t(str(x))}×{t('(' + str(y) + ')' if y < 0 else str(y))}＝{t(str(a))}　→　<b>{t(hanpi_shiki(a))}</b>"}
+            "albl": t("y="), "fa": t(hanpi_shiki(a)[2:]), "a": f"{t('a')}＝{t(str(x))}×{t('(' + str(y) + ')' if y < 0 else str(y))}＝{t(str(a))}　→　<b>{t(hanpi_shiki(a))}</b>"}
 
 
 def tb(f, xs, fn, star=False):
-    return {"q": f"{STAR if star else ''}{t(f)} で、表のあいているところをうめなさい。" + table(xs), "albl": "",
+    return {"q": f"{STAR if star else ''}{t(f)} で、表のあいているところをうめなさい。" + table(xs, fn), "noa": True, "albl": "",
             "a": "<b>" + tvals(fn, xs) + "</b>"}
 
 
@@ -40,6 +41,7 @@ def use(q, shiki, val_a, checks=(), star=False):
     return {"q": (STAR if star else "") + q, "albl": "", "a": f"<b>{t(shiki)}</b>、<b>{val_a}</b>", "checks": list(checks)}
 
 
+PJ2 = [(2, 4, "A"), (-3, 1, "B"), (-1, -4, "C"), (5, -3, "D")]
 SECS = [
     ("その1", "比例の式と表", ex(f"{t('y=3x')} の表を作る。{t('x=2')} のときは？",
                              [f"{t('x')} に3を<b>かける</b>", t("y=3*2=6"), f"表では {t('y')}÷{t('x')} がいつも3（比例定数）", f"式は <b>{t('y=ax')}</b>"]), [
@@ -64,21 +66,21 @@ SECS = [
     ("その3", "座標とグラフ（☆はチャレンジ）", ex("点 (3, −2) の場所は？",
                                          [f"原点から {t('x')} 座標の3 → <b>右へ3</b>", f"{t('y')} 座標の −2 → <b>下へ2</b>",
                                           f"比例のグラフは<b>原点を通る直線</b>、反比例は<b>双曲線</b>"]), [
-        {"q": "図の点 A〜D の座標を書きなさい。<br>A（　,　）B（　,　）<br>C（　,　）D（　,　）", "fig": graph(pts=[(2, 4, "A"), (-3, 1, "B"), (-1, -4, "C"), (5, -3, "D")], size=38), "albl": "",
+        {"q": "図の点 A〜D の座標を書きなさい。<br>" + coords(PJ2), "fig": graph(pts=PJ2, size=38), "albl": "", "noa": True,
          "a": "<b>A(2, 4)、B(−3, 1)、C(−1, −4)、D(5, −3)</b>"},
-        {"q": "次の点を、図にかき入れなさい。<br>E(−2, 4)　F(3, −3)　G(−4, 0)", "fig": graph(size=38), "albl": "",
+        {"q": "次の点を、図にかき入れなさい。<br>E(−2, 4)　F(3, −3)　G(−4, 0)", "fig": graph(size=38, ans_pts=[(-2, 4, "E"), (3, -3, "F"), (-4, 0, "G")]), "albl": "", "noa": True,
          "a": "E は左へ2・上へ4、F は右へ3・下へ3、G は左へ4（" + t("x") + " 軸の上）"},
         {"q": "図の直線は比例のグラフです。式を求めなさい。", "fig": graph(line=3, pts=[(1, 3, "")], size=34), "albl": t("y="),
-         "a": f"(1, 3) を通る　<b>{t('y=3x')}</b>"},
+         "fa": t('3x'), "noa": True, "a": f"(1, 3) を通る　<b>{t('y=3x')}</b>"},
         {"q": "図の直線は比例のグラフです。式を求めなさい。", "fig": graph(line=Fr(1, 2), pts=[(2, 1, "")], size=34), "albl": t("y="),
-         "a": f"(2, 1) を通る　<b>{t('y={1|2}x')}</b>"},
+         "fa": t('{1|2}x'), "noa": True, "a": f"(2, 1) を通る　<b>{t('y={1|2}x')}</b>"},
         {"q": f"{STAR}図の直線は比例のグラフです。式を求めなさい。", "fig": graph(line=-1, pts=[(2, -2, "")], size=34), "albl": t("y="),
-         "a": f"(2, −2) を通る　<b>{t('y=-x')}</b>"},
+         "fa": t('-x'), "noa": True, "a": f"(2, −2) を通る　<b>{t('y=-x')}</b>"},
         {"q": "図の曲線は反比例のグラフです。式を求めなさい。", "fig": graph(hyper=12, pts=[(3, 4, "")], size=34), "albl": t("y="),
-         "a": f"(3, 4) を通る　<b>{t('y={12|x}')}</b>"},
+         "fa": t('{12|x}'), "noa": True, "a": f"(3, 4) を通る　<b>{t('y={12|x}')}</b>"},
         {"q": f"{STAR}図の曲線は反比例のグラフです。式を求めなさい。", "fig": graph(hyper=-4, pts=[(2, -2, "")], size=34), "albl": t("y="),
-         "a": f"(2, −2) を通る　<b>{t('y=-{4|x}')}</b>"},
-        {"q": f"比例 {t('y=2x')} のグラフをかきなさい。", "fig": graph(size=34), "albl": "", "a": "原点と (1, 2) を通る直線（(−1, −2) も通る）"},
+         "fa": t('-{4|x}'), "noa": True, "a": f"(2, −2) を通る　<b>{t('y=-{4|x}')}</b>"},
+        {"q": f"比例 {t('y=2x')} のグラフをかきなさい。", "fig": graph(size=34, ans_line=2, ans_pts=[(1, 2, ""), (-1, -2, "")]), "albl": "", "noa": True, "a": "原点と (1, 2) を通る直線（(−1, −2) も通る）"},
     ]),
     ("その4", "負の数・利用（☆はチャレンジ）", ex(f"{t('y=-2x')} で、{t('x=-3')} のときの {t('y')} は？",
                                           [f"{t('-2*(-3)')}", "（−）×（−）は（＋）", "<b>" + t("y=6") + "</b>"]), [

@@ -13,8 +13,8 @@
    "file": "seifu_shisoku_A_ans.pdf",
    "step": "seifu-shisoku",
    "title": "四則の混じった計算 A こたえ",
-   "pages": 2,
-   "note": "途中式つき",
+   "pages": 4,
+   "note": "問題に赤で答えを書きこんだ形",
    "ans": true
   },
   {
@@ -28,8 +28,8 @@
    "file": "seifu_shisoku_B_ans.pdf",
    "step": "seifu-shisoku",
    "title": "四則の混じった計算 B こたえ",
-   "pages": 2,
-   "note": "途中式つき",
+   "pages": 4,
+   "note": "問題に赤で答えを書きこんだ形",
    "ans": true
   },
   {
@@ -43,8 +43,8 @@
    "file": "seifu_junjo_A_ans.pdf",
    "step": "seifu-junjo",
    "title": "計算の順序 A こたえ",
-   "pages": 2,
-   "note": "途中式つき",
+   "pages": 4,
+   "note": "問題に赤で答えを書きこんだ形",
    "ans": true
   },
   {
@@ -58,8 +58,8 @@
    "file": "seifu_junjo_B_ans.pdf",
    "step": "seifu-junjo",
    "title": "計算の順序 B こたえ",
-   "pages": 2,
-   "note": "途中式つき",
+   "pages": 4,
+   "note": "問題に赤で答えを書きこんだ形",
    "ans": true
   },
   {
@@ -73,8 +73,8 @@
    "file": "houtei_bunsu_A_ans.pdf",
    "step": "houtei-bunsu",
    "title": "分数のある方程式 A こたえ",
-   "pages": 2,
-   "note": "途中式つき",
+   "pages": 4,
+   "note": "問題に赤で答えを書きこんだ形",
    "ans": true
   },
   {
@@ -88,8 +88,8 @@
    "file": "houtei_bunsu_B_ans.pdf",
    "step": "houtei-bunsu",
    "title": "分数のある方程式 B こたえ",
-   "pages": 2,
-   "note": "途中式つき",
+   "pages": 4,
+   "note": "問題に赤で答えを書きこんだ形",
    "ans": true
   },
   {
@@ -103,7 +103,7 @@
    "file": "houtei_bunsu_hw1_ans.pdf",
    "step": "houtei-bunsu",
    "title": "分数のある方程式 宿題のこたえ",
-   "pages": 2,
+   "pages": 3,
    "note": "本人に渡して毎日丸つけ",
    "ans": true
   },
@@ -118,7 +118,7 @@
    "file": "seifu_hw1_ans.pdf",
    "step": "seifu-junjo",
    "title": "正負の数 宿題1のこたえ",
-   "pages": 2,
+   "pages": 6,
    "note": "本人に渡して毎日丸つけ",
    "ans": true
   },
@@ -133,7 +133,7 @@
    "file": "teiki_hw1_un_ans.pdf",
    "step": "c1teiki-houtei-hirei",
    "title": "テスト対策 宿題1（U・N）こたえ",
-   "pages": 1,
+   "pages": 3,
    "note": "本人に渡して毎日丸つけ",
    "ans": true
   },
@@ -148,7 +148,7 @@
    "file": "teiki_hw1_k_ans.pdf",
    "step": "c1teiki-houtei-hirei",
    "title": "テスト対策 宿題1（K）こたえ",
-   "pages": 1,
+   "pages": 6,
    "note": "本人に渡して毎日丸つけ",
    "ans": true
   },
@@ -163,8 +163,8 @@
    "file": "teiki_j1_un_ans.pdf",
    "step": "c1teiki-houtei-hirei",
    "title": "授業 方程式の利用（U・N） こたえ",
-   "pages": 2,
-   "note": "式と答え",
+   "pages": 4,
+   "note": "問題に赤で答えを書きこんだ形",
    "ans": true
   },
   {
@@ -178,8 +178,8 @@
    "file": "teiki_j1_k_ans.pdf",
    "step": "c1teiki-houtei-hirei",
    "title": "授業 方程式（K） こたえ",
-   "pages": 2,
-   "note": "式と答え",
+   "pages": 4,
+   "note": "問題に赤で答えを書きこんだ形",
    "ans": true
   },
   {
@@ -193,8 +193,8 @@
    "file": "teiki_j2_ans.pdf",
    "step": "c1teiki-houtei-hirei",
    "title": "授業 比例と反比例 こたえ",
-   "pages": 2,
-   "note": "式と答え",
+   "pages": 4,
+   "note": "問題に赤で答えを書きこんだ形",
    "ans": true
   },
   {
@@ -208,8 +208,8 @@
    "file": "teiki_1_un_ans.pdf",
    "step": "c1teiki-houtei-hirei",
    "title": "対策① 方程式の利用（U・N） こたえ",
-   "pages": 2,
-   "note": "式と答え",
+   "pages": 4,
+   "note": "問題に赤で答えを書きこんだ形",
    "ans": true
   },
   {
@@ -223,8 +223,8 @@
    "file": "teiki_1_k_ans.pdf",
    "step": "c1teiki-houtei-hirei",
    "title": "対策① 方程式（K） こたえ",
-   "pages": 2,
-   "note": "式と答え",
+   "pages": 4,
+   "note": "問題に赤で答えを書きこんだ形",
    "ans": true
   },
   {
@@ -238,8 +238,8 @@
    "file": "teiki_2_un_ans.pdf",
    "step": "c1teiki-houtei-hirei",
    "title": "対策② 比例と反比例（U・N） こたえ",
-   "pages": 2,
-   "note": "式と答え",
+   "pages": 4,
+   "note": "問題に赤で答えを書きこんだ形",
    "ans": true
   },
   {
@@ -253,8 +253,8 @@
    "file": "teiki_2_k_ans.pdf",
    "step": "c1teiki-houtei-hirei",
    "title": "対策② 比例と反比例（K） こたえ",
-   "pages": 2,
-   "note": "式と答え",
+   "pages": 4,
+   "note": "問題に赤で答えを書きこんだ形",
    "ans": true
   },
   {
@@ -268,8 +268,8 @@
    "file": "teiki_3_un_ans.pdf",
    "step": "c1teiki-houtei-hirei",
    "title": "対策③ 比例・反比例の利用とまとめ（U・N） こたえ",
-   "pages": 2,
-   "note": "式と答え",
+   "pages": 4,
+   "note": "問題に赤で答えを書きこんだ形",
    "ans": true
   },
   {
@@ -283,8 +283,8 @@
    "file": "teiki_3_k_ans.pdf",
    "step": "c1teiki-houtei-hirei",
    "title": "対策③ まとめ（K） こたえ",
-   "pages": 2,
-   "note": "式と答え",
+   "pages": 4,
+   "note": "問題に赤で答えを書きこんだ形",
    "ans": true
   },
   {
@@ -298,7 +298,7 @@
    "file": "teiki_hw2_un_ans.pdf",
    "step": "c1teiki-houtei-hirei",
    "title": "テスト対策 宿題2（U・N） こたえ",
-   "pages": 1,
+   "pages": 3,
    "note": "本人に渡して毎日丸つけ",
    "ans": true
   },
@@ -313,7 +313,7 @@
    "file": "teiki_hw2_k_ans.pdf",
    "step": "c1teiki-houtei-hirei",
    "title": "テスト対策 宿題2（K） こたえ",
-   "pages": 1,
+   "pages": 5,
    "note": "本人に渡して毎日丸つけ",
    "ans": true
   },

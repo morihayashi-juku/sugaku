@@ -18,7 +18,7 @@ import sympy as sp
 from sympy.parsing.sympy_parser import (implicit_multiplication_application, parse_expr,
                                         standard_transformations)
 
-from mathlib import CIRC, CSS, answer_doc, fm, fmb, head, problem_doc, write_pdfs
+from mathlib import ANS_RED, CIRC, CSS, fm, fmb, head, problem_doc, write_pdfs
 
 X = sp.Symbol("x")
 TR = standard_transformations + (implicit_multiplication_application,)
@@ -147,8 +147,10 @@ def build(key):
     prob = problem_doc(title, [{"label": l, "sub": sub, "scaffold": SCAF, "probs": [p[0] for p in sec], "tip": ex_fm(tip)}
                                for (l, sub, tip), sec in zip(SECS, pat)], ans_label=fm("x="))
     flat = [p for sec in pat for p in sec]
-    rows = [ans_row(i, *p) for i, p in enumerate(flat)]
-    ansh = answer_doc(title, [{"label": f"{l}　{sub}", "rows": rows[k * 8:(k + 1) * 8]} for k, (l, sub, _) in enumerate(SECS)], pages=[2])
+    # こたえ：問題と同じ形に赤で書きこむ（両辺に□ → 途中式、答えのらんに x の値）
+    fills = [(f"両辺に ×{m}<br>" + "<br>".join(fm(st) for st in steps), fm(str(a))) for eq, m, steps, a in flat]
+    ansh = problem_doc(title, [{"label": l, "sub": sub, "scaffold": SCAF, "probs": [p[0] for p in sec], "tip": ex_fm(tip)}
+                               for (l, sub, tip), sec in zip(SECS, pat)], ans_label=fm("x="), fills=fills)
     return [(prob, f"houtei_bunsu_{key}.pdf"), (ansh, f"houtei_bunsu_{key}_ans.pdf")]
 
 
@@ -168,26 +170,33 @@ HW_CSS = """
 
 
 def build_hw():
-    pages = []
-    for d in range(0, 6, 2):
-        days = ""
-        for k in (d, d + 1):
-            youbi, point, probs = HW[k]
-            check(f"宿題{k + 1}日目", probs)
-            cells = "".join(f"<div class=expr><span class=no>{CIRC[j]}</span>{fm(p[0])}</div>" for j, p in enumerate(probs))
-            days += (f"<div class=day><div class=band>{k + 1}日目（{youbi}）<span class=sp>"
-                     f"<span class=ck>丸つけした</span></span></div>"
-                     f"<p class=point>ポイント：{point}</p><div class=hq>{cells}</div></div>")
-        rule = ("<div class=rule>やり方：自学ノートに日付と問題番号を書き、<b>「両辺に○をかける」→ 途中式 → 答え</b>の順に書く。"
-                "終わったら<b>こたえを見て自分で丸つけ</b>。まちがえたら、正しい途中式をもう一度ノートに書く。</div>") if d == 0 else ""
-        pages.append(f"<div class=page>{head('分数のある方程式　宿題', f'{d + 1}日目・{d + 2}日目（1日4問）', name=True)}{rule}{days}</div>")
-    prob = f"<html><head><meta charset=utf-8><style>{CSS}{HW_CSS}</style></head><body>{''.join(pages)}</body></html>"
-    secs = []
-    for k, (youbi, _, probs) in enumerate(HW):
-        secs.append({"label": f"{k + 1}日目（{youbi}）", "rows": [ans_row(j, *p) for j, p in enumerate(probs)]})
-    ansh = answer_doc("分数のある方程式　宿題", secs, order="row", pages=[3])
-    ansh = ansh.replace("</style>", ".agrid{margin-top:2mm}.sec{margin:2mm 0 .5mm}.a{padding:1.2mm 0;font-size:11pt}</style>", 1)
-    return [(prob, "houtei_bunsu_hw1.pdf"), (ansh, "houtei_bunsu_hw1_ans.pdf")]
+    """宿題（A4 1枚に2日分）と、こたえ（同じ形に赤で途中式と答えを書きこむ・11/6〜）"""
+    def html(answer):
+        pages = []
+        for d in range(0, 6, 2):
+            days = ""
+            for k in (d, d + 1):
+                youbi, point, probs = HW[k]
+                check(f"宿題{k + 1}日目", probs)
+                cells = ""
+                for j, (eq, m, steps, a) in enumerate(probs):
+                    ra = ""
+                    if answer:
+                        ra = ("<div class=ra>両辺に ×" + str(m) + "　" + "　→　".join(fm(st) for st in steps)
+                              + "　→　<b>" + fm("x=" + str(a)) + "</b></div>")
+                    cells += f"<div><div class=expr><span class=no>{CIRC[j]}</span>{fm(eq)}</div>{ra}</div>"
+                days += (f"<div class=day><div class=band>{k + 1}日目（{youbi}）<span class=sp>"
+                         f"<span class=ck>丸つけした</span></span></div>"
+                         f"<p class=point>ポイント：{point}</p><div class=hq>{cells}</div></div>")
+            rule = ("<div class=rule>やり方：自学ノートに日付と問題番号を書き、<b>「両辺に○をかける」→ 途中式 → 答え</b>の順に書く。"
+                    "終わったら<b>こたえを見て自分で丸つけ</b>。まちがえたら、正しい途中式をもう一度ノートに書く。</div>") if d == 0 else ""
+            sub = f'{d + 1}日目・{d + 2}日目（1日4問）'
+            hd = (head('分数のある方程式　宿題<span class=ans-tag>こたえ</span>', sub, name=False) if answer
+                  else head('分数のある方程式　宿題', sub, name=True))
+            pages.append(f"<div class=page>{hd}{rule}{days}</div>")
+        css = CSS + HW_CSS + (ANS_RED + ".hq .ra{font-size:10.5pt;line-height:1.7}" if answer else "")
+        return f"<html><head><meta charset=utf-8><style>{css}</style></head><body>{''.join(pages)}</body></html>"
+    return [(html(False), "houtei_bunsu_hw1.pdf"), (html(True), "houtei_bunsu_hw1_ans.pdf")]
 
 
 if __name__ == "__main__":

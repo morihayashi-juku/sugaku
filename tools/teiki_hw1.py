@@ -9,7 +9,7 @@
 """
 from fractions import Fraction as Fr
 
-from teiki_lib import answers, graph, hw_notebook, hw_writein, t, tb
+from teiki_lib import coords, graph, hw_notebook, hw_writein, t, table, tb
 from mathlib import write_pdfs
 
 
@@ -82,20 +82,15 @@ UN_RULE = ("<div class=rule>やり方：自学ノートに日付と問題番号�
 
 
 # ============================================================ K 用
-def table(xs, ys=None):
-    head_ = "".join(f"<td>{t(str(v))}</td>" for v in xs)
-    body = "".join(f"<td>{t(str(v)) if ys is not None else ''}</td>" for v in (ys if ys is not None else xs))
-    return f"<table class=tb><tr><th>{t('x')}</th>{head_}</tr><tr><th>{t('y')}</th>{body}</tr></table>"
-
-
 def eqk(q, eq, ans, albl=None):
-    return {"q": q, "eq": (eq, ans), "a": f"{t(eq)}　→　<b>{t('x=' + str(ans))}</b>", "albl": albl or t("x=")}
+    return {"q": q, "eq": (eq, ans), "a": f"{t(eq)}", "fa": t(str(ans)), "albl": albl or t("x="), "noa": q == t(eq)}
 
 
 def yv(f, xs):
     return [f(x) for x in xs]
 
 
+PH1 = [(2, 3, "A"), (-3, 2, "B"), (-4, -1, "C"), (3, -4, "D")]
 K = [
     ("金", f"{t('x')} だけを左に残す。<b>反対側に移すと符号が変わる</b>（移項）。{t('x')} の前の数で<b>わる</b>。　例）{t('2x+1=9')} → {t('2x=9-1')} → {t('2x=8')} → {t('x=4')}", [
         eqk(t("x+5=12"), "x+5=12", 7), eqk(t("3x=18"), "3x=18", 6),
@@ -111,9 +106,9 @@ K = [
         eqk(f"カードを {t('x')} 人に1人3枚ずつ配ると、2枚余りました。カードは全部で20枚です。", "3x+2=20", 6),
     ]),
     ("日", f"比例は {t('y=ax')}。{t('x')} に数を入れて {t('y')} を計算する。式の {t('a')} は {t('y')}÷{t('x')}。", [
-        {"q": f"{t('y=3x')} で、表のあいているところをうめなさい。" + table([1, 2, 3, 4, 5]), "full": True, "albl": "",
+        {"q": f"{t('y=3x')} で、表のあいているところをうめなさい。" + table([1, 2, 3, 4, 5], lambda x: 3 * x), "full": True, "albl": "", "noa": True,
          "a": "表：" + "、".join(t(str(v)) for v in yv(lambda x: 3 * x, [1, 2, 3, 4, 5]))},
-        {"q": f"{t('y=-2x')} で、表のあいているところをうめなさい。" + table([-2, -1, 0, 1, 2]), "full": True, "albl": "",
+        {"q": f"{t('y=-2x')} で、表のあいているところをうめなさい。" + table([-2, -1, 0, 1, 2], lambda x: -2 * x), "full": True, "albl": "", "noa": True,
          "a": "表：" + "、".join(t(str(v)) for v in yv(lambda x: -2 * x, [-2, -1, 0, 1, 2]))},
         {"q": f"{t('y')} は {t('x')} に比例し、{t('x=2')} のとき {t('y=8')} です。式を書きなさい。", "albl": t("y="),
          "a": f"{t('8')}÷{t('2=4')}　→　<b>{t('y=4x')}</b>"},
@@ -121,9 +116,9 @@ K = [
          "a": f"{t('15')}÷{t('3=5')}　→　<b>{t('y=5x')}</b>"},
     ]),
     ("月", f"反比例は {t('y={a|x}')}。{t('a')} を {t('x')} でわって {t('y')} を計算する。式の {t('a')} は {t('x')}×{t('y')}。", [
-        {"q": f"{t('y={12|x}')} で、表のあいているところをうめなさい。" + table([1, 2, 3, 4, 6]), "full": True, "albl": "",
+        {"q": f"{t('y={12|x}')} で、表のあいているところをうめなさい。" + table([1, 2, 3, 4, 6], lambda x: Fr(12, x)), "full": True, "albl": "", "noa": True,
          "a": "表：" + "、".join(t(str(v)) for v in yv(lambda x: 12 // x, [1, 2, 3, 4, 6]))},
-        {"q": f"{t('y={18|x}')} で、表のあいているところをうめなさい。" + table([1, 2, 3, 6, 9]), "full": True, "albl": "",
+        {"q": f"{t('y={18|x}')} で、表のあいているところをうめなさい。" + table([1, 2, 3, 6, 9], lambda x: Fr(18, x)), "full": True, "albl": "", "noa": True,
          "a": "表：" + "、".join(t(str(v)) for v in yv(lambda x: 18 // x, [1, 2, 3, 6, 9]))},
         {"q": f"{t('y')} は {t('x')} に反比例し、{t('x=2')} のとき {t('y=6')} です。式を書きなさい。", "albl": t("y="),
          "a": f"{t('2*6=12')}　→　<b>{t('y={12|x}')}</b>"},
@@ -131,10 +126,10 @@ K = [
          "a": f"{t('4*5=20')}　→　<b>{t('y={20|x}')}</b>"},
     ]),
     ("火", f"座標は ({t('x')}, {t('y')}) の順。{t('x')} は<b>右が＋・左が−</b>、{t('y')} は<b>上が＋・下が−</b>。", [
-        {"q": "図の点 A〜D の座標を書きなさい。<br>A（　　,　　）　B（　　,　　）<br>C（　　,　　）　D（　　,　　）", "albl": "",
-         "fig": graph(pts=[(2, 3, "A"), (-3, 2, "B"), (-4, -1, "C"), (3, -4, "D")], size=62),
+        {"q": "図の点 A〜D の座標を書きなさい。<br>" + coords(PH1), "albl": "", "noa": True,
+         "fig": graph(pts=PH1, size=62),
          "a": "<b>A(2, 3)、B(−3, 2)、C(−4, −1)、D(3, −4)</b>"},
-        {"q": "次の点を、図にかき入れなさい。<br>E(4, 1)　F(−2, −3)　G(0, 4)", "albl": "", "fig": graph(size=62),
+        {"q": "次の点を、図にかき入れなさい。<br>E(4, 1)　F(−2, −3)　G(0, 4)", "albl": "", "noa": True, "fig": graph(size=62, ans_pts=[(4, 1, "E"), (-2, -3, "F"), (0, 4, "G")]),
          "a": "E は右へ4・上へ1、F は左へ2・下へ3、G は上へ4（" + t("y") + " 軸の上）"},
         {"q": "原点 O の座標を書きなさい。", "albl": "答え", "a": "<b>(0, 0)</b>"},
         {"q": f"点 (−3, 5) の {t('x')} 座標を書きなさい。", "albl": "答え", "a": "<b>−3</b>"},
@@ -160,7 +155,7 @@ TITLE_K = "テスト対策　宿題1"
 
 if __name__ == "__main__":
     un = hw_notebook(TITLE_UN, UN, UN_RULE)
-    un_a = answers(TITLE_UN, [(f"{k + 1}日目（{d[0]}）", d[2]) for k, d in enumerate(UN)], per_page=6)
+    un_a = hw_notebook(TITLE_UN, UN, UN_RULE, answer=True)
     k = hw_writein(TITLE_K, K, K_RULE)
-    k_a = answers(TITLE_K, [(f"{i + 1}日目（{d[0]}）", d[2]) for i, d in enumerate(K)], per_page=6)
+    k_a = hw_writein(TITLE_K, K, K_RULE, answer=True)
     write_pdfs([(un, "teiki_hw1_un.pdf"), (un_a, "teiki_hw1_un_ans.pdf"), (k, "teiki_hw1_k.pdf"), (k_a, "teiki_hw1_k_ans.pdf")])
