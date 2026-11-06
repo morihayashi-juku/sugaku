@@ -131,13 +131,13 @@ const logList = T => T.log && T.log.length
 /* ------------------------------------------------------------ 画面：学年（学年タブ → 曜日タブ）
    学年のページの中に曜日のタブがあり、その曜日に来る組の「今ここ」の回を並べる。
    まとめて印刷も、丸つけ（こたえを画面で見る）も、学年×曜日ごと。 */
-const GRADE_ID = {"中1": "c1", "中2": "c2", "中3": "c3", "高1": "k1", "高2": "k2"};
+const GRADE_ID = {"中1": "c1", "中2": "c2", "中3前": "c3a", "中3後": "c3b", "高1": "k1", "高2": "k2"};
 const DOW = {mon: 1, tue: 2, thu: 4, fri: 5};
 // 組がどの学年か：組の JSON に grade があればそれ。なければ id の頭で決める（chu2…＝中2、chu3…＝中3、kou1…＝高1、kou2…＝高2、ほかは中1）
-const gradeOfTrack = t => D.s[t].grade || (/^chu2/.test(t) ? "中2" : /^chu3/.test(t) ? "中3" : /^kou1/.test(t) ? "高1" : /^kou2/.test(t) ? "高2" : "中1");
+const gradeOfTrack = t => D.s[t].grade || (/^chu2/.test(t) ? "中2" : /^chu3b/.test(t) ? "中3後" : /^chu3/.test(t) ? "中3前" : /^kou1/.test(t) ? "高1" : /^kou2/.test(t) ? "高2" : "中1");
 const gradeTracks = g => TRACKS.filter(t => gradeOfTrack(t) === g);
 const gradeDays = g => [...new Set(gradeTracks(g).flatMap(dayList))].sort((a, b) => DOW[a] - DOW[b]);
-const gradeFromId = id => Object.keys(GRADE_ID).find(g => GRADE_ID[g] === id);
+const gradeFromId = id => Object.keys(GRADE_ID).find(g => GRADE_ID[g] === id) || (id === "c3" ? "中3前" : undefined);   // 古い #c3 は中3前へ
 const stepGrade = id => { const x = STEPS.get(id); return x ? gradeOf(x.unit) : null; };
 // 今日か、次に来る授業の日（その学年の曜日のなかから）
 function autoDay(g) {
@@ -204,7 +204,7 @@ function renderGrade(g, sub) {
       ${old.length ? `<details class="mold"><summary>前の回のこたえ（${old.length}）</summary><ul class="mlist">${old.map(a => maruRow(a, a.from + "　" + a.glabel)).join("")}</ul></details>` : ""}
     </article>`;
   }).join("");
-  const rest = D.library.items.filter(x => x.ans && !listed.has(x.file) && stepGrade(x.step) === g);
+  const rest = D.library.items.filter(x => x.ans && !listed.has(x.file) && stepGrade(x.step) === g.replace(/[前後]$/, ""));
   return `
   <section class="prep-head">
     <div class="daysw" role="group" aria-label="${esc(g)}の曜日">
