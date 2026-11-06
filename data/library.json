@@ -183,6 +183,21 @@
    "ans": true
   },
   {
+   "file": "teiki_j2.pdf",
+   "step": "c1teiki-houtei-hirei",
+   "title": "授業 比例と反比例（U・K共通）",
+   "pages": 4,
+   "note": "月11/9の授業用。例題つき。前半は正の数の基本、後半の☆はチャレンジ（K は☆なしだけでもよい）"
+  },
+  {
+   "file": "teiki_j2_ans.pdf",
+   "step": "c1teiki-houtei-hirei",
+   "title": "授業 比例と反比例 こたえ",
+   "pages": 2,
+   "note": "式と答え",
+   "ans": true
+  },
+  {
    "file": "teiki_1_un.pdf",
    "step": "c1teiki-houtei-hirei",
    "title": "対策① 方程式の利用（U・N）",
