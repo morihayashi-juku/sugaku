@@ -1,6 +1,6 @@
 {
  "_memo": "中2の教材と記録。sets の最後に足し、前の cur を消して新しいほうに \"cur\": true。月曜も木曜も授業（自習はない）なので、groups は曜日ごとに作り、グループに \"day\": \"mon\" または \"day\": \"thu\" を書く（書かないと、lesson・hw・teacher は木曜に出て、月曜には出ない）。kind は lesson（授業）／hw（宿題）／teacher（こたえ・先生用）。items は library-c2.json の file 名（copies・note は上書きできる）。log は新しいものを上に。now（今どこのステップか）は最初の教材を足すときに {step, text} で書く。",
- "updated": "2026-11-05",
+ "updated": "2026-11-06",
  "name": "中2",
  "badge": "中2",
  "longName": "中2（月・木）",

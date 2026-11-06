@@ -54,7 +54,7 @@ def pt_tex(p):
 
 # ---------- 方眼・座標平面（SVG。単位は mm） ----------
 class Plane:
-    def __init__(s, xr, yr, cx, cy, xs, ys, cross=False, xt="x", yt="y", xu="", yu="", ml=8, mb=5, mt=5, mr=9):
+    def __init__(s, xr, yr, cx, cy, xs, ys, cross=False, xt="x", yt="y", xu="", yu="", ml=9.5, mb=6, mt=5.5, mr=9):
         s.xmin, s.xmax = xr
         s.ymin, s.ymax = yr
         s.cx, s.cy, s.xs, s.ys, s.cross = cx, cy, xs, ys, cross
@@ -70,8 +70,7 @@ class Plane:
         return (s.ymax - float(v)) * s.cy
 
     def text(s, x, y, t, dx=0, dy=0, anchor="middle", size=2.8, extra=""):
-        s.o.append(f'<text x="{s.X(x) + dx:.2f}" y="{s.Y(y) + dy:.2f}" font-size="{size}" text-anchor="{anchor}" {extra} '
-                   f'stroke="#fff" stroke-width=".8" paint-order="stroke">{t}</text>')
+        s.o.append(f'<text x="{s.X(x) + dx:.2f}" y="{s.Y(y) + dy:.2f}" font-size="{size}" text-anchor="{anchor}" {extra}>{t}</text>')
 
     def line(s, a, b, color, width=.55):
         lo, hi = float(s.xmin), float(s.xmax)
@@ -120,24 +119,29 @@ class Plane:
         lab = []
 
         def L(x, y, t, anchor="middle"):
-            lab.append(f'<text x="{x:.2f}" y="{y:.2f}" font-size="2.7" text-anchor="{anchor}" '
-                       f'stroke="#fff" stroke-width=".8" paint-order="stroke">{t}</text>')
+            lab.append(f'<text x="{x:.2f}" y="{y:.2f}" font-size="3.4" text-anchor="{anchor}">{t}</text>')
 
         mi = lambda v: str(v).replace("-", "−")
-        v = math.ceil(s.xmin / s.xs[1]) * s.xs[1]
+        kx = 1
+        while s.cx * s.xs[1] * kx < 7:
+            kx += 1
+        ky = 1
+        while s.cy * s.ys[1] * ky < 5.6:
+            ky += 1
+        v = math.ceil(s.xmin / (s.xs[1] * kx)) * s.xs[1] * kx
         while v <= s.xmax:
             if v != 0:
-                L(s.X(v), Y0 + 3.2, mi(v))
-            v += s.xs[1]
-        v = math.ceil(s.ymin / s.ys[1]) * s.ys[1]
+                L(s.X(v), Y0 + 3.9, mi(v))
+            v += s.xs[1] * kx
+        v = math.ceil(s.ymin / (s.ys[1] * ky)) * s.ys[1] * ky
         while v <= s.ymax:
             if v != 0:
-                L(X0 - 1.0, s.Y(v) + .95, mi(v), "end")
-            v += s.ys[1]
-        L(X0 - 1.0, Y0 + 3.2, "O", "end")
+                L(X0 - 1.0, s.Y(v) + 1.2, mi(v), "end")
+            v += s.ys[1] * ky
+        L(X0 - 1.0, Y0 + 3.9, "O", "end")
         it = 'font-family="KaTeX_Math" font-style="italic"'
-        lab.append(f'<text x="{w + 4.4:.2f}" y="{Y0 + 1:.2f}" font-size="3.2" {it}>{s.xt}<tspan font-family="Noto Sans CJK JP" font-style="normal" font-size="2.7">{s.xu}</tspan></text>')
-        lab.append(f'<text x="{X0 + 1.8:.2f}" y="-1.6" font-size="3.2" text-anchor="start" {it}>{s.yt}<tspan font-family="Noto Sans CJK JP" font-style="normal" font-size="2.7">{s.yu}</tspan></text>')
+        lab.append(f'<text x="{w + 4.4:.2f}" y="{Y0 + 1:.2f}" font-size="4" {it}>{s.xt}<tspan font-family="Noto Sans CJK JP" font-style="normal" font-size="3.3">{s.xu}</tspan></text>')
+        lab.append(f'<text x="{X0 + 1.8:.2f}" y="-1.6" font-size="4" text-anchor="start" {it}>{s.yt}<tspan font-family="Noto Sans CJK JP" font-style="normal" font-size="3.3">{s.yu}</tspan></text>')
         W, H = w + s.ml + s.mr, h + s.mt + s.mb
         return (f'<svg class=gr width="{W:.1f}mm" height="{H:.1f}mm" viewBox="{-s.ml} {-s.mt} {W:.1f} {H:.1f}">'
                 f'{"".join(g)}{"".join(s.o)}{"".join(lab)}</svg>')
@@ -272,12 +276,12 @@ def speed_pattern(k):
              f"弟が着くのは {T('x=27')} のとき。兄は {T('y=-100\\times27+2800=100')} の地点にいる", "100m"),
         ]
 
-    def plane(wmm=66, hmm=26):
+    def plane(wmm=62, hmm=21):
         P = Plane(g["xr"], g["yr"], wmm / (g["xr"][1] - g["xr"][0]), hmm / (g["yr"][1] - g["yr"][0]),
-                  g["xs"], g["ys"], xu="（分）", yu="（m）", mr=13)
+                  g["xs"], g["ys"], xu="（分）", yu="（m）", mr=17)
         for name, col, pts, (lx, ly, dx, dy, an) in ppl:
             P.poly(pts, col)
-            P.text(lx, ly, name, dx, dy, an, 3.1, f'style="fill:{col};font-weight:700"')
+            P.text(lx, ly, name, dx, dy, an, 3.9, f'style="fill:{col};font-weight:700"')
         return P
 
     return dict(story=story, plane=plane, g=g, qs=qs, ppl=ppl)
@@ -336,11 +340,11 @@ DOT = [
 ]
 
 
-def rect_fig(d, s=3.3):
+def rect_fig(d, s=2.9):
     W, H = d["W"], d["H"]
     w, h = W * s, H * s
     pts = {"A": (0, 0), "B": (0, h), "C": (w, h), "D": (w, 0)}
-    o = [f'<svg class=fig width="{w + 15}mm" height="{h + 10}mm" viewBox="-8 -4 {w + 15} {h + 10}">',
+    o = [f'<svg class=fig width="{w + 22}mm" height="{h + 13}mm" viewBox="-14 -6 {w + 22} {h + 13}">',
          f'<rect x="0" y="0" width="{w}" height="{h}" fill="none" stroke="#111" stroke-width=".5"/>']
     seq = d["path"]
     for i in range(len(seq) - 1):                       # 進む向きの矢印（辺の真ん中）
@@ -357,9 +361,9 @@ def rect_fig(d, s=3.3):
     o.append(f'<circle cx="{sx}" cy="{sy}" r="1.1" fill="#111"/>')
     lab = {"A": (-1.6, -1.4, "end"), "B": (-1.6, 3.6, "end"), "C": (1.6, 3.6, "start"), "D": (1.6, -1.4, "start")}
     for c, (dx, dy, an) in lab.items():
-        o.append(f'<text x="{pts[c][0] + dx}" y="{pts[c][1] + dy}" font-size="3.4" text-anchor="{an}">{c}</text>')
-    o.append(f'<text x="-2.2" y="{h / 2 + 1}" font-size="3" text-anchor="end">{H}cm</text>')
-    o.append(f'<text x="{w / 2}" y="{h + 4.6}" font-size="3" text-anchor="middle">{W}cm</text>')
+        o.append(f'<text x="{pts[c][0] + dx}" y="{pts[c][1] + dy}" font-size="4.2" text-anchor="{an}">{c}</text>')
+    o.append(f'<text x="-2.2" y="{h / 2 + 1}" font-size="3.7" text-anchor="end">{H}cm</text>')
+    o.append(f'<text x="{w / 2}" y="{h + 5.6}" font-size="3.7" text-anchor="middle">{W}cm</text>')
     o.append("</svg>")
     return "".join(o)
 
@@ -368,7 +372,7 @@ def dot_plane(d, cell_x=None):
     ts, ys = d["ts"], d["ys"]
     xmax, ymax = ts[-1], max(ys)
     ytop = (ymax // 4 + 1) * 4
-    return Plane((0, xmax), (0, ytop), 66 / xmax, 27 / ytop, (1, 2), (2, 4), xu="（秒）", yu="（cm²）", mr=13)
+    return Plane((0, xmax), (0, ytop), 62 / xmax, 21 / ytop, (1, 2), (2, 4), xu="（秒）", yu="（cm²）", mr=17)
 
 
 def dot_text(d):
@@ -456,14 +460,14 @@ def g_draw(d, P, answer=False):
     P.line(am, bm, BLUE)
     it = 'font-family="KaTeX_Math" font-style="italic"'
     lx, ly, dx, dy, an = d["lab"]["l"]
-    P.text(lx, ly, "ℓ", dx, dy, an, 3.6, f'{it} style="fill:{RED};font-weight:700"')
+    P.text(lx, ly, "ℓ", dx, dy, an, 4.4, f'{it} style="fill:{RED};font-weight:700"')
     lx, ly, dx, dy, an = d["lab"]["m"]
-    P.text(lx, ly, "m", dx, dy, an, 3.6, f'{it} style="fill:{BLUE};font-weight:700"')
+    P.text(lx, ly, "m", dx, dy, an, 4.4, f'{it} style="fill:{BLUE};font-weight:700"')
     for nm in "ABC":
         p = d[nm]
         P.dot(p[0], p[1])
         lb = d["lab"][nm]
-        P.text(p[0], p[1], nm, lb[0], lb[1], lb[2] if len(lb) > 2 else "middle", 3.4)
+        P.text(p[0], p[1], nm, lb[0], lb[1], lb[2] if len(lb) > 2 else "middle", 4.2)
 
 
 def par(v):
