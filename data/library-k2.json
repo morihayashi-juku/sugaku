@@ -3,6 +3,21 @@
  "updated": "2026-11-06",
  "items": [
   {
+   "file": "k2_zukei_ten_kiso.pdf",
+   "step": "k2-zukei-ten",
+   "title": "点の座標（象限・対称な点・距離・内分点・外分点）",
+   "pages": 4,
+   "note": "① 象限・対称な点／② 2点間の距離／③ 内分点・外分点／④ 中点・重心の利用（4ページ）"
+  },
+  {
+   "file": "k2_zukei_ten_kiso_ans.pdf",
+   "step": "k2-zukei-ten",
+   "title": "点の座標 こたえ（問題に書き込み）",
+   "pages": 4,
+   "note": "問題と同じレイアウトに赤字で答え・途中式",
+   "ans": true
+  },
+  {
    "file": "k2_heimen_ten.pdf",
    "step": "k2-zukei-ten",
    "title": "平面上の点 練習問題",

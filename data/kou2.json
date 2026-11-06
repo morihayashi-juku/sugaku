@@ -1,6 +1,6 @@
 {
  "_memo": "高2の教材と記録。sets の最後に足し、前の cur を消して新しいほうに \"cur\": true。火曜も金曜も授業（自習はない）なので、groups は曜日ごとに作り、グループに \"day\": \"tue\" または \"day\": \"fri\" を書く（書かないと、lesson・hw・teacher は金曜に出て、火曜には出ない）。kind は lesson（授業）／hw（宿題）／teacher（こたえ・先生用）。items は library-k2.json の file 名（copies・note は上書きできる）。log は新しいものを上に。now（今どこのステップか）は最初の教材を足すときに {step, text} で書く。",
- "updated": "2026-11-03",
+ "updated": "2026-11-06",
  "name": "高2",
  "badge": "高2",
  "longName": "高2（火・金）",
@@ -26,5 +26,42 @@
   ]
  ],
  "log": [],
- "sets": []
+ "sets": [
+  {
+   "id": "k2-1",
+   "label": "①",
+   "title": "図形と方程式　点の座標",
+   "steps": [
+    "k2-zukei-ten"
+   ],
+   "cur": true,
+   "note": "学校は図形と方程式に戻って進行中。象限・対称な点・2点間の距離・内分点・外分点・重心。",
+   "groups": [
+    {
+     "kind": "lesson",
+     "label": "金曜（授業）11/6",
+     "day": "fri",
+     "items": [
+      {
+       "file": "k2_zukei_ten_kiso.pdf"
+      }
+     ]
+    },
+    {
+     "kind": "teacher",
+     "label": "金曜のこたえ",
+     "day": "fri",
+     "items": [
+      {
+       "file": "k2_zukei_ten_kiso_ans.pdf"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "now": {
+  "step": "k2-zukei-ten",
+  "text": "図形と方程式：点の座標（象限・対称な点・2点間の距離・内分点・外分点）"
+ }
 }
