@@ -328,3 +328,8 @@ dialog::backdrop{background:rgba(10,14,20,.55)}
 .maru-det{margin-top:18px}
 .maru-det>summary{cursor:pointer;font-weight:700}
 .maru-det .prep{margin-top:12px}
+
+/* 教材ライブラリ：学年と単元のバーは、下にスクロールしても上にくっつく */
+.libbar{position:sticky;top:var(--toph,48px);z-index:4;background:var(--desk);margin:0 -16px 8px;padding:10px 16px 2px;box-shadow:0 1px 0 var(--line)}
+.libbar .grades{margin-bottom:8px}
+.libbar .unav{margin-bottom:8px}

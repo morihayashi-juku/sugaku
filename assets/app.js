@@ -276,15 +276,17 @@ function renderLib() {
   const units = D.common.units.filter(u => gradeOf(u) === libGrade);
   const here = id => TRACKS.filter(t => D.s[t].now && D.s[t].now.step === id).map(t => `<a class="here" href="#${t}">${esc(D.s[t].name)} 今ここ</a>`).join("");
   return `
+  <div class="libbar">
   <div class="filters grades" role="group" aria-label="学年">${grades.map(g => {
     const n = D.common.units.filter(u => gradeOf(u) === g).reduce((a, u) => a + unitCount(u), 0);
     return `<button type="button" data-act="grade" data-grade="${esc(g)}" aria-pressed="${g === libGrade}">${esc(g)}${n ? `<small>${n}</small>` : ""}</button>`;
   }).join("")}</div>
-  <p class="lead">プリントは単元・ステップごとに1回だけ置いてあります。どの組のどの回で使ったかはタイルの下に出ます。</p>
   <nav class="unav" aria-label="単元">${units.map(u => {
     const n = unitCount(u);
     return `<a href="#lib/${esc(u.id)}">${esc(u.name)}${n ? `<small>${n}</small>` : ""}</a>`;
   }).join("")}</nav>
+  </div>
+  <p class="lead">プリントは単元・ステップごとに1回だけ置いてあります。どの組のどの回で使ったかはタイルの下に出ます。</p>
   ${units.map(u => `<section class="unit" id="lib-${esc(u.id)}">
     <h2>${esc(u.name)}</h2>
     <div class="steps">${u.steps.map((st, i) => {
@@ -321,12 +323,16 @@ function route() {
     const el = t === "lib" ? $("#lib-" + CSS.escape(sub)) : $(`#${tab}-${CSS.escape(sub)}`);
     if (el) {
       if (el.tagName === "DETAILS") el.open = true;
-      el.scrollIntoView({block: "start"}); window.scrollBy(0, -64);
+      el.scrollIntoView({block: "start"}); window.scrollBy(0, -(64 + (t === "lib" && $(".libbar") ? $(".libbar").offsetHeight : 0)));
       if (el.classList.contains("stepsec")) { el.classList.add("flash"); setTimeout(() => el.classList.remove("flash"), 1600); }
     }
   } else window.scrollTo(0, 0);
   observeThumbs();
+  setTopH();
 }
+// 上の黒い帯の高さ（タブが2行になることがある）。学年・単元のバーがその下にくっつく
+function setTopH() { document.documentElement.style.setProperty("--toph", $(".top").offsetHeight + "px"); }
+window.addEventListener("resize", () => { if (D) setTopH(); });
 
 /* ------------------------------------------------------------ PDF を読む・描く */
 const docs = new Map();
