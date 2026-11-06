@@ -1,6 +1,6 @@
 {
  "_memo": "教材ライブラリ（中3）：中3のプリントはすべてここに1回だけ書く。step は data/common.json のステップ id。こたえは ans: true。組の JSON からは file 名で呼ぶ。ファイル名は c3_ から始める。このファイルは中3の作成チャットだけが書く。",
- "updated": "2026-11-05",
+ "updated": "2026-11-06",
  "items": [
   {
    "file": "c3_teiki_niji_ax2.pdf",
@@ -30,6 +30,567 @@
    "title": "相似比と長さ A こたえ",
    "pages": 2,
    "note": "途中の式つき",
+   "ans": true
+  },
+  {
+   "file": "c3_tenkai_kiso_F.pdf",
+   "step": "c3-tahan-tenkai",
+   "title": "式の展開 基礎 パターンF",
+   "pages": 2,
+   "note": "乗法公式の基本練習（2ページ）"
+  },
+  {
+   "file": "c3_tenkai_kiso_G.pdf",
+   "step": "c3-tahan-tenkai",
+   "title": "式の展開 基礎 パターンG",
+   "pages": 2,
+   "note": "乗法公式の基本練習（2ページ）"
+  },
+  {
+   "file": "c3_tenkai_kiso_L.pdf",
+   "step": "c3-tahan-tenkai",
+   "title": "式の展開 基礎 パターンL",
+   "pages": 4,
+   "note": "乗法公式の基本練習（4ページ）"
+  },
+  {
+   "file": "c3_tenkai_kiso_L_ans.pdf",
+   "step": "c3-tahan-tenkai",
+   "title": "式の展開 基礎 パターンL こたえ",
+   "pages": 2,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "c3_inshu_kiso_H.pdf",
+   "step": "c3-tahan-inshu",
+   "title": "因数分解 基礎 パターンH",
+   "pages": 2,
+   "note": "公式の基本練習（2ページ）"
+  },
+  {
+   "file": "c3_inshu_yasashii_O.pdf",
+   "step": "c3-tahan-inshu",
+   "title": "因数分解 やさしい パターンO",
+   "pages": 2,
+   "note": "公式の基本練習（2ページ）"
+  },
+  {
+   "file": "c3_inshu_futsuu_N.pdf",
+   "step": "c3-tahan-inshu",
+   "title": "因数分解 ふつう パターンN",
+   "pages": 2,
+   "note": "公式・標準（2ページ）"
+  },
+  {
+   "file": "c3_tenkai_inshu_E.pdf",
+   "step": "c3-tahan-inshu",
+   "title": "展開・因数分解 基礎 パターンE",
+   "pages": 4,
+   "note": "展開2ページ＋因数分解2ページ"
+  },
+  {
+   "file": "c3_tenkai_inshu_P.pdf",
+   "step": "c3-tahan-inshu",
+   "title": "展開1・因数分解2 やさしい パターンP",
+   "pages": 3,
+   "note": "展開1ページ＋因数分解2ページ"
+  },
+  {
+   "file": "c3_tenkai_inshu_M.pdf",
+   "step": "c3-tahan-inshu",
+   "title": "展開1・因数分解3 やさしい パターンM",
+   "pages": 4,
+   "note": "展開1ページ＋因数分解3ページ"
+  },
+  {
+   "file": "c3_tenkai_inshu_M_ans.pdf",
+   "step": "c3-tahan-inshu",
+   "title": "展開1・因数分解3 やさしい パターンM こたえ",
+   "pages": 3,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "c3_tenkai_inshu_root_J.pdf",
+   "step": "c3-tahan-inshu",
+   "title": "展開・因数分解・ルート パターンJ",
+   "pages": 4,
+   "note": "展開1ページ＋因数分解2ページ＋平方根の計算1ページ"
+  },
+  {
+   "file": "c3_tenkai_inshu_root_J_ans.pdf",
+   "step": "c3-tahan-inshu",
+   "title": "展開・因数分解・ルート パターンJ こたえ",
+   "pages": 3,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "c3_niji_miwake.pdf",
+   "step": "c3-niji-miwake",
+   "title": "二次方程式 解き方の見分け方",
+   "pages": 4,
+   "note": "1ページ目＝考え方（2ページ目は白紙）。練習1・2 ア〜エのどの方法で解くか"
+  },
+  {
+   "file": "c3_niji_kihon_A.pdf",
+   "step": "c3-niji-miwake",
+   "title": "二次方程式（基本）A",
+   "pages": 8,
+   "note": "見分け方つき・80問（8ページ）"
+  },
+  {
+   "file": "c3_niji_kihon_A_ans.pdf",
+   "step": "c3-niji-miwake",
+   "title": "二次方程式（基本）A こたえ",
+   "pages": 4,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "c3_niji_kihon_B.pdf",
+   "step": "c3-niji-miwake",
+   "title": "二次方程式（基本）B",
+   "pages": 8,
+   "note": "Aと同じ形・別の問題（8ページ）"
+  },
+  {
+   "file": "c3_niji_kihon_B_ans.pdf",
+   "step": "c3-niji-miwake",
+   "title": "二次方程式（基本）B こたえ",
+   "pages": 4,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "c3_niji_riyou.pdf",
+   "step": "c3-niji-riyou",
+   "title": "二次方程式の利用①〜④",
+   "pages": 4,
+   "note": "① 数／② 図形（面積）／③ 動く点など／④ チャレンジ"
+  },
+  {
+   "file": "c3_ax2_heniki.pdf",
+   "step": "c3-ax2-henka",
+   "title": "関数 y＝ax²（変域まで）",
+   "pages": 4,
+   "note": "1 式／2 式を求める／3 グラフ／4 変域（4ページ）"
+  },
+  {
+   "file": "c3_souji_shoumei.pdf",
+   "step": "c3-souji-joken",
+   "title": "相似の証明 1〜4",
+   "pages": 4,
+   "note": "1 2組の角／2 辺の比／3 図形の性質を使う／4 証明して長さを求める"
+  },
+  {
+   "file": "c3_souji_nagasa_old.pdf",
+   "step": "c3-souji-nagasa",
+   "title": "相似比を使って長さを求める 1〜4",
+   "pages": 4,
+   "note": "1 記号から対応／2 平行線でできる相似／3 角が等しい相似／4 いろいろな場面"
+  },
+  {
+   "file": "c3_souji_nagasa_old_ans.pdf",
+   "step": "c3-souji-nagasa",
+   "title": "相似比を使って長さを求める こたえ",
+   "pages": 2,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "c3_souji_nagasa_hatten.pdf",
+   "step": "c3-souji-nagasa",
+   "title": "相似比を使って長さを求める 発展",
+   "pages": 4,
+   "note": "対応の順番と比から式を立てる（4ページ）"
+  },
+  {
+   "file": "c3_souji_nagasa_hatten_ans.pdf",
+   "step": "c3-souji-nagasa",
+   "title": "相似比を使って長さを求める 発展 こたえ",
+   "pages": 2,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "c3_teiki_tenkai_heihou.pdf",
+   "step": "c3-teiki-tenkai-heihou",
+   "title": "定期テスト対策 展開・因数分解・平方根",
+   "pages": 4,
+   "note": "式の展開／因数分解／平方根の計算(1)(2)（4ページ）"
+  },
+  {
+   "file": "c3_teiki_tenkai_heihou_ans.pdf",
+   "step": "c3-teiki-tenkai-heihou",
+   "title": "定期テスト対策 展開・因数分解・平方根 こたえ",
+   "pages": 1,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "c3_teiki_niji_ax2_v1.pdf",
+   "step": "c3-teiki-niji-ax2",
+   "title": "定期テスト対策 二次方程式・y＝ax²（①②・前の版）",
+   "pages": 2,
+   "note": "c3_teiki_niji_ax2 とは別の問題。1ページ＝1パターン"
+  },
+  {
+   "file": "c3_teiki_niji_ax2_v1_ans.pdf",
+   "step": "c3-teiki-niji-ax2",
+   "title": "定期テスト対策 二次方程式・y＝ax²（①②・前の版）こたえ",
+   "pages": 2,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "c3_teiki_niji_ax2_34.pdf",
+   "step": "c3-teiki-niji-ax2",
+   "title": "定期テスト対策 二次方程式・y＝ax²（③④）",
+   "pages": 2,
+   "note": "A3で印刷。1ページ＝1パターン（③④）"
+  },
+  {
+   "file": "c3_teiki_niji_ax2_34_ans.pdf",
+   "step": "c3-teiki-niji-ax2",
+   "title": "定期テスト対策 二次方程式・y＝ax²（③④）こたえ",
+   "pages": 2,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "c3_soufukushuu_C.pdf",
+   "step": "c3-nyushi-sou",
+   "title": "中学数学 総復習プリント C",
+   "pages": 4,
+   "note": "大問1 基本（計算など）／大問2 連立方程式・文字式の利用／大問3〜 一次関数（4ページ）"
+  },
+  {
+   "file": "c3_soufukushuu_C_ans.pdf",
+   "step": "c3-nyushi-sou",
+   "title": "中学数学 総復習プリント C こたえ",
+   "pages": 2,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "c3_soufukushuu_D.pdf",
+   "step": "c3-nyushi-sou",
+   "title": "中学数学 総復習プリント D",
+   "pages": 4,
+   "note": "大問1 基本（計算など）／大問2 連立方程式・文字式の利用／大問3〜 一次関数（4ページ）"
+  },
+  {
+   "file": "c3_soufukushuu_D_ans.pdf",
+   "step": "c3-nyushi-sou",
+   "title": "中学数学 総復習プリント D こたえ",
+   "pages": 2,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "c3_soufukushuu_E.pdf",
+   "step": "c3-nyushi-sou",
+   "title": "中学数学 総復習プリント E",
+   "pages": 4,
+   "note": "大問1 基本（計算など）／大問2 連立方程式・文字式の利用／大問3〜 一次関数（4ページ）"
+  },
+  {
+   "file": "c3_soufukushuu_E_ans.pdf",
+   "step": "c3-nyushi-sou",
+   "title": "中学数学 総復習プリント E こたえ",
+   "pages": 2,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "c3_soufukushuu_F.pdf",
+   "step": "c3-nyushi-sou",
+   "title": "中学数学 総復習プリント F",
+   "pages": 4,
+   "note": "大問1 基本（計算など）／大問2 連立方程式・文字式の利用／大問3〜 一次関数（4ページ）"
+  },
+  {
+   "file": "c3_soufukushuu_F_ans.pdf",
+   "step": "c3-nyushi-sou",
+   "title": "中学数学 総復習プリント F こたえ",
+   "pages": 2,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "c3_soufukushuu_G.pdf",
+   "step": "c3-nyushi-sou",
+   "title": "中学数学 総復習プリント G",
+   "pages": 4,
+   "note": "大問1 基本（計算など）／大問2 連立方程式・文字式の利用／大問3〜 一次関数（4ページ）"
+  },
+  {
+   "file": "c3_soufukushuu_G_ans.pdf",
+   "step": "c3-nyushi-sou",
+   "title": "中学数学 総復習プリント G こたえ",
+   "pages": 2,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "c3_soufukushuu_H.pdf",
+   "step": "c3-nyushi-sou",
+   "title": "中学数学 総復習プリント H",
+   "pages": 4,
+   "note": "大問1 基本（計算など）／大問2 連立方程式・文字式の利用／大問3〜 一次関数（4ページ）"
+  },
+  {
+   "file": "c3_soufukushuu_H_ans.pdf",
+   "step": "c3-nyushi-sou",
+   "title": "中学数学 総復習プリント H こたえ",
+   "pages": 2,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "c3_soufukushuu_I.pdf",
+   "step": "c3-nyushi-sou",
+   "title": "中学数学 総復習プリント I",
+   "pages": 4,
+   "note": "大問1 基本（計算など）／大問2 連立方程式・文字式の利用／大問3〜 一次関数（4ページ）。こたえなし"
+  },
+  {
+   "file": "c3_soufukushuu_J.pdf",
+   "step": "c3-nyushi-sou",
+   "title": "中学数学 総復習プリント J",
+   "pages": 4,
+   "note": "大問1 基本（計算など）／大問2 連立方程式・文字式の利用／大問3〜 一次関数（4ページ）"
+  },
+  {
+   "file": "c3_soufukushuu_J_ans.pdf",
+   "step": "c3-nyushi-sou",
+   "title": "中学数学 総復習プリント J こたえ",
+   "pages": 2,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "c3_soufukushuu_K.pdf",
+   "step": "c3-nyushi-sou",
+   "title": "中学数学 総復習プリント K",
+   "pages": 4,
+   "note": "大問1 基本（計算など）／大問2 連立方程式・文字式の利用／大問3〜 一次関数（4ページ）"
+  },
+  {
+   "file": "c3_soufukushuu_K_ans.pdf",
+   "step": "c3-nyushi-sou",
+   "title": "中学数学 総復習プリント K こたえ",
+   "pages": 2,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "c3_soufukushuu_L.pdf",
+   "step": "c3-nyushi-sou",
+   "title": "中学数学 総復習プリント L",
+   "pages": 4,
+   "note": "大問1 基本（計算など）／大問2 連立方程式・文字式の利用／大問3〜 一次関数（4ページ）"
+  },
+  {
+   "file": "c3_soufukushuu_L_ans.pdf",
+   "step": "c3-nyushi-sou",
+   "title": "中学数学 総復習プリント L こたえ",
+   "pages": 2,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "c3_soufukushuu_N.pdf",
+   "step": "c3-nyushi-sou",
+   "title": "中学数学 総復習プリント N",
+   "pages": 4,
+   "note": "大問1 基本（計算など）／大問2 連立方程式・文字式の利用／大問3〜 一次関数（4ページ）"
+  },
+  {
+   "file": "c3_soufukushuu_N_ans.pdf",
+   "step": "c3-nyushi-sou",
+   "title": "中学数学 総復習プリント N こたえ",
+   "pages": 2,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "c3_soufukushuu_O.pdf",
+   "step": "c3-nyushi-sou",
+   "title": "中学数学 総復習プリント O",
+   "pages": 4,
+   "note": "大問1 基本（計算など）／大問2 連立方程式・文字式の利用／大問3〜 一次関数（4ページ）"
+  },
+  {
+   "file": "c3_soufukushuu_O_ans.pdf",
+   "step": "c3-nyushi-sou",
+   "title": "中学数学 総復習プリント O こたえ",
+   "pages": 2,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "c3_soufukushuu_P.pdf",
+   "step": "c3-nyushi-sou",
+   "title": "中学数学 総復習プリント P",
+   "pages": 4,
+   "note": "大問1 基本（計算など）／大問2 連立方程式・文字式の利用／大問3〜 一次関数（4ページ）。こたえなし"
+  },
+  {
+   "file": "c3_soufukushuu_Q.pdf",
+   "step": "c3-nyushi-sou",
+   "title": "中学数学 総復習プリント Q",
+   "pages": 4,
+   "note": "大問1 基本（計算など）／大問2 連立方程式・文字式の利用／大問3〜 一次関数（4ページ）"
+  },
+  {
+   "file": "c3_soufukushuu_Q_ans.pdf",
+   "step": "c3-nyushi-sou",
+   "title": "中学数学 総復習プリント Q こたえ",
+   "pages": 2,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "c3_soufukushuu_R.pdf",
+   "step": "c3-nyushi-sou",
+   "title": "中学数学 総復習プリント R",
+   "pages": 4,
+   "note": "大問1 基本（計算など）／大問2 連立方程式・文字式の利用／大問3〜 一次関数（4ページ）"
+  },
+  {
+   "file": "c3_soufukushuu_R_ans.pdf",
+   "step": "c3-nyushi-sou",
+   "title": "中学数学 総復習プリント R こたえ",
+   "pages": 2,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "c3_keisan_renshuu_C.pdf",
+   "step": "c3-nyushi-keisan",
+   "title": "中学数学 計算練習①〜④ C",
+   "pages": 4,
+   "note": "① 正負の数・文字式／② 単項式の乗除・式の値・等式の変形／③ 一次方程式・比例式／④ 連立方程式"
+  },
+  {
+   "file": "c3_keisan_renshuu_C_ans.pdf",
+   "step": "c3-nyushi-keisan",
+   "title": "中学数学 計算練習①〜④ C こたえ",
+   "pages": 1,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "c3_keisan_renshuu_D.pdf",
+   "step": "c3-nyushi-keisan",
+   "title": "中学数学 計算練習①〜④ D",
+   "pages": 4,
+   "note": "① 正負の数・文字式／② 単項式の乗除・式の値・等式の変形／③ 一次方程式・比例式／④ 連立方程式"
+  },
+  {
+   "file": "c3_keisan_renshuu_D_ans.pdf",
+   "step": "c3-nyushi-keisan",
+   "title": "中学数学 計算練習①〜④ D こたえ",
+   "pages": 1,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "c3_keisan_renshuu_E.pdf",
+   "step": "c3-nyushi-keisan",
+   "title": "中学数学 計算練習①〜④ E",
+   "pages": 4,
+   "note": "① 正負の数・文字式／② 単項式の乗除・式の値・等式の変形／③ 一次方程式・比例式／④ 連立方程式"
+  },
+  {
+   "file": "c3_keisan_renshuu_E_ans.pdf",
+   "step": "c3-nyushi-keisan",
+   "title": "中学数学 計算練習①〜④ E こたえ",
+   "pages": 1,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "c3_ichiji_jissen_B.pdf",
+   "step": "c3-nyushi-kansu",
+   "title": "一次関数 実践編（高校入試型）パターンB",
+   "pages": 6,
+   "note": "1ページ目＝解説（2ページ目は白紙）"
+  },
+  {
+   "file": "c3_sakusen_1.pdf",
+   "step": "c3-nyushi-sakusen",
+   "title": "作戦プリント（試作）1・2 文章題",
+   "pages": 6,
+   "note": "答えは出さずに ①求めるもの ②材料 ③道具 ④作戦 を書く"
+  },
+  {
+   "file": "c3_sakusen_2.pdf",
+   "step": "c3-nyushi-sakusen",
+   "title": "作戦プリント（試作）A 図形など",
+   "pages": 6,
+   "note": "①求めるもの ②道具 ③材料 ④作戦"
+  },
+  {
+   "file": "c3_sakusen_2_ans.pdf",
+   "step": "c3-nyushi-sakusen",
+   "title": "作戦プリント（試作）A 解答例",
+   "pages": 6,
+   "note": "①〜④は一例",
+   "ans": true
+  },
+  {
+   "file": "c3_sakusen_fukugou.pdf",
+   "step": "c3-nyushi-sakusen",
+   "title": "作戦プリント 複合問題",
+   "pages": 1,
+   "note": "問題文から材料を選ぶ（1ページ）"
+  },
+  {
+   "file": "c3_sakusen_kansu_zukei.pdf",
+   "step": "c3-nyushi-sakusen",
+   "title": "作戦プリント 関数・図形（横向き）",
+   "pages": 2,
+   "note": "左に問題・右に①〜④（2ページ）"
+  },
+  {
+   "file": "c3_kansu_tokikata_quiz.pdf",
+   "step": "c3-nyushi-sakusen",
+   "title": "関数 解き方を考えるクイズ（横向き）",
+   "pages": 11,
+   "note": "問題は解かずに、ゴール→必要なもの→出し方をクイズで選ぶ（11ページ）"
+  },
+  {
+   "file": "c3_check_zenki.pdf",
+   "step": "c3check-check",
+   "title": "中3前期 習熟度チェック（中1・中2の計算）",
+   "pages": 4,
+   "note": ""
+  },
+  {
+   "file": "c3_check_zenki_ans.pdf",
+   "step": "c3check-check",
+   "title": "中3前期 習熟度チェック こたえ・診断シート",
+   "pages": 2,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "c3_check_kouki.pdf",
+   "step": "c3check-check",
+   "title": "中3後期 習熟度チェック（中1〜中2＋展開・因数分解など）",
+   "pages": 4,
+   "note": ""
+  },
+  {
+   "file": "c3_check_kouki_ans.pdf",
+   "step": "c3check-check",
+   "title": "中3後期 習熟度チェック こたえ・診断シート",
+   "pages": 2,
+   "note": "",
    "ans": true
   }
  ]

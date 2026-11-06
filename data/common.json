@@ -195,6 +195,28 @@
    ]
   },
   {
+   "id": "c1mix",
+   "grade": "中1",
+   "name": "計算のまとめ",
+   "steps": [
+    {
+     "id": "c1mix-keisan",
+     "name": "正負の数・文字式・方程式のトレーニング"
+    }
+   ]
+  },
+  {
+   "id": "c1check",
+   "grade": "中1",
+   "name": "学力・習熟度チェック",
+   "steps": [
+    {
+     "id": "c1check-check",
+     "name": "学力チェック・習熟度チェック"
+    }
+   ]
+  },
+  {
    "id": "c2-shiki",
    "name": "式の計算",
    "grade": "中2",
@@ -248,6 +270,10 @@
     {
      "id": "c2-ichiji-shiki",
      "name": "1次関数の式・変化の割合"
+    },
+    {
+     "id": "c2-ichiji-dainyu",
+     "name": "代入マスター（関数の基礎・発展）"
     },
     {
      "id": "c2-ichiji-graph",
@@ -348,6 +374,17 @@
    ]
   },
   {
+   "id": "c2check",
+   "grade": "中2",
+   "name": "習熟度チェック",
+   "steps": [
+    {
+     "id": "c2check-check",
+     "name": "習熟度チェック"
+    }
+   ]
+  },
+  {
    "id": "c3-tahan",
    "name": "多項式",
    "grade": "中3",
@@ -405,6 +442,10 @@
     {
      "id": "c3-niji-kai",
      "name": "解の公式"
+    },
+    {
+     "id": "c3-niji-miwake",
+     "name": "解き方の見分け方・まとめ"
     },
     {
      "id": "c3-niji-riyou",
@@ -513,6 +554,10 @@
    "grade": "中3",
    "steps": [
     {
+     "id": "c3-teiki-tenkai-heihou",
+     "name": "展開・因数分解・平方根"
+    },
+    {
      "id": "c3-teiki-niji-ax2",
      "name": "二次方程式・関数 y＝ax²"
     }
@@ -523,6 +568,10 @@
    "name": "総復習・入試対策",
    "grade": "中3",
    "steps": [
+    {
+     "id": "c3-nyushi-sou",
+     "name": "総復習プリント"
+    },
     {
      "id": "c3-nyushi-keisan",
      "name": "計算の総復習"
@@ -538,6 +587,21 @@
     {
      "id": "c3-nyushi-sonota",
      "name": "確率・データ・文章題（入試型）"
+    },
+    {
+     "id": "c3-nyushi-sakusen",
+     "name": "作戦プリント・解き方クイズ（解かずに考える）"
+    }
+   ]
+  },
+  {
+   "id": "c3check",
+   "grade": "中3",
+   "name": "習熟度チェック",
+   "steps": [
+    {
+     "id": "c3check-check",
+     "name": "習熟度チェック（前期・後期）"
     }
    ]
   },

@@ -1,6 +1,6 @@
 {
  "_memo": "教材ライブラリ：作ったプリントはすべてここに1回だけ書く。step は data/common.json のステップ id。こたえは ans: true。生徒の JSON からは file 名で呼ぶ。",
- "updated": "2026-11-05",
+ "updated": "2026-11-06",
  "items": [
   {
    "file": "seifu_shisoku_A.pdf",
@@ -300,6 +300,285 @@
    "title": "テスト対策 宿題2（K） こたえ",
    "pages": 1,
    "note": "本人に渡して毎日丸つけ",
+   "ans": true
+  },
+  {
+   "file": "c1_seifu_training_B.pdf",
+   "step": "seifu-shisoku",
+   "title": "正負の数 トレーニング①〜④ B",
+   "pages": 4,
+   "note": "①加法・減法／②乗法・除法／③加減の混じった計算／④四則をふくむ計算（1ページずつ）"
+  },
+  {
+   "file": "c1_seifu_training_B_ans.pdf",
+   "step": "seifu-shisoku",
+   "title": "正負の数 トレーニング①〜④ B こたえ",
+   "pages": 1,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "c1_seifu_training_C.pdf",
+   "step": "seifu-shisoku",
+   "title": "正負の数 トレーニング①〜④ C",
+   "pages": 4,
+   "note": "①加法・減法／②乗法・除法／③加減の混じった計算／④四則をふくむ計算（1ページずつ）"
+  },
+  {
+   "file": "c1_seifu_training_C_ans.pdf",
+   "step": "seifu-shisoku",
+   "title": "正負の数 トレーニング①〜④ C こたえ",
+   "pages": 1,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "c1_seifu_training_D.pdf",
+   "step": "seifu-shisoku",
+   "title": "正負の数 トレーニング①〜④ D",
+   "pages": 4,
+   "note": "①加法・減法／②乗法・除法／③加減の混じった計算／④四則をふくむ計算（1ページずつ）"
+  },
+  {
+   "file": "c1_seifu_training_D_ans.pdf",
+   "step": "seifu-shisoku",
+   "title": "正負の数 トレーニング①〜④ D こたえ",
+   "pages": 1,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "c1_seifu_training_E.pdf",
+   "step": "seifu-shisoku",
+   "title": "正負の数 トレーニング①〜④ E",
+   "pages": 4,
+   "note": "①加法・減法／②乗法・除法／③加減の混じった計算／④四則をふくむ計算（1ページずつ）"
+  },
+  {
+   "file": "c1_seifu_training_E_ans.pdf",
+   "step": "seifu-shisoku",
+   "title": "正負の数 トレーニング①〜④ E こたえ",
+   "pages": 1,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "c1_seifu_training_F.pdf",
+   "step": "seifu-shisoku",
+   "title": "正負の数 トレーニング①〜④ F",
+   "pages": 4,
+   "note": "①加法・減法／②乗法・除法／③加減の混じった計算／④四則をふくむ計算（1ページずつ）"
+  },
+  {
+   "file": "c1_seifu_jishu_kagen_A.pdf",
+   "step": "seifu-kagen",
+   "title": "正負の数 じしゅうプリント A（たし算・ひき算の符号）",
+   "pages": 6,
+   "note": "⓪ルールをなぞる→①符号を書く→②同じ？ちがう？→③答えの符号だけ（月曜の自習用）"
+  },
+  {
+   "file": "c1_seifu_jishu_kagen_2.pdf",
+   "step": "seifu-kagen",
+   "title": "正負の数 じしゅうプリント 2（たし算・ひき算の符号）",
+   "pages": 6,
+   "note": "Aと同じ形・別の問題"
+  },
+  {
+   "file": "c1_seifu_jishu_kagen_3.pdf",
+   "step": "seifu-kagen",
+   "title": "正負の数 じしゅうプリント 3（たし算・ひき算の符号）",
+   "pages": 6,
+   "note": "Aと同じ形・別の問題"
+  },
+  {
+   "file": "c1_seifu_jishu_3kou_1.pdf",
+   "step": "seifu-3kou",
+   "title": "正負の数 じしゅうプリント（3つ以上・式で集める）1",
+   "pages": 6,
+   "note": "並べかえ→同じ符号どうしをまとめる→答え、の流れを式に書く"
+  },
+  {
+   "file": "c1_seifu_jishu_3kou_2.pdf",
+   "step": "seifu-3kou",
+   "title": "正負の数 じしゅうプリント（3つ以上・式で集める）2",
+   "pages": 6,
+   "note": "1と同じ形・別の問題"
+  },
+  {
+   "file": "c1_seifu_jishu_kakezan_1.pdf",
+   "step": "seifu-shisoku",
+   "title": "正負の数 じしゅうプリント（かけ算まじり）1",
+   "pages": 6,
+   "note": "⓪かけ算の符号のきまり→かけ算を先に"
+  },
+  {
+   "file": "c1_seifu_jishu_kakezan_2.pdf",
+   "step": "seifu-shisoku",
+   "title": "正負の数 じしゅうプリント（かけ算まじり）2",
+   "pages": 6,
+   "note": "1と同じ形・別の問題"
+  },
+  {
+   "file": "c1_seifu_jishu_kakezan_3.pdf",
+   "step": "seifu-shisoku",
+   "title": "正負の数 じしゅうプリント（かけ算まじり）3",
+   "pages": 6,
+   "note": "1と同じ形・別の問題"
+  },
+  {
+   "file": "c1_seifu_shisoku_2p_A.pdf",
+   "step": "seifu-shisoku",
+   "title": "正負の数 四則の混じった計算（2ページ）A",
+   "pages": 2,
+   "note": "その1 かけ算＋たし算・ひき算／その2 かけ算が2つ以上（各8問）"
+  },
+  {
+   "file": "c1_seifu_shisoku_2p_B.pdf",
+   "step": "seifu-shisoku",
+   "title": "正負の数 四則の混じった計算（2ページ）B",
+   "pages": 2,
+   "note": "Aと同じ形・別の問題"
+  },
+  {
+   "file": "c1_moji_kihon.pdf",
+   "step": "moji-douruikou",
+   "title": "文字式の計算 基本",
+   "pages": 4,
+   "note": "1 同類項をまとめる／2 1次式のたし算・ひき算／3 数をかける・数でわる／4 かっこをはずしてまとめる"
+  },
+  {
+   "file": "c1_moji_training.pdf",
+   "step": "moji-jouzyo",
+   "title": "文字式の計算 トレーニング①②",
+   "pages": 2,
+   "note": "① 四則の混じった計算／② その練習"
+  },
+  {
+   "file": "c1_houtei_kihon.pdf",
+   "step": "houtei-kihon",
+   "title": "方程式 基本",
+   "pages": 4,
+   "note": "1 移項して解く(1)／2 係数でわる／3 移項して解く(2)／4 両辺に x がある方程式"
+  },
+  {
+   "file": "c1_houtei_jishu.pdf",
+   "step": "houtei-kihon",
+   "title": "方程式 じしゅうプリント",
+   "pages": 6,
+   "note": "⓪とき方と例→移項の符号→まとめる→わる→検算（月曜の自習用）"
+  },
+  {
+   "file": "c1_houtei_training.pdf",
+   "step": "houtei-kihon",
+   "title": "一次方程式 トレーニング①②",
+   "pages": 2,
+   "note": "① 基本の解き方／② 両辺に文字がある式"
+  },
+  {
+   "file": "c1_houtei_kihon_kakko_B.pdf",
+   "step": "houtei-kakko",
+   "title": "方程式 練習プリント（基本・かっこ）B",
+   "pages": 4,
+   "note": "1・2 基本（手順つき）／3・4 かっこのある方程式"
+  },
+  {
+   "file": "c1_houtei_kakko_A.pdf",
+   "step": "houtei-kakko",
+   "title": "方程式 練習プリント（かっこを含む）A",
+   "pages": 4,
+   "note": "4ページ"
+  },
+  {
+   "file": "c1_houtei_kakko_B.pdf",
+   "step": "houtei-kakko",
+   "title": "方程式 練習プリント（かっこを含む）B",
+   "pages": 4,
+   "note": "Aと同じ形・別の問題"
+  },
+  {
+   "file": "c1_houtei_bunsu_old_A.pdf",
+   "step": "houtei-bunsu",
+   "title": "方程式 練習プリント（分数を含む）A",
+   "pages": 4,
+   "note": "分母をはらう手順つき・4ページ"
+  },
+  {
+   "file": "c1_houtei_bunsu_old_B.pdf",
+   "step": "houtei-bunsu",
+   "title": "方程式 練習プリント（分数を含む）B",
+   "pages": 4,
+   "note": "Aと同じ形・別の問題"
+  },
+  {
+   "file": "c1_houtei_bunsu_old_C.pdf",
+   "step": "houtei-bunsu",
+   "title": "方程式 練習プリント（分数を含む）C",
+   "pages": 4,
+   "note": "Aと同じ形・別の問題"
+  },
+  {
+   "file": "c1_houtei_bunsu_old_D.pdf",
+   "step": "houtei-bunsu",
+   "title": "方程式 練習プリント（分数を含む）D",
+   "pages": 4,
+   "note": "Aと同じ形・別の問題"
+  },
+  {
+   "file": "c1_mix_seifu_moji_1.pdf",
+   "step": "c1mix-keisan",
+   "title": "正負の数と文字式 トレーニング①〜④",
+   "pages": 4,
+   "note": "①加法・減法／②四則／③一次式の加法・減法／④乗法・除法"
+  },
+  {
+   "file": "c1_mix_seifu_moji_1_ans.pdf",
+   "step": "c1mix-keisan",
+   "title": "正負の数と文字式 トレーニング①〜④ こたえ",
+   "pages": 1,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "c1_mix_seifu_moji_2.pdf",
+   "step": "c1mix-keisan",
+   "title": "正負の数と文字式 トレーニング①〜④（字が大きめ）",
+   "pages": 4,
+   "note": "①加法・減法の混じった計算／②四則／③一次式の加法・減法／④乗法・除法と分配法則"
+  },
+  {
+   "file": "c1_mix_seifu_moji_3.pdf",
+   "step": "c1mix-keisan",
+   "title": "正負の数と文字式 トレーニング①〜④（文字式は四則）",
+   "pages": 4,
+   "note": "①加法・減法の混じった計算／②四則／③④文字式の四則の混じった計算"
+  },
+  {
+   "file": "c1_mix_moji_houtei.pdf",
+   "step": "c1mix-keisan",
+   "title": "文字式と一次方程式 トレーニング①〜④",
+   "pages": 4,
+   "note": "①②文字式の四則／③一次方程式の基本／④両辺に文字・かっこ"
+  },
+  {
+   "file": "c1_check_gakuryoku.pdf",
+   "step": "c1check-check",
+   "title": "中1数学 学力チェック（30分・100点）",
+   "pages": 2,
+   "note": "習っていない問題はとばしてOK"
+  },
+  {
+   "file": "c1_check_shujukudo.pdf",
+   "step": "c1check-check",
+   "title": "中1 習熟度チェック（小学校の計算）",
+   "pages": 4,
+   "note": "レベル別の総チェック"
+  },
+  {
+   "file": "c1_check_shujukudo_ans.pdf",
+   "step": "c1check-check",
+   "title": "中1 習熟度チェック こたえ・診断シート",
+   "pages": 2,
+   "note": "",
    "ans": true
   }
  ]

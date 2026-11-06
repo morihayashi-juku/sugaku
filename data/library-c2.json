@@ -1,6 +1,6 @@
 {
  "_memo": "教材ライブラリ（中2）：中2のプリントはすべてここに1回だけ書く。step は data/common.json のステップ id。こたえは ans: true。組の JSON からは file 名で呼ぶ。ファイル名は c2_ から始める。このファイルは中2の作成チャットだけが書く。",
- "updated": "2026-11-05",
+ "updated": "2026-11-06",
  "items": [
   {
    "file": "c2_goudou_shoumei_L1_A.pdf",
@@ -60,6 +60,240 @@
    "title": "定期テスト対策 一次関数の利用（木曜用）こたえ",
    "pages": 4,
    "note": "途中の式つき・動点のグラフ入り",
+   "ans": true
+  },
+  {
+   "file": "c2_renritsu_kajo_4p.pdf",
+   "step": "c2-renritsu-kajo",
+   "title": "連立方程式 加減法①〜④",
+   "pages": 4,
+   "note": "① たして消す／② ひいて消す／③ たす・ひくを見分ける／④ 負の数をふくむ"
+  },
+  {
+   "file": "c2_renritsu_kajo_tasuhiku.pdf",
+   "step": "c2-renritsu-kajo",
+   "title": "加減法 たす？ひく？①〜④",
+   "pages": 4,
+   "note": "たすかひくかを判断する練習"
+  },
+  {
+   "file": "c2_renritsu_mix_4p.pdf",
+   "step": "c2-renritsu-kajo",
+   "title": "連立方程式 (1)〜(4)",
+   "pages": 4,
+   "note": "(1) そのままたす・ひく／(2) 一方を何倍か／(3) 両方を何倍か・代入法／(4) かっこ・分数・小数"
+  },
+  {
+   "file": "c2_renritsu_kajo_daiyu.pdf",
+   "step": "c2-renritsu-daiyu",
+   "title": "連立方程式①〜④ 加減法・代入法",
+   "pages": 4,
+   "note": "4ページ"
+  },
+  {
+   "file": "c2_renritsu_kajo_daiyu_ans.pdf",
+   "step": "c2-renritsu-daiyu",
+   "title": "連立方程式①〜④ 加減法・代入法 こたえ",
+   "pages": 4,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "c2_renritsu_bunsho_4.pdf",
+   "step": "c2-renritsu-bunsho",
+   "title": "連立方程式の利用 文章題にチャレンジ④",
+   "pages": 4,
+   "note": "代金・速さなど（4ページ）"
+  },
+  {
+   "file": "c2_renritsu_bunsho_4_ans.pdf",
+   "step": "c2-renritsu-bunsho",
+   "title": "連立方程式の利用 文章題にチャレンジ④ 解答例",
+   "pages": 1,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "c2_renritsu_bunsho_5.pdf",
+   "step": "c2-renritsu-bunsho",
+   "title": "連立方程式の利用 文章題にチャレンジ⑤",
+   "pages": 4,
+   "note": "代金・速さなど（4ページ）"
+  },
+  {
+   "file": "c2_renritsu_bunsho_5_ans.pdf",
+   "step": "c2-renritsu-bunsho",
+   "title": "連立方程式の利用 文章題にチャレンジ⑤ 解答例",
+   "pages": 1,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "c2_ichiji_shiki_henka.pdf",
+   "step": "c2-ichiji-shiki",
+   "title": "一次関数① 式の判別／変化の割合",
+   "pages": 2,
+   "note": "2ページ"
+  },
+  {
+   "file": "c2_dainyu_master_E.pdf",
+   "step": "c2-ichiji-dainyu",
+   "title": "代入マスター（基礎）パターンE",
+   "pages": 6,
+   "note": "1ページ目＝解説（2ページ目は白紙）。問題① 代入の計算／② グラフ上の点／③ 代入→方程式／④ チャレンジ"
+  },
+  {
+   "file": "c2_dainyu_hatten_B.pdf",
+   "step": "c2-ichiji-dainyu",
+   "title": "代入の活用 発展編 パターンB",
+   "pages": 6,
+   "note": "1ページ目＝解説（2ページ目は白紙）。問題① 式を決める／② グラフを読む・交点／③ 変域／④ チャレンジ"
+  },
+  {
+   "file": "c2_dainyu_hatten_C.pdf",
+   "step": "c2-ichiji-dainyu",
+   "title": "代入の活用 発展編 パターンC",
+   "pages": 6,
+   "note": "1ページ目＝解説（2ページ目は白紙）。問題① 式を決める／② グラフを読む・交点／③ 変域／④ チャレンジ"
+  },
+  {
+   "file": "c2_dainyu_hatten_D.pdf",
+   "step": "c2-ichiji-dainyu",
+   "title": "代入の活用 発展編 パターンD",
+   "pages": 6,
+   "note": "1ページ目＝解説（2ページ目は白紙）。問題① 式を決める／② グラフを読む・交点／③ 変域／④ チャレンジ"
+  },
+  {
+   "file": "c2_ichiji_graph_zukei.pdf",
+   "step": "c2-ichiji-riyou",
+   "title": "一次関数 グラフと図形（図を見て必要な値を選ぶ）",
+   "pages": 6,
+   "note": "1ページ目＝解説（2ページ目は白紙）。大問1 直線上の点／2 2直線と三角形／3 面積から点／4 y軸を底辺に"
+  },
+  {
+   "file": "c2_ichiji_graph_zukei_ans.pdf",
+   "step": "c2-ichiji-riyou",
+   "title": "一次関数 グラフと図形 こたえ・解説",
+   "pages": 1,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "c2_ichiji_riyou_ws.pdf",
+   "step": "c2-ichiji-riyou",
+   "title": "一次関数の利用 ワークシート",
+   "pages": 4,
+   "note": "1 速さ（グラフ）／2 動点／3 水そう／4 料金プラン"
+  },
+  {
+   "file": "c2_ichiji_riyou_ryoukin_denki.pdf",
+   "step": "c2-ichiji-riyou",
+   "title": "一次関数の利用 段階料金（電気料金）",
+   "pages": 2,
+   "note": "2ページ"
+  },
+  {
+   "file": "c2_ichiji_riyou_ryoukin_denki_ans.pdf",
+   "step": "c2-ichiji-riyou",
+   "title": "一次関数の利用 段階料金（電気料金）こたえ",
+   "pages": 2,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "c2_ichiji_riyou_ryoukin_copy.pdf",
+   "step": "c2-ichiji-riyou",
+   "title": "一次関数の利用 段階料金（コピー料金）",
+   "pages": 2,
+   "note": "2ページ"
+  },
+  {
+   "file": "c2_ichiji_riyou_ryoukin_copy_ans.pdf",
+   "step": "c2-ichiji-riyou",
+   "title": "一次関数の利用 段階料金（コピー料金）こたえ",
+   "pages": 2,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "c2_kaku_heikou_A.pdf",
+   "step": "c2-heikou-kaku",
+   "title": "角と平行線 A",
+   "pages": 6,
+   "note": "1ページ目＝まとめ（2ページ目は白紙）。練習①〜④"
+  },
+  {
+   "file": "c2_kaku_heikou_A_ans.pdf",
+   "step": "c2-heikou-kaku",
+   "title": "角と平行線 A こたえ",
+   "pages": 4,
+   "note": "練習①〜④に答えを赤で記入",
+   "ans": true
+  },
+  {
+   "file": "c2_kaku_heikou_A2.pdf",
+   "step": "c2-heikou-kaku",
+   "title": "角と平行線 A2（xの式で表す角）",
+   "pages": 6,
+   "note": "Aと同じ形。角が x の式（2x＋10° など）になっている版。こたえなし"
+  },
+  {
+   "file": "c2_kaku_heikou_L1_B.pdf",
+   "step": "c2-heikou-kaku",
+   "title": "角と平行線 難易度1 B",
+   "pages": 6,
+   "note": "1ページ目＝まとめ（2ページ目は白紙）。練習①〜④"
+  },
+  {
+   "file": "c2_kaku_heikou_L1_B_ans.pdf",
+   "step": "c2-heikou-kaku",
+   "title": "角と平行線 難易度1 B こたえ",
+   "pages": 4,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "c2_takakkei_kaku.pdf",
+   "step": "c2-heikou-sankaku",
+   "title": "多角形の角（内角・外角）",
+   "pages": 6,
+   "note": "1ページ目＝まとめ（2ページ目は白紙）。練習①〜④"
+  },
+  {
+   "file": "c2_takakkei_kaku_ans.pdf",
+   "step": "c2-heikou-sankaku",
+   "title": "多角形の角 こたえ",
+   "pages": 4,
+   "note": "",
+   "ans": true
+  },
+  {
+   "file": "c2_goudou_nyumon.pdf",
+   "step": "c2-heikou-goudou",
+   "title": "合同の証明①〜⑥（入門）",
+   "pages": 6,
+   "note": "① 合同ってなに？／② 合同条件／③ 仮定・結論・理由／④⑤ 証明の穴うめ／⑥ 自分で書く"
+  },
+  {
+   "file": "c2_goudou_shoumei_L1_old.pdf",
+   "step": "c2-heikou-shoumei",
+   "title": "合同の証明 レベル1（型つき・6ページ版）",
+   "pages": 6,
+   "note": "仮定3つで証明を書く（型つき）"
+  },
+  {
+   "file": "c2_check_shujukudo.pdf",
+   "step": "c2check-check",
+   "title": "中2 習熟度チェック（中1の計算）",
+   "pages": 4,
+   "note": "正負の数・文字式・方程式"
+  },
+  {
+   "file": "c2_check_shujukudo_ans.pdf",
+   "step": "c2check-check",
+   "title": "中2 習熟度チェック こたえ・診断シート",
+   "pages": 2,
+   "note": "",
    "ans": true
   }
  ]

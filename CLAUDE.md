@@ -94,6 +94,11 @@
 - `data/common.json` の `units`（その学年のところ）に足す。`id` は単元・ステップ全体でかぶらないこと（check_site.py が確かめる）。学年の接頭辞：中2＝`c2-`、中3＝`c3-`、高1＝`k1-`、高2＝`k2-`（中1は接頭辞なし）。
 - 単元・ステップの一覧は、学習指導要領の順を目安にした「枠」。学校の進みや先生の考えに合わせて、足したり名前を直したりしてよい（空のステップは「まだプリントはありません」と出るだけ）。
 
+## 前に作ったプリント（11/6 に Downloads の「中学数学」から入れた分）
+- 先生の Mac の Downloads/中学数学 にあった中1〜中3のプリント（147ファイル）を、教材ライブラリの単元・ステップに振り分けて入れた。組の回（sets）にはまだ入れていない（使うときに回から file 名で呼ぶ）。
+- 名前は学年の接頭辞つきの英数字に直した（中1も別のチャットとかぶらないよう `c1_` を付けた）。
+- このとき足したステップ：中1「計算のまとめ」`c1mix-keisan`・「学力・習熟度チェック」`c1check-check`、中2 `c2-ichiji-dainyu`（代入マスター）・`c2check-check`、中3 `c3-niji-miwake`・`c3-teiki-tenkai-heihou`・`c3-nyushi-sou`（総復習プリント）・`c3-nyushi-sakusen`（作戦プリント）・`c3check-check`。
+
 ## 公開
 - GitHub Pages：main ブランチの / (root)。URL は https://morihayashi-juku.github.io/sugaku/
 - 先生用のみ（生徒には見せない）。こたえも入っているので noindex。
