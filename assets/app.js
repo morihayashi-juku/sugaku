@@ -212,6 +212,7 @@ function renderGrade(g, sub) {
     </div>
     <h1>${esc(g)}　${dl}</h1>
     <button type="button" class="btn" data-act="maruopen" id="maru-open"${maruSel.size ? "" : " disabled"}>${ICON_EYE}<span>こたえを画面で見る（${maruSel.size}）</span></button>
+    ${sameLevel(g).length > 1 && levelAnswers(day, g).length ? `<button type="button" class="btn" data-act="maruall" data-grade="${gid}" data-day="${day}">${ICON_EYE}<span>${g.startsWith("高") ? "高校" : "中学"}全学年のこたえ（${levelAnswers(day, g).length}）</span></button>` : ""}
     <button type="button" class="btn key" data-act="printday" data-grade="${gid}" data-day="${day}"${any ? "" : " disabled"}>${ICON_PRINT}${dl}の分をまとめて印刷</button>
   </section>
   <div class="prep" data-n="${rows.length}">${cards}</div>
@@ -221,6 +222,9 @@ function renderGrade(g, sub) {
     ${rest.length ? `<details class="mold lib"><summary>ほかのこたえ（教材ライブラリ・${rest.length}）</summary><ul class="mlist">${rest.map(a => maruRow(a, stepFull(a.step))).join("")}</ul></details>` : ""}
   </details>` : ""}`;
 }
+// 同じ学校（中学／高校）の学年をまとめた、その曜日のこたえ（丸つけ用）
+const sameLevel = g => Object.keys(GRADE_ID).filter(x => gradeTracks(x).length && x.startsWith("高") === g.startsWith("高"));
+const levelAnswers = (day, g) => [...new Set(sameLevel(g).flatMap(x => gradeDays(x).includes(day) ? dayAnswers(day, x) : []))];
 function maruCount() {
   const b = $("#maru-open"); if (!b) return;
   b.disabled = !maruSel.size; b.querySelector("span").textContent = `こたえを画面で見る（${maruSel.size}）`;
@@ -616,6 +620,10 @@ document.addEventListener("click", e => {
   else if (act === "printday") openDayPrint(b.dataset.day, gradeFromId(b.dataset.grade));
   else if (act === "day") location.hash = `#${b.dataset.grade}/${b.dataset.day}`;
   else if (act === "maruopen") { const f = maruOrder(); if (f.length) openViewer(f, "こたえ（丸つけ用）"); }
+  else if (act === "maruall") {
+    const g = gradeFromId(b.dataset.grade), f = levelAnswers(b.dataset.day, g);
+    if (f.length) openViewer(f, `${g.startsWith("高") ? "高校" : "中学"} ${DAYS[b.dataset.day].label}のこたえ（全学年）`);
+  }
   else if (act === "maruset") {
     const T = D.s[b.dataset.track], s = T.sets.find(x => x.id === b.dataset.set);
     if (s) openViewer(setAnswers(s).map(a => a.file), `${T.name} ${s.label} のこたえ`);
