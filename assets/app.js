@@ -421,60 +421,49 @@ function setZoom(z) {
 async function openViewer(files, title) {
   if (typeof files === "string") files = [files];
   const list = files.map(f => ITEMS.get(f) || {file: f, title: f, pages: "?"});
-  const me = viewing = {title: title || list[0].title, files: list};
+  const me = viewing = {title: title || list[0].title, files: list, cur: 0};
   $("#v-title").textContent = me.title;
   $("#v-pages").textContent = "";
-  $("#v-open").hidden = list.length > 1;
-  $("#v-open").href = P(list[0].file);
+  $("#v-print").hidden = list.every(it => it.ans);          // こたえだけを見るときは、印刷ボタンは出さない
   const jump = $("#v-jump");
   jump.hidden = list.length < 2;
   jump.innerHTML = list.length < 2 ? "" : list.map((it, i) => `<button type="button" data-jump="${i}">${esc(it.title.replace(/\s*(の)?こたえ$/, ""))}</button>`).join("");
-  vBody.innerHTML = "";
   if (!viewer.open) viewer.showModal();
-  vBody.scrollTop = vBody.scrollLeft = 0;
   if (viewIO) viewIO.disconnect();
   viewIO = new IntersectionObserver(es => {
     for (const e of es) { if (e.isIntersecting) drawInto(e.target); else dropFrom(e.target); }
   }, {root: vBody, rootMargin: "900px 0px"});
   setZoom(zoom);
-  let total = 0;
-  for (let i = 0; i < list.length; i++) {
-    const it = list[i];
-    try {
-      const doc = await getDoc(it.file);
-      if (viewing !== me) return;
-      if (list.length > 1) {
-        const h = document.createElement("h2");
-        h.className = "v-doc"; h.id = "v-doc-" + i;
-        h.textContent = `${i + 1}. ${it.title}`;
-        vBody.append(h);
-      }
-      for (let n = 1; n <= doc.numPages; n++) {
-        const d = document.createElement("div");
-        d.className = "v-page"; d.dataset.file = it.file; d.dataset.n = n; d.style.width = pageW() + "px";
-        d.setAttribute("aria-label", `${it.title} ${n}ページ目`);
-        vBody.append(d); viewIO.observe(d);
-      }
-      total += doc.numPages;
-      $("#v-pages").textContent = `${list.length > 1 ? list.length + "つ・" : ""}${total}ページ`;
-    } catch (e) {
-      vBody.insertAdjacentHTML("beforeend", `<p class="v-err">${esc(it.title)} を開けませんでした（pdf/${esc(it.file)}）。</p>`);
+  showDoc(me, 0);
+}
+// 複数のPDFは、タブで1つずつ切りかえて見る
+async function showDoc(me, i) {
+  if (viewing !== me) return;
+  me.cur = i;
+  const it = me.files[i];
+  vBody.innerHTML = ""; vBody.scrollTop = vBody.scrollLeft = 0;
+  $("#v-open").href = P(it.file);
+  $("#v-jump").querySelectorAll("button").forEach((b, n) => b.setAttribute("aria-current", n === i ? "true" : "false"));
+  try {
+    const doc = await getDoc(it.file);
+    if (viewing !== me || me.cur !== i) return;
+    for (let n = 1; n <= doc.numPages; n++) {
+      const d = document.createElement("div");
+      d.className = "v-page"; d.dataset.file = it.file; d.dataset.n = n; d.style.width = pageW() + "px";
+      d.setAttribute("aria-label", `${it.title} ${n}ページ目`);
+      vBody.append(d); viewIO.observe(d);
     }
+    $("#v-pages").textContent = `${doc.numPages}ページ`;
+  } catch (e) {
+    if (viewing === me && me.cur === i) vBody.innerHTML = `<p class="v-err">${esc(it.title)} を開けませんでした（pdf/${esc(it.file)}）。</p>`;
   }
 }
 $("#v-close").addEventListener("click", () => viewer.close());
 $("#v-zin").addEventListener("click", () => { const i = ZOOMS.indexOf(zoom); if (i < ZOOMS.length - 1) setZoom(ZOOMS[i + 1]); });
 $("#v-zout").addEventListener("click", () => { const i = ZOOMS.indexOf(zoom); if (i > 0) setZoom(ZOOMS[i - 1]); });
 $("#v-jump").addEventListener("click", e => {
-  const b = e.target.closest("[data-jump]"); if (!b) return;
-  const h = $("#v-doc-" + b.dataset.jump); if (h) vBody.scrollTop = h.offsetTop - vBody.offsetTop - 8;
+  const b = e.target.closest("[data-jump]"); if (b && viewing) showDoc(viewing, +b.dataset.jump);
 });
-vBody.addEventListener("scroll", () => {          // いま見ているPDFのボタンを強調
-  if ($("#v-jump").hidden) return;
-  let cur = 0;
-  vBody.querySelectorAll(".v-doc").forEach((h, i) => { if (h.offsetTop - vBody.offsetTop <= vBody.scrollTop + 40) cur = i; });
-  $("#v-jump").querySelectorAll("button").forEach((b, i) => b.setAttribute("aria-current", i === cur ? "true" : "false"));
-}, {passive: true});
 let rsz = null;
 window.addEventListener("resize", () => { if (!viewer.open) return; clearTimeout(rsz); rsz = setTimeout(() => setZoom(zoom), 250); });
 $("#v-print").addEventListener("click", () => viewing && printJob(viewing.title, viewing.files.map(it => ({file: it.file, copies: 1}))));
