@@ -1,6 +1,6 @@
 {
  "_memo": "教材ライブラリ（高1）：高1のプリントはすべてここに1回だけ書く。step は data/common.json のステップ id。こたえは ans: true。組の JSON からは file 名で呼ぶ。ファイル名は k1_ から始める。このファイルは高1の作成チャットだけが書く。",
- "updated": "2026-11-06",
+ "updated": "2026-11-07",
  "items": [
   {
    "file": "k1_niji_matome_kiso.pdf",
@@ -177,18 +177,93 @@
    "note": "1 展開・因数分解・不等式／2 二次関数／3 三角比／4 相互関係（4ページ）。こたえなし"
   },
   {
+   "file": "k1_chuukan_exam_A.pdf",
+   "step": "k1-fukushuu-exam",
+   "title": "2学期中間考査型テスト〔A〕（2次関数）",
+   "pages": 2,
+   "note": "A3・2ページ。関数の式・f(x)の値・平方完成／頂点・軸とグラフ／最大・最小（定義域つき）"
+  },
+  {
+   "file": "k1_chuukan_exam_A_ans.pdf",
+   "step": "k1-fukushuu-exam",
+   "title": "2学期中間考査型テスト〔A〕 こたえ",
+   "pages": 2,
+   "note": "問題プリントに赤字で答え・途中式・グラフを書きこんだもの",
+   "ans": true
+  },
+  {
+   "file": "k1_chuukan_exam_B.pdf",
+   "step": "k1-fukushuu-exam",
+   "title": "2学期中間考査型テスト〔B〕（2次関数）",
+   "pages": 2,
+   "note": "A3・2ページ。関数の式・f(x)の値・平方完成／頂点・軸とグラフ／最大・最小（定義域つき）"
+  },
+  {
+   "file": "k1_chuukan_exam_B_ans.pdf",
+   "step": "k1-fukushuu-exam",
+   "title": "2学期中間考査型テスト〔B〕 こたえ",
+   "pages": 2,
+   "note": "問題プリントに赤字で答え・途中式・グラフを書きこんだもの",
+   "ans": true
+  },
+  {
+   "file": "k1_chuukan_exam_C.pdf",
+   "step": "k1-fukushuu-exam",
+   "title": "2学期中間考査型テスト〔C〕（2次関数）",
+   "pages": 2,
+   "note": "A3・2ページ。関数の式・f(x)の値・平方完成／頂点・軸とグラフ／最大・最小（定義域つき）"
+  },
+  {
+   "file": "k1_chuukan_exam_C_ans.pdf",
+   "step": "k1-fukushuu-exam",
+   "title": "2学期中間考査型テスト〔C〕 こたえ",
+   "pages": 2,
+   "note": "問題プリントに赤字で答え・途中式・グラフを書きこんだもの",
+   "ans": true
+  },
+  {
+   "file": "k1_chuukan_exam_D.pdf",
+   "step": "k1-fukushuu-exam",
+   "title": "2学期中間考査型テスト〔D〕（2次関数）",
+   "pages": 2,
+   "note": "A3・2ページ。関数の式・f(x)の値・平方完成／頂点・軸とグラフ／最大・最小（定義域つき）"
+  },
+  {
+   "file": "k1_chuukan_exam_D_ans.pdf",
+   "step": "k1-fukushuu-exam",
+   "title": "2学期中間考査型テスト〔D〕 こたえ",
+   "pages": 2,
+   "note": "問題プリントに赤字で答え・途中式・グラフを書きこんだもの",
+   "ans": true
+  },
+  {
+   "file": "k1_chuukan_exam_E.pdf",
+   "step": "k1-fukushuu-exam",
+   "title": "2学期中間考査型テスト〔E〕（2次関数）",
+   "pages": 2,
+   "note": "A3・2ページ。関数の式・f(x)の値・平方完成／頂点・軸とグラフ／最大・最小（定義域つき）"
+  },
+  {
+   "file": "k1_chuukan_exam_E_ans.pdf",
+   "step": "k1-fukushuu-exam",
+   "title": "2学期中間考査型テスト〔E〕 こたえ",
+   "pages": 2,
+   "note": "問題プリントに赤字で答え・途中式・グラフを書きこんだもの",
+   "ans": true
+  },
+  {
    "file": "k1_chuukan_exam_F.pdf",
    "step": "k1-fukushuu-exam",
    "title": "2学期中間考査型テスト〔F〕（2次関数）",
    "pages": 2,
-   "note": "A3サイズ・2ページ。関数の式・平方完成・グラフ・最大最小など"
+   "note": "A3・2ページ。関数の式・f(x)の値・平方完成／頂点・軸とグラフ／最大・最小（定義域つき）"
   },
   {
    "file": "k1_chuukan_exam_F_ans.pdf",
    "step": "k1-fukushuu-exam",
-   "title": "2学期中間考査型テスト〔F〕こたえ（略解）",
-   "pages": 1,
-   "note": "",
+   "title": "2学期中間考査型テスト〔F〕 こたえ",
+   "pages": 2,
+   "note": "問題プリントに赤字で答え・途中式・グラフを書きこんだもの",
    "ans": true
   },
   {
@@ -196,14 +271,14 @@
    "step": "k1-fukushuu-exam",
    "title": "2学期中間考査型テスト〔G〕（2次関数）",
    "pages": 2,
-   "note": "A3サイズ・2ページ。関数の式・平方完成・グラフ・最大最小など"
+   "note": "A3・2ページ。関数の式・f(x)の値・平方完成／頂点・軸とグラフ／最大・最小（定義域つき）"
   },
   {
    "file": "k1_chuukan_exam_G_ans.pdf",
    "step": "k1-fukushuu-exam",
-   "title": "2学期中間考査型テスト〔G〕こたえ（略解）",
-   "pages": 1,
-   "note": "",
+   "title": "2学期中間考査型テスト〔G〕 こたえ",
+   "pages": 2,
+   "note": "問題プリントに赤字で答え・途中式・グラフを書きこんだもの",
    "ans": true
   },
   {
