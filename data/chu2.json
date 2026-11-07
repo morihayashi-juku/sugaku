@@ -29,6 +29,10 @@
  "log": [
   {
    "date": "2026-11-07",
+   "text": "11/9（月）は1ページ大問1問の版をする。前の4パターン版（木曜用）は先生の判断でいったん削除。"
+  },
+  {
+   "date": "2026-11-07",
    "text": "定期テスト対策 一次関数の利用（月曜用・1ページ大問1問×4）を作った。木曜用は計算スペースが足りなかったため、左右に分けない形にした。"
   },
   {
@@ -131,48 +135,8 @@
    ],
    "title": "定期テスト対策 一次関数の利用",
    "cur": true,
-   "note": "木曜用＝1ページ＝1パターン（4パターン・A3想定）。月曜用＝1ページ大問1問（全幅・計算スペース広め）。",
+   "note": "11/9（月）の授業でする。1ページ大問1問×4（全幅・計算スペース広め）。前の4パターン版（木曜用）は削除した。",
    "groups": [
-    {
-     "kind": "lesson",
-     "day": "mon",
-     "label": "月曜（授業）11/9",
-     "items": [
-      {
-       "file": "c2_teiki_ichiji_riyou_thu.pdf"
-      }
-     ]
-    },
-    {
-     "kind": "teacher",
-     "day": "mon",
-     "label": "月曜 こたえ（先生用）",
-     "items": [
-      {
-       "file": "c2_teiki_ichiji_riyou_thu_ans.pdf"
-      }
-     ]
-    },
-    {
-     "kind": "lesson",
-     "label": "木曜（授業）",
-     "day": "thu",
-     "items": [
-      {
-       "file": "c2_teiki_ichiji_riyou_thu.pdf"
-      }
-     ]
-    },
-    {
-     "kind": "teacher",
-     "label": "木曜 こたえ（先生用）",
-     "day": "thu",
-     "items": [
-      {
-       "file": "c2_teiki_ichiji_riyou_thu_ans.pdf"
-      }
-     ]
-    },
     {
      "kind": "lesson",
      "label": "月曜（授業）",
