@@ -113,8 +113,12 @@ def page_speed(a=False):
              f"同じ道を自転車で図書館に向かった。妹は図書館で2分間過ごしたあと、行きと同じ速さで同じ道を家に帰った。<br>"
              f"右のグラフは、姉が家を出発してから {X} 分後の家からの道のりを {Y} m として、2人のようすを表したものである。"
              f"2人とも、止まっているとき以外は一定の速さで進むものとする。")
-    ppl = [("姉", RED, ANE, (30, 1800, 1.6, -1.6, "start")), ("妹", BLUE, IMO, (32, 0, -1, -3, "start"))]
-    svg = speed_svg(ppl, 34, 2000, [10, 20, 30], [1800], [(20, 1800), (30, 1800)])
+    ppl = [("姉", RED, ANE, (30, 1800, 1.6, -1.6, "start")), ("妹", BLUE, IMO, (32, 0, 1.6, -4.5, "start"))]
+    P = Plane((0, 34), (0, 2000), 104 / 34, 72 / 2000, (1, 5), (100, 200), xu="（分）", yu="（m）", mr=17, ml=11)
+    for name, col, pts, (lx, ly, dx, dy, an) in ppl:
+        P.poly(pts, col, .75)
+        P.text(lx, ly, name, dx, dy, an, 4.4, f'style="fill:{col};font-weight:700"')
+    svg = P.svg()
     qs = [
         ("姉の歩く速さは分速何mですか。", f"答　分速{b(22, '60')}m", 1,
          f"30分で1800m進むから　{T('1800\\div30=60')}"),
@@ -176,48 +180,51 @@ def page_dot(a=False):
 
 
 # ---------- ③ グラフと面積（2点から式） ----------
-G3 = dict(A=(-4, 0), B=(6, 0), C=(2, 6))
+G3 = dict(A=(-4, 0), B=(6, 0), D=(0, 4), E=(0, 9))
 
 
 def g3_answers():
-    A, B, C = G3["A"], G3["B"], G3["C"]
-    l, m = line2(A, C), line2(B, C)
-    D = (0, l[1])
+    A, B, D, E = G3["A"], G3["B"], G3["D"], G3["E"]
+    l, m = line2(A, D), line2(B, E)
+    x = sp.symbols("x")
+    cx = sp.solve(sp.Eq(sp.Rational(l[0].numerator, l[0].denominator) * x + int(l[1]),
+                        sp.Rational(m[0].numerator, m[0].denominator) * x + int(m[1])), x)[0]
+    C = (F(int(cx)), l[0] * int(cx) + l[1])
     S = F(abs(B[0] - A[0]) * C[1], 2)
-    S_dbc = S - F(abs(B[0] - A[0]) * D[1], 2)       # △DBC＝△ABC−△ABD（D は AC 上）
     tri = lambda P, Q, R: abs((Q[0] - P[0]) * (R[1] - P[1]) - (R[0] - P[0]) * (Q[1] - P[1])) / F(2)
-    assert tri(D, B, C) == S_dbc
+    assert tri(A, B, C) == S
     M = (F(A[0] + B[0], 2), F(0))
     half = line2(C, M)
     assert tri(A, M, C) == tri(M, B, C) == S / 2
     p = 2 * S / abs(B[0] - A[0])                     # △PAB＝△ABC → 高さが同じ
-    r = dict(l=l, m=m, D=D, S=S, S_dbc=S_dbc, M=M, half=half, P=(0, p))
-    assert (l, m, S, S_dbc, half, p) == ((1, 4), (F(-3, 2), 9), 30, 10, (6, -6), 6), r
+    r = dict(l=l, m=m, C=C, S=S, M=M, half=half, P=(0, p))
+    assert (l, m, C, S, half, p) == ((1, 4), (F(-3, 2), 9), (2, 6), 30, (6, -6), 6), r
     return r
 
 
 def page_g3(a=False):
-    A, B, C = G3["A"], G3["B"], G3["C"]
+    A, B, D, E = G3["A"], G3["B"], G3["D"], G3["E"]
     r = g3_answers()
+    C = r["C"]
     b = lambda w, v: blank(w, v, a)
-    story = (f"右の図で、直線 {T('\\ell')} は2点 A{pt_tex(A)}、C{pt_tex(C)} を通り、"
-             f"直線 {T('m')} は2点 B{pt_tex(B)}、C を通る。直線 {T('\\ell')} と {Y} 軸との交点をDとする。"
+    story = (f"右の図で、直線 {T('\\ell')} は2点 A{pt_tex(A)}、D{pt_tex(D)} を通り、"
+             f"直線 {T('m')} は2点 B{pt_tex(B)}、E{pt_tex(E)} を通る。直線 {T('\\ell')} と {T('m')} の交点をCとする。"
              f"座標の1目もりを1cmとする。")
     svg = coord_svg((-6, 8), (-1.2, 10), 5.4,
-                    [(F(1), F(4), "ℓ", RED, (5.4, 1.6, 1.6, "start")), (F(-3, 2), F(9), "m", BLUE, (-0.4, -1.6, 1.2, "end"))],
-                    [("A", A, -1.4, -1.8, "end"), ("B", B, 1.4, -1.8, "start"), ("C", C, 2.2, 2.0, "start"),
-                     ("D", r["D"], -1.6, -1, "end")])
+                    [(F(1), F(4), "ℓ", RED, (5.4, 1.6, 1.6, "start")), (F(-3, 2), F(9), "m", BLUE, (6.6, 1.6, 1.6, "start"))],
+                    [("A", A, -1.4, -1.8, "end"), ("B", B, -1.2, 5, "end"), ("C", C, 2.2, 2.0, "start"),
+                     ("D", D, -1.6, -1, "end"), ("E", E, -1.6, 1.2, "end")])
     qs = [
         (f"直線 {T('\\ell')} の式を求めなさい。", f"答　{b(50, T('y=x+4'))}", 1,
-         f"傾き {T('\\dfrac{6-0}{2-(-4)}=\\dfrac66=1')}。{T('y=x+b')} に C{pt_tex((2, 6))} を代入して {T('6=2+b')}、{T('b=4')}"),
+         f"切片は D の {Y} 座標で4。傾き {T('\\dfrac{4-0}{0-(-4)}=1')}"),
         (f"直線 {T('m')} の式を求めなさい。", f"答　{b(50, T('y=-\\dfrac32x+9'))}", 1,
-         f"傾き {T('\\dfrac{6-0}{2-6}=-\\dfrac32')}。{T('y=-\\dfrac32x+b')} に B{pt_tex((6, 0))} を代入して {T('0=-9+b')}、{T('b=9')}"),
+         f"切片は E の {Y} 座標で9。傾き {T('\\dfrac{9-0}{0-6}=-\\dfrac32')}"),
+        ("点Cの座標を求めなさい。", f"答　C{b(36, pt_tex((2, 6)))}", 1.15,
+         f"{T('x+4=-\\dfrac32x+9')}　両辺を2倍して {T('2x+8=-3x+18')}　{T('5x=10')}　{T('x=2')}<br>"
+         f"{T('y=2+4=6')}"),
         ("△ABCの面積を求めなさい。", f"答　{b(26, '30')}cm²", 1,
          f"底辺AB＝{T('6-(-4)=10')}、高さは点Cの {Y} 座標で6。{T('\\dfrac12\\times10\\times6=30')}"),
-        ("△DBCの面積を求めなさい。", f"答　{b(26, '10')}cm²", 1,
-         f"D{pt_tex((0, 4))}（{T('\\ell')} の切片）。Dは辺AC上だから △DBC＝△ABC−△ABD<br>"
-         f"△ABD＝{T('\\dfrac12\\times10\\times4=20')}　△DBC＝{T('30-20=10')}"),
-        ("点Cを通り、△ABCの面積を2等分する直線の式を求めなさい。", f"答　{b(50, T('y=6x-6'))}", 1,
+        ("点Cを通り、△ABCの面積を2等分する直線の式を求めなさい。", f"答　{b(50, T('y=6x-6'))}", 1.15,
          f"辺ABの真ん中の点M{pt_tex((1, 0))} を通ればよい（{T('\\dfrac{-4+6}{2}=1')}）。<br>"
          f"C{pt_tex((2, 6))}、M を通るから 傾き {T('\\dfrac{6-0}{2-1}=6')}。{T('0=6\\times1+b')}、{T('b=-6')}"),
         (f"{Y} 軸上の {Y} 座標が正の部分に点Pをとる。△PABの面積が△ABCの面積と等しくなるとき、点Pの座標を求めなさい。",
