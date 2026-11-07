@@ -1,6 +1,6 @@
 {
  "_memo": "教材ライブラリ（中2）：中2のプリントはすべてここに1回だけ書く。step は data/common.json のステップ id。こたえは ans: true。組の JSON からは file 名で呼ぶ。ファイル名は c2_ から始める。このファイルは中2の作成チャットだけが書く。",
- "updated": "2026-11-06",
+ "updated": "2026-11-07",
  "items": [
   {
    "file": "c2_goudou_shoumei_L1_A.pdf",
@@ -294,6 +294,21 @@
    "title": "中2 習熟度チェック こたえ・診断シート",
    "pages": 2,
    "note": "",
+   "ans": true
+  },
+  {
+   "file": "c2_teiki_ichiji_riyou_mon.pdf",
+   "step": "c2-ichiji-riyou",
+   "title": "定期テスト対策 一次関数の利用（月曜用・1ページ大問1問）",
+   "pages": 4,
+   "note": "①速さ（追いかけ・行き帰りの出会い）②動点（長方形・グラフをかく）③グラフと面積（2点から式・2等分線）④グラフと面積（式から交点・面積）。左右に分けず、計算スペース広め。③④は図にマス目なし・座標や式を問題文に書いた形"
+  },
+  {
+   "file": "c2_teiki_ichiji_riyou_mon_ans.pdf",
+   "step": "c2-ichiji-riyou",
+   "title": "定期テスト対策 一次関数の利用（月曜用）こたえ",
+   "pages": 4,
+   "note": "問題に赤で答えと途中式を書きこんだ形",
    "ans": true
   }
  ]
