@@ -584,8 +584,8 @@ async function printJob(title, jobs) {
     await Promise.all(imgs.map(im => im.decode ? im.decode().catch(() => {}) : null));
     progress.close();
     doPrint(title);
-    $("#pg-title").textContent = "印刷画面を開きました";
-    $("#pg-text").textContent = `全部で ${sheets} ページ。部数は印刷画面ではなく、ここでえらんだ部数になっています。`;
+    $("#pg-title").textContent = "印刷の用意ができました";
+    $("#pg-text").textContent = `全部で ${sheets} ページ。印刷画面が出ないとき（iPad など）は、下の「印刷画面を開く」を押してください。部数は印刷画面ではなく、ここでえらんだ部数になっています。`;
     $("#pg-btns").hidden = false;
     progress.showModal();
   } catch (e) {
