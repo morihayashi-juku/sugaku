@@ -24,6 +24,7 @@ const $ = (s, el = document) => el.querySelector(s);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const P = f => "pdf/" + f;
 const ICON_PRINT = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9V3h12v6M6 18H4a1 1 0 0 1-1-1v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6a1 1 0 0 1-1 1h-2"/><rect x="6" y="14" width="12" height="7"/></svg>';
+const ICON_DL = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 20h16"/></svg>';
 const ICON_EYE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>';
 const ICON_CHEV = '<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>';
 
@@ -97,7 +98,10 @@ function tile(it, {used = false} = {}) {
       <span class="t">${esc(it.title)}</span>${it.note ? `<span class="n">${esc(it.note)}</span>` : ""}
     </button>
     ${u && u.length ? `<span class="used">${u.map(x => `<span>${esc(x)}</span>`).join("")}</span>` : ""}
-    <button type="button" class="btn pr" data-act="print" data-file="${esc(it.file)}">${ICON_PRINT}印刷</button>
+    <div class="tact">
+      <button type="button" class="btn pr" data-act="print" data-file="${esc(it.file)}">${ICON_PRINT}印刷</button>
+      <a class="btn pr" href="${P(it.file)}" download="${esc(it.file)}" aria-label="${esc(it.title)}をPDFでダウンロード">${ICON_DL}PDF</a>
+    </div>
   </div>`;
 }
 const stepChips = ids => (ids || []).map(id => `<a class="stepchip" href="#lib/${esc(id)}">${esc(stepName(id))}</a>`).join("");
@@ -443,6 +447,7 @@ async function showDoc(me, i) {
   const it = me.files[i];
   vBody.innerHTML = ""; vBody.scrollTop = vBody.scrollLeft = 0;
   $("#v-open").href = P(it.file);
+  $("#v-dl").href = P(it.file); $("#v-dl").setAttribute("download", it.file);
   $("#v-jump").querySelectorAll("button").forEach((b, n) => b.setAttribute("aria-current", n === i ? "true" : "false"));
   try {
     const doc = await getDoc(it.file);

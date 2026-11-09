@@ -334,3 +334,8 @@ dialog::backdrop{background:rgba(10,14,20,.55)}
 .libbar .grades{margin-bottom:8px}
 .libbar .unav{margin-bottom:8px}
 #v-print[hidden],#v-open[hidden]{display:none}
+
+/* PDFダウンロード */
+.tile .tact{display:flex;flex-wrap:wrap;gap:4px}
+.tile .tact .pr{text-decoration:none}
+.tile .tact .pr svg{width:.95em;height:.95em;vertical-align:-.12em;margin-right:3px}
