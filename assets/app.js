@@ -541,6 +541,8 @@ $("#sp-go").addEventListener("click", () => {
 const pageImg = new Map();
 const progress = $("#progress");
 let printing = false;
+let lastJobs = [];
+const TOUCH = navigator.maxTouchPoints > 1;
 async function renderForPrint(file, n) {
   const k = file + "#" + n;
   if (pageImg.has(k)) return pageImg.get(k);
@@ -555,7 +557,7 @@ async function renderForPrint(file, n) {
 }
 async function printJob(title, jobs) {
   if (printing || !jobs.length) return;
-  printing = true;
+  printing = true; lastJobs = jobs;
   if (viewer.open) viewer.close();
   $("#pg-title").textContent = "印刷の準備をしています";
   $("#pg-btns").hidden = true; $("#pg-again").hidden = false; $("#pg-bar").style.width = "0"; $("#pg-text").textContent = "";
@@ -585,8 +587,8 @@ async function printJob(title, jobs) {
     progress.close();
     doPrint(title);
     $("#pg-title").textContent = "印刷の用意ができました";
-    $("#pg-text").textContent = `全部で ${sheets} ページ。印刷画面が出ないとき（iPad など）は、下の「印刷画面を開く」を押してください。部数は印刷画面ではなく、ここでえらんだ部数になっています。`;
-    $("#pg-btns").hidden = false;
+    $("#pg-text").textContent = `全部で ${sheets} ページ。印刷画面が出ないとき（iPad など）は、下の「PDFで印刷」を押して、出てきた画面の「プリント」を選んでください。部数は印刷画面ではなく、ここでえらんだ部数になっています。`;
+    $("#pg-btns").hidden = false; $("#pg-share").hidden = !TOUCH;
     progress.showModal();
   } catch (e) {
     $("#pg-title").textContent = "印刷の準備ができませんでした";
@@ -599,7 +601,21 @@ function doPrint(title) {
   document.title = title || old;
   try { window.print(); } finally { setTimeout(() => { document.title = old; }, 500); }
 }
-$("#pg-again").addEventListener("click", () => { progress.close(); doPrint(); progress.showModal(); });
+$("#pg-again").addEventListener("click", () => { progress.close(); doPrint(); setTimeout(() => { if (!progress.open) progress.showModal(); }, 1500); });
+/* iPad で window.print() が効かないとき：PDF そのものを共有画面に出し、そこから「プリント」を選ぶ */
+$("#pg-share").addEventListener("click", async () => {
+  const btn = $("#pg-share"), old = btn.textContent; btn.disabled = true; btn.textContent = "PDFを用意しています…";
+  try {
+    const files = [];
+    for (const j of lastJobs) {
+      const blob = await (await fetch(P(j.file))).blob();
+      for (let c = 0; c < j.copies; c++) files.push(new File([blob], (c ? c + "_" : "") + j.file, {type: "application/pdf"}));
+    }
+    if (navigator.canShare && navigator.canShare({files})) await navigator.share({files});
+    else if (lastJobs[0]) window.open(P(lastJobs[0].file), "_blank");
+  } catch (e) { /* キャンセル */ }
+  btn.disabled = false; btn.textContent = old;
+});
 $("#pg-close").addEventListener("click", () => { progress.close(); $("#pg-again").hidden = false; });
 window.__sugakuPrintJob = printJob;          // 動作確認用
 
