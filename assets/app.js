@@ -100,7 +100,7 @@ function tile(it, {used = false} = {}) {
     ${u && u.length ? `<span class="used">${u.map(x => `<span>${esc(x)}</span>`).join("")}</span>` : ""}
     <div class="tact">
       <button type="button" class="btn pr" data-act="print" data-file="${esc(it.file)}">${ICON_PRINT}印刷</button>
-      <a class="btn pr" href="${P(it.file)}" download="${esc(it.file)}" aria-label="${esc(it.title)}をPDFでダウンロード">${ICON_DL}PDF</a>
+      <a class="btn pr" href="${P(it.file)}" download="${esc(it.file)}" data-dl="${esc(it.file)}" aria-label="${esc(it.title)}をPDFでダウンロード">${ICON_DL}PDF</a>
     </div>
   </div>`;
 }
@@ -447,7 +447,7 @@ async function showDoc(me, i) {
   const it = me.files[i];
   vBody.innerHTML = ""; vBody.scrollTop = vBody.scrollLeft = 0;
   $("#v-open").href = P(it.file);
-  $("#v-dl").href = P(it.file); $("#v-dl").setAttribute("download", it.file);
+  $("#v-dl").href = P(it.file); $("#v-dl").setAttribute("download", it.file); $("#v-dl").dataset.dl = it.file;
   $("#v-jump").querySelectorAll("button").forEach((b, n) => b.setAttribute("aria-current", n === i ? "true" : "false"));
   try {
     const doc = await getDoc(it.file);
@@ -602,6 +602,26 @@ function doPrint(title) {
 $("#pg-again").addEventListener("click", () => { progress.close(); doPrint(); progress.showModal(); });
 $("#pg-close").addEventListener("click", () => { progress.close(); $("#pg-again").hidden = false; });
 window.__sugakuPrintJob = printJob;          // 動作確認用
+
+/* ------------------------------------------------------------ PDF の保存
+   iPad・iPhone は、ふつうのダウンロードだと PDF を開くだけで保存されない。
+   タッチ端末では「共有」の画面（ファイルに保存・AirDrop など）を出して、そこから保存できるようにする。 */
+async function savePdf(file) {
+  try {
+    if (navigator.maxTouchPoints > 1 && navigator.canShare && navigator.share) {
+      const blob = await (await fetch(P(file))).blob();
+      const f = new File([blob], file, {type: "application/pdf"});
+      if (navigator.canShare({files: [f]})) { await navigator.share({files: [f]}); return true; }
+    }
+  } catch (e) { if (e && e.name === "AbortError") return true; }   // 共有をやめたときは何もしない
+  return false;                                                      // 使えなければふつうのダウンロード
+}
+document.addEventListener("click", async e => {
+  const a = e.target.closest("a[data-dl]");
+  if (!a) return;
+  e.preventDefault();
+  if (!(await savePdf(a.dataset.dl))) { const t = document.createElement("a"); t.href = a.href; t.download = a.dataset.dl; document.body.append(t); t.click(); t.remove(); }
+});
 
 /* ------------------------------------------------------------ 操作 */
 document.addEventListener("click", e => {
