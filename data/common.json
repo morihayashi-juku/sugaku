@@ -594,6 +594,33 @@
     }
    ]
   },
+ {
+  "id": "c3jitsu",
+  "name": "実力テスト",
+  "grade": "中3",
+  "steps": [
+   {
+    "id": "c3jitsu-d1",
+    "name": "大問1（小問集合）"
+   },
+   {
+    "id": "c3jitsu-renritsu",
+    "name": "連立方程式の利用・整数"
+   },
+   {
+    "id": "c3jitsu-data",
+    "name": "データの活用"
+   },
+   {
+    "id": "c3jitsu-zukei",
+    "name": "合同・平行線と面積"
+   },
+   {
+    "id": "c3jitsu-ichiji",
+    "name": "一次関数"
+   }
+  ]
+ },
   {
    "id": "c3check",
    "grade": "中3",

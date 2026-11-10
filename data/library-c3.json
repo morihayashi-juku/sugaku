@@ -1,6 +1,6 @@
 {
  "_memo": "教材ライブラリ（中3）：中3のプリントはすべてここに1回だけ書く。step は data/common.json のステップ id。こたえは ans: true。組の JSON からは file 名で呼ぶ。ファイル名は c3_ から始める。このファイルは中3の作成チャットだけが書く。",
- "updated": "2026-11-06",
+ "updated": "2026-11-10",
  "items": [
   {
    "file": "c3_teiki_niji_ax2.pdf",
@@ -591,6 +591,81 @@
    "title": "中3後期 習熟度チェック こたえ・診断シート",
    "pages": 2,
    "note": "",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu_d1.pdf",
+   "step": "c3jitsu-d1",
+   "title": "実力テスト 大問1 小問集合",
+   "pages": 1,
+   "note": "計算（正負・平方根・展開）・不等式・確率・空間図形・√5の整数部分と小数部分"
+  },
+  {
+   "file": "c3_jitsu_d1_ans.pdf",
+   "step": "c3jitsu-d1",
+   "title": "実力テスト 大問1 小問集合 こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu_renritsu.pdf",
+   "step": "c3jitsu-renritsu",
+   "title": "実力テスト 大問2 連立方程式の利用・整数",
+   "pages": 1,
+   "note": "文房具店のノートとおまけの鉛筆。連立方程式・倍数の説明・組み合わせの数え上げ"
+  },
+  {
+   "file": "c3_jitsu_renritsu_ans.pdf",
+   "step": "c3jitsu-renritsu",
+   "title": "実力テスト 大問2 連立方程式の利用・整数 こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu_data.pdf",
+   "step": "c3jitsu-data",
+   "title": "実力テスト 大問3 データの活用",
+   "pages": 2,
+   "note": "ヒストグラム（資料Ⅱ・Ⅲ）・最頻値・割合・箱ひげ図。紙飛行機の記録"
+  },
+  {
+   "file": "c3_jitsu_data_ans.pdf",
+   "step": "c3jitsu-data",
+   "title": "実力テスト 大問3 データの活用 こたえ",
+   "pages": 2,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu_zukei.pdf",
+   "step": "c3jitsu-zukei",
+   "title": "実力テスト 大問4 合同・平行線と面積",
+   "pages": 2,
+   "note": "台形ABCD・中点E・△AED≡△BEFの証明・面積と線分の長さ"
+  },
+  {
+   "file": "c3_jitsu_zukei_ans.pdf",
+   "step": "c3jitsu-zukei",
+   "title": "実力テスト 大問4 合同・平行線と面積 こたえ",
+   "pages": 2,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu_ichiji.pdf",
+   "step": "c3jitsu-ichiji",
+   "title": "実力テスト 大問5 一次関数",
+   "pages": 1,
+   "note": "y＝−2x+12 と y＝x+6。交点・三角形の面積・面積を2等分する直線"
+  },
+  {
+   "file": "c3_jitsu_ichiji_ans.pdf",
+   "step": "c3jitsu-ichiji",
+   "title": "実力テスト 大問5 一次関数 こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
    "ans": true
   }
  ]
