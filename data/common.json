@@ -595,37 +595,6 @@
    ]
   },
   {
-   "id": "c3jitsu",
-   "name": "実力テスト",
-   "grade": "中3",
-   "steps": [
-    {
-     "id": "c3jitsu-d1",
-     "name": "大問1（小問集合）"
-    },
-    {
-     "id": "c3jitsu-renritsu",
-     "name": "連立方程式の利用・整数"
-    },
-    {
-     "id": "c3jitsu-kakuritsu",
-     "name": "確率"
-    },
-    {
-     "id": "c3jitsu-data",
-     "name": "データの活用"
-    },
-    {
-     "id": "c3jitsu-zukei",
-     "name": "図形（合同・面積）"
-    },
-    {
-     "id": "c3jitsu-ichiji",
-     "name": "一次関数"
-    }
-   ]
-  },
-  {
    "id": "c3check",
    "grade": "中3",
    "name": "習熟度チェック",
@@ -1018,5 +987,35 @@
     }
    ]
   }
- ]
+ ],
+ "jitsu": {
+  "name": "実力テスト",
+  "lead": "大問1と、それ以外は単元別に分けてあります（①②…は実力テストの回）。問題と、答えを書きこんだプリント（赤）が入っています。",
+  "steps": [
+   {
+    "id": "c3jitsu-d1",
+    "name": "大問1（小問集合）"
+   },
+   {
+    "id": "c3jitsu-renritsu",
+    "name": "連立方程式の利用・整数"
+   },
+   {
+    "id": "c3jitsu-kakuritsu",
+    "name": "確率"
+   },
+   {
+    "id": "c3jitsu-data",
+    "name": "データの活用"
+   },
+   {
+    "id": "c3jitsu-zukei",
+    "name": "図形（合同・面積）"
+   },
+   {
+    "id": "c3jitsu-ichiji",
+    "name": "一次関数"
+   }
+  ]
+ }
 }

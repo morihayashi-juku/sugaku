@@ -60,6 +60,7 @@ async function loadData() {
     if (g.day) g.day = [].concat(g.day);                    // day は "mon" でも ["mon","thu"] でもよい
   }
   for (const u of common.units) for (const st of u.steps) STEPS.set(st.id, {step: st, unit: u});
+  if (common.jitsu) for (const st of common.jitsu.steps) STEPS.set(st.id, {step: st, unit: {name: common.jitsu.name}});   // 実力テストのタブ（学年の単元とは別）
   for (const it of library.items) ITEMS.set(it.file, it);
   for (const t of TRACKS) for (const s of D.s[t].sets) for (const g of s.groups) for (const r of g.items) {
     if (!USED.has(r.file)) USED.set(r.file, []);
@@ -73,6 +74,8 @@ async function loadData() {
   // 学年のタブ（中1〜高2）を「教材ライブラリ」の前に入れる
   const lib = $('#tabs a[data-tab="lib"]');
   for (const g of Object.keys(GRADE_ID)) if (gradeTracks(g).length) lib.insertAdjacentHTML("beforebegin", `<a href="#${GRADE_ID[g]}" data-tab="${GRADE_ID[g]}">${esc(g)}</a>`);
+  // 実力テストのタブ（学年のタブのあと・教材ライブラリの前）
+  if (common.jitsu) lib.insertAdjacentHTML("beforebegin", `<a href="#jitsu" data-tab="jitsu">${esc(common.jitsu.name)}</a>`);
 }
 const item = r => ({...(ITEMS.get(r.file) || {file: r.file, title: r.file + "（ライブラリにありません）", pages: "?"}), ...r});
 const stepName = id => (STEPS.get(id) || {step: {name: id}}).step.name;
@@ -307,15 +310,37 @@ function renderLib() {
   </section>`).join("")}`;
 }
 
+/* ------------------------------------------------------------ 画面：実力テスト */
+// 実力テストは学年の単元とは別のタブ。common.json の jitsu.steps（大問1・単元別）ごとにプリントを並べる（プリントの一覧は学年のライブラリに書く）
+function renderJitsu() {
+  const J = D.common.jitsu, steps = J.steps;
+  const itemsOf = id => D.library.items.filter(x => x.step === id).sort((a, b) => (a.ans ? 1 : 0) - (b.ans ? 1 : 0));
+  return `
+  <div class="libbar">
+  <nav class="unav" aria-label="大問・単元">${steps.map(st => {
+    const n = itemsOf(st.id).filter(i => !i.ans).length;
+    return `<a href="#jitsu/${esc(st.id)}">${esc(st.name)}${n ? `<small>${n}</small>` : ""}</a>`;
+  }).join("")}</nav>
+  </div>
+  <p class="lead">${esc(J.lead || "大問1と、それ以外は単元別に分けてあります。問題と、答えを書きこんだプリント（赤）が入っています。")}</p>
+  <section class="unit"><div class="steps">${steps.map((st, i) => {
+    const its = itemsOf(st.id);
+    return `<section class="stepsec${its.length ? "" : " none"}" id="jitsu-${esc(st.id)}">
+      <h3><span class="sn">${i + 1}</span>${esc(st.name)}</h3>
+      ${its.length ? `<div class="tiles">${its.map(x => tile(x)).join("")}</div>` : `<p class="muted">まだプリントはありません。</p>`}
+    </section>`;
+  }).join("")}</div></section>`;
+}
+
 /* ------------------------------------------------------------ 画面の切りかえ */
 function route() {
   const [tab, sub] = (location.hash.replace(/^#/, "") || "junbi").split("/");
   const gr = gradeFromId(tab);
   // 古い #junbi・#maru や知らない名前は、前に見ていた学年（なければ最初の学年）のページへ
   const grades = Object.keys(GRADE_ID).filter(g => gradeTracks(g).length);
-  const t = gr || tab === "lib" || TRACKS.includes(tab) ? tab : null;
-  const g = gr || (TRACKS.includes(tab) ? gradeOfTrack(tab) : tab === "lib" ? null : (grades.includes(store.get("sugaku-grade")) ? store.get("sugaku-grade") : grades[0]));
-  const tabId = t === "lib" ? "lib" : GRADE_ID[g];
+  const t = gr || tab === "lib" || (tab === "jitsu" && D.common.jitsu) || TRACKS.includes(tab) ? tab : null;
+  const g = gr || (TRACKS.includes(tab) ? gradeOfTrack(tab) : tab === "lib" || t === "jitsu" ? null : (grades.includes(store.get("sugaku-grade")) ? store.get("sugaku-grade") : grades[0]));
+  const tabId = t === "lib" || t === "jitsu" ? t : GRADE_ID[g];
   document.querySelectorAll(".tabs a").forEach(a => {
     if (a.dataset.tab === tabId) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
   });
@@ -325,13 +350,13 @@ function route() {
   }
   if (g && !TRACKS.includes(tab)) store.set("sugaku-grade", g);
   const isTrack = TRACKS.includes(tab);
-  $("#app").innerHTML = t === "lib" ? renderLib() : isTrack ? renderTrack(tab) : renderGrade(g, gr ? sub : null);
-  document.title = (t === "lib" ? "教材ライブラリ" : isTrack ? D.s[tab].name : g) + " | 数学 教材棚";
-  if (sub && (t === "lib" || isTrack)) {
-    const el = t === "lib" ? $("#lib-" + CSS.escape(sub)) : $(`#${tab}-${CSS.escape(sub)}`);
+  $("#app").innerHTML = t === "lib" ? renderLib() : t === "jitsu" ? renderJitsu() : isTrack ? renderTrack(tab) : renderGrade(g, gr ? sub : null);
+  document.title = (t === "lib" ? "教材ライブラリ" : t === "jitsu" ? D.common.jitsu.name : isTrack ? D.s[tab].name : g) + " | 数学 教材棚";
+  if (sub && (t === "lib" || t === "jitsu" || isTrack)) {
+    const el = t === "lib" ? $("#lib-" + CSS.escape(sub)) : t === "jitsu" ? $("#jitsu-" + CSS.escape(sub)) : $(`#${tab}-${CSS.escape(sub)}`);
     if (el) {
       if (el.tagName === "DETAILS") el.open = true;
-      el.scrollIntoView({block: "start"}); window.scrollBy(0, -(64 + (t === "lib" && $(".libbar") ? $(".libbar").offsetHeight : 0)));
+      el.scrollIntoView({block: "start"}); window.scrollBy(0, -(64 + ((t === "lib" || t === "jitsu") && $(".libbar") ? $(".libbar").offsetHeight : 0)));
       if (el.classList.contains("stepsec")) { el.classList.add("flash"); setTimeout(() => el.classList.remove("flash"), 1600); }
     }
   } else window.scrollTo(0, 0);

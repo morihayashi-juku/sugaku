@@ -58,8 +58,9 @@ libnames = common.get("libraries") or ["library"]
 
 # 単元とステップ
 units = common.get("units", [])
-steps = {st["id"] for u in units for st in u["steps"]}
-ids = [u["id"] for u in units] + [st["id"] for u in units for st in u["steps"]]
+jitsu_steps = (common.get("jitsu") or {}).get("steps", [])          # 実力テストのタブ（学年の単元とは別）
+steps = {st["id"] for u in units for st in u["steps"]} | {st["id"] for st in jitsu_steps}
+ids = [u["id"] for u in units] + [st["id"] for u in units for st in u["steps"]] + [st["id"] for st in jitsu_steps]
 dup = sorted({i for i in ids if ids.count(i) > 1})
 if dup:
     err.append(f"common.json: 単元・ステップの id がかぶっています {dup}")
