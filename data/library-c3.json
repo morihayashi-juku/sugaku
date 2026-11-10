@@ -596,14 +596,14 @@
   {
    "file": "c3_jitsu_d1.pdf",
    "step": "c3jitsu-d1",
-   "title": "実力テスト 大問1 小問集合",
+   "title": "実力テスト① 大問1 小問集合",
    "pages": 1,
    "note": "計算（正負・平方根・展開）・不等式・確率・空間図形・√5の整数部分と小数部分"
   },
   {
    "file": "c3_jitsu_d1_ans.pdf",
    "step": "c3jitsu-d1",
-   "title": "実力テスト 大問1 小問集合 こたえ",
+   "title": "実力テスト① 大問1 小問集合 こたえ",
    "pages": 1,
    "note": "問題に赤字で答え・途中式を書き込んだもの",
    "ans": true
@@ -611,14 +611,14 @@
   {
    "file": "c3_jitsu_renritsu.pdf",
    "step": "c3jitsu-renritsu",
-   "title": "実力テスト 大問2 連立方程式の利用・整数",
+   "title": "実力テスト① 大問2 連立方程式の利用・整数",
    "pages": 1,
    "note": "文房具店のノートとおまけの鉛筆。連立方程式・倍数の説明・組み合わせの数え上げ"
   },
   {
    "file": "c3_jitsu_renritsu_ans.pdf",
    "step": "c3jitsu-renritsu",
-   "title": "実力テスト 大問2 連立方程式の利用・整数 こたえ",
+   "title": "実力テスト① 大問2 連立方程式の利用・整数 こたえ",
    "pages": 1,
    "note": "問題に赤字で答え・途中式を書き込んだもの",
    "ans": true
@@ -626,14 +626,14 @@
   {
    "file": "c3_jitsu_data.pdf",
    "step": "c3jitsu-data",
-   "title": "実力テスト 大問3 データの活用",
+   "title": "実力テスト① 大問3 データの活用",
    "pages": 2,
    "note": "ヒストグラム（資料Ⅱ・Ⅲ）・最頻値・割合・箱ひげ図。紙飛行機の記録"
   },
   {
    "file": "c3_jitsu_data_ans.pdf",
    "step": "c3jitsu-data",
-   "title": "実力テスト 大問3 データの活用 こたえ",
+   "title": "実力テスト① 大問3 データの活用 こたえ",
    "pages": 2,
    "note": "問題に赤字で答え・途中式を書き込んだもの",
    "ans": true
@@ -641,14 +641,14 @@
   {
    "file": "c3_jitsu_zukei.pdf",
    "step": "c3jitsu-zukei",
-   "title": "実力テスト 大問4 合同・平行線と面積",
+   "title": "実力テスト① 大問4 合同・平行線と面積",
    "pages": 2,
    "note": "台形ABCD・中点E・△AED≡△BEFの証明・面積と線分の長さ"
   },
   {
    "file": "c3_jitsu_zukei_ans.pdf",
    "step": "c3jitsu-zukei",
-   "title": "実力テスト 大問4 合同・平行線と面積 こたえ",
+   "title": "実力テスト① 大問4 合同・平行線と面積 こたえ",
    "pages": 2,
    "note": "問題に赤字で答え・途中式を書き込んだもの",
    "ans": true
@@ -656,14 +656,104 @@
   {
    "file": "c3_jitsu_ichiji.pdf",
    "step": "c3jitsu-ichiji",
-   "title": "実力テスト 大問5 一次関数",
+   "title": "実力テスト① 大問5 一次関数",
    "pages": 1,
    "note": "y＝−2x+12 と y＝x+6。交点・三角形の面積・面積を2等分する直線"
   },
   {
    "file": "c3_jitsu_ichiji_ans.pdf",
    "step": "c3jitsu-ichiji",
-   "title": "実力テスト 大問5 一次関数 こたえ",
+   "title": "実力テスト① 大問5 一次関数 こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu2_d1.pdf",
+   "step": "c3jitsu-d1",
+   "title": "実力テスト② 大問1 小問集合",
+   "pages": 1,
+   "note": "計算・方程式・平方根・角錐の名称・関数でないもの・∠PBA=25°の作図"
+  },
+  {
+   "file": "c3_jitsu2_d1_ans.pdf",
+   "step": "c3jitsu-d1",
+   "title": "実力テスト② 大問1 小問集合 こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu2_kakuritsu.pdf",
+   "step": "c3jitsu-kakuritsu",
+   "title": "実力テスト② 大問2-1 確率",
+   "pages": 1,
+   "note": "4枚の硬貨（500・100・50・10円）。表が出た合計が100円以下になる確率"
+  },
+  {
+   "file": "c3_jitsu2_kakuritsu_ans.pdf",
+   "step": "c3jitsu-kakuritsu",
+   "title": "実力テスト② 大問2-1 確率 こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu2_renritsu.pdf",
+   "step": "c3jitsu-renritsu",
+   "title": "実力テスト② 大問2-2 連立方程式の利用",
+   "pages": 1,
+   "note": "子ども会の小学生・中学生とボールペン。式と計算を書く"
+  },
+  {
+   "file": "c3_jitsu2_renritsu_ans.pdf",
+   "step": "c3jitsu-renritsu",
+   "title": "実力テスト② 大問2-2 連立方程式の利用 こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu2_data.pdf",
+   "step": "c3jitsu-data",
+   "title": "実力テスト② 大問3 データの活用",
+   "pages": 2,
+   "note": "カバンの重さ。ヒストグラム・度数分布表・箱ひげ図（中央値・四分位範囲）"
+  },
+  {
+   "file": "c3_jitsu2_data_ans.pdf",
+   "step": "c3jitsu-data",
+   "title": "実力テスト② 大問3 データの活用 こたえ",
+   "pages": 2,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu2_zukei.pdf",
+   "step": "c3jitsu-zukei",
+   "title": "実力テスト② 大問4 図形（合同・面積）",
+   "pages": 2,
+   "note": "長方形ABCDとBE＝BC。△ABE≡△HCBの証明・角・面積比・回転体の体積"
+  },
+  {
+   "file": "c3_jitsu2_zukei_ans.pdf",
+   "step": "c3jitsu-zukei",
+   "title": "実力テスト② 大問4 図形（合同・面積） こたえ",
+   "pages": 2,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu2_ichiji.pdf",
+   "step": "c3jitsu-ichiji",
+   "title": "実力テスト② 大問5 一次関数",
+   "pages": 1,
+   "note": "y＝ax−5 と y＝3/2x+9 が A(−4, 3) で交わる。a・面積・面積が等しい点E"
+  },
+  {
+   "file": "c3_jitsu2_ichiji_ans.pdf",
+   "step": "c3jitsu-ichiji",
+   "title": "実力テスト② 大問5 一次関数 こたえ",
    "pages": 1,
    "note": "問題に赤字で答え・途中式を書き込んだもの",
    "ans": true
