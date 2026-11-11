@@ -84,7 +84,7 @@ class Fig:
         s = self.s
         xs = [q[0] for q in self.p.values()]
         ys = [q[1] for q in self.p.values()]
-        pad = 10.5
+        pad = getattr(self, "pad", 10.5)
         x0, y1 = min(xs) * s - pad, max(ys) * s + pad
         w, h = (max(xs) - min(xs)) * s + 2 * pad, (max(ys) - min(ys)) * s + 2 * pad
         X = lambda q: q[0] * s - x0
