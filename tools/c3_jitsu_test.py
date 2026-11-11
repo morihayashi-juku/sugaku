@@ -77,10 +77,8 @@ def Q(no, text, work="", ans="", sp=14, cls=""):
 
 
 def lines(text, h=30):
-    """記述欄：問題では罫線だけ、こたえでは赤字。罫線は1本ずつの要素で描く（グラデーションだと、サイトの PDF ビューアで色が塗りつぶされるため）"""
-    n = int(h // 7.4)
-    rules = "".join(f'<i class="rl" style="top:{(i + 1) * 7.4:.1f}mm"></i>' for i in range(n))
-    return f'<div class="lines" style="min-height:{h}mm">{rules}<div class="lt">{text}</div></div>'
+    """記述欄（証明・説明）：問題では罫線なしの空の枠、こたえでは赤字（先生の希望・11/11：罫線は要らない）"""
+    return f'<div class="lines" style="min-height:{h}mm"><div class="lt">{text}</div></div>'
 
 
 # ================= 図 =================
@@ -430,9 +428,8 @@ svg text { font-family: "Noto Sans CJK JP", sans-serif; }
 .tight .q { margin-bottom:1.5mm; }
 .proof { padding:2mm 4mm; margin-top:2mm; }
 .pbody { min-height:27mm; margin:1mm 0; border:1px dashed #888; padding:1mm 3mm; }
-.lines { margin: 1mm 0 0 7mm; border:1px solid #999; padding:0 3mm; position:relative; line-height:7.4mm; }
-.lines .rl { position:absolute; left:0; right:0; height:0; border-top:1px solid #bbb; }
-.lines .lt { position:relative; }
+.lines { margin: 1mm 0 0 7mm; border:1px solid #999; padding:1mm 3mm; }
+.lines .lt { line-height:1.9; }
 .choice { margin: 1mm 0 1mm 7mm; }
 .c1 { padding:0 1mm; }
 table.mini { border-collapse:collapse; margin:1mm 0 0 4mm; }

@@ -66,7 +66,7 @@
   - 分け方：**大問1は「大問1（小問集合）」、それ以外は単元別**（連立方程式・確率・データの活用・図形・一次関数）。実力テストの回（①②…）はプリントの名前に付ける（例：`実力テスト② 大問3 データの活用`）。
   - ステップの一覧は `data/common.json` の **`jitsu.steps`**（`units` には入れない。教材ライブラリの中3には出さない）。プリント自体は今までどおり `data/library-c3.json` の `items` に書き、`step` に `c3jitsu-…` を指定する（file 名は `c3_jitsu_*`＝①、`c3_jitsu2_*`＝②）。
   - 新しい実力テストを足すとき：大問1は `c3jitsu-d1`、ほかは同じ単元のステップに足す。単元がなければ `jitsu.steps` に新しいステップを足す。問題と、答えを書きこんだ `_ans`（`ans: true`）の2つで置く。
-  - 作成スクリプト：`tools/c3_jitsu_test.py`（①）・`tools/c3_jitsu2_test.py`（②）。記述欄の罫線は **グラデーションで描かない**（サイトの PDF ビューア pdf.js で塗りつぶされる）。
+  - 作成スクリプト：`tools/c3_jitsu_test.py`（①）・`tools/c3_jitsu2_test.py`（②）。**証明・記述問題の解答欄に罫線は引かない**（先生の希望・11/11。空の枠だけ。罫線をグラデーションで描くと、サイトの PDF ビューア pdf.js で塗りつぶされるので、もし将来使うなら1本ずつの線で描く）。
 - **教材の一覧は data/ の JSON に書く。`index.html` と `assets/` はさわらなくてよい。**
   - `data/common.json` … 組の順番 `tracks`、プリント一覧のファイル名 `libraries`、単元とステップ `units[]`（`grade`＝学年、`steps[]`）
   - `data/library*.json` … プリントの一覧 `{updated, items:[{file, step, title, pages, note, ans}]}`（こたえは `ans: true` で赤く出る）

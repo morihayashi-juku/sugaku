@@ -59,8 +59,6 @@ EXTRA = r"""
 .pt16 .hit { background:#fde; font-weight:700; }
 .ul { text-decoration:underline; }
 .spc { height:6mm; }
-.lines .lt { line-height:7.4mm; }
-.lines { padding-top:0; padding-bottom:0; }
 """
 CSS = BASE_CSS + EXTRA
 
