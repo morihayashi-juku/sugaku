@@ -1,6 +1,6 @@
 {
  "_memo": "教材ライブラリ（中2）：中2のプリントはすべてここに1回だけ書く。step は data/common.json のステップ id。こたえは ans: true。組の JSON からは file 名で呼ぶ。ファイル名は c2_ から始める。このファイルは中2の作成チャットだけが書く。",
- "updated": "2026-11-07",
+ "updated": "2026-11-11",
  "items": [
   {
    "file": "c2_goudou_shoumei_L1_A.pdf",
@@ -293,6 +293,21 @@
    "step": "c2-ichiji-riyou",
    "title": "定期テスト対策 一次関数の利用（月曜用）こたえ",
    "pages": 4,
+   "note": "問題に赤で答えと途中式を書きこんだ形",
+   "ans": true
+  },
+  {
+   "file": "c2_teiki_ichiji_riyou_1112.pdf",
+   "step": "c2-ichiji-riyou",
+   "title": "定期テスト対策 一次関数の利用（3テーマ・11/12木曜用）",
+   "pages": 3,
+   "note": "1ページ1テーマ。①速さ（途中で速さが変わる・追いかけ。目もりつきグラフ）②動点（長方形・△ABP・グラフをかく）③グラフと面積（交点・2等分線・x軸上の点P。図はマス目なし）"
+  },
+  {
+   "file": "c2_teiki_ichiji_riyou_1112_ans.pdf",
+   "step": "c2-ichiji-riyou",
+   "title": "定期テスト対策 一次関数の利用（3テーマ・11/12木曜用）こたえ",
+   "pages": 3,
    "note": "問題に赤で答えと途中式を書きこんだ形",
    "ans": true
   }
