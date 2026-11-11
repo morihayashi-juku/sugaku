@@ -1,6 +1,6 @@
 {
  "_memo": "教材ライブラリ（中3）：中3のプリントはすべてここに1回だけ書く。step は data/common.json のステップ id。こたえは ans: true。組の JSON からは file 名で呼ぶ。ファイル名は c3_ から始める。このファイルは中3の作成チャットだけが書く。",
- "updated": "2026-11-10",
+ "updated": "2026-11-11",
  "items": [
   {
    "file": "c3_teiki_niji_ax2.pdf",
@@ -756,6 +756,21 @@
    "title": "実力テスト② 大問5 一次関数 こたえ",
    "pages": 1,
    "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_teiki_matome.pdf",
+   "step": "c3-teiki-matome",
+   "title": "定期テスト対策 まとめ（二次方程式・y＝ax²・相似）①②",
+   "pages": 2,
+   "note": "A3で印刷。1ページ＝1パターン。左＝［1］二次方程式・［2］利用・［3］y＝ax²／右＝［4］相似と長さ・［5］相似の証明（穴うめ）"
+  },
+  {
+   "file": "c3_teiki_matome_ans.pdf",
+   "step": "c3-teiki-matome",
+   "title": "定期テスト対策 まとめ ①② こたえ",
+   "pages": 2,
+   "note": "問題に赤で書き込んだ形",
    "ans": true
   }
  ]
