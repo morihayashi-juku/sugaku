@@ -1,6 +1,6 @@
 {
  "_memo": "中3前半組の教材と記録。sets の最後に足し、前の cur を消して新しいほうに \"cur\": true。月曜も木曜も授業（自習はない）なので、groups は曜日ごとに作り、グループに \"day\": \"mon\" または \"day\": \"thu\" を書く（書かないと、lesson・hw・teacher は木曜に出て、月曜には出ない）。kind は lesson（授業）／hw（宿題）／teacher（こたえ・先生用）。items は library-c3.json の file 名（copies・note は上書きできる）。log は新しいものを上に。now（今どこのステップか）は最初の教材を足すときに {step, text} で書く。",
- "updated": "2026-11-11",
+ "updated": "2026-11-12",
  "name": "中3前半",
  "badge": "中3前",
  "longName": "中3 前半組（月・木）",
@@ -128,7 +128,6 @@
     "c3-teiki-matome"
    ],
    "title": "定期テスト対策 まとめ（二次方程式・y＝ax²・相似）",
-   "cur": true,
    "note": "11/12（木）の授業用。A3で印刷。テスト範囲ぜんぶをまぜた2パターン（①②・1ページに1パターン）。こたえは問題に書き込んだ形。",
    "groups": [
     {
@@ -152,10 +151,42 @@
      ]
     }
    ]
+  },
+  {
+   "id": "c3a05",
+   "label": "⑤",
+   "steps": [
+    "c3-teiki-matome"
+   ],
+   "title": "定期テスト対策 学習のまとめ(2) 類題",
+   "cur": true,
+   "note": "11/16（月）の授業用。A3で2枚印刷。学校の「学習のまとめ(2)」と同じ並び・数字を変えた類題。こたえは問題に書き込んだ形。",
+   "groups": [
+    {
+     "kind": "lesson",
+     "label": "月曜（授業）",
+     "day": "mon",
+     "items": [
+      {
+       "file": "c3_teiki_matome2.pdf"
+      }
+     ]
+    },
+    {
+     "kind": "teacher",
+     "label": "月曜 こたえ（先生用）",
+     "day": "mon",
+     "items": [
+      {
+       "file": "c3_teiki_matome2_ans.pdf"
+      }
+     ]
+    }
+   ]
   }
  ],
  "now": {
   "step": "c3-teiki-matome",
-  "text": "定期テスト対策（テスト範囲まとめ）"
+  "text": "定期テスト対策（学習のまとめ(2) 類題）"
  }
 }
