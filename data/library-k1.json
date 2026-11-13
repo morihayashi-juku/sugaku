@@ -1,6 +1,6 @@
 {
  "_memo": "教材ライブラリ（高1）：高1のプリントはすべてここに1回だけ書く。step は data/common.json のステップ id。こたえは ans: true。組の JSON からは file 名で呼ぶ。ファイル名は k1_ から始める。このファイルは高1の作成チャットだけが書く。",
- "updated": "2026-11-07",
+ "updated": "2026-11-13",
  "items": [
   {
    "file": "k1_niji_matome_kiso.pdf",
@@ -294,6 +294,36 @@
    "title": "図形と計量 定期考査対策 第1回・第2回 こたえ",
    "pages": 4,
    "note": "元のプリントに赤字で答えと途中式を書きこんだもの",
+   "ans": true
+  },
+  {
+   "file": "k1_keiryou_teiki_3.pdf",
+   "step": "k1-fukushuu-exam",
+   "title": "図形と計量 定期考査対策 第3回",
+   "pages": 2,
+   "note": "A3 両面（No.1・No.2）。三角比の値・角・表・面積／相互関係／正弦定理・余弦定理。学校の2学期期末考査（前段）と同じ並び・配点"
+  },
+  {
+   "file": "k1_keiryou_teiki_3_ans.pdf",
+   "step": "k1-fukushuu-exam",
+   "title": "図形と計量 定期考査対策 第3回 こたえ",
+   "pages": 2,
+   "note": "問題プリントに赤字で答えと途中式を書きこんだもの",
+   "ans": true
+  },
+  {
+   "file": "k1_keiryou_teiki_4.pdf",
+   "step": "k1-fukushuu-exam",
+   "title": "図形と計量 定期考査対策 第4回",
+   "pages": 2,
+   "note": "A3 両面（No.1・No.2）。三角比の値・角・表・面積／相互関係／正弦定理・余弦定理。学校の2学期期末考査（前段）と同じ並び・配点"
+  },
+  {
+   "file": "k1_keiryou_teiki_4_ans.pdf",
+   "step": "k1-fukushuu-exam",
+   "title": "図形と計量 定期考査対策 第4回 こたえ",
+   "pages": 2,
+   "note": "問題プリントに赤字で答えと途中式を書きこんだもの",
    "ans": true
   }
  ]
