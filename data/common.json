@@ -1006,7 +1006,7 @@
    },
    {
     "id": "c3jitsu-renritsu",
-    "name": "連立方程式の利用・整数"
+    "name": "方程式・連立方程式の利用"
    },
    {
     "id": "c3jitsu-kakuritsu",
@@ -1019,6 +1019,10 @@
    {
     "id": "c3jitsu-zukei",
     "name": "図形（合同・面積）"
+   },
+   {
+    "id": "c3jitsu-kuukan",
+    "name": "空間図形"
    },
    {
     "id": "c3jitsu-ichiji",

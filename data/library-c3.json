@@ -1,6 +1,6 @@
 {
  "_memo": "教材ライブラリ（中3）：中3のプリントはすべてここに1回だけ書く。step は data/common.json のステップ id。こたえは ans: true。組の JSON からは file 名で呼ぶ。ファイル名は c3_ から始める。このファイルは中3の作成チャットだけが書く。",
- "updated": "2026-11-12",
+ "updated": "2026-11-14",
  "items": [
   {
    "file": "c3_teiki_niji_ax2.pdf",
@@ -786,6 +786,96 @@
    "title": "定期テスト対策 学習のまとめ(2) 類題 こたえ",
    "pages": 2,
    "note": "問題に赤で書き込んだ形",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu3_d1.pdf",
+   "step": "c3jitsu-d1",
+   "title": "実力テスト③ 大問1 小問集合",
+   "pages": 1,
+   "note": "計算・反比例・連立方程式・正十二角形の外角・箱ひげ図の読み取り・∠CAP=30°の作図"
+  },
+  {
+   "file": "c3_jitsu3_d1_ans.pdf",
+   "step": "c3jitsu-d1",
+   "title": "実力テスト③ 大問1 小問集合 こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu3_kakuritsu.pdf",
+   "step": "c3jitsu-kakuritsu",
+   "title": "実力テスト③ 大問2-1 確率",
+   "pages": 1,
+   "note": "2つの箱の玉（2・6・15・24／3・4・12・30）。aがbの約数・bがaの約数の確率を比べて説明"
+  },
+  {
+   "file": "c3_jitsu3_kakuritsu_ans.pdf",
+   "step": "c3jitsu-kakuritsu",
+   "title": "実力テスト③ 大問2-1 確率 こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu3_houtei.pdf",
+   "step": "c3jitsu-renritsu",
+   "title": "実力テスト③ 大問2-2 方程式の利用（割合）",
+   "pages": 1,
+   "note": "通学区域の円グラフ。B地区25％・C地区20％から全校生徒の人数を方程式で"
+  },
+  {
+   "file": "c3_jitsu3_houtei_ans.pdf",
+   "step": "c3jitsu-renritsu",
+   "title": "実力テスト③ 大問2-2 方程式の利用（割合） こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu3_ichiji.pdf",
+   "step": "c3jitsu-ichiji",
+   "title": "実力テスト③ 大問3 一次関数（動点と面積）",
+   "pages": 1,
+   "note": "長方形の辺上を動く点Pと△APDの面積。下線部の正誤・辺CD上の式"
+  },
+  {
+   "file": "c3_jitsu3_ichiji_ans.pdf",
+   "step": "c3jitsu-ichiji",
+   "title": "実力テスト③ 大問3 一次関数（動点と面積） こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu3_zukei.pdf",
+   "step": "c3jitsu-zukei",
+   "title": "実力テスト③ 大問4 図形（合同・面積）",
+   "pages": 1,
+   "note": "正方形と対角線。△ABE≡△CBEの証明・角をaで表す・相似を使った面積"
+  },
+  {
+   "file": "c3_jitsu3_zukei_ans.pdf",
+   "step": "c3jitsu-zukei",
+   "title": "実力テスト③ 大問4 図形（合同・面積） こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu3_kuukan.pdf",
+   "step": "c3jitsu-kuukan",
+   "title": "実力テスト③ 大問5 空間図形（円錐）",
+   "pages": 1,
+   "note": "直角三角形を回転させた円錐。母線・体積・展開図のおうぎ形・表面積"
+  },
+  {
+   "file": "c3_jitsu3_kuukan_ans.pdf",
+   "step": "c3jitsu-kuukan",
+   "title": "実力テスト③ 大問5 空間図形（円錐） こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
    "ans": true
   }
  ]
