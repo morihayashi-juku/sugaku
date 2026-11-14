@@ -1022,11 +1022,15 @@
    },
    {
     "id": "c3jitsu-zukei",
-    "name": "図形（合同・面積）"
+    "name": "平面図形（証明・角・面積）"
    },
    {
     "id": "c3jitsu-kuukan",
     "name": "空間図形"
+   },
+   {
+    "id": "c3jitsu-hirei",
+    "name": "比例と反比例"
    },
    {
     "id": "c3jitsu-ichiji",

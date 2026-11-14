@@ -967,6 +967,111 @@
    "pages": 1,
    "note": "問題に赤字で答え・途中式を書き込んだもの",
    "ans": true
+  },
+  {
+   "file": "c3_jitsu5_d1.pdf",
+   "step": "c3jitsu-d1",
+   "title": "実力テスト⑤ 大問1 小問集合",
+   "pages": 1,
+   "note": "計算・方程式・七角形の内角の和・ヒストグラムの代表値・2本の道路から等しい距離の点の作図"
+  },
+  {
+   "file": "c3_jitsu5_d1_ans.pdf",
+   "step": "c3jitsu-d1",
+   "title": "実力テスト⑤ 大問1 小問集合 こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu5_kuukan.pdf",
+   "step": "c3jitsu-kuukan",
+   "title": "実力テスト⑤ 大問2 空間図形（円錐・回転体）",
+   "pages": 1,
+   "note": "円錐にかけたひもの最短・側面の面積・転がした回数・回転体の体積の差"
+  },
+  {
+   "file": "c3_jitsu5_kuukan_ans.pdf",
+   "step": "c3jitsu-kuukan",
+   "title": "実力テスト⑤ 大問2 空間図形（円錐・回転体） こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu5_moji.pdf",
+   "step": "c3jitsu-moji",
+   "title": "実力テスト⑤ 大問3-1(1) 文字式の利用（カレンダー）",
+   "pages": 1,
+   "note": "カレンダーの枠の4つの数の和・縦の列の第m週の数"
+  },
+  {
+   "file": "c3_jitsu5_moji_ans.pdf",
+   "step": "c3jitsu-moji",
+   "title": "実力テスト⑤ 大問3-1(1) 文字式の利用（カレンダー） こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu5_kakuritsu.pdf",
+   "step": "c3jitsu-kakuritsu",
+   "title": "実力テスト⑤ 大問3-1(2) 確率（天気予報）",
+   "pages": 1,
+   "note": "カレンダーの12日間で晴れる確率・2週間で雨が降る時間"
+  },
+  {
+   "file": "c3_jitsu5_kakuritsu_ans.pdf",
+   "step": "c3jitsu-kakuritsu",
+   "title": "実力テスト⑤ 大問3-1(2) 確率（天気予報） こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu5_renritsu.pdf",
+   "step": "c3jitsu-renritsu",
+   "title": "実力テスト⑤ 大問3-2 連立方程式の利用（牛乳パック）",
+   "pages": 1,
+   "note": "牛乳パックのたばとトイレットペーパー。先月の残りを使って連立方程式"
+  },
+  {
+   "file": "c3_jitsu5_renritsu_ans.pdf",
+   "step": "c3jitsu-renritsu",
+   "title": "実力テスト⑤ 大問3-2 連立方程式の利用（牛乳パック） こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu5_zukei.pdf",
+   "step": "c3jitsu-zukei",
+   "title": "実力テスト⑤ 大問4 平面図形（平行線・比）",
+   "pages": 1,
+   "note": "角の二等分線と平行線。AF＝BGの証明の穴うめ・角・AE：EG"
+  },
+  {
+   "file": "c3_jitsu5_zukei_ans.pdf",
+   "step": "c3jitsu-zukei",
+   "title": "実力テスト⑤ 大問4 平面図形（平行線・比） こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu5_hirei.pdf",
+   "step": "c3jitsu-hirei",
+   "title": "実力テスト⑤ 大問5 比例と反比例（双曲線と面積）",
+   "pages": 1,
+   "note": "y＝a/x 上の2点A・B。aの値・対称な点・三角形の面積・面積が等しい点P"
+  },
+  {
+   "file": "c3_jitsu5_hirei_ans.pdf",
+   "step": "c3jitsu-hirei",
+   "title": "実力テスト⑤ 大問5 比例と反比例（双曲線と面積） こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
   }
  ]
 }
