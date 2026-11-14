@@ -1132,6 +1132,125 @@
    "note": "問題に赤字で答え・途中式を書き込んだもの",
    "ans": true,
    "test": "r7-3-06"
+  },
+  {
+   "file": "c3_jitsu_r406_d1.pdf",
+   "step": "c3jitsu-d1",
+   "test": "r4-3-06",
+   "title": "令和4年度 3年・6月 大問1 小問集合",
+   "pages": 1,
+   "note": "計算・文字式・連立方程式・比例の式・度数分布表の読み取り・紙を折った折り目の作図"
+  },
+  {
+   "file": "c3_jitsu_r406_d1_ans.pdf",
+   "step": "c3jitsu-d1",
+   "test": "r4-3-06",
+   "title": "令和4年度 3年・6月 大問1 小問集合 こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu_r406_kakuritsu.pdf",
+   "step": "c3jitsu-kakuritsu",
+   "test": "r4-3-06",
+   "title": "令和4年度 3年・6月 大問2-1 確率",
+   "pages": 1,
+   "note": "赤玉3個・白玉2個。戻して2回取り出すときの色が同じ・異なる確率を比べて説明"
+  },
+  {
+   "file": "c3_jitsu_r406_kakuritsu_ans.pdf",
+   "step": "c3jitsu-kakuritsu",
+   "test": "r4-3-06",
+   "title": "令和4年度 3年・6月 大問2-1 確率 こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu_r406_houtei.pdf",
+   "step": "c3jitsu-renritsu",
+   "test": "r4-3-06",
+   "title": "令和4年度 3年・6月 大問2-2 方程式の利用",
+   "pages": 1,
+   "note": "ハンバーグの分量（比例式）・ソースのカロリーから方程式"
+  },
+  {
+   "file": "c3_jitsu_r406_houtei_ans.pdf",
+   "step": "c3jitsu-renritsu",
+   "test": "r4-3-06",
+   "title": "令和4年度 3年・6月 大問2-2 方程式の利用 こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu_r406_hirei.pdf",
+   "step": "c3jitsu-hirei",
+   "test": "r4-3-06",
+   "title": "令和4年度 3年・6月 大問3-1 比例と反比例",
+   "pages": 1,
+   "note": "比例の例を参考に、反比例の表の空欄を求める"
+  },
+  {
+   "file": "c3_jitsu_r406_hirei_ans.pdf",
+   "step": "c3jitsu-hirei",
+   "test": "r4-3-06",
+   "title": "令和4年度 3年・6月 大問3-1 比例と反比例 こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu_r406_ichiji.pdf",
+   "step": "c3jitsu-ichiji",
+   "test": "r4-3-06",
+   "title": "令和4年度 3年・6月 大問3-2 一次関数",
+   "pages": 1,
+   "note": "直線 y＝−x＋4 と ℓ、正方形PQRS。Aの座標・ℓの式・四角形OBRQの面積"
+  },
+  {
+   "file": "c3_jitsu_r406_ichiji_ans.pdf",
+   "step": "c3jitsu-ichiji",
+   "test": "r4-3-06",
+   "title": "令和4年度 3年・6月 大問3-2 一次関数 こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu_r406_zukei.pdf",
+   "step": "c3jitsu-zukei",
+   "test": "r4-3-06",
+   "title": "令和4年度 3年・6月 大問4 平面図形（合同・面積）",
+   "pages": 1,
+   "note": "AB∥DCの四角形と中点E。角・△AEF≡△DECの証明・周の長さ・面積の比"
+  },
+  {
+   "file": "c3_jitsu_r406_zukei_ans.pdf",
+   "step": "c3jitsu-zukei",
+   "test": "r4-3-06",
+   "title": "令和4年度 3年・6月 大問4 平面図形（合同・面積） こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu_r406_kuukan.pdf",
+   "step": "c3jitsu-kuukan",
+   "test": "r4-3-06",
+   "title": "令和4年度 3年・6月 大問5 空間図形",
+   "pages": 1,
+   "note": "直角が集まる三角錐。垂直な辺・体積・展開図の△BCD・高さ"
+  },
+  {
+   "file": "c3_jitsu_r406_kuukan_ans.pdf",
+   "step": "c3jitsu-kuukan",
+   "test": "r4-3-06",
+   "title": "令和4年度 3年・6月 大問5 空間図形 こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
   }
  ]
 }
