@@ -877,6 +877,96 @@
    "pages": 1,
    "note": "問題に赤字で答え・途中式を書き込んだもの",
    "ans": true
+  },
+  {
+   "file": "c3_jitsu4_d1.pdf",
+   "step": "c3jitsu-d1",
+   "title": "実力テスト④ 大問1 小問集合",
+   "pages": 1,
+   "note": "計算・単項式の除法・分数の式・連立方程式・反比例の式・カードの確率・面積を二等分する直線の作図"
+  },
+  {
+   "file": "c3_jitsu4_d1_ans.pdf",
+   "step": "c3jitsu-d1",
+   "title": "実力テスト④ 大問1 小問集合 こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu4_data.pdf",
+   "step": "c3jitsu-data",
+   "title": "実力テスト④ 大問2-1 データの活用（箱ひげ図）",
+   "pages": 1,
+   "note": "大縄跳びの並び方①②の箱ひげ図。範囲・合うヒストグラム・中央値と四分位範囲"
+  },
+  {
+   "file": "c3_jitsu4_data_ans.pdf",
+   "step": "c3jitsu-data",
+   "title": "実力テスト④ 大問2-1 データの活用（箱ひげ図） こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu4_moji.pdf",
+   "step": "c3jitsu-moji",
+   "title": "実力テスト④ 大問2-2 文字式の利用（規則性）",
+   "pages": 1,
+   "note": "青・白・黄の色紙を並べる。22枚目の色・横の長さ・青n枚のときの面積"
+  },
+  {
+   "file": "c3_jitsu4_moji_ans.pdf",
+   "step": "c3jitsu-moji",
+   "title": "実力テスト④ 大問2-2 文字式の利用（規則性） こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu4_ichiji.pdf",
+   "step": "c3jitsu-ichiji",
+   "title": "実力テスト④ 大問3 一次関数（料金プラン）",
+   "pages": 1,
+   "note": "携帯電話の3つの料金プラン。式・グラフの読み取り・Bがいちばん安くなる通話時間"
+  },
+  {
+   "file": "c3_jitsu4_ichiji_ans.pdf",
+   "step": "c3jitsu-ichiji",
+   "title": "実力テスト④ 大問3 一次関数（料金プラン） こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu4_zukei.pdf",
+   "step": "c3jitsu-zukei",
+   "title": "実力テスト④ 大問4 図形（合同・面積）",
+   "pages": 1,
+   "note": "平行四辺形とADの中点E。△ABE≡△DFEの証明・長さ・角・面積比"
+  },
+  {
+   "file": "c3_jitsu4_zukei_ans.pdf",
+   "step": "c3jitsu-zukei",
+   "title": "実力テスト④ 大問4 図形（合同・面積） こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu4_kuukan.pdf",
+   "step": "c3jitsu-kuukan",
+   "title": "実力テスト④ 大問5 空間図形（直方体・角錐）",
+   "pages": 1,
+   "note": "直方体。辺と平行な面・表面積・六角錐の名称と体積"
+  },
+  {
+   "file": "c3_jitsu4_kuukan_ans.pdf",
+   "step": "c3jitsu-kuukan",
+   "title": "実力テスト④ 大問5 空間図形（直方体・角錐） こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
   }
  ]
 }
