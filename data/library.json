@@ -1,6 +1,6 @@
 {
  "_memo": "教材ライブラリ：作ったプリントはすべてここに1回だけ書く。step は data/common.json のステップ id。こたえは ans: true。生徒の JSON からは file 名で呼ぶ。",
- "updated": "2026-11-06",
+ "updated": "2026-11-14",
  "items": [
   {
    "file": "seifu_shisoku_A.pdf",
@@ -154,14 +154,14 @@
   },
   {
    "file": "teiki_j1_un.pdf",
-   "step": "c1teiki-houtei-hirei",
+   "step": "houtei-bunshou",
    "title": "授業 方程式の利用（U・N）",
    "pages": 4,
-   "note": "木11/5の授業用。各ページに例題と解き方。数・代金／過不足・年齢／速さ／比例式"
+   "note": "定期テスト対策（11月）。木11/5の授業用。各ページに例題と解き方。数・代金／過不足・年齢／速さ／比例式"
   },
   {
    "file": "teiki_j1_un_ans.pdf",
-   "step": "c1teiki-houtei-hirei",
+   "step": "houtei-bunshou",
    "title": "授業 方程式の利用（U・N） こたえ",
    "pages": 4,
    "note": "問題に赤で答えを書きこんだ形",
@@ -169,14 +169,14 @@
   },
   {
    "file": "teiki_j1_k.pdf",
-   "step": "c1teiki-houtei-hirei",
+   "step": "houtei-bunshou",
    "title": "授業 方程式（K）",
    "pages": 4,
-   "note": "木11/5の授業用。各ページに例題と解き方。方程式／ことばの式／代金・個数／比例式"
+   "note": "定期テスト対策（11月）。木11/5の授業用。各ページに例題と解き方。方程式／ことばの式／代金・個数／比例式"
   },
   {
    "file": "teiki_j1_k_ans.pdf",
-   "step": "c1teiki-houtei-hirei",
+   "step": "houtei-bunshou",
    "title": "授業 方程式（K） こたえ",
    "pages": 4,
    "note": "問題に赤で答えを書きこんだ形",
@@ -184,14 +184,14 @@
   },
   {
    "file": "teiki_j2.pdf",
-   "step": "c1teiki-houtei-hirei",
+   "step": "hirei-hirei",
    "title": "授業 比例と反比例（U・K共通）",
    "pages": 4,
-   "note": "月11/9の授業用。例題つき。前半は正の数の基本、後半の☆はチャレンジ（K は☆なしだけでもよい）"
+   "note": "定期テスト対策（11月）。月11/9の授業用。例題つき。前半は正の数の基本、後半の☆はチャレンジ（K は☆なしだけでもよい）"
   },
   {
    "file": "teiki_j2_ans.pdf",
-   "step": "c1teiki-houtei-hirei",
+   "step": "hirei-hirei",
    "title": "授業 比例と反比例 こたえ",
    "pages": 4,
    "note": "問題に赤で答えを書きこんだ形",
@@ -199,14 +199,14 @@
   },
   {
    "file": "teiki_1_un.pdf",
-   "step": "c1teiki-houtei-hirei",
+   "step": "houtei-bunshou",
    "title": "対策① 方程式の利用（U・N）",
    "pages": 4,
-   "note": "その1 数・代金／その2 過不足・年齢／その3 速さ／その4 比例式"
+   "note": "定期テスト対策（11月）。その1 数・代金／その2 過不足・年齢／その3 速さ／その4 比例式"
   },
   {
    "file": "teiki_1_un_ans.pdf",
-   "step": "c1teiki-houtei-hirei",
+   "step": "houtei-bunshou",
    "title": "対策① 方程式の利用（U・N） こたえ",
    "pages": 4,
    "note": "問題に赤で答えを書きこんだ形",
@@ -214,14 +214,14 @@
   },
   {
    "file": "teiki_1_k.pdf",
-   "step": "c1teiki-houtei-hirei",
+   "step": "houtei-bunshou",
    "title": "対策① 方程式（K）",
    "pages": 4,
-   "note": "その1 方程式を解く／その2 ことばの式から方程式／その3 代金・個数（式の形つき）／その4 比例式"
+   "note": "定期テスト対策（11月）。その1 方程式を解く／その2 ことばの式から方程式／その3 代金・個数（式の形つき）／その4 比例式"
   },
   {
    "file": "teiki_1_k_ans.pdf",
-   "step": "c1teiki-houtei-hirei",
+   "step": "houtei-bunshou",
    "title": "対策① 方程式（K） こたえ",
    "pages": 4,
    "note": "問題に赤で答えを書きこんだ形",
@@ -229,14 +229,14 @@
   },
   {
    "file": "teiki_2_un.pdf",
-   "step": "c1teiki-houtei-hirei",
+   "step": "hirei-zahyou",
    "title": "対策② 比例と反比例（U・N）",
    "pages": 4,
-   "note": "その1 比例の式・表／その2 反比例の式・表／その3 座標・比例のグラフ／その4 反比例のグラフ"
+   "note": "定期テスト対策（11月）。その1 比例の式・表／その2 反比例の式・表／その3 座標・比例のグラフ／その4 反比例のグラフ"
   },
   {
    "file": "teiki_2_un_ans.pdf",
-   "step": "c1teiki-houtei-hirei",
+   "step": "hirei-zahyou",
    "title": "対策② 比例と反比例（U・N） こたえ",
    "pages": 4,
    "note": "問題に赤で答えを書きこんだ形",
@@ -244,14 +244,14 @@
   },
   {
    "file": "teiki_2_k.pdf",
-   "step": "c1teiki-houtei-hirei",
+   "step": "hirei-zahyou",
    "title": "対策② 比例と反比例（K）",
    "pages": 4,
-   "note": "その1 比例の表／その2 比例の式／その3 反比例の表と式／その4 座標・見分け"
+   "note": "定期テスト対策（11月）。その1 比例の表／その2 比例の式／その3 反比例の表と式／その4 座標・見分け"
   },
   {
    "file": "teiki_2_k_ans.pdf",
-   "step": "c1teiki-houtei-hirei",
+   "step": "hirei-zahyou",
    "title": "対策② 比例と反比例（K） こたえ",
    "pages": 4,
    "note": "問題に赤で答えを書きこんだ形",
@@ -259,14 +259,14 @@
   },
   {
    "file": "teiki_3_un.pdf",
-   "step": "c1teiki-houtei-hirei",
+   "step": "hirei-riyou",
    "title": "対策③ 比例・反比例の利用とまとめ（U・N）",
    "pages": 4,
-   "note": "その1 比例の利用／その2 反比例の利用／その3 まとめ（式と値）／その4 方程式の利用・比例式"
+   "note": "定期テスト対策（11月）。その1 比例の利用／その2 反比例の利用／その3 まとめ（式と値）／その4 方程式の利用・比例式"
   },
   {
    "file": "teiki_3_un_ans.pdf",
-   "step": "c1teiki-houtei-hirei",
+   "step": "hirei-riyou",
    "title": "対策③ 比例・反比例の利用とまとめ（U・N） こたえ",
    "pages": 4,
    "note": "問題に赤で答えを書きこんだ形",
@@ -274,14 +274,14 @@
   },
   {
    "file": "teiki_3_k.pdf",
-   "step": "c1teiki-houtei-hirei",
+   "step": "hirei-riyou",
    "title": "対策③ まとめ（K）",
    "pages": 4,
-   "note": "その1 方程式／その2 ことばの式・代金／その3 比例・反比例の式と値／その4 座標・表・見分け"
+   "note": "定期テスト対策（11月）。その1 方程式／その2 ことばの式・代金／その3 比例・反比例の式と値／その4 座標・表・見分け"
   },
   {
    "file": "teiki_3_k_ans.pdf",
-   "step": "c1teiki-houtei-hirei",
+   "step": "hirei-riyou",
    "title": "対策③ まとめ（K） こたえ",
    "pages": 4,
    "note": "問題に赤で答えを書きこんだ形",
