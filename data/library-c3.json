@@ -1251,6 +1251,108 @@
    "pages": 1,
    "note": "問題に赤字で答え・途中式を書き込んだもの",
    "ans": true
+  },
+  {
+   "file": "c3_jitsu_r409_d1.pdf",
+   "step": "c3jitsu-d1",
+   "test": "r4-3-09",
+   "title": "令和4年度 3年・9月 大問1 小問集合",
+   "pages": 1,
+   "note": "計算・展開・因数分解・おうぎ形の弧・度数分布表（正しいとは限らないもの）・垂線の作図"
+  },
+  {
+   "file": "c3_jitsu_r409_d1_ans.pdf",
+   "step": "c3jitsu-d1",
+   "test": "r4-3-09",
+   "title": "令和4年度 3年・9月 大問1 小問集合 こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu_r409_kakuritsu.pdf",
+   "step": "c3jitsu-kakuritsu",
+   "test": "r4-3-09",
+   "title": "令和4年度 3年・9月 大問2-1 確率",
+   "pages": 1,
+   "note": "さいころの目の数だけ箱Aと箱Bの玉を移す。個数・説明・確率"
+  },
+  {
+   "file": "c3_jitsu_r409_kakuritsu_ans.pdf",
+   "step": "c3jitsu-kakuritsu",
+   "test": "r4-3-09",
+   "title": "令和4年度 3年・9月 大問2-1 確率 こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu_r409_renritsu.pdf",
+   "step": "c3jitsu-renritsu",
+   "test": "r4-3-09",
+   "title": "令和4年度 3年・9月 大問2-2 連立方程式の利用",
+   "pages": 1,
+   "note": "家から公園は歩き、公園から駅は走る。道のりと時間の連立方程式"
+  },
+  {
+   "file": "c3_jitsu_r409_renritsu_ans.pdf",
+   "step": "c3jitsu-renritsu",
+   "test": "r4-3-09",
+   "title": "令和4年度 3年・9月 大問2-2 連立方程式の利用 こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu_r409_hirei.pdf",
+   "step": "c3jitsu-hirei",
+   "test": "r4-3-09",
+   "title": "令和4年度 3年・9月 大問3 比例と反比例",
+   "pages": 1,
+   "note": "y＝12/x の特徴（下線部の正誤）・直線ABの傾き・平行四辺形APQBと直線PQ"
+  },
+  {
+   "file": "c3_jitsu_r409_hirei_ans.pdf",
+   "step": "c3jitsu-hirei",
+   "test": "r4-3-09",
+   "title": "令和4年度 3年・9月 大問3 比例と反比例 こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu_r409_zukei.pdf",
+   "step": "c3jitsu-zukei",
+   "test": "r4-3-09",
+   "title": "令和4年度 3年・9月 大問4 平面図形（合同・長さ）",
+   "pages": 1,
+   "note": "二等辺三角形と角の二等分線・垂線。角・△DBE≡△DBFの証明・面積からDEの長さ"
+  },
+  {
+   "file": "c3_jitsu_r409_zukei_ans.pdf",
+   "step": "c3jitsu-zukei",
+   "test": "r4-3-09",
+   "title": "令和4年度 3年・9月 大問4 平面図形（合同・長さ） こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu_r409_kuukan.pdf",
+   "step": "c3jitsu-kuukan",
+   "test": "r4-3-09",
+   "title": "令和4年度 3年・9月 大問5 空間図形",
+   "pages": 1,
+   "note": "直角三角形の三角柱。体積・表面積・四角錐の体積からCP・三角錐の表面積"
+  },
+  {
+   "file": "c3_jitsu_r409_kuukan_ans.pdf",
+   "step": "c3jitsu-kuukan",
+   "test": "r4-3-09",
+   "title": "令和4年度 3年・9月 大問5 空間図形 こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
   }
  ]
 }
