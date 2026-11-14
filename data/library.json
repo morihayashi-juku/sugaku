@@ -595,6 +595,21 @@
    "pages": 2,
    "note": "",
    "ans": true
+  },
+  {
+   "file": "teiki_hirei.pdf",
+   "step": "hirei-matome",
+   "title": "定期テスト対策 比例と反比例（まとめ）",
+   "pages": 4,
+   "note": "その1 関数・変域・比例／その2 反比例／その3 座標とグラフ／その4 利用（各8問・計32問）"
+  },
+  {
+   "file": "teiki_hirei_ans.pdf",
+   "step": "hirei-matome",
+   "title": "定期テスト対策 比例と反比例（まとめ） こたえ",
+   "pages": 4,
+   "note": "問題に赤で答えを書きこんだ形",
+   "ans": true
   }
  ]
 }
