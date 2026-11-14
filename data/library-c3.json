@@ -1353,6 +1353,91 @@
    "pages": 1,
    "note": "問題に赤字で答え・途中式を書き込んだもの",
    "ans": true
+  },
+  {
+   "file": "c3_jitsu_r609_d1.pdf",
+   "step": "c3jitsu-d1",
+   "test": "r6-3-09",
+   "title": "令和6年度 3年・9月 大問1 小問集合",
+   "pages": 1,
+   "note": "計算・方程式・因数分解・連立方程式・さいころの確率・平方根の正誤・面積を2等分する線分の作図"
+  },
+  {
+   "file": "c3_jitsu_r609_d1_ans.pdf",
+   "step": "c3jitsu-d1",
+   "test": "r6-3-09",
+   "title": "令和6年度 3年・9月 大問1 小問集合 こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu_r609_kuukan.pdf",
+   "step": "c3jitsu-kuukan",
+   "test": "r6-3-09",
+   "title": "令和6年度 3年・9月 大問2 空間図形",
+   "pages": 1,
+   "note": "1辺6cmの立方体。平面と平行な直線・対角線の展開図・三角錐ABCFの体積・表面積の差"
+  },
+  {
+   "file": "c3_jitsu_r609_kuukan_ans.pdf",
+   "step": "c3jitsu-kuukan",
+   "test": "r6-3-09",
+   "title": "令和6年度 3年・9月 大問2 空間図形 こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu_r609_data.pdf",
+   "step": "c3jitsu-data",
+   "test": "r6-3-09",
+   "title": "令和6年度 3年・9月 大問3 データの活用",
+   "pages": 2,
+   "note": "読書時間の箱ひげ図（範囲・四分位範囲・読み取れること）と、ヒストグラムに合わない箱ひげ図"
+  },
+  {
+   "file": "c3_jitsu_r609_data_ans.pdf",
+   "step": "c3jitsu-data",
+   "test": "r6-3-09",
+   "title": "令和6年度 3年・9月 大問3 データの活用 こたえ",
+   "pages": 2,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu_r609_zukei.pdf",
+   "step": "c3jitsu-zukei",
+   "test": "r6-3-09",
+   "title": "令和6年度 3年・9月 大問4 平面図形（合同・角・面積）",
+   "pages": 1,
+   "note": "長方形とAE＝AFの点F。△ABE≡△AGFの証明・角・ECの長さ・△FEGの面積"
+  },
+  {
+   "file": "c3_jitsu_r609_zukei_ans.pdf",
+   "step": "c3jitsu-zukei",
+   "test": "r6-3-09",
+   "title": "令和6年度 3年・9月 大問4 平面図形（合同・角・面積） こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu_r609_ichiji.pdf",
+   "step": "c3jitsu-ichiji",
+   "test": "r6-3-09",
+   "title": "令和6年度 3年・9月 大問5 一次関数",
+   "pages": 1,
+   "note": "y＝−x＋16 と y＝1/2x＋1。あてはまらない特徴・交点P・ABの長さ・正方形になる点A"
+  },
+  {
+   "file": "c3_jitsu_r609_ichiji_ans.pdf",
+   "step": "c3jitsu-ichiji",
+   "test": "r6-3-09",
+   "title": "令和6年度 3年・9月 大問5 一次関数 こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
   }
  ]
 }
