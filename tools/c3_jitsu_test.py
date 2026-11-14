@@ -64,9 +64,12 @@ def BX(label, ans):
     return f'<span class="bx"><span class="ql">{label}</span><span class="qa">{ans}</span></span>'
 
 
+TAG = "令和8年度　3年・9月"
+
+
 def header(title, page=None):
     p = f"（{page}）" if page else ""
-    return (f'<div class="hd"><div class="ht"><span class="tag">中3　実力テスト</span>{title}{p}<span class="key">解答</span></div>'
+    return (f'<div class="hd"><div class="ht"><span class="tag">{TAG}</span>{title}{p}<span class="key">解答</span></div>'
             f'<div class="nm">　月　　日　名前（　　　　　　　　　）</div></div>')
 
 
@@ -390,7 +393,7 @@ body { margin:0; font-family: "Noto Sans CJK JP", sans-serif; font-size: 10.3pt;
 .page { width:210mm; height:297mm; box-sizing:border-box; padding:10mm 13mm; page-break-after: always; overflow:hidden; position:relative; }
 .hd { border-bottom: 2px solid #333; padding-bottom: 2mm; margin-bottom: 3mm; display:flex; justify-content:space-between; align-items:flex-end; }
 .ht { font-size: 14pt; font-weight: 700; white-space:nowrap; }
-.tag { display:inline-block; font-size:9pt; background:#333; color:#fff; padding:1px 7px; margin-right:6px; border-radius:3px; vertical-align:middle; }
+.tag { display:inline-block; font-size:8pt; background:#333; color:#fff; padding:1px 7px; margin-right:6px; border-radius:3px; vertical-align:middle; }
 .key { display:inline-block; font-size:9pt; border:1.5px solid #c00; color:#c00; padding:0 6px; margin-left:8px; border-radius:3px; vertical-align:middle; }
 .nm { font-size: 10pt; white-space:nowrap; }
 .lead { line-height:1.7; margin: 1mm 0 2mm; }

@@ -59,6 +59,8 @@ libnames = common.get("libraries") or ["library"]
 # 単元とステップ
 units = common.get("units", [])
 jitsu_steps = (common.get("jitsu") or {}).get("steps", [])          # 実力テストのタブ（学年の単元とは別）
+jitsu_tests = {t["id"] for t in (common.get("jitsu") or {}).get("tests", [])}   # 実力テストの回（年度・学年・月）
+jitsu_step_ids = {st["id"] for st in jitsu_steps}
 steps = {st["id"] for u in units for st in u["steps"]} | {st["id"] for st in jitsu_steps}
 ids = [u["id"] for u in units] + [st["id"] for u in units for st in u["steps"]] + [st["id"] for st in jitsu_steps]
 dup = sorted({i for i in ids if ids.count(i) > 1})
@@ -80,6 +82,8 @@ for ln in libnames:
         files[f] = {**it, "_lib": ln}
         if it.get("step") not in steps:
             err.append(f"{ln}.json {f}: step {it.get('step')!r} が common.json にありません")
+        if it.get("step") in jitsu_step_ids and it.get("test") not in jitsu_tests:
+            err.append(f"{ln}.json {f}: 実力テストのプリントには test（common.json の jitsu.tests の id）を書く")
         if not re.fullmatch(r"[A-Za-z0-9_.\-]+\.pdf", f):
             err.append(f"{ln}.json: ファイル名は英数字だけにする: {f}")
         if not (ROOT / "pdf" / f).exists():

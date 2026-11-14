@@ -38,7 +38,7 @@ assert PB(36) == PA(36) and PB(54) == PC(54)
 assert 180 - 2 * 38 == 104 and F(F(36, 5) / 2, F(12, 2) / 2) == F(6, 5)
 assert 2 * (6 * 4 + 6 * 5 + 4 * 5) == 148 and F(1, 3) * (24 - 3 - 3) * 5 == 30
 
-TAG = "中3　実力テスト④"
+TAG = "令和3年度　3年・6月"
 
 
 def header(title, page=None):

@@ -311,25 +311,53 @@ function renderLib() {
 }
 
 /* ------------------------------------------------------------ 画面：実力テスト */
-// 実力テストは学年の単元とは別のタブ。common.json の jitsu.steps（大問1・単元別）ごとにプリントを並べる（プリントの一覧は学年のライブラリに書く）
+// 実力テストは学年の単元とは別のタブ。common.json の jitsu.steps（大問1・単元別）と jitsu.tests（年度・学年・月）を使う。
+// プリントの一覧は学年のライブラリに書き、step（大問・単元）と test（どの回のテストか）を付ける。
+// 並べかた（この端末に残る）：unit＝単元別、year＝年度別、month＝月別
+let jitsuMode = store.get("sugaku-jitsu-mode", "unit");
+const schoolMonth = m => (m + 8) % 12;                  // 4月＝0 … 3月＝11（学校の1年の順）
 function renderJitsu() {
-  const J = D.common.jitsu, steps = J.steps;
-  const itemsOf = id => D.library.items.filter(x => x.step === id).sort((a, b) => (a.ans ? 1 : 0) - (b.ans ? 1 : 0));
-  return `
-  <div class="libbar">
-  <nav class="unav" aria-label="大問・単元">${steps.map(st => {
-    const n = itemsOf(st.id).filter(i => !i.ans).length;
-    return `<a href="#jitsu/${esc(st.id)}">${esc(st.name)}${n ? `<small>${n}</small>` : ""}</a>`;
-  }).join("")}</nav>
-  </div>
-  <p class="lead">${esc(J.lead || "大問1と、それ以外は単元別に分けてあります。問題と、答えを書きこんだプリント（赤）が入っています。")}</p>
-  <section class="unit"><div class="steps">${steps.map((st, i) => {
-    const its = itemsOf(st.id);
-    return `<section class="stepsec${its.length ? "" : " none"}" id="jitsu-${esc(st.id)}">
-      <h3><span class="sn">${i + 1}</span>${esc(st.name)}</h3>
-      ${its.length ? `<div class="tiles">${its.map(x => tile(x)).join("")}</div>` : `<p class="muted">まだプリントはありません。</p>`}
-    </section>`;
-  }).join("")}</div></section>`;
+  const J = D.common.jitsu, steps = J.steps, tests = J.tests || [];
+  const TST = new Map(tests.map(t => [t.id, t]));
+  const SI = new Map(steps.map((st, i) => [st.id, i]));
+  const tOf = x => TST.get(x.test) || {year: 0, grade: 0, month: 4, label: ""};
+  const base = x => x.file.replace(/_ans\.pdf$/, ".pdf");
+  const byTest = (a, b) => (b.year - a.year) || (a.grade - b.grade) || (schoolMonth(a.month) - schoolMonth(b.month));
+  const all = D.library.items.filter(x => SI.has(x.step));
+  // タイルの並び：単元別は回の順、年度別・月別は大問の順。問題とこたえを並べる
+  const tilesU = its => its.sort((a, b) => byTest(tOf(a), tOf(b)) || base(a).localeCompare(base(b)) || (a.ans ? 1 : 0) - (b.ans ? 1 : 0));
+  const tilesT = its => its.sort((a, b) => (SI.get(a.step) - SI.get(b.step)) || base(a).localeCompare(base(b)) || (a.ans ? 1 : 0) - (b.ans ? 1 : 0));
+  const tilesHtml = its => its.length ? `<div class="tiles">${its.map(x => tile(x)).join("")}</div>` : `<p class="muted">まだプリントはありません。</p>`;
+  const cnt = its => its.filter(i => !i.ans).length;
+  const nav = (links) => `<nav class="unav" aria-label="見出し">${links.map(([id, name, n]) => `<a href="#jitsu/${esc(id)}">${esc(name)}${n ? `<small>${n}</small>` : ""}</a>`).join("")}</nav>`;
+  const modes = [["unit", "単元別"], ["year", "年度別"], ["month", "月別"]];
+  if (!modes.some(m => m[0] === jitsuMode)) jitsuMode = "unit";
+  const bar = links => `<div class="libbar"><div class="filters grades" role="group" aria-label="並べかた">${modes.map(([m, l]) =>
+    `<button type="button" data-act="jitsumode" data-mode="${m}" aria-pressed="${m === jitsuMode}">${l}</button>`).join("")}</div>${nav(links)}</div>`;
+  const lead = `<p class="lead">${esc(J.lead || "")}</p>`;
+  const testSec = (t, head) => {
+    const its = tilesT(all.filter(x => x.test === t.id));
+    return `<section class="stepsec" id="jitsu-${esc(t.id)}"><h3>${esc(head)}</h3>${tilesHtml(its)}</section>`;
+  };
+  if (jitsuMode === "unit") {
+    return bar(steps.map(st => [st.id, st.name, cnt(all.filter(x => x.step === st.id))])) + lead
+      + `<section class="unit"><div class="steps">${steps.map((st, i) => {
+        const its = tilesU(all.filter(x => x.step === st.id));
+        return `<section class="stepsec${its.length ? "" : " none"}" id="jitsu-${esc(st.id)}"><h3><span class="sn">${i + 1}</span>${esc(st.name)}</h3>${tilesHtml(its)}</section>`;
+      }).join("")}</div></section>`;
+  }
+  const sorted = tests.slice().sort(byTest);
+  const groups = [];
+  for (const t of sorted) {
+    const key = jitsuMode === "year" ? "y" + t.year : "m" + t.month;
+    let g = groups.find(x => x.key === key);
+    if (!g) groups.push(g = {key, name: jitsuMode === "year" ? `令和${t.year}年度` : `${t.month}月`, tests: []});
+    g.tests.push(t);
+  }
+  if (jitsuMode === "month") groups.sort((a, b) => schoolMonth(a.tests[0].month) - schoolMonth(b.tests[0].month));
+  return bar(groups.map(g => [g.key, g.name, g.tests.reduce((n, t) => n + cnt(all.filter(x => x.test === t.id)), 0)])) + lead
+    + groups.map(g => `<section class="unit" id="jitsu-${esc(g.key)}"><h2>${esc(g.name)}</h2><div class="steps">${g.tests.map(t =>
+      testSec(t, jitsuMode === "year" ? `${t.grade}年・${t.month}月` : `令和${t.year}年度　${t.grade}年`)).join("")}</div></section>`).join("");
 }
 
 /* ------------------------------------------------------------ 画面の切りかえ */
@@ -682,6 +710,10 @@ document.addEventListener("click", e => {
   else if (act === "maruset") {
     const T = D.s[b.dataset.track], s = T.sets.find(x => x.id === b.dataset.set);
     if (s) openViewer(setAnswers(s).map(a => a.file), `${T.name} ${s.label} のこたえ`);
+  }
+  else if (act === "jitsumode") {
+    jitsuMode = b.dataset.mode; store.set("sugaku-jitsu-mode", jitsuMode);
+    $("#app").innerHTML = renderJitsu(); observeThumbs(); window.scrollTo(0, 0);
   }
   else if (act === "grade") {
     setLibGrade(b.dataset.grade);

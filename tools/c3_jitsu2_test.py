@@ -37,7 +37,7 @@ assert F(3 + 5, -4) == -2 and F(1, 2) * 14 * 4 == 28
 ADB = abs((-6 + 4) * (-5 - 3) - (0 - 3) * (0 + 4)) / 2
 assert ADB == 14 and -5 - ADB / 2 == -12
 
-TAG = "中3　実力テスト②"
+TAG = "令和8年度　3年・10月"
 
 
 def header(title, page=None):

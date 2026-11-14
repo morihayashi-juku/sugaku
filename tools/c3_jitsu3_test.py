@@ -38,7 +38,7 @@ assert 4 * 3 == 12 and 16 - 4 * 0 == 16 and 64 - 4 * 14 == 8
 assert F(1, 2) * 6 * 3 == 9 and F(18) * F(2, 3) == 12
 assert F(1, 3) * 36 * 8 == 96 and 360 * 6 // 12 == 180 and 12 * 6 + 36 == 108
 
-TAG = "中3　実力テスト③"
+TAG = "令和5年度　3年・6月"
 
 
 def header(title, page=None):

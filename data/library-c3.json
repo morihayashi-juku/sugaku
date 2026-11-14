@@ -596,167 +596,189 @@
   {
    "file": "c3_jitsu_d1.pdf",
    "step": "c3jitsu-d1",
-   "title": "実力テスト① 大問1 小問集合",
+   "title": "令和8年度 3年・9月 大問1 小問集合",
    "pages": 1,
-   "note": "計算（正負・平方根・展開）・不等式・確率・空間図形・√5の整数部分と小数部分"
+   "note": "計算（正負・平方根・展開）・不等式・確率・空間図形・√5の整数部分と小数部分",
+   "test": "r8-3-09"
   },
   {
    "file": "c3_jitsu_d1_ans.pdf",
    "step": "c3jitsu-d1",
-   "title": "実力テスト① 大問1 小問集合 こたえ",
+   "title": "令和8年度 3年・9月 大問1 小問集合 こたえ",
    "pages": 1,
    "note": "問題に赤字で答え・途中式を書き込んだもの",
-   "ans": true
+   "ans": true,
+   "test": "r8-3-09"
   },
   {
    "file": "c3_jitsu_renritsu.pdf",
    "step": "c3jitsu-renritsu",
-   "title": "実力テスト① 大問2 連立方程式の利用・整数",
+   "title": "令和8年度 3年・9月 大問2 連立方程式の利用・整数",
    "pages": 1,
-   "note": "文房具店のノートとおまけの鉛筆。連立方程式・倍数の説明・組み合わせの数え上げ"
+   "note": "文房具店のノートとおまけの鉛筆。連立方程式・倍数の説明・組み合わせの数え上げ",
+   "test": "r8-3-09"
   },
   {
    "file": "c3_jitsu_renritsu_ans.pdf",
    "step": "c3jitsu-renritsu",
-   "title": "実力テスト① 大問2 連立方程式の利用・整数 こたえ",
+   "title": "令和8年度 3年・9月 大問2 連立方程式の利用・整数 こたえ",
    "pages": 1,
    "note": "問題に赤字で答え・途中式を書き込んだもの",
-   "ans": true
+   "ans": true,
+   "test": "r8-3-09"
   },
   {
    "file": "c3_jitsu_data.pdf",
    "step": "c3jitsu-data",
-   "title": "実力テスト① 大問3 データの活用",
+   "title": "令和8年度 3年・9月 大問3 データの活用",
    "pages": 2,
-   "note": "ヒストグラム（資料Ⅱ・Ⅲ）・最頻値・割合・箱ひげ図。紙飛行機の記録"
+   "note": "ヒストグラム（資料Ⅱ・Ⅲ）・最頻値・割合・箱ひげ図。紙飛行機の記録",
+   "test": "r8-3-09"
   },
   {
    "file": "c3_jitsu_data_ans.pdf",
    "step": "c3jitsu-data",
-   "title": "実力テスト① 大問3 データの活用 こたえ",
+   "title": "令和8年度 3年・9月 大問3 データの活用 こたえ",
    "pages": 2,
    "note": "問題に赤字で答え・途中式を書き込んだもの",
-   "ans": true
+   "ans": true,
+   "test": "r8-3-09"
   },
   {
    "file": "c3_jitsu_zukei.pdf",
    "step": "c3jitsu-zukei",
-   "title": "実力テスト① 大問4 合同・平行線と面積",
+   "title": "令和8年度 3年・9月 大問4 合同・平行線と面積",
    "pages": 2,
-   "note": "台形ABCD・中点E・△AED≡△BEFの証明・面積と線分の長さ"
+   "note": "台形ABCD・中点E・△AED≡△BEFの証明・面積と線分の長さ",
+   "test": "r8-3-09"
   },
   {
    "file": "c3_jitsu_zukei_ans.pdf",
    "step": "c3jitsu-zukei",
-   "title": "実力テスト① 大問4 合同・平行線と面積 こたえ",
+   "title": "令和8年度 3年・9月 大問4 合同・平行線と面積 こたえ",
    "pages": 2,
    "note": "問題に赤字で答え・途中式を書き込んだもの",
-   "ans": true
+   "ans": true,
+   "test": "r8-3-09"
   },
   {
    "file": "c3_jitsu_ichiji.pdf",
    "step": "c3jitsu-ichiji",
-   "title": "実力テスト① 大問5 一次関数",
+   "title": "令和8年度 3年・9月 大問5 一次関数",
    "pages": 1,
-   "note": "y＝−2x+12 と y＝x+6。交点・三角形の面積・面積を2等分する直線"
+   "note": "y＝−2x+12 と y＝x+6。交点・三角形の面積・面積を2等分する直線",
+   "test": "r8-3-09"
   },
   {
    "file": "c3_jitsu_ichiji_ans.pdf",
    "step": "c3jitsu-ichiji",
-   "title": "実力テスト① 大問5 一次関数 こたえ",
+   "title": "令和8年度 3年・9月 大問5 一次関数 こたえ",
    "pages": 1,
    "note": "問題に赤字で答え・途中式を書き込んだもの",
-   "ans": true
+   "ans": true,
+   "test": "r8-3-09"
   },
   {
    "file": "c3_jitsu2_d1.pdf",
    "step": "c3jitsu-d1",
-   "title": "実力テスト② 大問1 小問集合",
+   "title": "令和8年度 3年・10月 大問1 小問集合",
    "pages": 1,
-   "note": "計算・方程式・平方根・角錐の名称・関数でないもの・∠PBA=25°の作図"
+   "note": "計算・方程式・平方根・角錐の名称・関数でないもの・∠PBA=25°の作図",
+   "test": "r8-3-10"
   },
   {
    "file": "c3_jitsu2_d1_ans.pdf",
    "step": "c3jitsu-d1",
-   "title": "実力テスト② 大問1 小問集合 こたえ",
+   "title": "令和8年度 3年・10月 大問1 小問集合 こたえ",
    "pages": 1,
    "note": "問題に赤字で答え・途中式を書き込んだもの",
-   "ans": true
+   "ans": true,
+   "test": "r8-3-10"
   },
   {
    "file": "c3_jitsu2_kakuritsu.pdf",
    "step": "c3jitsu-kakuritsu",
-   "title": "実力テスト② 大問2-1 確率",
+   "title": "令和8年度 3年・10月 大問2-1 確率",
    "pages": 1,
-   "note": "4枚の硬貨（500・100・50・10円）。表が出た合計が100円以下になる確率"
+   "note": "4枚の硬貨（500・100・50・10円）。表が出た合計が100円以下になる確率",
+   "test": "r8-3-10"
   },
   {
    "file": "c3_jitsu2_kakuritsu_ans.pdf",
    "step": "c3jitsu-kakuritsu",
-   "title": "実力テスト② 大問2-1 確率 こたえ",
+   "title": "令和8年度 3年・10月 大問2-1 確率 こたえ",
    "pages": 1,
    "note": "問題に赤字で答え・途中式を書き込んだもの",
-   "ans": true
+   "ans": true,
+   "test": "r8-3-10"
   },
   {
    "file": "c3_jitsu2_renritsu.pdf",
    "step": "c3jitsu-renritsu",
-   "title": "実力テスト② 大問2-2 連立方程式の利用",
+   "title": "令和8年度 3年・10月 大問2-2 連立方程式の利用",
    "pages": 1,
-   "note": "子ども会の小学生・中学生とボールペン。式と計算を書く"
+   "note": "子ども会の小学生・中学生とボールペン。式と計算を書く",
+   "test": "r8-3-10"
   },
   {
    "file": "c3_jitsu2_renritsu_ans.pdf",
    "step": "c3jitsu-renritsu",
-   "title": "実力テスト② 大問2-2 連立方程式の利用 こたえ",
+   "title": "令和8年度 3年・10月 大問2-2 連立方程式の利用 こたえ",
    "pages": 1,
    "note": "問題に赤字で答え・途中式を書き込んだもの",
-   "ans": true
+   "ans": true,
+   "test": "r8-3-10"
   },
   {
    "file": "c3_jitsu2_data.pdf",
    "step": "c3jitsu-data",
-   "title": "実力テスト② 大問3 データの活用",
+   "title": "令和8年度 3年・10月 大問3 データの活用",
    "pages": 2,
-   "note": "カバンの重さ。ヒストグラム・度数分布表・箱ひげ図（中央値・四分位範囲）"
+   "note": "カバンの重さ。ヒストグラム・度数分布表・箱ひげ図（中央値・四分位範囲）",
+   "test": "r8-3-10"
   },
   {
    "file": "c3_jitsu2_data_ans.pdf",
    "step": "c3jitsu-data",
-   "title": "実力テスト② 大問3 データの活用 こたえ",
+   "title": "令和8年度 3年・10月 大問3 データの活用 こたえ",
    "pages": 2,
    "note": "問題に赤字で答え・途中式を書き込んだもの",
-   "ans": true
+   "ans": true,
+   "test": "r8-3-10"
   },
   {
    "file": "c3_jitsu2_zukei.pdf",
    "step": "c3jitsu-zukei",
-   "title": "実力テスト② 大問4 図形（合同・面積）",
+   "title": "令和8年度 3年・10月 大問4 図形（合同・面積）",
    "pages": 2,
-   "note": "長方形ABCDとBE＝BC。△ABE≡△HCBの証明・角・面積比・回転体の体積"
+   "note": "長方形ABCDとBE＝BC。△ABE≡△HCBの証明・角・面積比・回転体の体積",
+   "test": "r8-3-10"
   },
   {
    "file": "c3_jitsu2_zukei_ans.pdf",
    "step": "c3jitsu-zukei",
-   "title": "実力テスト② 大問4 図形（合同・面積） こたえ",
+   "title": "令和8年度 3年・10月 大問4 図形（合同・面積） こたえ",
    "pages": 2,
    "note": "問題に赤字で答え・途中式を書き込んだもの",
-   "ans": true
+   "ans": true,
+   "test": "r8-3-10"
   },
   {
    "file": "c3_jitsu2_ichiji.pdf",
    "step": "c3jitsu-ichiji",
-   "title": "実力テスト② 大問5 一次関数",
+   "title": "令和8年度 3年・10月 大問5 一次関数",
    "pages": 1,
-   "note": "y＝ax−5 と y＝3/2x+9 が A(−4, 3) で交わる。a・面積・面積が等しい点E"
+   "note": "y＝ax−5 と y＝3/2x+9 が A(−4, 3) で交わる。a・面積・面積が等しい点E",
+   "test": "r8-3-10"
   },
   {
    "file": "c3_jitsu2_ichiji_ans.pdf",
    "step": "c3jitsu-ichiji",
-   "title": "実力テスト② 大問5 一次関数 こたえ",
+   "title": "令和8年度 3年・10月 大問5 一次関数 こたえ",
    "pages": 1,
    "note": "問題に赤字で答え・途中式を書き込んだもの",
-   "ans": true
+   "ans": true,
+   "test": "r8-3-10"
   },
   {
    "file": "c3_teiki_matome.pdf",
@@ -791,287 +813,325 @@
   {
    "file": "c3_jitsu3_d1.pdf",
    "step": "c3jitsu-d1",
-   "title": "実力テスト③ 大問1 小問集合",
+   "title": "令和5年度 3年・6月 大問1 小問集合",
    "pages": 1,
-   "note": "計算・反比例・連立方程式・正十二角形の外角・箱ひげ図の読み取り・∠CAP=30°の作図"
+   "note": "計算・反比例・連立方程式・正十二角形の外角・箱ひげ図の読み取り・∠CAP=30°の作図",
+   "test": "r5-3-06"
   },
   {
    "file": "c3_jitsu3_d1_ans.pdf",
    "step": "c3jitsu-d1",
-   "title": "実力テスト③ 大問1 小問集合 こたえ",
+   "title": "令和5年度 3年・6月 大問1 小問集合 こたえ",
    "pages": 1,
    "note": "問題に赤字で答え・途中式を書き込んだもの",
-   "ans": true
+   "ans": true,
+   "test": "r5-3-06"
   },
   {
    "file": "c3_jitsu3_kakuritsu.pdf",
    "step": "c3jitsu-kakuritsu",
-   "title": "実力テスト③ 大問2-1 確率",
+   "title": "令和5年度 3年・6月 大問2-1 確率",
    "pages": 1,
-   "note": "2つの箱の玉（2・6・15・24／3・4・12・30）。aがbの約数・bがaの約数の確率を比べて説明"
+   "note": "2つの箱の玉（2・6・15・24／3・4・12・30）。aがbの約数・bがaの約数の確率を比べて説明",
+   "test": "r5-3-06"
   },
   {
    "file": "c3_jitsu3_kakuritsu_ans.pdf",
    "step": "c3jitsu-kakuritsu",
-   "title": "実力テスト③ 大問2-1 確率 こたえ",
+   "title": "令和5年度 3年・6月 大問2-1 確率 こたえ",
    "pages": 1,
    "note": "問題に赤字で答え・途中式を書き込んだもの",
-   "ans": true
+   "ans": true,
+   "test": "r5-3-06"
   },
   {
    "file": "c3_jitsu3_houtei.pdf",
    "step": "c3jitsu-renritsu",
-   "title": "実力テスト③ 大問2-2 方程式の利用（割合）",
+   "title": "令和5年度 3年・6月 大問2-2 方程式の利用（割合）",
    "pages": 1,
-   "note": "通学区域の円グラフ。B地区25％・C地区20％から全校生徒の人数を方程式で"
+   "note": "通学区域の円グラフ。B地区25％・C地区20％から全校生徒の人数を方程式で",
+   "test": "r5-3-06"
   },
   {
    "file": "c3_jitsu3_houtei_ans.pdf",
    "step": "c3jitsu-renritsu",
-   "title": "実力テスト③ 大問2-2 方程式の利用（割合） こたえ",
+   "title": "令和5年度 3年・6月 大問2-2 方程式の利用（割合） こたえ",
    "pages": 1,
    "note": "問題に赤字で答え・途中式を書き込んだもの",
-   "ans": true
+   "ans": true,
+   "test": "r5-3-06"
   },
   {
    "file": "c3_jitsu3_ichiji.pdf",
    "step": "c3jitsu-ichiji",
-   "title": "実力テスト③ 大問3 一次関数（動点と面積）",
+   "title": "令和5年度 3年・6月 大問3 一次関数（動点と面積）",
    "pages": 1,
-   "note": "長方形の辺上を動く点Pと△APDの面積。下線部の正誤・辺CD上の式"
+   "note": "長方形の辺上を動く点Pと△APDの面積。下線部の正誤・辺CD上の式",
+   "test": "r5-3-06"
   },
   {
    "file": "c3_jitsu3_ichiji_ans.pdf",
    "step": "c3jitsu-ichiji",
-   "title": "実力テスト③ 大問3 一次関数（動点と面積） こたえ",
+   "title": "令和5年度 3年・6月 大問3 一次関数（動点と面積） こたえ",
    "pages": 1,
    "note": "問題に赤字で答え・途中式を書き込んだもの",
-   "ans": true
+   "ans": true,
+   "test": "r5-3-06"
   },
   {
    "file": "c3_jitsu3_zukei.pdf",
    "step": "c3jitsu-zukei",
-   "title": "実力テスト③ 大問4 図形（合同・面積）",
+   "title": "令和5年度 3年・6月 大問4 図形（合同・面積）",
    "pages": 1,
-   "note": "正方形と対角線。△ABE≡△CBEの証明・角をaで表す・相似を使った面積"
+   "note": "正方形と対角線。△ABE≡△CBEの証明・角をaで表す・相似を使った面積",
+   "test": "r5-3-06"
   },
   {
    "file": "c3_jitsu3_zukei_ans.pdf",
    "step": "c3jitsu-zukei",
-   "title": "実力テスト③ 大問4 図形（合同・面積） こたえ",
+   "title": "令和5年度 3年・6月 大問4 図形（合同・面積） こたえ",
    "pages": 1,
    "note": "問題に赤字で答え・途中式を書き込んだもの",
-   "ans": true
+   "ans": true,
+   "test": "r5-3-06"
   },
   {
    "file": "c3_jitsu3_kuukan.pdf",
    "step": "c3jitsu-kuukan",
-   "title": "実力テスト③ 大問5 空間図形（円錐）",
+   "title": "令和5年度 3年・6月 大問5 空間図形（円錐）",
    "pages": 1,
-   "note": "直角三角形を回転させた円錐。母線・体積・展開図のおうぎ形・表面積"
+   "note": "直角三角形を回転させた円錐。母線・体積・展開図のおうぎ形・表面積",
+   "test": "r5-3-06"
   },
   {
    "file": "c3_jitsu3_kuukan_ans.pdf",
    "step": "c3jitsu-kuukan",
-   "title": "実力テスト③ 大問5 空間図形（円錐） こたえ",
+   "title": "令和5年度 3年・6月 大問5 空間図形（円錐） こたえ",
    "pages": 1,
    "note": "問題に赤字で答え・途中式を書き込んだもの",
-   "ans": true
+   "ans": true,
+   "test": "r5-3-06"
   },
   {
    "file": "c3_jitsu4_d1.pdf",
    "step": "c3jitsu-d1",
-   "title": "実力テスト④ 大問1 小問集合",
+   "title": "令和3年度 3年・6月 大問1 小問集合",
    "pages": 1,
-   "note": "計算・単項式の除法・分数の式・連立方程式・反比例の式・カードの確率・面積を二等分する直線の作図"
+   "note": "計算・単項式の除法・分数の式・連立方程式・反比例の式・カードの確率・面積を二等分する直線の作図",
+   "test": "r3-3-06"
   },
   {
    "file": "c3_jitsu4_d1_ans.pdf",
    "step": "c3jitsu-d1",
-   "title": "実力テスト④ 大問1 小問集合 こたえ",
+   "title": "令和3年度 3年・6月 大問1 小問集合 こたえ",
    "pages": 1,
    "note": "問題に赤字で答え・途中式を書き込んだもの",
-   "ans": true
+   "ans": true,
+   "test": "r3-3-06"
   },
   {
    "file": "c3_jitsu4_data.pdf",
    "step": "c3jitsu-data",
-   "title": "実力テスト④ 大問2-1 データの活用（箱ひげ図）",
+   "title": "令和3年度 3年・6月 大問2-1 データの活用（箱ひげ図）",
    "pages": 1,
-   "note": "大縄跳びの並び方①②の箱ひげ図。範囲・合うヒストグラム・中央値と四分位範囲"
+   "note": "大縄跳びの並び方①②の箱ひげ図。範囲・合うヒストグラム・中央値と四分位範囲",
+   "test": "r3-3-06"
   },
   {
    "file": "c3_jitsu4_data_ans.pdf",
    "step": "c3jitsu-data",
-   "title": "実力テスト④ 大問2-1 データの活用（箱ひげ図） こたえ",
+   "title": "令和3年度 3年・6月 大問2-1 データの活用（箱ひげ図） こたえ",
    "pages": 1,
    "note": "問題に赤字で答え・途中式を書き込んだもの",
-   "ans": true
+   "ans": true,
+   "test": "r3-3-06"
   },
   {
    "file": "c3_jitsu4_moji.pdf",
    "step": "c3jitsu-moji",
-   "title": "実力テスト④ 大問2-2 文字式の利用（規則性）",
+   "title": "令和3年度 3年・6月 大問2-2 文字式の利用（規則性）",
    "pages": 1,
-   "note": "青・白・黄の色紙を並べる。22枚目の色・横の長さ・青n枚のときの面積"
+   "note": "青・白・黄の色紙を並べる。22枚目の色・横の長さ・青n枚のときの面積",
+   "test": "r3-3-06"
   },
   {
    "file": "c3_jitsu4_moji_ans.pdf",
    "step": "c3jitsu-moji",
-   "title": "実力テスト④ 大問2-2 文字式の利用（規則性） こたえ",
+   "title": "令和3年度 3年・6月 大問2-2 文字式の利用（規則性） こたえ",
    "pages": 1,
    "note": "問題に赤字で答え・途中式を書き込んだもの",
-   "ans": true
+   "ans": true,
+   "test": "r3-3-06"
   },
   {
    "file": "c3_jitsu4_ichiji.pdf",
    "step": "c3jitsu-ichiji",
-   "title": "実力テスト④ 大問3 一次関数（料金プラン）",
+   "title": "令和3年度 3年・6月 大問3 一次関数（料金プラン）",
    "pages": 1,
-   "note": "携帯電話の3つの料金プラン。式・グラフの読み取り・Bがいちばん安くなる通話時間"
+   "note": "携帯電話の3つの料金プラン。式・グラフの読み取り・Bがいちばん安くなる通話時間",
+   "test": "r3-3-06"
   },
   {
    "file": "c3_jitsu4_ichiji_ans.pdf",
    "step": "c3jitsu-ichiji",
-   "title": "実力テスト④ 大問3 一次関数（料金プラン） こたえ",
+   "title": "令和3年度 3年・6月 大問3 一次関数（料金プラン） こたえ",
    "pages": 1,
    "note": "問題に赤字で答え・途中式を書き込んだもの",
-   "ans": true
+   "ans": true,
+   "test": "r3-3-06"
   },
   {
    "file": "c3_jitsu4_zukei.pdf",
    "step": "c3jitsu-zukei",
-   "title": "実力テスト④ 大問4 図形（合同・面積）",
+   "title": "令和3年度 3年・6月 大問4 図形（合同・面積）",
    "pages": 1,
-   "note": "平行四辺形とADの中点E。△ABE≡△DFEの証明・長さ・角・面積比"
+   "note": "平行四辺形とADの中点E。△ABE≡△DFEの証明・長さ・角・面積比",
+   "test": "r3-3-06"
   },
   {
    "file": "c3_jitsu4_zukei_ans.pdf",
    "step": "c3jitsu-zukei",
-   "title": "実力テスト④ 大問4 図形（合同・面積） こたえ",
+   "title": "令和3年度 3年・6月 大問4 図形（合同・面積） こたえ",
    "pages": 1,
    "note": "問題に赤字で答え・途中式を書き込んだもの",
-   "ans": true
+   "ans": true,
+   "test": "r3-3-06"
   },
   {
    "file": "c3_jitsu4_kuukan.pdf",
    "step": "c3jitsu-kuukan",
-   "title": "実力テスト④ 大問5 空間図形（直方体・角錐）",
+   "title": "令和3年度 3年・6月 大問5 空間図形（直方体・角錐）",
    "pages": 1,
-   "note": "直方体。辺と平行な面・表面積・六角錐の名称と体積"
+   "note": "直方体。辺と平行な面・表面積・六角錐の名称と体積",
+   "test": "r3-3-06"
   },
   {
    "file": "c3_jitsu4_kuukan_ans.pdf",
    "step": "c3jitsu-kuukan",
-   "title": "実力テスト④ 大問5 空間図形（直方体・角錐） こたえ",
+   "title": "令和3年度 3年・6月 大問5 空間図形（直方体・角錐） こたえ",
    "pages": 1,
    "note": "問題に赤字で答え・途中式を書き込んだもの",
-   "ans": true
+   "ans": true,
+   "test": "r3-3-06"
   },
   {
    "file": "c3_jitsu5_d1.pdf",
    "step": "c3jitsu-d1",
-   "title": "実力テスト⑤ 大問1 小問集合",
+   "title": "令和7年度 3年・6月 大問1 小問集合",
    "pages": 1,
-   "note": "計算・方程式・七角形の内角の和・ヒストグラムの代表値・2本の道路から等しい距離の点の作図"
+   "note": "計算・方程式・七角形の内角の和・ヒストグラムの代表値・2本の道路から等しい距離の点の作図",
+   "test": "r7-3-06"
   },
   {
    "file": "c3_jitsu5_d1_ans.pdf",
    "step": "c3jitsu-d1",
-   "title": "実力テスト⑤ 大問1 小問集合 こたえ",
+   "title": "令和7年度 3年・6月 大問1 小問集合 こたえ",
    "pages": 1,
    "note": "問題に赤字で答え・途中式を書き込んだもの",
-   "ans": true
+   "ans": true,
+   "test": "r7-3-06"
   },
   {
    "file": "c3_jitsu5_kuukan.pdf",
    "step": "c3jitsu-kuukan",
-   "title": "実力テスト⑤ 大問2 空間図形（円錐・回転体）",
+   "title": "令和7年度 3年・6月 大問2 空間図形（円錐・回転体）",
    "pages": 1,
-   "note": "円錐にかけたひもの最短・側面の面積・転がした回数・回転体の体積の差"
+   "note": "円錐にかけたひもの最短・側面の面積・転がした回数・回転体の体積の差",
+   "test": "r7-3-06"
   },
   {
    "file": "c3_jitsu5_kuukan_ans.pdf",
    "step": "c3jitsu-kuukan",
-   "title": "実力テスト⑤ 大問2 空間図形（円錐・回転体） こたえ",
+   "title": "令和7年度 3年・6月 大問2 空間図形（円錐・回転体） こたえ",
    "pages": 1,
    "note": "問題に赤字で答え・途中式を書き込んだもの",
-   "ans": true
+   "ans": true,
+   "test": "r7-3-06"
   },
   {
    "file": "c3_jitsu5_moji.pdf",
    "step": "c3jitsu-moji",
-   "title": "実力テスト⑤ 大問3-1(1) 文字式の利用（カレンダー）",
+   "title": "令和7年度 3年・6月 大問3-1(1) 文字式の利用（カレンダー）",
    "pages": 1,
-   "note": "カレンダーの枠の4つの数の和・縦の列の第m週の数"
+   "note": "カレンダーの枠の4つの数の和・縦の列の第m週の数",
+   "test": "r7-3-06"
   },
   {
    "file": "c3_jitsu5_moji_ans.pdf",
    "step": "c3jitsu-moji",
-   "title": "実力テスト⑤ 大問3-1(1) 文字式の利用（カレンダー） こたえ",
+   "title": "令和7年度 3年・6月 大問3-1(1) 文字式の利用（カレンダー） こたえ",
    "pages": 1,
    "note": "問題に赤字で答え・途中式を書き込んだもの",
-   "ans": true
+   "ans": true,
+   "test": "r7-3-06"
   },
   {
    "file": "c3_jitsu5_kakuritsu.pdf",
    "step": "c3jitsu-kakuritsu",
-   "title": "実力テスト⑤ 大問3-1(2) 確率（天気予報）",
+   "title": "令和7年度 3年・6月 大問3-1(2) 確率（天気予報）",
    "pages": 1,
-   "note": "カレンダーの12日間で晴れる確率・2週間で雨が降る時間"
+   "note": "カレンダーの12日間で晴れる確率・2週間で雨が降る時間",
+   "test": "r7-3-06"
   },
   {
    "file": "c3_jitsu5_kakuritsu_ans.pdf",
    "step": "c3jitsu-kakuritsu",
-   "title": "実力テスト⑤ 大問3-1(2) 確率（天気予報） こたえ",
+   "title": "令和7年度 3年・6月 大問3-1(2) 確率（天気予報） こたえ",
    "pages": 1,
    "note": "問題に赤字で答え・途中式を書き込んだもの",
-   "ans": true
+   "ans": true,
+   "test": "r7-3-06"
   },
   {
    "file": "c3_jitsu5_renritsu.pdf",
    "step": "c3jitsu-renritsu",
-   "title": "実力テスト⑤ 大問3-2 連立方程式の利用（牛乳パック）",
+   "title": "令和7年度 3年・6月 大問3-2 連立方程式の利用（牛乳パック）",
    "pages": 1,
-   "note": "牛乳パックのたばとトイレットペーパー。先月の残りを使って連立方程式"
+   "note": "牛乳パックのたばとトイレットペーパー。先月の残りを使って連立方程式",
+   "test": "r7-3-06"
   },
   {
    "file": "c3_jitsu5_renritsu_ans.pdf",
    "step": "c3jitsu-renritsu",
-   "title": "実力テスト⑤ 大問3-2 連立方程式の利用（牛乳パック） こたえ",
+   "title": "令和7年度 3年・6月 大問3-2 連立方程式の利用（牛乳パック） こたえ",
    "pages": 1,
    "note": "問題に赤字で答え・途中式を書き込んだもの",
-   "ans": true
+   "ans": true,
+   "test": "r7-3-06"
   },
   {
    "file": "c3_jitsu5_zukei.pdf",
    "step": "c3jitsu-zukei",
-   "title": "実力テスト⑤ 大問4 平面図形（平行線・比）",
+   "title": "令和7年度 3年・6月 大問4 平面図形（平行線・比）",
    "pages": 1,
-   "note": "角の二等分線と平行線。AF＝BGの証明の穴うめ・角・AE：EG"
+   "note": "角の二等分線と平行線。AF＝BGの証明の穴うめ・角・AE：EG",
+   "test": "r7-3-06"
   },
   {
    "file": "c3_jitsu5_zukei_ans.pdf",
    "step": "c3jitsu-zukei",
-   "title": "実力テスト⑤ 大問4 平面図形（平行線・比） こたえ",
+   "title": "令和7年度 3年・6月 大問4 平面図形（平行線・比） こたえ",
    "pages": 1,
    "note": "問題に赤字で答え・途中式を書き込んだもの",
-   "ans": true
+   "ans": true,
+   "test": "r7-3-06"
   },
   {
    "file": "c3_jitsu5_hirei.pdf",
    "step": "c3jitsu-hirei",
-   "title": "実力テスト⑤ 大問5 比例と反比例（双曲線と面積）",
+   "title": "令和7年度 3年・6月 大問5 比例と反比例（双曲線と面積）",
    "pages": 1,
-   "note": "y＝a/x 上の2点A・B。aの値・対称な点・三角形の面積・面積が等しい点P"
+   "note": "y＝a/x 上の2点A・B。aの値・対称な点・三角形の面積・面積が等しい点P",
+   "test": "r7-3-06"
   },
   {
    "file": "c3_jitsu5_hirei_ans.pdf",
    "step": "c3jitsu-hirei",
-   "title": "実力テスト⑤ 大問5 比例と反比例（双曲線と面積） こたえ",
+   "title": "令和7年度 3年・6月 大問5 比例と反比例（双曲線と面積） こたえ",
    "pages": 1,
    "note": "問題に赤字で答え・途中式を書き込んだもの",
-   "ans": true
+   "ans": true,
+   "test": "r7-3-06"
   }
  ]
 }
