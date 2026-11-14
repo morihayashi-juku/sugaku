@@ -1438,6 +1438,108 @@
    "pages": 1,
    "note": "問題に赤字で答え・途中式を書き込んだもの",
    "ans": true
+  },
+  {
+   "file": "c3_jitsu_r209_d1.pdf",
+   "step": "c3jitsu-d1",
+   "test": "r2-3-09",
+   "title": "令和2年度 3年・9月 大問1 小問集合",
+   "pages": 1,
+   "note": "計算・平方根・方程式の解・反比例・カードの確率・30°の作図"
+  },
+  {
+   "file": "c3_jitsu_r209_d1_ans.pdf",
+   "step": "c3jitsu-d1",
+   "test": "r2-3-09",
+   "title": "令和2年度 3年・9月 大問1 小問集合 こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu_r209_data.pdf",
+   "step": "c3jitsu-data",
+   "test": "r2-3-09",
+   "title": "令和2年度 3年・9月 大問2-1 データの活用",
+   "pages": 1,
+   "note": "漢字テストの度数（中央値から求める）・正しいものを選ぶ・平均値から2人の得点（過程も書く）"
+  },
+  {
+   "file": "c3_jitsu_r209_data_ans.pdf",
+   "step": "c3jitsu-data",
+   "test": "r2-3-09",
+   "title": "令和2年度 3年・9月 大問2-1 データの活用 こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu_r209_renritsu.pdf",
+   "step": "c3jitsu-renritsu",
+   "test": "r2-3-09",
+   "title": "令和2年度 3年・9月 大問2-2 連立方程式の利用",
+   "pages": 1,
+   "note": "碁石の正方形と正三角形。碁石の数を式で・連立方程式で x、y"
+  },
+  {
+   "file": "c3_jitsu_r209_renritsu_ans.pdf",
+   "step": "c3jitsu-renritsu",
+   "test": "r2-3-09",
+   "title": "令和2年度 3年・9月 大問2-2 連立方程式の利用 こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu_r209_ichiji.pdf",
+   "step": "c3jitsu-ichiji",
+   "test": "r2-3-09",
+   "title": "令和2年度 3年・9月 大問3 一次関数（図形の移動）",
+   "pages": 1,
+   "note": "2つの正方形の図形が長方形を通りすぎるときの重なる面積。比例・式・面積が3/5になるとき"
+  },
+  {
+   "file": "c3_jitsu_r209_ichiji_ans.pdf",
+   "step": "c3jitsu-ichiji",
+   "test": "r2-3-09",
+   "title": "令和2年度 3年・9月 大問3 一次関数（図形の移動） こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu_r209_zukei.pdf",
+   "step": "c3jitsu-zukei",
+   "test": "r2-3-09",
+   "title": "令和2年度 3年・9月 大問4 平面図形（平行四辺形）",
+   "pages": 1,
+   "note": "平行四辺形の証明（穴うめ）・四角形ABCEの面積・∠ACE"
+  },
+  {
+   "file": "c3_jitsu_r209_zukei_ans.pdf",
+   "step": "c3jitsu-zukei",
+   "test": "r2-3-09",
+   "title": "令和2年度 3年・9月 大問4 平面図形（平行四辺形） こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu_r209_kuukan.pdf",
+   "step": "c3jitsu-kuukan",
+   "test": "r2-3-09",
+   "title": "令和2年度 3年・9月 大問5 空間図形",
+   "pages": 1,
+   "note": "立方体の表面積・四角形AJGK・体積の比・切断した立体の体積"
+  },
+  {
+   "file": "c3_jitsu_r209_kuukan_ans.pdf",
+   "step": "c3jitsu-kuukan",
+   "test": "r2-3-09",
+   "title": "令和2年度 3年・9月 大問5 空間図形 こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
   }
  ]
 }
