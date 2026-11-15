@@ -1,6 +1,6 @@
 {
  "_memo": "教材ライブラリ：作ったプリントはすべてここに1回だけ書く。step は data/common.json のステップ id。こたえは ans: true。生徒の JSON からは file 名で呼ぶ。",
- "updated": "2026-11-14",
+ "updated": "2026-11-15",
  "items": [
   {
    "file": "seifu_shisoku_A.pdf",
@@ -607,6 +607,36 @@
    "file": "teiki_hirei_ans.pdf",
    "step": "hirei-matome",
    "title": "定期テスト対策 比例と反比例（まとめ） こたえ",
+   "pages": 4,
+   "note": "問題に赤で答えを書きこんだ形",
+   "ans": true
+  },
+  {
+   "file": "teiki_4_un.pdf",
+   "step": "hirei-matome",
+   "title": "対策④ 比例と反比例（U・N）",
+   "pages": 4,
+   "note": "その1 比例（式・値・変域）／その2 反比例（式・値・表・変域）／その3 座標とグラフ／その4 利用"
+  },
+  {
+   "file": "teiki_4_un_ans.pdf",
+   "step": "hirei-matome",
+   "title": "対策④ 比例と反比例（U・N） こたえ",
+   "pages": 4,
+   "note": "問題に赤で答えを書きこんだ形",
+   "ans": true
+  },
+  {
+   "file": "teiki_4_k.pdf",
+   "step": "hirei-matome",
+   "title": "対策④ 比例と反比例（K）",
+   "pages": 4,
+   "note": "その1 比例の式と値／その2 反比例の式と値／その3 表・座標・グラフ／その4 見分け・利用（正の数中心）"
+  },
+  {
+   "file": "teiki_4_k_ans.pdf",
+   "step": "hirei-matome",
+   "title": "対策④ 比例と反比例（K） こたえ",
    "pages": 4,
    "note": "問題に赤で答えを書きこんだ形",
    "ans": true
