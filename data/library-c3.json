@@ -1555,6 +1555,125 @@
    "pages": 2,
    "note": "問題に赤で書き込んだ形",
    "ans": true
+  },
+  {
+   "file": "c3_jitsu_r310_d1.pdf",
+   "step": "c3jitsu-d1",
+   "test": "r3-3-10",
+   "title": "令和3年度 3年・10月 大問1 小問集合",
+   "pages": 1,
+   "note": "計算・平方根・二次方程式・変域・度数分布表（かならずいえること）・接する円の中心の作図"
+  },
+  {
+   "file": "c3_jitsu_r310_d1_ans.pdf",
+   "step": "c3jitsu-d1",
+   "test": "r3-3-10",
+   "title": "令和3年度 3年・10月 大問1 小問集合 こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu_r310_kakuritsu.pdf",
+   "step": "c3jitsu-kakuritsu",
+   "test": "r3-3-10",
+   "title": "令和3年度 3年・10月 大問2-1 確率",
+   "pages": 1,
+   "note": "箱A・Bから玉を2個。和が8以上の確率・積が6の倍数になりやすいのはどちらか（理由を説明）"
+  },
+  {
+   "file": "c3_jitsu_r310_kakuritsu_ans.pdf",
+   "step": "c3jitsu-kakuritsu",
+   "test": "r3-3-10",
+   "title": "令和3年度 3年・10月 大問2-1 確率 こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu_r310_renritsu.pdf",
+   "step": "c3jitsu-renritsu",
+   "test": "r3-3-10",
+   "title": "令和3年度 3年・10月 大問2-2 方程式の利用",
+   "pages": 1,
+   "note": "ダンスコンテストの発表の流れ。終わる時刻・交代時間を方程式で（過程も書く）"
+  },
+  {
+   "file": "c3_jitsu_r310_renritsu_ans.pdf",
+   "step": "c3jitsu-renritsu",
+   "test": "r3-3-10",
+   "title": "令和3年度 3年・10月 大問2-2 方程式の利用 こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu_r310_hirei.pdf",
+   "step": "c3jitsu-hirei",
+   "test": "r3-3-10",
+   "title": "令和3年度 3年・10月 大問3-1 比例と反比例",
+   "pages": 1,
+   "note": "反比例 y＝6/x の x と y の関係（積が一定）"
+  },
+  {
+   "file": "c3_jitsu_r310_hirei_ans.pdf",
+   "step": "c3jitsu-hirei",
+   "test": "r3-3-10",
+   "title": "令和3年度 3年・10月 大問3-1 比例と反比例 こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu_r310_ichiji.pdf",
+   "step": "c3jitsu-ichiji",
+   "test": "r3-3-10",
+   "title": "令和3年度 3年・10月 大問3-2 一次関数",
+   "pages": 1,
+   "note": "y＝−x＋3 上の2点A・B。△OABの面積・面積が等しくなる点Pと直線AP"
+  },
+  {
+   "file": "c3_jitsu_r310_ichiji_ans.pdf",
+   "step": "c3jitsu-ichiji",
+   "test": "r3-3-10",
+   "title": "令和3年度 3年・10月 大問3-2 一次関数 こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu_r310_zukei.pdf",
+   "step": "c3jitsu-zukei",
+   "test": "r3-3-10",
+   "title": "令和3年度 3年・10月 大問4 平面図形（合同・面積）",
+   "pages": 1,
+   "note": "角の二等分線と∠ADE＝∠ADC。角・△AED≡△ACDの証明・DEの長さ・面積の比"
+  },
+  {
+   "file": "c3_jitsu_r310_zukei_ans.pdf",
+   "step": "c3jitsu-zukei",
+   "test": "r3-3-10",
+   "title": "令和3年度 3年・10月 大問4 平面図形（合同・面積） こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_jitsu_r310_kuukan.pdf",
+   "step": "c3jitsu-kuukan",
+   "test": "r3-3-10",
+   "title": "令和3年度 3年・10月 大問5 空間図形（正四角錐）",
+   "pages": 1,
+   "note": "高さ3cm・底面積12cm²の正四角錐。ねじれの位置・1辺・体積・表面積"
+  },
+  {
+   "file": "c3_jitsu_r310_kuukan_ans.pdf",
+   "step": "c3jitsu-kuukan",
+   "test": "r3-3-10",
+   "title": "令和3年度 3年・10月 大問5 空間図形（正四角錐） こたえ",
+   "pages": 1,
+   "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
   }
  ]
 }
