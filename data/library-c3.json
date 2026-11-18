@@ -2099,6 +2099,91 @@
    "pages": 3,
    "note": "問題に赤字で答え・解説（途中式・考え方）を書き込んだもの",
    "ans": true
+  },
+  {
+   "file": "c3_shishikan_r4_d1.pdf",
+   "step": "c3shi-shou",
+   "test": "shi-r4",
+   "title": "尚志館 令和4年度 本試験 大問1 計算",
+   "pages": 1,
+   "note": "整数・分数・文字式・平方根・単項式の乗除・式の展開（6問）"
+  },
+  {
+   "file": "c3_shishikan_r4_d1_ans.pdf",
+   "step": "c3shi-shou",
+   "test": "shi-r4",
+   "title": "尚志館 令和4年度 本試験 大問1 計算 解答・解説",
+   "pages": 1,
+   "note": "問題に赤字で答え・解説（途中式・考え方）を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_shishikan_r4_d2.pdf",
+   "step": "c3shi-shou",
+   "test": "shi-r4",
+   "title": "尚志館 令和4年度 本試験 大問2 小問集合",
+   "pages": 2,
+   "note": "球の体積・硬貨の確率・2次方程式・平方根と自然数・得点・連立方程式・角の二等分線と角・正三角形と三平方（8問）"
+  },
+  {
+   "file": "c3_shishikan_r4_d2_ans.pdf",
+   "step": "c3shi-shou",
+   "test": "shi-r4",
+   "title": "尚志館 令和4年度 本試験 大問2 小問集合 解答・解説",
+   "pages": 2,
+   "note": "問題に赤字で答え・解説（途中式・考え方）を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_shishikan_r4_kansu.pdf",
+   "step": "c3shi-kansu",
+   "test": "shi-r4",
+   "title": "尚志館 令和4年度 本試験 大問3 関数 y＝ax²",
+   "pages": 1,
+   "note": "a・変域・変化の割合・直線AB・面積比・x軸のまわりの回転体の体積"
+  },
+  {
+   "file": "c3_shishikan_r4_kansu_ans.pdf",
+   "step": "c3shi-kansu",
+   "test": "shi-r4",
+   "title": "尚志館 令和4年度 本試験 大問3 関数 y＝ax² 解答・解説",
+   "pages": 1,
+   "note": "問題に赤字で答え・解説（途中式・考え方）を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_shishikan_r4_kuukan.pdf",
+   "step": "c3shi-kuukan",
+   "test": "shi-r4",
+   "title": "尚志館 令和4年度 本試験 大問4 空間図形（立方体と三角すい）",
+   "pages": 2,
+   "note": "会話文。三角すいG−PCQ。合同な三角形・表面積・面積比・点Cから平面GPQまでの距離"
+  },
+  {
+   "file": "c3_shishikan_r4_kuukan_ans.pdf",
+   "step": "c3shi-kuukan",
+   "test": "shi-r4",
+   "title": "尚志館 令和4年度 本試験 大問4 空間図形（立方体と三角すい） 解答・解説",
+   "pages": 2,
+   "note": "問題に赤字で答え・解説（途中式・考え方）を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_shishikan_r4_zukei.pdf",
+   "step": "c3shi-en",
+   "test": "shi-r4",
+   "title": "尚志館 令和4年度 本試験 大問5 平面図形（円と相似）",
+   "pages": 1,
+   "note": "トレミーの定理。△BAE∽△CADの穴うめ・線分の比・△ABC∽△AEDの証明・AB×CD＋AD×BC＝AC×BDの証明"
+  },
+  {
+   "file": "c3_shishikan_r4_zukei_ans.pdf",
+   "step": "c3shi-en",
+   "test": "shi-r4",
+   "title": "尚志館 令和4年度 本試験 大問5 平面図形（円と相似） 解答・解説",
+   "pages": 1,
+   "note": "問題に赤字で答え・解説（途中式・考え方）を書き込んだもの",
+   "ans": true
   }
  ]
 }
