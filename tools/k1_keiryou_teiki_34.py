@@ -1,4 +1,4 @@
-"""高1 数学Ⅰ 図形と計量 定期考査対策 第3回・第4回（A3 両面・1パターン2ページ）。
+"""高1 数学Ⅰ 図形と計量 定期考査対策 第3回〜（A3 両面・1パターン2ページ）。
 問題 pdf/k1_keiryou_teiki_{n}.pdf と、同じプリントに赤字で答え・途中式を書きこんだ pdf/k1_keiryou_teiki_{n}_ans.pdf を作る。
   cd tools && python3 k1_keiryou_teiki_34.py      （KaTeX は texlib と同じ探し方。見つからなければ npm install katex）
 問題データと SymPy の検算は k1_keiryou_teiki_data.py（SETS に第5回…を足せば同じ形で作れる）。

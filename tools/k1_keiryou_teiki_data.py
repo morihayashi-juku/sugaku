@@ -59,7 +59,35 @@ P4=dict(no=4,table=TBL4,
        [r"$\sin A>0$ より",r"$\sin A=\sqrt{1-\left(\dfrac{11}{14}\right)^2}=\sqrt{\dfrac{75}{196}}$",r"$=\boldsymbol{\dfrac{5\sqrt{3}}{14}}$"],
        [r"$S=\dfrac{1}{2}bc\sin A$",r"$=\dfrac{1}{2}\cdot 3\cdot 7\cdot\dfrac{5\sqrt{3}}{14}$",r"$=\boldsymbol{\dfrac{15\sqrt{3}}{4}}$"]],
 )
-SETS={3:P3,4:P4}
+
+TBL5=tbl(21,35,73)
+P5=dict(no=5,table=TBL5,
+ q11=[(r"\cos 45^\circ",r"\dfrac{1}{\sqrt{2}}",cos(d(45)),1/S2),(r"\sin 30^\circ",r"\dfrac{1}{2}",sin(d(30)),Rational(1,2)),(r"\tan 60^\circ",r"\sqrt{3}",tan(d(60)),S3),
+      (r"\cos 120^\circ",r"-\dfrac{1}{2}",cos(d(120)),-Rational(1,2)),(r"\sin 150^\circ",r"\dfrac{1}{2}",sin(d(150)),Rational(1,2)),(r"\tan 135^\circ",r"-1",tan(d(135)),-1),
+      (r"\sin 180^\circ",r"0",sin(pi),0),(r"\tan 0^\circ",r"0",tan(0),0),(r"\cos 90^\circ",r"0",cos(d(90)),0)],
+ q12=[(r"\cos\theta=-\dfrac{1}{2}",r"120^\circ",cos,-Rational(1,2),[120]),(r"\sin\theta=\dfrac{1}{\sqrt{2}}",r"45^\circ,\ 135^\circ",sin,1/S2,[45,135]),(r"\tan\theta=\sqrt{3}",r"60^\circ",tan,S3,[60]),
+      (r"\cos\theta=1",r"0^\circ",cos,1,[0]),(r"\tan\theta=-1",r"135^\circ",tan,-1,[135]),(r"\sin\theta=1",r"90^\circ",sin,1,[90])],
+ q13=[(r"\sin 83^\circ",r"\cos 7^\circ"),(r"\cos 64^\circ",r"\sin 26^\circ"),(r"\tan 49^\circ",r"\dfrac{1}{\tan 41^\circ}")],
+ q14=[(r"\sin 159^\circ",f"{TBL5[21][0]:.4f}"),(r"\cos 145^\circ",f"-{TBL5[35][1]:.4f}"),(r"\tan 107^\circ",f"-{TBL5[73][2]:.4f}")],
+ q15=[(r"a=10,\ c=3,\ B=30^\circ",r"\dfrac{15}{2}"),(r"1\,\text{辺の長さが}\,14\,\text{の正三角形}\,\text{ABC}",r"49\sqrt{3}")],
+ q2=[(r"\cos\theta=-\dfrac{2}{3}",r"\sin\theta,\ \tan\theta"),(r"\tan\theta=-\sqrt{2}",r"\cos\theta,\ \sin\theta")],
+ q3=[r"$b=5,\ B=150^\circ$ のとき $R$",r"$c=3,\ R=\sqrt{3}$ のとき $C$"],
+ q4=r"$a=6,\ A=45^\circ,\ C=120^\circ$ のとき，辺 AB の長さ $c$",
+ q5=[r"$a=6,\ c=2\sqrt{3},\ B=30^\circ$ のとき，辺 CA の長さ $b$",r"$b=4,\ c=6,\ A=120^\circ$ のとき，辺 BC の長さ $a$",r"$a=3,\ b=5,\ c=7$ のとき，$\cos C$ の値と $C$"],
+ tri=(6,7,8),
+ sol2=[[r"$\sin^2\theta=1-\cos^2\theta=1-\dfrac{4}{9}=\dfrac{5}{9}$",r"$\sin\theta>0$ より $\sin\theta=\boldsymbol{\dfrac{\sqrt{5}}{3}}$",r"$\tan\theta=\dfrac{\sqrt{5}}{3}\div\left(-\dfrac{2}{3}\right)=\boldsymbol{-\dfrac{\sqrt{5}}{2}}$"],
+       [r"$\dfrac{1}{\cos^2\theta}=1+\tan^2\theta=1+2=3$",r"$\cos\theta<0$ より $\cos\theta=\boldsymbol{-\dfrac{1}{\sqrt{3}}}$　$\left(=-\dfrac{\sqrt{3}}{3}\right)$",r"$\sin\theta=\tan\theta\cos\theta=(-\sqrt{2})\times\left(-\dfrac{1}{\sqrt{3}}\right)=\boldsymbol{\dfrac{\sqrt{6}}{3}}$"]],
+ sol3=[[r"正弦定理より $\dfrac{5}{\sin 150^\circ}=2R$",r"$2R=5\div\dfrac{1}{2}=10$　　$R=\boldsymbol{5}$"],
+       [r"正弦定理より $\dfrac{3}{\sin C}=2\sqrt{3}$",r"$\sin C=\dfrac{3}{2\sqrt{3}}=\dfrac{\sqrt{3}}{2}$",r"$0^\circ\lt C\lt 180^\circ$ より $C=\boldsymbol{60^\circ,\ 120^\circ}$"]],
+ sol4=[r"正弦定理より $\dfrac{6}{\sin 45^\circ}=\dfrac{c}{\sin 120^\circ}$",r"$c=6\div\dfrac{1}{\sqrt{2}}\times\dfrac{\sqrt{3}}{2}=6\sqrt{2}\times\dfrac{\sqrt{3}}{2}=\boldsymbol{3\sqrt{6}}$"],
+ sol5=[[r"余弦定理より",r"$b^2=6^2+(2\sqrt{3})^2-2\cdot 6\cdot 2\sqrt{3}\cdot\cos 30^\circ$",r"$=36+12-36=12$",r"$b>0$ より $b=\boldsymbol{2\sqrt{3}}$"],
+       [r"余弦定理より",r"$a^2=4^2+6^2-2\cdot 4\cdot 6\cdot\cos 120^\circ$",r"$=16+36+24=76$",r"$a>0$ より $a=\boldsymbol{2\sqrt{19}}$"],
+       [r"余弦定理より",r"$\cos C=\dfrac{3^2+5^2-7^2}{2\cdot 3\cdot 5}=\dfrac{-15}{30}=\boldsymbol{-\dfrac{1}{2}}$",r"$0^\circ\lt C\lt 180^\circ$ より $C=\boldsymbol{120^\circ}$"]],
+ sol6=[[r"$\cos A=\dfrac{7^2+8^2-6^2}{2\cdot 7\cdot 8}=\dfrac{77}{112}=\boldsymbol{\dfrac{11}{16}}$"],
+       [r"$\sin A>0$ より",r"$\sin A=\sqrt{1-\left(\dfrac{11}{16}\right)^2}=\sqrt{\dfrac{135}{256}}$",r"$=\boldsymbol{\dfrac{3\sqrt{15}}{16}}$"],
+       [r"$S=\dfrac{1}{2}bc\sin A$",r"$=\dfrac{1}{2}\cdot 7\cdot 8\cdot\dfrac{3\sqrt{15}}{16}$",r"$=\boldsymbol{\dfrac{21\sqrt{15}}{4}}$"]],
+)
+SETS={3:P3,4:P4,5:P5}
 
 def check():
     ok=lambda a,b: simplify(a-b)==0
@@ -86,10 +114,18 @@ def check():
     assert ok(6*S2/sin(d(135))/2,6) and ok(2*S3/4,S3/2) and ok(2*sqrt(6)/sin(d(60))*sin(d(45)),4)
     assert ok(law(4,3*S2,45),sqrt(10)) and ok(law(3,S2,135),sqrt(17)) and Rational(4+9-7,12)==Rational(1,2)
     C=Rational(9+49-25,42); assert C==Rational(11,14) and ok(sqrt(1-C**2),5*S3/14) and ok(3*7*sqrt(1-C**2)/2,15*S3/4)
+    # 第5回
+    assert ok(sin(d(83)),cos(d(7))) and ok(cos(d(64)),sin(d(26))) and ok(tan(d(49)),1/tan(d(41)))
+    assert ok(10*3*sin(d(30))/2,Rational(15,2)) and ok(S3/4*196,49*S3)
+    s_=sqrt(1-Rational(4,9)); assert ok(s_,sqrt(5)/3) and ok(s_/(-Rational(2,3)),-sqrt(5)/2)
+    c=-1/sqrt(1+2); assert ok(c,-1/S3) and ok(-S2*c,sqrt(6)/3)
+    assert ok(5/sin(d(150))/2,5) and ok(3/(2*S3),S3/2) and ok(6/sin(d(45))*sin(d(120)),3*sqrt(6))
+    assert ok(law(6,2*S3,30),2*S3) and ok(law(4,6,120),2*sqrt(19)) and Rational(9+25-49,30)==Rational(-1,2)
+    C=Rational(49+64-36,112); assert C==Rational(11,16) and ok(sqrt(1-C**2),3*sqrt(15)/16) and ok(7*8*sqrt(1-C**2)/2,21*sqrt(15)/4)
     for P in SETS.values():   # 表の値（4けた）
         for t,(a,b,c) in P['table'].items():
             assert abs(math.sin(math.radians(t))-a)<6e-5 and abs(math.cos(math.radians(t))-b)<6e-5 and abs(math.tan(math.radians(t))-c)<6e-5
-    print("全問OK", P4['q14'])
+    print("全問OK", P5['q14'])
 
 if __name__=="__main__":
     check()
