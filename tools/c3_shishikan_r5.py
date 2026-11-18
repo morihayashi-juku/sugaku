@@ -135,7 +135,7 @@ def circ4_svg():
     rr = math.hypot(cx, oc)
     C_ = P((cx, oc))
     c = L(O_, Bp, 0.9, False, "#c00") + f'<circle cx="{C_[0]:.1f}" cy="{C_[1]:.1f}" r="{rr * k:.1f}" fill="none" stroke="#c00" stroke-dasharray="3 3" stroke-width="0.9"/>'
-    return svg(250, 276, s + f'<g class="cons">{c}</g>', -20, -6)
+    return svg(276, 276, s + f'<g class="cons">{c}</g>', -6, -6)
 
 
 def tet_svg():
