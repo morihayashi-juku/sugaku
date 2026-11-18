@@ -1759,6 +1759,91 @@
    "pages": 1,
    "note": "問題に赤字で答え・解説（途中式・考え方）を書き込んだもの",
    "ans": true
+  },
+  {
+   "file": "c3_shishikan_r5_d1.pdf",
+   "step": "c3shi-shou",
+   "test": "shi-r5",
+   "title": "尚志館 令和5年度 本試験 大問1 計算",
+   "pages": 1,
+   "note": "整数・分数・文字式・単項式の乗除・平方根・式の展開（6問）"
+  },
+  {
+   "file": "c3_shishikan_r5_d1_ans.pdf",
+   "step": "c3shi-shou",
+   "test": "shi-r5",
+   "title": "尚志館 令和5年度 本試験 大問1 計算 解答・解説",
+   "pages": 1,
+   "note": "問題に赤字で答え・解説（途中式・考え方）を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_shishikan_r5_d2.pdf",
+   "step": "c3shi-shou",
+   "test": "shi-r5",
+   "title": "尚志館 令和5年度 本試験 大問2 小問集合",
+   "pages": 2,
+   "note": "平方根と自然数・式の値・余りの問題・比例式・円周角・平均・四分位数・じゃんけんの確率（8問）"
+  },
+  {
+   "file": "c3_shishikan_r5_d2_ans.pdf",
+   "step": "c3shi-shou",
+   "test": "shi-r5",
+   "title": "尚志館 令和5年度 本試験 大問2 小問集合 解答・解説",
+   "pages": 2,
+   "note": "問題に赤字で答え・解説（途中式・考え方）を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_shishikan_r5_kansu.pdf",
+   "step": "c3shi-kansu",
+   "test": "shi-r5",
+   "title": "尚志館 令和5年度 本試験 大問3 関数 y＝ax²",
+   "pages": 1,
+   "note": "放物線上の正六角形。a・点C・面積・面積を3等分する直線の式"
+  },
+  {
+   "file": "c3_shishikan_r5_kansu_ans.pdf",
+   "step": "c3shi-kansu",
+   "test": "shi-r5",
+   "title": "尚志館 令和5年度 本試験 大問3 関数 y＝ax² 解答・解説",
+   "pages": 1,
+   "note": "問題に赤字で答え・解説（途中式・考え方）を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_shishikan_r5_en.pdf",
+   "step": "c3shi-en",
+   "test": "shi-r5",
+   "title": "尚志館 令和5年度 本試験 大問4 円と相似（証明）",
+   "pages": 2,
+   "note": "会話文。垂直2等分線・円周角の定理の逆・△OAQ∽△OQRの証明"
+  },
+  {
+   "file": "c3_shishikan_r5_en_ans.pdf",
+   "step": "c3shi-en",
+   "test": "shi-r5",
+   "title": "尚志館 令和5年度 本試験 大問4 円と相似（証明） 解答・解説",
+   "pages": 2,
+   "note": "問題に赤字で答え・解説（途中式・考え方）を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_shishikan_r5_kuukan.pdf",
+   "step": "c3shi-kuukan",
+   "test": "shi-r5",
+   "title": "尚志館 令和5年度 本試験 大問5 空間図形（三角すい）",
+   "pages": 2,
+   "note": "会話文。△BCDの面積・△ABH≡△ACH≡△ADHの説明・BH・AH・体積"
+  },
+  {
+   "file": "c3_shishikan_r5_kuukan_ans.pdf",
+   "step": "c3shi-kuukan",
+   "test": "shi-r5",
+   "title": "尚志館 令和5年度 本試験 大問5 空間図形（三角すい） 解答・解説",
+   "pages": 2,
+   "note": "問題に赤字で答え・解説（途中式・考え方）を書き込んだもの",
+   "ans": true
   }
  ]
 }
