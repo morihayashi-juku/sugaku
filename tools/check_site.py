@@ -58,8 +58,13 @@ libnames = common.get("libraries") or ["library"]
 
 # 単元とステップ
 units = common.get("units", [])
-jitsu_steps = (common.get("jitsu") or {}).get("steps", [])          # 実力テストのタブ（学年の単元とは別）
-jitsu_tests = {t["id"] for t in (common.get("jitsu") or {}).get("tests", [])}   # 実力テストの回（年度・学年・月）
+# 実力テスト（common.jitsu）と入試過去問（common.nyushi[]、学校ごと）のタブ。学年の単元とは別
+xtabs = ([common["jitsu"]] if common.get("jitsu") else []) + list(common.get("nyushi") or [])
+for T in common.get("nyushi") or []:
+    if not T.get("id") or not T.get("name"):
+        err.append("common.json: nyushi のタブには id と name を書く")
+jitsu_steps = [st for T in xtabs for st in T.get("steps", [])]
+jitsu_tests = {t["id"] for T in xtabs for t in T.get("tests", [])}   # 回（年度・学年・月）
 jitsu_step_ids = {st["id"] for st in jitsu_steps}
 steps = {st["id"] for u in units for st in u["steps"]} | {st["id"] for st in jitsu_steps}
 ids = [u["id"] for u in units] + [st["id"] for u in units for st in u["steps"]] + [st["id"] for st in jitsu_steps]
@@ -83,7 +88,7 @@ for ln in libnames:
         if it.get("step") not in steps:
             err.append(f"{ln}.json {f}: step {it.get('step')!r} が common.json にありません")
         if it.get("step") in jitsu_step_ids and it.get("test") not in jitsu_tests:
-            err.append(f"{ln}.json {f}: 実力テストのプリントには test（common.json の jitsu.tests の id）を書く")
+            err.append(f"{ln}.json {f}: 実力テスト・入試過去問のプリントには test（common.json の jitsu.tests／nyushi[].tests の id）を書く")
         if not re.fullmatch(r"[A-Za-z0-9_.\-]+\.pdf", f):
             err.append(f"{ln}.json: ファイル名は英数字だけにする: {f}")
         if not (ROOT / "pdf" / f).exists():

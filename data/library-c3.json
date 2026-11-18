@@ -1,6 +1,6 @@
 {
  "_memo": "教材ライブラリ（中3）：中3のプリントはすべてここに1回だけ書く。step は data/common.json のステップ id。こたえは ans: true。組の JSON からは file 名で呼ぶ。ファイル名は c3_ から始める。このファイルは中3の作成チャットだけが書く。",
- "updated": "2026-11-16",
+ "updated": "2026-11-18",
  "items": [
   {
    "file": "c3_teiki_niji_ax2.pdf",
@@ -1673,6 +1673,91 @@
    "title": "令和3年度 3年・10月 大問5 空間図形（正四角錐） こたえ",
    "pages": 1,
    "note": "問題に赤字で答え・途中式を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_shishikan_r8_d1.pdf",
+   "step": "c3shi-shou",
+   "test": "shi-r8",
+   "title": "尚志館 令和8年度 本試験 大問1 計算",
+   "pages": 1,
+   "note": "整数・分数・文字式・単項式の乗除・平方根・式の展開（6問）"
+  },
+  {
+   "file": "c3_shishikan_r8_d1_ans.pdf",
+   "step": "c3shi-shou",
+   "test": "shi-r8",
+   "title": "尚志館 令和8年度 本試験 大問1 計算 解答・解説",
+   "pages": 1,
+   "note": "問題に赤字で答え・解説（途中式・考え方）を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_shishikan_r8_d2.pdf",
+   "step": "c3shi-shou",
+   "test": "shi-r8",
+   "title": "尚志館 令和8年度 本試験 大問2 小問集合",
+   "pages": 2,
+   "note": "2次方程式・式の値・比と割合・四分位範囲・確率・長方形の角・標本調査・素数（8問）"
+  },
+  {
+   "file": "c3_shishikan_r8_d2_ans.pdf",
+   "step": "c3shi-shou",
+   "test": "shi-r8",
+   "title": "尚志館 令和8年度 本試験 大問2 小問集合 解答・解説",
+   "pages": 2,
+   "note": "問題に赤字で答え・解説（途中式・考え方）を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_shishikan_r8_kansu.pdf",
+   "step": "c3shi-kansu",
+   "test": "shi-r8",
+   "title": "尚志館 令和8年度 本試験 大問3 関数 y＝ax²",
+   "pages": 1,
+   "note": "放物線と直線。a・△OABの面積・△PAB＝2/3△OABとなる点P・台形を2等分する直線の傾き"
+  },
+  {
+   "file": "c3_shishikan_r8_kansu_ans.pdf",
+   "step": "c3shi-kansu",
+   "test": "shi-r8",
+   "title": "尚志館 令和8年度 本試験 大問3 関数 y＝ax² 解答・解説",
+   "pages": 1,
+   "note": "問題に赤字で答え・解説（途中式・考え方）を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_shishikan_r8_en.pdf",
+   "step": "c3shi-en",
+   "test": "shi-r8",
+   "title": "尚志館 令和8年度 本試験 大問4 円と相似",
+   "pages": 2,
+   "note": "会話文。正三角形・円周角・半径・∠ECB＝90°・△EBC∽△CBHの理由・CEの長さ"
+  },
+  {
+   "file": "c3_shishikan_r8_en_ans.pdf",
+   "step": "c3shi-en",
+   "test": "shi-r8",
+   "title": "尚志館 令和8年度 本試験 大問4 円と相似 解答・解説",
+   "pages": 2,
+   "note": "問題に赤字で答え・解説（途中式・考え方）を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_shishikan_r8_kuukan.pdf",
+   "step": "c3shi-kuukan",
+   "test": "shi-r8",
+   "title": "尚志館 令和8年度 本試験 大問5 空間図形",
+   "pages": 1,
+   "note": "1辺4cmの正四角錐。対角線・AQ＋QPが最小となる点Q（OQ：QB）・四角錐Q−ABCDの体積・QR"
+  },
+  {
+   "file": "c3_shishikan_r8_kuukan_ans.pdf",
+   "step": "c3shi-kuukan",
+   "test": "shi-r8",
+   "title": "尚志館 令和8年度 本試験 大問5 空間図形 解答・解説",
+   "pages": 1,
+   "note": "問題に赤字で答え・解説（途中式・考え方）を書き込んだもの",
    "ans": true
   }
  ]

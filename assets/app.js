@@ -60,7 +60,9 @@ async function loadData() {
     if (g.day) g.day = [].concat(g.day);                    // day は "mon" でも ["mon","thu"] でもよい
   }
   for (const u of common.units) for (const st of u.steps) STEPS.set(st.id, {step: st, unit: u});
-  if (common.jitsu) for (const st of common.jitsu.steps) STEPS.set(st.id, {step: st, unit: {name: common.jitsu.name}});   // 実力テストのタブ（学年の単元とは別）
+  // 実力テスト・入試過去問のタブ（学年の単元とは別）。common.jitsu（id＝jitsu）と common.nyushi[]（学校ごと）
+  XT = [...(common.jitsu ? [{...common.jitsu, id: "jitsu"}] : []), ...(common.nyushi || [])];
+  for (const T of XT) for (const st of T.steps) STEPS.set(st.id, {step: st, unit: {name: T.name}});
   for (const it of library.items) ITEMS.set(it.file, it);
   for (const t of TRACKS) for (const s of D.s[t].sets) for (const g of s.groups) for (const r of g.items) {
     if (!USED.has(r.file)) USED.set(r.file, []);
@@ -75,7 +77,7 @@ async function loadData() {
   const lib = $('#tabs a[data-tab="lib"]');
   for (const g of Object.keys(GRADE_ID)) if (gradeTracks(g).length) lib.insertAdjacentHTML("beforebegin", `<a href="#${GRADE_ID[g]}" data-tab="${GRADE_ID[g]}">${esc(g)}</a>`);
   // 実力テストのタブ（学年のタブのあと・教材ライブラリの前）
-  if (common.jitsu) lib.insertAdjacentHTML("beforebegin", `<a href="#jitsu" data-tab="jitsu">${esc(common.jitsu.name)}</a>`);
+  for (const T of XT) lib.insertAdjacentHTML("beforebegin", `<a href="#${esc(T.id)}" data-tab="${esc(T.id)}">${esc(T.name)}</a>`);
 }
 const item = r => ({...(ITEMS.get(r.file) || {file: r.file, title: r.file + "（ライブラリにありません）", pages: "?"}), ...r});
 const stepName = id => (STEPS.get(id) || {step: {name: id}}).step.name;
@@ -314,10 +316,14 @@ function renderLib() {
 // 実力テストは学年の単元とは別のタブ。common.json の jitsu.steps（大問1・単元別）と jitsu.tests（年度・学年・月）を使う。
 // プリントの一覧は学年のライブラリに書き、step（大問・単元）と test（どの回のテストか）を付ける。
 // 並べかた（この端末に残る）：unit＝単元別、year＝年度別、month＝月別
-let jitsuMode = store.get("sugaku-jitsu-mode", "unit");
+// 入試過去問（common.nyushi[]）も同じ形で、学校ごとにタブを作る（並べかたは T.modes。なければ単元別・年度別・月別）。
+let XT = [];
+const xtOf = id => XT.find(T => T.id === id);
+const modeKey = id => `sugaku-${id}-mode`;
 const schoolMonth = m => (m + 8) % 12;                  // 4月＝0 … 3月＝11（学校の1年の順）
-function renderJitsu() {
-  const J = D.common.jitsu, steps = J.steps, tests = J.tests || [];
+function renderJitsu(J) {
+  const steps = J.steps, tests = J.tests || [], X = J.id;
+  let jitsuMode = store.get(modeKey(X), "unit");
   const TST = new Map(tests.map(t => [t.id, t]));
   const SI = new Map(steps.map((st, i) => [st.id, i]));
   const tOf = x => TST.get(x.test) || {year: 0, grade: 0, month: 4, label: ""};
@@ -329,21 +335,22 @@ function renderJitsu() {
   const tilesT = its => its.sort((a, b) => (SI.get(a.step) - SI.get(b.step)) || base(a).localeCompare(base(b)) || (a.ans ? 1 : 0) - (b.ans ? 1 : 0));
   const tilesHtml = its => its.length ? `<div class="tiles">${its.map(x => tile(x)).join("")}</div>` : `<p class="muted">まだプリントはありません。</p>`;
   const cnt = its => its.filter(i => !i.ans).length;
-  const nav = (links) => `<nav class="unav" aria-label="見出し">${links.map(([id, name, n]) => `<a href="#jitsu/${esc(id)}">${esc(name)}${n ? `<small>${n}</small>` : ""}</a>`).join("")}</nav>`;
-  const modes = [["unit", "単元別"], ["year", "年度別"], ["month", "月別"]];
+  const nav = (links) => `<nav class="unav" aria-label="見出し">${links.map(([id, name, n]) => `<a href="#${esc(X)}/${esc(id)}">${esc(name)}${n ? `<small>${n}</small>` : ""}</a>`).join("")}</nav>`;
+  const ML = {unit: "単元別", year: "年度別", month: "月別"};
+  const modes = (J.modes || ["unit", "year", "month"]).map(m => [m, ML[m]]);
   if (!modes.some(m => m[0] === jitsuMode)) jitsuMode = "unit";
   const bar = links => `<div class="libbar"><div class="filters grades" role="group" aria-label="並べかた">${modes.map(([m, l]) =>
-    `<button type="button" data-act="jitsumode" data-mode="${m}" aria-pressed="${m === jitsuMode}">${l}</button>`).join("")}</div>${nav(links)}</div>`;
+    `<button type="button" data-act="jitsumode" data-x="${esc(X)}" data-mode="${m}" aria-pressed="${m === jitsuMode}">${l}</button>`).join("")}</div>${nav(links)}</div>`;
   const lead = `<p class="lead">${esc(J.lead || "")}</p>`;
   const testSec = (t, head) => {
     const its = tilesT(all.filter(x => x.test === t.id));
-    return `<section class="stepsec" id="jitsu-${esc(t.id)}"><h3>${esc(head)}</h3>${tilesHtml(its)}</section>`;
+    return `<section class="stepsec" id="${esc(X)}-${esc(t.id)}"><h3>${esc(head)}</h3>${tilesHtml(its)}</section>`;
   };
   if (jitsuMode === "unit") {
     return bar(steps.map(st => [st.id, st.name, cnt(all.filter(x => x.step === st.id))])) + lead
       + `<section class="unit"><div class="steps">${steps.map((st, i) => {
         const its = tilesU(all.filter(x => x.step === st.id));
-        return `<section class="stepsec${its.length ? "" : " none"}" id="jitsu-${esc(st.id)}"><h3><span class="sn">${i + 1}</span>${esc(st.name)}</h3>${tilesHtml(its)}</section>`;
+        return `<section class="stepsec${its.length ? "" : " none"}" id="${esc(X)}-${esc(st.id)}"><h3><span class="sn">${i + 1}</span>${esc(st.name)}</h3>${tilesHtml(its)}</section>`;
       }).join("")}</div></section>`;
   }
   const sorted = tests.slice().sort(byTest);
@@ -356,8 +363,8 @@ function renderJitsu() {
   }
   if (jitsuMode === "month") groups.sort((a, b) => schoolMonth(a.tests[0].month) - schoolMonth(b.tests[0].month));
   return bar(groups.map(g => [g.key, g.name, g.tests.reduce((n, t) => n + cnt(all.filter(x => x.test === t.id)), 0)])) + lead
-    + groups.map(g => `<section class="unit" id="jitsu-${esc(g.key)}"><h2>${esc(g.name)}</h2><div class="steps">${g.tests.map(t =>
-      testSec(t, jitsuMode === "year" ? `${t.grade}年・${t.month}月` : `令和${t.year}年度　${t.grade}年`)).join("")}</div></section>`).join("");
+    + groups.map(g => `<section class="unit" id="${esc(X)}-${esc(g.key)}"><h2>${esc(g.name)}</h2><div class="steps">${g.tests.map(t =>
+      testSec(t, jitsuMode === "year" ? (t.sub || `${t.grade}年・${t.month}月`) : `令和${t.year}年度　${t.grade}年`)).join("")}</div></section>`).join("");
 }
 
 /* ------------------------------------------------------------ 画面の切りかえ */
@@ -366,9 +373,10 @@ function route() {
   const gr = gradeFromId(tab);
   // 古い #junbi・#maru や知らない名前は、前に見ていた学年（なければ最初の学年）のページへ
   const grades = Object.keys(GRADE_ID).filter(g => gradeTracks(g).length);
-  const t = gr || tab === "lib" || (tab === "jitsu" && D.common.jitsu) || TRACKS.includes(tab) ? tab : null;
-  const g = gr || (TRACKS.includes(tab) ? gradeOfTrack(tab) : tab === "lib" || t === "jitsu" ? null : (grades.includes(store.get("sugaku-grade")) ? store.get("sugaku-grade") : grades[0]));
-  const tabId = t === "lib" || t === "jitsu" ? t : GRADE_ID[g];
+  const xt = xtOf(tab);
+  const t = gr || tab === "lib" || xt || TRACKS.includes(tab) ? tab : null;
+  const g = gr || (TRACKS.includes(tab) ? gradeOfTrack(tab) : tab === "lib" || xt ? null : (grades.includes(store.get("sugaku-grade")) ? store.get("sugaku-grade") : grades[0]));
+  const tabId = t === "lib" || xt ? t : GRADE_ID[g];
   document.querySelectorAll(".tabs a").forEach(a => {
     if (a.dataset.tab === tabId) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
   });
@@ -378,13 +386,13 @@ function route() {
   }
   if (g && !TRACKS.includes(tab)) store.set("sugaku-grade", g);
   const isTrack = TRACKS.includes(tab);
-  $("#app").innerHTML = t === "lib" ? renderLib() : t === "jitsu" ? renderJitsu() : isTrack ? renderTrack(tab) : renderGrade(g, gr ? sub : null);
-  document.title = (t === "lib" ? "教材ライブラリ" : t === "jitsu" ? D.common.jitsu.name : isTrack ? D.s[tab].name : g) + " | 数学 教材棚";
-  if (sub && (t === "lib" || t === "jitsu" || isTrack)) {
-    const el = t === "lib" ? $("#lib-" + CSS.escape(sub)) : t === "jitsu" ? $("#jitsu-" + CSS.escape(sub)) : $(`#${tab}-${CSS.escape(sub)}`);
+  $("#app").innerHTML = t === "lib" ? renderLib() : xt ? renderJitsu(xt) : isTrack ? renderTrack(tab) : renderGrade(g, gr ? sub : null);
+  document.title = (t === "lib" ? "教材ライブラリ" : xt ? xt.name : isTrack ? D.s[tab].name : g) + " | 数学 教材棚";
+  if (sub && (t === "lib" || xt || isTrack)) {
+    const el = t === "lib" ? $("#lib-" + CSS.escape(sub)) : $(`#${tab}-${CSS.escape(sub)}`);
     if (el) {
       if (el.tagName === "DETAILS") el.open = true;
-      el.scrollIntoView({block: "start"}); window.scrollBy(0, -(64 + ((t === "lib" || t === "jitsu") && $(".libbar") ? $(".libbar").offsetHeight : 0)));
+      el.scrollIntoView({block: "start"}); window.scrollBy(0, -(64 + ((t === "lib" || xt) && $(".libbar") ? $(".libbar").offsetHeight : 0)));
       if (el.classList.contains("stepsec")) { el.classList.add("flash"); setTimeout(() => el.classList.remove("flash"), 1600); }
     }
   } else window.scrollTo(0, 0);
@@ -712,8 +720,8 @@ document.addEventListener("click", e => {
     if (s) openViewer(setAnswers(s).map(a => a.file), `${T.name} ${s.label} のこたえ`);
   }
   else if (act === "jitsumode") {
-    jitsuMode = b.dataset.mode; store.set("sugaku-jitsu-mode", jitsuMode);
-    $("#app").innerHTML = renderJitsu(); observeThumbs(); window.scrollTo(0, 0);
+    const xt = xtOf(b.dataset.x); store.set(modeKey(b.dataset.x), b.dataset.mode);
+    if (xt) { $("#app").innerHTML = renderJitsu(xt); observeThumbs(); window.scrollTo(0, 0); }
   }
   else if (act === "grade") {
     setLibGrade(b.dataset.grade);
