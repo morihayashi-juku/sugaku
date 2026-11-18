@@ -1929,6 +1929,91 @@
    "pages": 1,
    "note": "問題に赤字で答え・解説（途中式・考え方）を書き込んだもの",
    "ans": true
+  },
+  {
+   "file": "c3_shishikan_r7_d1.pdf",
+   "step": "c3shi-shou",
+   "test": "shi-r7",
+   "title": "尚志館 令和7年度 本試験 大問1 計算",
+   "pages": 1,
+   "note": "整数・分数・文字式・単項式の乗除・平方根・式の展開（6問）"
+  },
+  {
+   "file": "c3_shishikan_r7_d1_ans.pdf",
+   "step": "c3shi-shou",
+   "test": "shi-r7",
+   "title": "尚志館 令和7年度 本試験 大問1 計算 解答・解説",
+   "pages": 1,
+   "note": "問題に赤字で答え・解説（途中式・考え方）を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_shishikan_r7_d2.pdf",
+   "step": "c3shi-shou",
+   "test": "shi-r7",
+   "title": "尚志館 令和7年度 本試験 大問2 小問集合",
+   "pages": 2,
+   "note": "式の値・連立方程式の解・反比例・さいころの確率・平均値と四分位範囲・円周角・連続する奇数・標本調査（8問）"
+  },
+  {
+   "file": "c3_shishikan_r7_d2_ans.pdf",
+   "step": "c3shi-shou",
+   "test": "shi-r7",
+   "title": "尚志館 令和7年度 本試験 大問2 小問集合 解答・解説",
+   "pages": 2,
+   "note": "問題に赤字で答え・解説（途中式・考え方）を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_shishikan_r7_kansu.pdf",
+   "step": "c3shi-kansu",
+   "test": "shi-r7",
+   "title": "尚志館 令和7年度 本試験 大問3 関数（直線と放物線）",
+   "pages": 1,
+   "note": "y＝−√3x と y＝√3/2x²。a・b・△OABの面積・垂線AH・回転体の体積"
+  },
+  {
+   "file": "c3_shishikan_r7_kansu_ans.pdf",
+   "step": "c3shi-kansu",
+   "test": "shi-r7",
+   "title": "尚志館 令和7年度 本試験 大問3 関数（直線と放物線） 解答・解説",
+   "pages": 1,
+   "note": "問題に赤字で答え・解説（途中式・考え方）を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_shishikan_r7_zukei.pdf",
+   "step": "c3shi-en",
+   "test": "shi-r7",
+   "title": "尚志館 令和7年度 本試験 大問4 平面図形（正方形と直角二等辺三角形）",
+   "pages": 2,
+   "note": "会話文。中点連結の定理・△ADC≡△ABGの証明・∠PMQ＝90°の説明"
+  },
+  {
+   "file": "c3_shishikan_r7_zukei_ans.pdf",
+   "step": "c3shi-en",
+   "test": "shi-r7",
+   "title": "尚志館 令和7年度 本試験 大問4 平面図形（正方形と直角二等辺三角形） 解答・解説",
+   "pages": 2,
+   "note": "問題に赤字で答え・解説（途中式・考え方）を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_shishikan_r7_kuukan.pdf",
+   "step": "c3shi-kuukan",
+   "test": "shi-r7",
+   "title": "尚志館 令和7年度 本試験 大問5 空間図形（四角すい）",
+   "pages": 1,
+   "note": "四角すいO−ABCD。ねじれの位置・OA・切断した立体の体積・切断面の面積（問題文に高さの条件がなく(2)〜(4)は確認中）"
+  },
+  {
+   "file": "c3_shishikan_r7_kuukan_ans.pdf",
+   "step": "c3shi-kuukan",
+   "test": "shi-r7",
+   "title": "尚志館 令和7年度 本試験 大問5 空間図形（四角すい） 解答・解説",
+   "pages": 1,
+   "note": "問題に赤字で答え・解説（途中式・考え方）を書き込んだもの（(2)〜(4)は条件を確認中）",
+   "ans": true
   }
  ]
 }

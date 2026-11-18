@@ -76,7 +76,7 @@
   - データは `data/common.json` の **`nyushi[]`**（`{id, name, lead, modes, steps, tests}`。`modes` は並べかえのボタン、入試は `["unit","year"]`）。test は `{id, label, year, grade, month, sub}`（年度別の見出しは `sub`＝「本試験」など）。
   - 分け方（先生の指示）：**大問1・大問2は「小問集合（大問1・大問2）」`c3shi-shou`、ほかは単元別**（`c3shi-kansu` 関数 y＝ax²・`c3shi-en` 平面図形（円・相似・合同）・`c3shi-kuukan` 空間図形。単元がなければ足す）。
   - プリントは `data/library-c3.json` に `step`（`c3shi-…`）と `test`（`shi-r8` のように「shi-r年度」）を付けて書く。file 名は `c3_shishikan_r{年度}_{大問・単元}`、スクリプトは `tools/c3_shishikan_r8.py`。**問題と「解答・解説」（問題に赤字で答えと解説を書きこんだ `_ans`）の2つ**。
-  - これまで：`shi-r8` 令和8年度 本試験（`c3_shishikan_r8_*`）、`shi-r5` 令和5年度 本試験（`c3_shishikan_r5_*`・`tools/c3_shishikan_r5.py`）、`shi-r6` 令和6年度 本試験（`c3_shishikan_r6_*`・`tools/c3_shishikan_r6.py`）。別の学校を足すときは `nyushi[]` に1つ足すだけでタブが出る。
+  - これまで：`shi-r8` 令和8年度 本試験（`c3_shishikan_r8_*`）、`shi-r5` 令和5年度 本試験（`c3_shishikan_r5_*`・`tools/c3_shishikan_r5.py`）、`shi-r6` 令和6年度 本試験（`c3_shishikan_r6_*`・`tools/c3_shishikan_r6.py`）、`shi-r7` 令和7年度 本試験（`c3_shishikan_r7_*`・`tools/c3_shishikan_r7.py`。**大問5は問題文に高さ（OAの長さ）の条件がなく(2)〜(4)が決まらないので先生に確認中**。わかったらスクリプトの `KUUKAN_H` と答えを直す）。別の学校を足すときは `nyushi[]` に1つ足すだけでタブが出る。
 - **教材の一覧は data/ の JSON に書く。`index.html` と `assets/` はさわらなくてよい。**
   - `data/common.json` … 組の順番 `tracks`、プリント一覧のファイル名 `libraries`、単元とステップ `units[]`（`grade`＝学年、`steps[]`）
   - `data/library*.json` … プリントの一覧 `{updated, items:[{file, step, title, pages, note, ans}]}`（こたえは `ans: true` で赤く出る）
