@@ -1,6 +1,6 @@
 {
  "_memo": "教材ライブラリ（中2）：中2のプリントはすべてここに1回だけ書く。step は data/common.json のステップ id。こたえは ans: true。組の JSON からは file 名で呼ぶ。ファイル名は c2_ から始める。このファイルは中2の作成チャットだけが書く。",
- "updated": "2026-11-16",
+ "updated": "2026-11-19",
  "items": [
   {
    "file": "c2_goudou_shoumei_L1_A.pdf",
@@ -324,6 +324,21 @@
    "title": "定期テスト対策 2学期期末（4ページ）こたえ",
    "pages": 4,
    "note": "問題に赤で答えと途中式を書きこんだ形",
+   "ans": true
+  },
+  {
+   "file": "c2_kakuritsu_nyumon.pdf",
+   "step": "c2-kakuritsu-kakuritsu",
+   "title": "確率（はじめて習う）",
+   "pages": 4,
+   "note": "各ページにポイント・例題（解き方つき）・練習。①確率の意味（a/n・0〜1・起こらない確率）②樹形図（硬貨・並び方・くじ）③2つのさいころ（表で数える）④同時に取り出す・2けたの整数・少なくとも"
+  },
+  {
+   "file": "c2_kakuritsu_nyumon_ans.pdf",
+   "step": "c2-kakuritsu-kakuritsu",
+   "title": "確率（はじめて習う）こたえ",
+   "pages": 4,
+   "note": "問題に赤で答えと考え方を書きこんだ形（樹形図・さいころの表も）",
    "ans": true
   }
  ]

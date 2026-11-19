@@ -1,6 +1,6 @@
 {
  "_memo": "中2の教材と記録。sets の最後に足し、前の cur を消して新しいほうに \"cur\": true。月曜も木曜も授業（自習はない）なので、groups は曜日ごとに作り、グループに \"day\": \"mon\" または \"day\": \"thu\" を書く（書かないと、lesson・hw・teacher は木曜に出て、月曜には出ない）。kind は lesson（授業）／hw（宿題）／teacher（こたえ・先生用）。items は library-c2.json の file 名（copies・note は上書きできる）。log は新しいものを上に。now（今どこのステップか）は最初の教材を足すときに {step, text} で書く。",
- "updated": "2026-11-16",
+ "updated": "2026-11-19",
  "name": "中2",
  "badge": "中2",
  "longName": "中2（月・木）",
@@ -27,6 +27,10 @@
   ]
  ],
  "log": [
+  {
+   "date": "2026-11-19",
+   "text": "テスト後の新しい単元として、確率の入門プリント（4ページ・例題つき）を作った。"
+  },
   {
    "date": "2026-11-16",
    "text": "11/16（月）用に、定期テスト対策（2学期期末の範囲まとめ・4ページ）を作った。"
@@ -204,7 +208,6 @@
     "c2teiki-2kimatsu"
    ],
    "title": "定期テスト対策 2学期期末（範囲まとめ）",
-   "cur": true,
    "note": "11/16（月）の授業用。範囲：一次関数の利用、図形の用語・性質、角度、証明の進め方。1ページ1テーマ×4。",
    "groups": [
     {
@@ -228,10 +231,42 @@
      ]
     }
    ]
+  },
+  {
+   "id": "c206",
+   "label": "⑥",
+   "steps": [
+    "c2-kakuritsu-kakuritsu"
+   ],
+   "title": "確率（はじめて習う）",
+   "cur": true,
+   "note": "テスト後の新しい単元。まだ習っていないので、例題つきの入門。1ページ1テーマ×4。",
+   "groups": [
+    {
+     "kind": "lesson",
+     "label": "月曜（授業）",
+     "day": "mon",
+     "items": [
+      {
+       "file": "c2_kakuritsu_nyumon.pdf"
+      }
+     ]
+    },
+    {
+     "kind": "teacher",
+     "label": "月曜 こたえ（先生用）",
+     "day": "mon",
+     "items": [
+      {
+       "file": "c2_kakuritsu_nyumon_ans.pdf"
+      }
+     ]
+    }
+   ]
   }
  ],
  "now": {
-  "step": "c2teiki-2kimatsu",
-  "text": "2学期期末の定期テスト対策（一次関数の利用・図形の用語と性質・角度・証明の進め方）"
+  "step": "c2-kakuritsu-kakuritsu",
+  "text": "確率（はじめて習う）。例題つきの入門プリントから"
  }
 }
