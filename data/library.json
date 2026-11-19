@@ -715,6 +715,21 @@
    "pages": 4,
    "note": "問題に赤で答えを書きこんだ形",
    "ans": true
+  },
+  {
+   "file": "seifu_hw2.pdf",
+   "step": "seifu-jouzyo",
+   "title": "正負の数 宿題2（かけ算・わり算・6日分）",
+   "pages": 6,
+   "note": "1日1ページ8問・プリントに直接書く。左＝符号の練習（2つの数）、右＝かけ算・わり算の混じった計算"
+  },
+  {
+   "file": "seifu_hw2_ans.pdf",
+   "step": "seifu-jouzyo",
+   "title": "正負の数 宿題2 こたえ",
+   "pages": 6,
+   "note": "本人に渡して毎日丸つけ",
+   "ans": true
   }
  ]
 }
