@@ -1,6 +1,6 @@
 {
  "_memo": "教材ライブラリ：作ったプリントはすべてここに1回だけ書く。step は data/common.json のステップ id。こたえは ans: true。生徒の JSON からは file 名で呼ぶ。",
- "updated": "2026-11-15",
+ "updated": "2026-11-19",
  "items": [
   {
    "file": "seifu_shisoku_A.pdf",
@@ -637,6 +637,81 @@
    "file": "teiki_4_k_ans.pdf",
    "step": "hirei-matome",
    "title": "対策④ 比例と反比例（K） こたえ",
+   "pages": 4,
+   "note": "問題に赤で答えを書きこんだ形",
+   "ans": true
+  },
+  {
+   "file": "hirei_kihon_A.pdf",
+   "step": "hirei-hirei",
+   "title": "比例の基本 A",
+   "pages": 4,
+   "note": "その1 表と式／その2 式を求める（a＝y÷x）／その3 式を使って値／その4 座標と比例のグラフ"
+  },
+  {
+   "file": "hirei_kihon_A_ans.pdf",
+   "step": "hirei-hirei",
+   "title": "比例の基本 A こたえ",
+   "pages": 4,
+   "note": "問題に赤で答えを書きこんだ形",
+   "ans": true
+  },
+  {
+   "file": "hirei_kihon_B.pdf",
+   "step": "hirei-hirei",
+   "title": "比例の基本 B",
+   "pages": 4,
+   "note": "その1 表と式／その2 式を求める（a＝y÷x）／その3 式を使って値／その4 座標と比例のグラフ"
+  },
+  {
+   "file": "hirei_kihon_B_ans.pdf",
+   "step": "hirei-hirei",
+   "title": "比例の基本 B こたえ",
+   "pages": 4,
+   "note": "問題に赤で答えを書きこんだ形",
+   "ans": true
+  },
+  {
+   "file": "hirei_kihon_hw1.pdf",
+   "step": "hirei-hirei",
+   "title": "比例の基本 宿題（6日分）",
+   "pages": 3,
+   "note": "1日4問・A4 1枚に2日分・答えは自学ノート"
+  },
+  {
+   "file": "hirei_kihon_hw1_ans.pdf",
+   "step": "hirei-hirei",
+   "title": "比例の基本 宿題 こたえ",
+   "pages": 3,
+   "note": "本人に渡して毎日丸つけ",
+   "ans": true
+  },
+  {
+   "file": "seifu_jojo_A.pdf",
+   "step": "seifu-jouzyo",
+   "title": "かけ算・わり算の混じった計算 A",
+   "pages": 4,
+   "note": "符号を先に決めて（−の数）、数だけを左から計算。その1 ×だけ／その2 ÷1つ＋×1つ／その3 3つの計算／その4 ÷2つ"
+  },
+  {
+   "file": "seifu_jojo_A_ans.pdf",
+   "step": "seifu-jouzyo",
+   "title": "かけ算・わり算の混じった計算 A こたえ",
+   "pages": 4,
+   "note": "問題に赤で答えを書きこんだ形",
+   "ans": true
+  },
+  {
+   "file": "seifu_jojo_B.pdf",
+   "step": "seifu-jouzyo",
+   "title": "かけ算・わり算の混じった計算 B",
+   "pages": 4,
+   "note": "符号を先に決めて（−の数）、数だけを左から計算。その1 ×だけ／その2 ÷1つ＋×1つ／その3 3つの計算／その4 ÷2つ"
+  },
+  {
+   "file": "seifu_jojo_B_ans.pdf",
+   "step": "seifu-jouzyo",
+   "title": "かけ算・わり算の混じった計算 B こたえ",
    "pages": 4,
    "note": "問題に赤で答えを書きこんだ形",
    "ans": true

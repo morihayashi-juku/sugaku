@@ -1,6 +1,6 @@
 {
  "_memo": "U（月木）の教材と記録。sets の最後に足し、前の cur を消して新しいほうに \"cur\": true。items は library.json の file 名（copies・note は上書きできる）。log は新しいものを上に。",
- "updated": "2026-11-15",
+ "updated": "2026-11-19",
  "name": "U",
  "longName": "U（月・木）",
  "days": [
@@ -12,8 +12,8 @@
   "正負の数と基本の方程式はできる。分数などが入った複雑な方程式がまだ。"
  ],
  "now": {
-  "step": "c1teiki-houtei-hirei",
-  "text": "11/18・19 の定期テストに向けて対策中"
+  "step": "hirei-hirei",
+  "text": "テスト後、比例を基本からやり直し（次は反比例 → グラフ）"
  },
  "checks": [
   [
@@ -29,7 +29,12 @@
    "月曜済"
   ]
  ],
- "log": [],
+ "log": [
+  {
+   "date": "2026-11-19",
+   "text": "定期テストが終わり、いつもの進度にもどした。比例・反比例を基本からやり直す（④ 比例の基本）。"
+  }
+ ],
  "sets": [
   {
    "id": "u01",
@@ -204,8 +209,50 @@
       }
      ]
     }
+   ]
+  },
+  {
+   "id": "u04",
+   "label": "④",
+   "title": "比例の基本（テスト後に基本からやり直し）",
+   "steps": [
+    "hirei-hirei"
    ],
-   "cur": true
+   "cur": true,
+   "note": "定期テスト（11/18・19）のあと、いつもの進度にもどした（11/19）。比例を基本から（次は反比例 → グラフ）。木＝A、月の自習＝B。",
+   "groups": [
+    {
+     "kind": "thu",
+     "label": "木曜 11/19（授業）",
+     "items": [
+      {
+       "file": "hirei_kihon_A.pdf"
+      }
+     ]
+    },
+    {
+     "kind": "teacher",
+     "label": "こたえ（先生用）",
+     "items": [
+      {
+       "file": "hirei_kihon_A_ans.pdf"
+      }
+     ]
+    },
+    {
+     "kind": "mon",
+     "label": "月曜（自習）",
+     "items": [
+      {
+       "file": "hirei_kihon_B.pdf"
+      },
+      {
+       "file": "hirei_kihon_B_ans.pdf",
+       "note": "自習のあと自分で丸つけ"
+      }
+     ]
+    }
+   ]
   }
  ]
 }
