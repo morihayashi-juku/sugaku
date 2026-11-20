@@ -1,7 +1,22 @@
 {
  "_memo": "教材ライブラリ（高2）：高2のプリントはすべてここに1回だけ書く。step は data/common.json のステップ id。こたえは ans: true。組の JSON からは file 名で呼ぶ。ファイル名は k2_ から始める。このファイルは高2の作成チャットだけが書く。",
- "updated": "2026-11-06",
+ "updated": "2026-11-20",
  "items": [
+  {
+   "file": "k2_en_teiki_1.pdf",
+   "step": "k2-zukei-en",
+   "title": "円の方程式 定期テスト対策（A3両面）",
+   "pages": 2,
+   "note": "学校の No.13・14 の類題。No.1 中心と半径⇄方程式・通る点・接する円・直径の両端／No.2 x²+y²+lx+my+n=0 の表す図形（円・点・なし）・k の範囲"
+  },
+  {
+   "file": "k2_en_teiki_1_ans.pdf",
+   "step": "k2-zukei-en",
+   "title": "円の方程式 定期テスト対策 こたえ（問題に書き込み）",
+   "pages": 2,
+   "note": "問題と同じレイアウトに赤字で答え・途中式",
+   "ans": true
+  },
   {
    "file": "k2_zukei_ten_kiso.pdf",
    "step": "k2-zukei-ten",
