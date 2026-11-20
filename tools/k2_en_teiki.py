@@ -83,8 +83,18 @@ def work(s):
 
 
 def it(no, prob, body, h=None):
-    st = f' style="min-height:{h}mm"' if h else ""
-    return f'<div class="it"{st}><span class="no">({no})</span>{prob}{body}</div>'
+    """問題 → （計算スペース。こたえでは途中式）→ いちばん下に答えのらん"""
+    i = body.find('<div class="work">')
+    a_part, w_part = (body[:i], body[i:]) if i >= 0 else (body, "")
+    if a_part.startswith("<br>"):
+        a_part = a_part[4:]
+    return (f'<div class="it"><div class="q"><span class="no">({no})</span>{prob}</div>'
+            f'{w_part}<div class="a">{a_part}</div></div>')
+
+
+def grid(cls, items, rows, weight=None):
+    """rows＝行の数。列の高さの余りを weight（なければ rows）の割合で分ける"""
+    return f'<div class="{cls}" style="--g:{weight or rows}">{"".join(items)}</div>'
 
 
 def sec(n, title):
@@ -123,16 +133,16 @@ def page1():
     assert (r2a, r2b) == (25, 13)
     s3 = [
         it(1, f"中心が点 {M(pt(a, b))} で、点 {M(pt(px, py))} を通る円",
-           "<br>" + ans(M(std(a, b, r2a)), 56)
+           "<br>" + ans(M(std(a, b, r2a)), 50)
            + work(f"半径は中心と点 {M(pt(px, py))} の距離<br>" + M(f"r^2=({px}-{a})^2+({py}-{b})^2=9+16=25")), 30),
         it(2, f"中心が点 {M(pt(a2, b2))} で、原点を通る円",
-           "<br>" + ans(M(std(a2, b2, r2b)), 56)
+           "<br>" + ans(M(std(a2, b2, r2b)), 50)
            + work(M(f"r^2=(-3-0)^2+(2-0)^2=9+4=13")), 30),
         it(3, f"中心が点 {M(pt(a3, b3))} で、{M('x')}軸に接する円",
-           "<br>" + ans(M(std(a3, b3, b3 * b3)), 56)
+           "<br>" + ans(M(std(a3, b3, b3 * b3)), 50)
            + work(f"{M('x')}軸に接する → 半径＝中心から {M('x')}軸までの距離＝{M(f'|{b3}|')}＝{M(abs(b3))}"), 30),
         it(4, f"中心が点 {M(pt(a4, b4))} で、{M('y')}軸に接する円",
-           "<br>" + ans(M(std(a4, b4, a4 * a4)), 56)
+           "<br>" + ans(M(std(a4, b4, a4 * a4)), 50)
            + work(f"{M('y')}軸に接する → 半径＝中心から {M('y')}軸までの距離＝{M(f'|{a4}|')}＝{M(abs(a4))}"), 30),
     ]
 
@@ -166,16 +176,16 @@ def page1():
 ・$x$軸に接する円の半径＝中心の $y$座標の絶対値<br>・$y$軸に接する円の半径＝中心の $x$座標の絶対値
 </div>
 {sec(1, "次のような円の方程式を求めよ。")}
-<div class="grid2">{''.join(s1)}</div>
+{grid("grid2", s1, 3)}
 {sec(2, "次の方程式が表す円の中心の座標と半径を求めよ。")}
-<div class="grid2">{''.join(s2)}</div>
+{grid("grid2", s2, 3)}
 </div>
 <div class="col">
 {sec(3, "次のような円の方程式を求めよ。")}
-<div class="grid1">{''.join(s3)}</div>
+{grid("grid2", s3, 2)}
 {sec(4, "次の2点 A, B を結ぶ線分を直径とする円について、中心の座標と半径を求めよ。また、その方程式を求めよ。")}
 <div class="fig">{diam_svg()}</div>
-<div class="grid1">{''.join(s4)}</div>
+{grid("grid1", s4, 3, 3.6)}
 </div>
 </div>
 </section>"""
@@ -226,7 +236,7 @@ def page2():
         assert rhs > 0
         check_std_gen(a, b, rhs, l, m, n)
         s5.append(it(i + 1, M(gen(l, m, n)),
-                     "<br>中心 " + ans(M(pt(a, b)), 24) + "　半径 " + ans(M(sq(rhs)), 20)
+                     "<br>中心 " + ans(M(pt(a, b)), 20) + "　半径 " + ans(M(sq(rhs)), 14)
                      + work("<br>".join(M(s) for s in lines)), 36))
 
     # [6] 標準形 → 一般形
@@ -248,11 +258,11 @@ def page2():
             why = ""
         elif rhs == 0:
             res = f"点 {M(pt(a, b))}"
-            why = "<br>" + M(f"{lin('x', a)}\\geqq 0,\\ {lin('y', b)}\\geqq 0") + " だから　" + M(f"x{'-' if a > 0 else '+'}{abs(a)}=0,\\ y{'-' if b > 0 else '+'}{abs(b)}=0")
+            why = "<br>" + M(f"{lin('x', a)}\\geqq 0,\\ {lin('y', b)}\\geqq 0") + " だから<br>" + M(f"x{'-' if a > 0 else '+'}{abs(a)}=0,\\ y{'-' if b > 0 else '+'}{abs(b)}=0")
         else:
             res = "表す図形はない"
-            why = "<br>（左辺）" + M("\\geqq 0") + " なので、" + M(f"={rhs}") + " をみたす点 " + M("(x,\\,y)") + " はない"
-        s7.append(it(i + 1, M(gen(l, m, n)), "<br>" + ans(res, 62) + work("<br>".join(M(s) for s in lines) + why), 36))
+            why = "<br>（左辺）" + M("\\geqq 0") + " なので、右辺が " + M(f"{rhs}") + " に<br>なる点 " + M("(x,\\,y)") + " はない"
+        s7.append(it(i + 1, M(gen(l, m, n)), "<br>" + ans(res, 52) + work("<br>".join(M(s) for s in lines) + why), 36))
     kinds = [complete(*q)[2] for q in q7]
     assert [k > 0 for k in kinds].count(True) == 1 and kinds.count(0) == 2 and [k < 0 for k in kinds].count(True) == 1
 
@@ -288,15 +298,15 @@ $(x+2)^2+(y-3)^2=25$
 ・右辺 $k$ が　<b>正</b> → 中心 $(a,\\,b)$、半径 $\\sqrt{{k}}$ の円　／　<b>0</b> → 点 $(a,\\,b)$　／　<b>負</b> → 表す図形はない
 </div>
 {sec(5, "次の方程式はどのような円を表すか。中心の座標と半径を求めよ。")}
-<div class="grid1">{''.join(s5)}</div>
+{grid("grid2 tight", s5, 3)}
 </div>
 <div class="col">
 {sec(6, "次の円の方程式を、$x^2+y^2+lx+my+n=0$ の形で表せ。")}
-<div class="grid1">{''.join(s6)}</div>
+{grid("grid1", s6, 2, 1.2)}
 {sec(7, "次の方程式はどのような図形を表すか。")}
-<div class="grid1">{''.join(s7)}</div>
+{grid("grid2 tight", s7, 2, 2.6)}
 {sec(8, "方程式 $x^2+y^2-4x+2y+k=0$ について、次の問いに答えよ。")}
-<div class="grid1">{''.join(s8)}</div>
+{grid("grid1", s8, 2)}
 </div>
 </div>
 </section>"""
@@ -317,16 +327,25 @@ body { margin:0; font-family: "Noto Sans CJK JP", sans-serif; font-size: 11.5pt;
 .tag { display:inline-block; font-size:10pt; background:#333; color:#fff; padding:1px 8px; margin-right:8px; border-radius:3px; vertical-align:middle; }
 .key { display:inline-block; font-size:10pt; border:1.5px solid #c00; color:#c00; padding:0 6px; margin-left:8px; border-radius:3px; vertical-align:middle; }
 .nm { font-size: 11pt; white-space:nowrap; }
-.cols { display:grid; grid-template-columns: 1fr 1fr; gap: 0 9mm; }
+.page { display:flex; flex-direction:column; }
+.cols { flex:1; min-height:0; display:grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 0 9mm; }
+.col { display:flex; flex-direction:column; min-height:0; }
+.col .grid1, .col .grid2 { flex: var(--g) 1 0; grid-auto-rows: 1fr; }
+.it { display:flex; flex-direction:column; border-bottom: 1px dotted #bbb; padding-bottom: 1.5mm; }
+.it .a { margin-top:auto; padding-top: 1mm; }
+.tight .q { white-space: nowrap; }
+.tight .q .katex { font-size: 1.04em; }
+.tight .work { margin-left: 1mm; font-size: 9pt; }
+.tight .work .katex { font-size: 1.0em; }
 .col + .col { border-left: 1px solid #999; padding-left: 9mm; }
 .box { border: 1.3px solid #555; border-radius: 4px; padding: 2.5mm 4mm; margin-bottom: 3mm; background:#f7f7f7; line-height:1.85; font-size:10.5pt; }
 .boxt { font-weight:700; margin-bottom:1mm; }
 .note { font-size: 9pt; color:#555; }
 .cs { margin: 1.5mm 0 1.5mm 6mm; padding: 1.5mm 3mm; border-left: 3px solid #999; background:#fff; }
-h3 { font-size: 11.5pt; margin: 5mm 0 2.5mm; font-weight:700; line-height:1.6; }
+h3 { font-size: 11.5pt; margin: 4mm 0 2mm; font-weight:700; line-height:1.6; }
 .sn { display:inline-block; width:6.5mm; height:6.5mm; line-height:6.5mm; text-align:center; background:#333; color:#fff; border-radius:3px; margin-right:2mm; font-size:10.5pt; }
-.grid1, .grid2 { display:grid; gap: 2mm 5mm; margin-left: 2mm; }
-.grid2 { grid-template-columns: 1fr 1fr; }
+.grid1, .grid2 { display:grid; gap: 2.5mm 6mm; margin-left: 2mm; }
+.grid2 { grid-template-columns: minmax(0,1fr) minmax(0,1fr); }
 .it { line-height: 1.9; }
 .no { margin-right: 2mm; }
 .ans { color:#c00; font-weight:700; border-bottom: 1px solid #c00; padding: 0 2px; }
@@ -364,8 +383,13 @@ with sync_playwright() as pw:
         pg.goto(f"file://{hp.resolve()}")
         pg.wait_for_selector("body[data-done]")
         pg.evaluate("document.fonts.ready")
-        over = pg.evaluate("""[...document.querySelectorAll('.col')].map(c=>{const p=c.closest('.page').getBoundingClientRect();return Math.round(c.getBoundingClientRect().bottom-p.top)})""")
-        print(mode, "列の下端(px, ページ高さ1587):", over)
+        info = pg.evaluate("""(()=>{const its=[...document.querySelectorAll('.it')];
+          const over=its.filter(e=>e.scrollHeight>e.clientHeight+1||e.scrollWidth>e.clientWidth+1).map(e=>e.querySelector('.q').innerText.slice(0,12));
+          const free=its.map(e=>{const q=e.querySelector('.q').getBoundingClientRect(),a=e.querySelector('.a').getBoundingClientRect();return Math.round((a.top-q.bottom)/3.78)});
+          const cols=[...document.querySelectorAll('.col')].map(c=>c.scrollHeight>c.clientHeight+1);
+          return {over, free, cols};})()""")
+        print(mode, "はみ出し:", info["over"], "列あふれ:", info["cols"])
+        print("  計算スペース(mm):", info["free"])
         pg.pdf(path=str(OUT / fname), format="A3", print_background=True, prefer_css_page_size=True)
         pg.close()
     br.close()
