@@ -441,7 +441,7 @@ function pumpThumbs() {
     if (el.dataset.done) continue;
     el.dataset.done = "1"; thumbBusy++;
     drawPage(el.dataset.thumb, 1, el.clientWidth || 118, Math.min(window.devicePixelRatio || 1, 2))
-      .then(c => el.prepend(c)).catch(() => { el.insertAdjacentHTML("afterbegin", '<span class="muted" style="padding:6px;display:block">読めません</span>'); })
+      .then(c => { el.style.aspectRatio = c.width + " / " + c.height; el.prepend(c); }).catch(() => { el.insertAdjacentHTML("afterbegin", '<span class="muted" style="padding:6px;display:block">読めません</span>'); })
       .finally(() => { thumbBusy--; pumpThumbs(); });
   }
 }
@@ -514,7 +514,10 @@ async function showDoc(me, i) {
     const doc = await getDoc(it.file);
     if (viewing !== me || me.cur !== i) return;
     for (let n = 1; n <= doc.numPages; n++) {
+      const pg = await doc.getPage(n), vp0 = pg.getViewport({scale: 1});
+      if (viewing !== me || me.cur !== i) return;
       const d = document.createElement("div");
+      d.style.aspectRatio = vp0.width + " / " + vp0.height;
       d.className = "v-page"; d.dataset.file = it.file; d.dataset.n = n; d.style.width = pageW() + "px";
       d.setAttribute("aria-label", `${it.title} ${n}ページ目`);
       vBody.append(d); viewIO.observe(d);
