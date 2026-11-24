@@ -1,6 +1,6 @@
 {
  "_memo": "高1の教材と記録。sets の最後に足し、前の cur を消して新しいほうに \"cur\": true。火曜も金曜も授業（自習はない）なので、groups は曜日ごとに作り、グループに \"day\": \"tue\" または \"day\": \"fri\" を書く（書かないと、lesson・hw・teacher は金曜に出て、火曜には出ない）。kind は lesson（授業）／hw（宿題）／teacher（こたえ・先生用）。items は library-k1.json の file 名（copies・note は上書きできる）。log は新しいものを上に。now（今どこのステップか）は最初の教材を足すときに {step, text} で書く。",
- "updated": "2026-11-18",
+ "updated": "2026-11-24",
  "name": "高1",
  "badge": "高1",
  "longName": "高1（火・金）",
@@ -115,7 +115,6 @@
    "steps": [
     "k1-fukushuu-exam"
    ],
-   "cur": true,
    "note": "1パターン＝A3 両面1枚（2ページ）",
    "groups": [
     {
@@ -139,10 +138,42 @@
      ]
     }
    ]
+  },
+  {
+   "id": "4",
+   "label": "④",
+   "title": "図形の性質 定期考査対策 第1回",
+   "steps": [
+    "k1-zukei-sankaku"
+   ],
+   "cur": true,
+   "note": "A3 両面1枚（2ページ）。平行線と線分の比・内分と外分・角の二等分線・外心・内心・重心",
+   "groups": [
+    {
+     "kind": "lesson",
+     "day": "tue",
+     "label": "火曜 11/24（授業）",
+     "items": [
+      {
+       "file": "k1_zukei_teiki_1.pdf"
+      }
+     ]
+    },
+    {
+     "kind": "teacher",
+     "day": "tue",
+     "label": "火曜 11/24 のこたえ（先生用）",
+     "items": [
+      {
+       "file": "k1_zukei_teiki_1_ans.pdf"
+      }
+     ]
+    }
+   ]
   }
  ],
  "now": {
-  "step": "k1-fukushuu-exam",
-  "text": "図形と計量の定期考査対策（第5回）"
+  "step": "k1-zukei-sankaku",
+  "text": "図形の性質（三角形の性質）の定期考査対策"
  }
 }

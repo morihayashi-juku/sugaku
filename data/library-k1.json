@@ -1,6 +1,6 @@
 {
  "_memo": "教材ライブラリ（高1）：高1のプリントはすべてここに1回だけ書く。step は data/common.json のステップ id。こたえは ans: true。組の JSON からは file 名で呼ぶ。ファイル名は k1_ から始める。このファイルは高1の作成チャットだけが書く。",
- "updated": "2026-11-18",
+ "updated": "2026-11-24",
  "items": [
   {
    "file": "k1_niji_matome_kiso.pdf",
@@ -337,6 +337,21 @@
    "file": "k1_keiryou_teiki_5_ans.pdf",
    "step": "k1-fukushuu-exam",
    "title": "図形と計量 定期考査対策 第5回 こたえ",
+   "pages": 2,
+   "note": "問題プリントに赤字で答えと途中式を書きこんだもの",
+   "ans": true
+  },
+  {
+   "file": "k1_zukei_teiki_1.pdf",
+   "step": "k1-zukei-sankaku",
+   "title": "図形の性質 定期考査対策 第1回（平行線と比・内分外分・角の二等分線・外心・内心・重心）",
+   "pages": 2,
+   "note": "A3 両面（No.1・No.2）・3列。学校の2学期期末考査対策プリント＜後段＞大問27〜35の類題"
+  },
+  {
+   "file": "k1_zukei_teiki_1_ans.pdf",
+   "step": "k1-zukei-sankaku",
+   "title": "図形の性質 定期考査対策 第1回 こたえ",
    "pages": 2,
    "note": "問題プリントに赤字で答えと途中式を書きこんだもの",
    "ans": true
