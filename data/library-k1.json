@@ -355,6 +355,21 @@
    "pages": 2,
    "note": "問題プリントに赤字で答えと途中式を書きこんだもの",
    "ans": true
+  },
+  {
+   "file": "k1_zukei_teiki_2.pdf",
+   "step": "k1-zukei-sankaku",
+   "title": "図形の性質 定期考査対策 第2回（平行線と比・内分外分・角の二等分線・外心・内心・重心）",
+   "pages": 2,
+   "note": "第1回の別パターン（同じ並び・数と図を変えた）。A3 両面（No.1・No.2）・3列"
+  },
+  {
+   "file": "k1_zukei_teiki_2_ans.pdf",
+   "step": "k1-zukei-sankaku",
+   "title": "図形の性質 定期考査対策 第2回 こたえ",
+   "pages": 2,
+   "note": "問題プリントに赤字で答えと途中式を書きこんだもの",
+   "ans": true
   }
  ]
 }

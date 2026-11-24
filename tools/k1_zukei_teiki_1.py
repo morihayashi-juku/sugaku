@@ -261,7 +261,7 @@ def q6():
     ok("6(3) O below", O[1] < 0, True); ok("6(3) OBC", angle_at(B, O, C), 15); ok("6(3) x", angle_at(B, A, C), 35)
     f = Fig(150); f.poly(A, B, C); f.seg(O, B, 1.2); f.seg(O, C, 1.2); f.dot(O, r=2)
     f.name(A, "A", (0, 1)); f.name(B, "B", (-1, .2)); f.name(C, "C", (1, .2)); f.name(O, "O", (0, -1))
-    f.angmark(B, C, A, "x"); f.angmark(B, O, C, "15°"); f.angmark(C, B, A, "40°")
+    f.angmark(B, C, A, "x"); f.angmark(B, O, C, r=1.3); m_ = math.radians(-7.5); f.seg(add(B, (54*math.cos(m_)/f.s, 54*math.sin(m_)/f.s)), add(B, (42/f.s, -22/f.s)), .8); f.text(add(B, (34/f.s, -33/f.s)), "15°", 13); f.angmark(C, B, A, "40°")
     figs.append(f.svg(maxh="40mm"))
     sols.append([r"$\angle\mathrm{OCB}=15^\circ$", r"$\angle\mathrm{OAC}=\angle\mathrm{OCA}=55^\circ$", r"$\angle\mathrm{OAB}=\angle\mathrm{OBA}=x+15^\circ$", r"$x+40^\circ+(x+15^\circ)+55^\circ=180^\circ$", r"$x=\boldsymbol{35^\circ}$"])
     return figs, sols

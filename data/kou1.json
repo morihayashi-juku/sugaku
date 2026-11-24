@@ -142,7 +142,7 @@
   {
    "id": "4",
    "label": "④",
-   "title": "図形の性質 定期考査対策 第1回",
+   "title": "図形の性質 定期考査対策 第1回・第2回",
    "steps": [
     "k1-zukei-sankaku"
    ],
@@ -166,6 +166,29 @@
      "items": [
       {
        "file": "k1_zukei_teiki_1_ans.pdf"
+      }
+     ]
+    },
+    {
+     "kind": "lesson",
+     "day": "tue",
+     "label": "火曜 11/24 予備（別パターン 第2回）",
+     "items": [
+      {
+       "file": "k1_zukei_teiki_2.pdf",
+       "copies": 0,
+       "note": "第1回が早く終わったとき・くり返し用"
+      }
+     ]
+    },
+    {
+     "kind": "teacher",
+     "day": "tue",
+     "label": "予備 第2回 のこたえ（先生用）",
+     "items": [
+      {
+       "file": "k1_zukei_teiki_2_ans.pdf",
+       "copies": 0
       }
      ]
     }
