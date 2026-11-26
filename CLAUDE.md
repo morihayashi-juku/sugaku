@@ -216,3 +216,10 @@
 | 3人 | U②③・K③④・N②③ | 定期テスト対策（11/5〜11/17） | 上の「中1 定期テスト対策」の表 |
 | U・N | U④・N④ | テスト後（11/19〜）比例を基本からやり直し（先生の希望：比例 → 反比例 → グラフの順。N も U と同じ。分数の方程式は中断） | 木 hirei_kihon_A／月（U の自習）hirei_kihon_B／N の宿題 hirei_kihon_hw1 |
 | K | ⑤ | テスト後（11/19〜）正負の数 かけ算・わり算の混じった計算 | 木 seifu_jojo_A／月 seifu_jojo_B／宿題 seifu_hw2（11/20〜11/25） |
+
+## 進度ボード（kiroku/shindo）との関係（11/26 追加）
+https://morihayashi-juku.github.io/kiroku/shindo/ の「プリント進度ボード」は、このリポジトリの `data/` の JSON を**自動で読んで**、組ごとの「今ここ・今の回・これまでの回・記録」と「どのプリントをどの組が使ったか」を表示している。教材を足して push すれば、ボードにも自動で出る（ボード側の作業は要らない）。
+- ボードが読んでいるもの：`common.json` の `tracks`（なければ決まった組）・`units`／`libraries`、組の JSON の `name` `longName` `grade` `updated` `now`（`{step, text}`）`log`（`{date, text}`・新しいものを上）`checks` `sets`（`id` `label` `title` `cur` `steps`／`units` `groups[].kind` `groups[].items[].file`）。
+- **この形を変えるとき（名前を変える・入れ物を変える）は、ボードも直す必要がある**ので先生に伝える。項目を足すのは問題ない。
+- `now` と `log` を書いておくと、ボードの「今ここ」「記録」に出る。教材を足したら `log` に1行（日付とやったこと）を書くとよい。
+- ボードのはんこは、このサイトで付けたチェック（localStorage の `*-shelf`）を同じ端末で読んでいる。チェックの保存の形を変えるときも先生に伝える。
