@@ -55,13 +55,16 @@ def b(w, v=""):
 
 
 def eqs(e1, e2, ans_html):
-    """連立方程式のらん（大かっこ＋2行）と答え"""
-    return (f"<div class=eqrow><span class=lb>連立方程式</span><span class=brace>{{</span>"
-            f"<span class=stack>{b(58, T(e1))}{b(58, T(e2))}</span>"
-            f"<span class=lb style='margin-left:6mm'>答</span>{ans_html}</div>")
+    """答えのらん（連立方程式は計算スペースに書く。こたえでは途中式のはじめに赤で連立方程式を書く）"""
+    return dict(e1=e1, e2=e2, ans=ans_html)
 
 
 def q(no, text, ans_row, work="", grow=1):
+    if isinstance(ans_row, dict):
+        cs = T(f"\\begin{{cases}} {ans_row['e1']} \\\\ {ans_row['e2']} \\end{{cases}}")
+        first, _, rest = work.partition("。")       # 「x、y を何にするか」→ 連立方程式 → 解き方 の順
+        work = f"{first}。とすると　{cs}<br>{rest}" if rest else f"{cs}<br>{work}"
+        ans_row = f"<div class=eqrow><span class=lb>答</span>{ans_row['ans']}</div>"
     return (f"<div class=sqi style='flex:{grow} 1 0'><div class=qt><span class=no>{f'({no})' if no else ''}</span><div>{text}</div></div>"
             f"<div class=work>{work if ANS else ''}</div>{ans_row}</div>")
 
@@ -73,7 +76,7 @@ def head(n, title):
             f"<span class=sub>{'①②③④'[n - 1]} {title}</span>{right}</div>")
 
 
-def page(n, title, pt, ex, qs, lead="次の問いに答えなさい。連立方程式をつくって解き、答えを書きなさい。"):
+def page(n, title, pt, ex, qs, lead="次の問いに答えなさい。連立方程式をつくって解き、式と計算も書くこと。"):
     return (f"<div class=page>{head(n, title)}{pt}{ex}"
             f"<div class=big><span class=box>練習</span>{lead}</div>"
             f"<div class=qs>{''.join(qs)}</div></div>")
