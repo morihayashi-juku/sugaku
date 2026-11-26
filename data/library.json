@@ -807,16 +807,46 @@
    "ans": true
   },
   {
-   "file": "seifu_hw3.pdf",
-   "step": "seifu-jouzyo",
-   "title": "正負の数 宿題3（かけ算・わり算・6日分）",
-   "pages": 6,
-   "note": "1日1ページ8問・プリントに直接書く。左＝符号の練習（2つの数）、右＝かけ算・わり算の混じった計算"
+   "file": "junjo_jojo_A.pdf",
+   "step": "seifu-junjo",
+   "title": "計算の順序 かけ算・わり算 A（正の数）",
+   "pages": 4,
+   "note": "×÷だけは左から順に。その1 ×÷が2つ／その2 ×÷が3つ／その3 ＋−もまざる／その4 ( ) つき"
   },
   {
-   "file": "seifu_hw3_ans.pdf",
-   "step": "seifu-jouzyo",
-   "title": "正負の数 宿題3 こたえ",
+   "file": "junjo_jojo_A_ans.pdf",
+   "step": "seifu-junjo",
+   "title": "計算の順序 かけ算・わり算 A こたえ",
+   "pages": 4,
+   "note": "問題に赤で答えを書きこんだ形（1回の計算ごとに1行）",
+   "ans": true
+  },
+  {
+   "file": "junjo_jojo_B.pdf",
+   "step": "seifu-junjo",
+   "title": "計算の順序 かけ算・わり算 B（正の数）",
+   "pages": 4,
+   "note": "×÷だけは左から順に。その1 ×÷が2つ／その2 ×÷が3つ／その3 ＋−もまざる／その4 ( ) つき"
+  },
+  {
+   "file": "junjo_jojo_B_ans.pdf",
+   "step": "seifu-junjo",
+   "title": "計算の順序 かけ算・わり算 B こたえ",
+   "pages": 4,
+   "note": "問題に赤で答えを書きこんだ形（1回の計算ごとに1行）",
+   "ans": true
+  },
+  {
+   "file": "junjo_jojo_hw1.pdf",
+   "step": "seifu-junjo",
+   "title": "計算の順序 ×÷の宿題（6日分）",
+   "pages": 6,
+   "note": "1日1ページ8問・プリントに直接書く。左＝×÷だけ、右＝＋−・( ) もまざる"
+  },
+  {
+   "file": "junjo_jojo_hw1_ans.pdf",
+   "step": "seifu-junjo",
+   "title": "計算の順序 ×÷の宿題 こたえ",
    "pages": 6,
    "note": "本人に渡して毎日丸つけ",
    "ans": true

@@ -14,8 +14,8 @@
   "11/5 から宿題を出す（木曜に渡して金〜水の6日分・1日1ページ。左＝計算の順序、右＝符号。プリントに直接書いて自分で丸つけ）。"
  ],
  "now": {
-  "step": "seifu-jouzyo",
-  "text": "かけ算・わり算の混じった計算をもう1回（C・D）"
+  "step": "seifu-junjo",
+  "text": "計算の順序：かけ算・わり算の混じった計算（正の数・左から順に）"
  },
  "checks": [
   [
@@ -34,7 +34,7 @@
  "log": [
   {
    "date": "2026-11-26",
-   "text": "かけ算・わり算の混じった計算をもう1回（⑥ パターン C・D・宿題3）。"
+   "text": "計算の順序の練習（⑥ 正の数のかけ算・わり算の混じった計算。×÷だけは左から順に）。宿題も。"
   },
   {
    "date": "2026-11-19",
@@ -317,31 +317,31 @@
   {
    "id": "k06",
    "label": "⑥",
-   "title": "かけ算・わり算の混じった計算（もう1回）",
+   "title": "計算の順序：かけ算・わり算の混じった計算（正の数）",
    "steps": [
-    "seifu-jouzyo"
+    "seifu-junjo"
    ],
    "cur": true,
-   "note": "11/26 先生の希望で、かけ算・わり算をもう1回（パターン C・D）。木 11/26＝C、月 11/30 の自習＝D。宿題3（11/27 金〜12/2 水）。",
+   "note": "11/26 先生の希望で、負の数なしの「計算の順番」の練習に（×÷だけは左から順に → ＋−・( ) もまざる）。木 11/26＝A、月 11/30 の自習＝B。宿題（11/27 金〜12/2 水）。",
    "groups": [
     {
      "kind": "thu",
      "label": "木曜 11/26（授業）",
      "items": [
       {
-       "file": "seifu_jojo_C.pdf"
+       "file": "junjo_jojo_A.pdf"
       }
      ]
     },
     {
      "kind": "hw",
-     "label": "宿題3（11/27 金〜12/2 水）",
+     "label": "宿題（11/27 金〜12/2 水）",
      "items": [
       {
-       "file": "seifu_hw3.pdf"
+       "file": "junjo_jojo_hw1.pdf"
       },
       {
-       "file": "seifu_hw3_ans.pdf",
+       "file": "junjo_jojo_hw1_ans.pdf",
        "note": "本人に渡して毎日丸つけ"
       }
      ]
@@ -351,7 +351,7 @@
      "label": "こたえ（先生用）",
      "items": [
       {
-       "file": "seifu_jojo_C_ans.pdf"
+       "file": "junjo_jojo_A_ans.pdf"
       }
      ]
     },
@@ -360,10 +360,10 @@
      "label": "月曜 11/30（自習）",
      "items": [
       {
-       "file": "seifu_jojo_D.pdf"
+       "file": "junjo_jojo_B.pdf"
       },
       {
-       "file": "seifu_jojo_D_ans.pdf",
+       "file": "junjo_jojo_B_ans.pdf",
        "note": "自習のあと自分で丸つけ"
       }
      ]
