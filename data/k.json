@@ -1,6 +1,6 @@
 {
  "_memo": "K（月木）の教材と記録。sets の最後に足し、前の cur を消して新しいほうに \"cur\": true。items は library.json の file 名（copies・note は上書きできる）。log は新しいものを上に。",
- "updated": "2026-11-19",
+ "updated": "2026-11-26",
  "name": "K",
  "longName": "K（月・木）",
  "days": [
@@ -15,7 +15,7 @@
  ],
  "now": {
   "step": "seifu-jouzyo",
-  "text": "正負の数：かけ算・わり算の混じった計算（符号を先に決める）"
+  "text": "かけ算・わり算の混じった計算をもう1回（C・D）"
  },
  "checks": [
   [
@@ -32,6 +32,10 @@
   ]
  ],
  "log": [
+  {
+   "date": "2026-11-26",
+   "text": "かけ算・わり算の混じった計算をもう1回（⑥ パターン C・D・宿題3）。"
+  },
   {
    "date": "2026-11-19",
    "text": "定期テストが終わり、いつもの進度にもどした。正負の数のかけ算・わり算の混じった計算（⑤）。"
@@ -262,7 +266,6 @@
    "steps": [
     "seifu-jouzyo"
    ],
-   "cur": true,
    "note": "定期テスト（11/18・19）のあと、いつもの進度にもどした（11/19）。符号を先に決めて（−の数が偶数こ → ＋、奇数こ → −）、数だけを左から計算する。木＝A、月の自習＝B。宿題2（金〜水・1日1ページ）も出す。",
    "groups": [
     {
@@ -305,6 +308,62 @@
       },
       {
        "file": "seifu_jojo_B_ans.pdf",
+       "note": "自習のあと自分で丸つけ"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "k06",
+   "label": "⑥",
+   "title": "かけ算・わり算の混じった計算（もう1回）",
+   "steps": [
+    "seifu-jouzyo"
+   ],
+   "cur": true,
+   "note": "11/26 先生の希望で、かけ算・わり算をもう1回（パターン C・D）。木 11/26＝C、月 11/30 の自習＝D。宿題3（11/27 金〜12/2 水）。",
+   "groups": [
+    {
+     "kind": "thu",
+     "label": "木曜 11/26（授業）",
+     "items": [
+      {
+       "file": "seifu_jojo_C.pdf"
+      }
+     ]
+    },
+    {
+     "kind": "hw",
+     "label": "宿題3（11/27 金〜12/2 水）",
+     "items": [
+      {
+       "file": "seifu_hw3.pdf"
+      },
+      {
+       "file": "seifu_hw3_ans.pdf",
+       "note": "本人に渡して毎日丸つけ"
+      }
+     ]
+    },
+    {
+     "kind": "teacher",
+     "label": "こたえ（先生用）",
+     "items": [
+      {
+       "file": "seifu_jojo_C_ans.pdf"
+      }
+     ]
+    },
+    {
+     "kind": "mon",
+     "label": "月曜 11/30（自習）",
+     "items": [
+      {
+       "file": "seifu_jojo_D.pdf"
+      },
+      {
+       "file": "seifu_jojo_D_ans.pdf",
        "note": "自習のあと自分で丸つけ"
       }
      ]

@@ -1,6 +1,6 @@
 {
  "_memo": "N（木曜のみ＋宿題）の教材と記録。sets の最後に足し、前の cur を消して新しいほうに \"cur\": true。items は library.json の file 名（copies・note は上書きできる）。log は新しいものを上に。",
- "updated": "2026-11-19",
+ "updated": "2026-11-26",
  "name": "N",
  "longName": "N（木・宿題）",
  "days": [
@@ -12,7 +12,7 @@
  ],
  "now": {
   "step": "hirei-hirei",
-  "text": "テスト後、U と同じく比例を基本からやり直し（分数の方程式は中断）"
+  "text": "U と同じく比例の基本をもう1回（C）。次は反比例の基本"
  },
  "checks": [
   [
@@ -29,6 +29,10 @@
   ]
  ],
  "log": [
+  {
+   "date": "2026-11-26",
+   "text": "比例の基本をもう1回（⑤ パターン C・宿題2）。"
+  },
   {
    "date": "2026-11-19",
    "text": "定期テストが終わり、いつもの進度にもどした。U と同じく比例・反比例を基本からやり直す（④ 比例の基本・宿題つき）。"
@@ -195,7 +199,6 @@
    "steps": [
     "hirei-hirei"
    ],
-   "cur": true,
    "note": "定期テスト（11/18・19）のあと、いつもの進度にもどした（11/19）。U と同じプリント。週1なので宿題（金〜水の6日分）。",
    "groups": [
     {
@@ -234,6 +237,58 @@
       },
       {
        "file": "hirei_kihon_B_ans.pdf",
+       "copies": 0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "n05",
+   "label": "⑤",
+   "title": "比例の基本（もう1回）",
+   "steps": [
+    "hirei-hirei"
+   ],
+   "cur": true,
+   "note": "11/26 先生の希望で、比例をもう1回（U と同じ C）。宿題2（11/27 金〜12/2 水）。",
+   "groups": [
+    {
+     "kind": "thu",
+     "label": "木曜 11/26（授業）",
+     "items": [
+      {
+       "file": "hirei_kihon_C.pdf"
+      },
+      {
+       "file": "hirei_kihon_D.pdf",
+       "copies": 0,
+       "note": "予備：同じ形の別の問題"
+      }
+     ]
+    },
+    {
+     "kind": "hw",
+     "label": "宿題2（11/27 金〜12/2 水）",
+     "items": [
+      {
+       "file": "hirei_kihon_hw2.pdf"
+      },
+      {
+       "file": "hirei_kihon_hw2_ans.pdf",
+       "note": "本人に渡して毎日丸つけ"
+      }
+     ]
+    },
+    {
+     "kind": "teacher",
+     "label": "こたえ（先生用）",
+     "items": [
+      {
+       "file": "hirei_kihon_C_ans.pdf"
+      },
+      {
+       "file": "hirei_kihon_D_ans.pdf",
        "copies": 0
       }
      ]

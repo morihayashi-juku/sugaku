@@ -1,6 +1,6 @@
 {
  "_memo": "U（月木）の教材と記録。sets の最後に足し、前の cur を消して新しいほうに \"cur\": true。items は library.json の file 名（copies・note は上書きできる）。log は新しいものを上に。",
- "updated": "2026-11-19",
+ "updated": "2026-11-26",
  "name": "U",
  "longName": "U（月・木）",
  "days": [
@@ -13,7 +13,7 @@
  ],
  "now": {
   "step": "hirei-hirei",
-  "text": "テスト後、比例を基本からやり直し（次は反比例 → グラフ）"
+  "text": "比例の基本をもう1回（C・D）。次は反比例の基本"
  },
  "checks": [
   [
@@ -30,6 +30,10 @@
   ]
  ],
  "log": [
+  {
+   "date": "2026-11-26",
+   "text": "比例の基本をもう1回（⑤ パターン C・D）。"
+  },
   {
    "date": "2026-11-19",
    "text": "定期テストが終わり、いつもの進度にもどした。比例・反比例を基本からやり直す（④ 比例の基本）。"
@@ -218,7 +222,6 @@
    "steps": [
     "hirei-hirei"
    ],
-   "cur": true,
    "note": "定期テスト（11/18・19）のあと、いつもの進度にもどした（11/19）。比例を基本から（次は反比例 → グラフ）。木＝A、月の自習＝B。",
    "groups": [
     {
@@ -248,6 +251,49 @@
       },
       {
        "file": "hirei_kihon_B_ans.pdf",
+       "note": "自習のあと自分で丸つけ"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u05",
+   "label": "⑤",
+   "title": "比例の基本（もう1回）",
+   "steps": [
+    "hirei-hirei"
+   ],
+   "cur": true,
+   "note": "11/26 先生の希望で、比例をもう1回（パターン C・D）。木 11/26＝C、月 11/30 の自習＝D。次は反比例の基本。",
+   "groups": [
+    {
+     "kind": "thu",
+     "label": "木曜 11/26（授業）",
+     "items": [
+      {
+       "file": "hirei_kihon_C.pdf"
+      }
+     ]
+    },
+    {
+     "kind": "teacher",
+     "label": "こたえ（先生用）",
+     "items": [
+      {
+       "file": "hirei_kihon_C_ans.pdf"
+      }
+     ]
+    },
+    {
+     "kind": "mon",
+     "label": "月曜 11/30（自習）",
+     "items": [
+      {
+       "file": "hirei_kihon_D.pdf"
+      },
+      {
+       "file": "hirei_kihon_D_ans.pdf",
        "note": "自習のあと自分で丸つけ"
       }
      ]

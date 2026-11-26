@@ -1,6 +1,6 @@
 {
  "_memo": "教材ライブラリ：作ったプリントはすべてここに1回だけ書く。step は data/common.json のステップ id。こたえは ans: true。生徒の JSON からは file 名で呼ぶ。",
- "updated": "2026-11-19",
+ "updated": "2026-11-26",
  "items": [
   {
    "file": "seifu_shisoku_A.pdf",
@@ -727,6 +727,96 @@
    "file": "seifu_hw2_ans.pdf",
    "step": "seifu-jouzyo",
    "title": "正負の数 宿題2 こたえ",
+   "pages": 6,
+   "note": "本人に渡して毎日丸つけ",
+   "ans": true
+  },
+  {
+   "file": "hirei_kihon_C.pdf",
+   "step": "hirei-hirei",
+   "title": "比例の基本 C",
+   "pages": 4,
+   "note": "A・B と同じ形で数がちがう（もう1回用）。その1 表と式／その2 式を求める／その3 式を使って値／その4 座標と比例のグラフ"
+  },
+  {
+   "file": "hirei_kihon_C_ans.pdf",
+   "step": "hirei-hirei",
+   "title": "比例の基本 C こたえ",
+   "pages": 4,
+   "note": "問題に赤で答えを書きこんだ形",
+   "ans": true
+  },
+  {
+   "file": "hirei_kihon_D.pdf",
+   "step": "hirei-hirei",
+   "title": "比例の基本 D",
+   "pages": 4,
+   "note": "A・B と同じ形で数がちがう（もう1回用）。その1 表と式／その2 式を求める／その3 式を使って値／その4 座標と比例のグラフ"
+  },
+  {
+   "file": "hirei_kihon_D_ans.pdf",
+   "step": "hirei-hirei",
+   "title": "比例の基本 D こたえ",
+   "pages": 4,
+   "note": "問題に赤で答えを書きこんだ形",
+   "ans": true
+  },
+  {
+   "file": "hirei_kihon_hw2.pdf",
+   "step": "hirei-hirei",
+   "title": "比例の基本 宿題2（6日分）",
+   "pages": 3,
+   "note": "1日4問・A4 1枚に2日分・答えは自学ノート"
+  },
+  {
+   "file": "hirei_kihon_hw2_ans.pdf",
+   "step": "hirei-hirei",
+   "title": "比例の基本 宿題2 こたえ",
+   "pages": 3,
+   "note": "本人に渡して毎日丸つけ",
+   "ans": true
+  },
+  {
+   "file": "seifu_jojo_C.pdf",
+   "step": "seifu-jouzyo",
+   "title": "かけ算・わり算の混じった計算 C",
+   "pages": 4,
+   "note": "A・B と同じ形で問題がちがう（もう1回用）。符号を先に決めて、数だけを左から計算"
+  },
+  {
+   "file": "seifu_jojo_C_ans.pdf",
+   "step": "seifu-jouzyo",
+   "title": "かけ算・わり算の混じった計算 C こたえ",
+   "pages": 4,
+   "note": "問題に赤で答えを書きこんだ形",
+   "ans": true
+  },
+  {
+   "file": "seifu_jojo_D.pdf",
+   "step": "seifu-jouzyo",
+   "title": "かけ算・わり算の混じった計算 D",
+   "pages": 4,
+   "note": "A・B と同じ形で問題がちがう（もう1回用）。符号を先に決めて、数だけを左から計算"
+  },
+  {
+   "file": "seifu_jojo_D_ans.pdf",
+   "step": "seifu-jouzyo",
+   "title": "かけ算・わり算の混じった計算 D こたえ",
+   "pages": 4,
+   "note": "問題に赤で答えを書きこんだ形",
+   "ans": true
+  },
+  {
+   "file": "seifu_hw3.pdf",
+   "step": "seifu-jouzyo",
+   "title": "正負の数 宿題3（かけ算・わり算・6日分）",
+   "pages": 6,
+   "note": "1日1ページ8問・プリントに直接書く。左＝符号の練習（2つの数）、右＝かけ算・わり算の混じった計算"
+  },
+  {
+   "file": "seifu_hw3_ans.pdf",
+   "step": "seifu-jouzyo",
+   "title": "正負の数 宿題3 こたえ",
    "pages": 6,
    "note": "本人に渡して毎日丸つけ",
    "ans": true
