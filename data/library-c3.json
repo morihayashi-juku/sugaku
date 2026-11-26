@@ -1,6 +1,6 @@
 {
  "_memo": "教材ライブラリ（中3）：中3のプリントはすべてここに1回だけ書く。step は data/common.json のステップ id。こたえは ans: true。組の JSON からは file 名で呼ぶ。ファイル名は c3_ から始める。このファイルは中3の作成チャットだけが書く。",
- "updated": "2026-11-18",
+ "updated": "2026-11-26",
  "items": [
   {
    "file": "c3_teiki_niji_ax2.pdf",
@@ -2183,6 +2183,21 @@
    "title": "尚志館 令和4年度 本試験 大問5 平面図形（円と相似） 解答・解説",
    "pages": 1,
    "note": "問題に赤字で答え・解説（途中式・考え方）を書き込んだもの",
+   "ans": true
+  },
+  {
+   "file": "c3_souji_menseki_A.pdf",
+   "step": "c3-souji-menseki",
+   "title": "相似比と面積比 A",
+   "pages": 4,
+   "note": "その1＝相似比⇔面積比・面積を求める／その2＝図で考える・円と正方形・面積比から長さ／その3＝図形の中の面積比（DE∥BC・ちょうちょ形・中点）／その4＝練習・利用（☆台形）"
+  },
+  {
+   "file": "c3_souji_menseki_A_ans.pdf",
+   "step": "c3-souji-menseki",
+   "title": "相似比と面積比 A こたえ",
+   "pages": 4,
+   "note": "問題に赤で書き込んだ形",
    "ans": true
   }
  ]
