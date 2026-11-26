@@ -2199,6 +2199,21 @@
    "pages": 4,
    "note": "問題に赤で書き込んだ形",
    "ans": true
+  },
+  {
+   "file": "c3_en_shuukaku_A.pdf",
+   "step": "c3-en-shuukaku",
+   "title": "円周角の定理（角度を求める） A",
+   "pages": 4,
+   "note": "その1＝中心角と円周角・同じ弧／その2＝直径・三角形と組み合わせる／その3＝弧と円周角（等しい弧・比例・等分）／その4＝練習（☆あり）"
+  },
+  {
+   "file": "c3_en_shuukaku_A_ans.pdf",
+   "step": "c3-en-shuukaku",
+   "title": "円周角の定理（角度を求める） A こたえ",
+   "pages": 4,
+   "note": "問題に赤で書き込んだ形",
+   "ans": true
   }
  ]
 }
