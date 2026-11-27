@@ -1,6 +1,6 @@
 {
  "_memo": "教材ライブラリ（高1）：高1のプリントはすべてここに1回だけ書く。step は data/common.json のステップ id。こたえは ans: true。組の JSON からは file 名で呼ぶ。ファイル名は k1_ から始める。このファイルは高1の作成チャットだけが書く。",
- "updated": "2026-11-24",
+ "updated": "2026-11-27",
  "items": [
   {
    "file": "k1_niji_matome_kiso.pdf",
@@ -368,6 +368,21 @@
    "step": "k1-zukei-sankaku",
    "title": "図形の性質 定期考査対策 第2回 こたえ",
    "pages": 2,
+   "note": "問題プリントに赤字で答えと途中式を書きこんだもの",
+   "ans": true
+  },
+  {
+   "file": "k1_fukushuu_1gakki.pdf",
+   "step": "k1-fukushuu-review",
+   "title": "1学期の復習（やさしめ）展開・因数分解／平方根／1次不等式・頂点／最大最小・2次方程式",
+   "pages": 4,
+   "note": "A4 4ページ（その1〜その4・各8問）。各ページにポイントつき。期末考査のあとの軽い授業用"
+  },
+  {
+   "file": "k1_fukushuu_1gakki_ans.pdf",
+   "step": "k1-fukushuu-review",
+   "title": "1学期の復習（やさしめ）こたえ",
+   "pages": 4,
    "note": "問題プリントに赤字で答えと途中式を書きこんだもの",
    "ans": true
   }
